@@ -1,4 +1,33 @@
-/* TODO: Import fonts. Please keep in mind we use only woff2 format! */
 @layer base {
-  /* Your code goes here... */
+  @font-face {
+    font-family: 'Input Mono';
+    src: url('/fonts/input-mono/input-mono-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: 'Input Mono';
+    src: url('/fonts/input-mono/input-mono-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: 'Roboto Mono';
+    src: url('/fonts/roboto-mono/roboto-mono-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: 'Roboto Mono';
+    src: url('/fonts/roboto-mono/roboto-mono-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: fallback;
+  }
 }

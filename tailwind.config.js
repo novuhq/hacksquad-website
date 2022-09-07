@@ -1,16 +1,16 @@
+/* eslint-disable import/no-extraneous-dependencies, global-require */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   corePlugins: {
     container: false,
   },
   theme: {
-    // TODO: Uncomment this part of the code and the import of "defaultTheme" above, and complete TODOs
-    // fontFamily: {
-    //   // TODO: Add font families
-    //   //       Delete "mono" if it isn't needed
-    //   sans: ['', ...defaultTheme.fontFamily.sans],
-    //   mono: ['', ...defaultTheme.fontFamily.mono],
-    // },
+    fontFamily: {
+      sans: ['Input Mono', ...defaultTheme.fontFamily.sans],
+      mono: ['Roboto Mono', ...defaultTheme.fontFamily.mono],
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
