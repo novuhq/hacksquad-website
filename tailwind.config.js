@@ -11,6 +11,13 @@ module.exports = {
       sans: ['Input Mono', ...defaultTheme.fontFamily.sans],
       mono: ['Roboto Mono', ...defaultTheme.fontFamily.mono],
     },
+    fontSize: {
+      xs: ['12px'],
+      sm: ['14px'],
+      base: ['16px'],
+      lg: ['20px'],
+      xl: ['60px'],
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
