@@ -12,6 +12,7 @@ module.exports = {
         {
           loader: '@svgr/webpack',
           options: {
+            prettier: false,
             svgo: true,
             svgoConfig: {
               plugins: [
@@ -33,7 +34,7 @@ module.exports = {
     });
 
     config.module.rules.push({
-      test: /\.svg$/,
+      test: /\.url.svg$/,
       issuer: /\.(js|jsx|ts|tsx|css)$/,
       use: [
         {
