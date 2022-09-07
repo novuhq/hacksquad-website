@@ -24,6 +24,7 @@ module.exports = {
     'no-undef': 'error',
     'react/prop-types': 'error',
     'react/no-array-index-key': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-danger': 'off',
     'react/forbid-prop-types': 'off',
