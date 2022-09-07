@@ -1,0 +1,49 @@
+{
+  "name": "nextjs-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --write .",
+    "lint": "npm run lint:js & npm run lint:styles",
+    "lint:fix": "npm run lint:js:fix & npm run lint:styles:fix",
+    "lint:js": "eslint --ext .js,.jsx --ignore-path .gitignore .",
+    "lint:js:fix": "eslint --fix --ext .js,.jsx --ignore-path .gitignore .",
+    "lint:md": "markdownlint --ignore-path .gitignore .",
+    "lint:md:fix": "markdownlint --fix --ignore-path .gitignore .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "file-loader": "^6.2.0",
+    "next": "^12.2.5",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^3.1.8",
+    "tailwindcss-safe-area": "^0.2.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@svgr/webpack": "^6.3.1",
+    "autoprefixer": "^10.4.8",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.7",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.5.0",
+    "postcss": "^8.4.16",
+    "postcss-import": "^14.1.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "svgo-loader": "^3.0.1",
+    "url-loader": "^4.1.1"
+  }
+}
