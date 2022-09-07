@@ -6,6 +6,7 @@
 @import './fonts.css';
 @import './global.css';
 @import './grid-gap.css';
+@import './text-highlighting.css';
 
 /* Components */
 @import './container.css';

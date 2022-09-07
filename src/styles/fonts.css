@@ -30,4 +30,20 @@
     font-style: normal;
     font-display: fallback;
   }
+
+  @font-face {
+    font-family: 'Bugfast';
+    src: url('/fonts/bugfast/bugfast-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: 'Flood Std';
+    src: url('/fonts/flood-std/flood-std-italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
 }
