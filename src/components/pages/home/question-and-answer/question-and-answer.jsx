@@ -1,8 +1,8 @@
 import Image from 'next/future/image';
 import React from 'react';
 
-import CtaButton from 'components/shared/cta-button';
 import SectionHeading from 'components/shared/section-heading';
+import SignUpButton from 'components/shared/sign-up-button';
 
 import bgLeftGlitch from './images/bg-left-glitch.png';
 import bgLeft from './images/bg-left.jpg';
@@ -39,11 +39,11 @@ const QuestionAndAnswer = () => (
         ))}
       </ul>
 
-      <CtaButton className="mx-auto mt-14" />
+      <SignUpButton className="mx-auto mt-14" />
     </div>
 
     <Image
-      className="absolute top-0 left-0"
+      className="absolute bottom-0 left-0"
       src={bgLeft}
       alt=""
       width={960}

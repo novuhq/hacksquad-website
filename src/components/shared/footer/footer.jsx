@@ -1,16 +1,14 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
-  <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full">
-    <div className="container flex items-center justify-between py-5 md:py-4 sm:py-3.5">
+const Footer = () => (
+  <footer className="safe-paddings">
+    <div className="container flex items-center justify-between py-10">
       <Link {...LINKS.home}>
         <Logo className="h-[38px]" />
       </Link>
@@ -30,19 +28,8 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
 
         <Button />
       </div>
-
-      <Burger className="hidden sm:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
     </div>
-  </header>
+  </footer>
 );
 
-Header.propTypes = {
-  isMobileMenuOpen: PropTypes.bool,
-  onBurgerClick: PropTypes.func.isRequired,
-};
-
-Header.defaultProps = {
-  isMobileMenuOpen: false,
-};
-
-export default Header;
+export default Footer;

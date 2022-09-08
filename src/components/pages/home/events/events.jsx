@@ -1,8 +1,8 @@
 import Image from 'next/future/image';
 import React, { useState, useMemo } from 'react';
 
-import CtaButton from 'components/shared/cta-button';
 import SectionHeading from 'components/shared/section-heading';
+import SignUpButton from 'components/shared/sign-up-button';
 
 import ArrowIcon from './images/arrow.inline.svg';
 import bgLeftGlitch from './images/bg-left-glitch.jpg';
@@ -150,7 +150,7 @@ const Events = () => {
           )}
         </div>
 
-        <CtaButton className="mx-auto mt-20" />
+        <SignUpButton className="mx-auto mt-20" />
       </div>
 
       <Image

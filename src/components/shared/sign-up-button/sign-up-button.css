@@ -1,15 +1,15 @@
 @layer components {
-  .cta-btn:hover {
-    animation: turn-on-text 1s;
+  .sign-up-btn:hover {
+    animation: sign-up-btn-color-change 1s;
     animation-fill-mode: forwards;
   }
 
-  .cta-btn:hover .cta-btn-border {
-    animation: turn-on-border 1s;
+  .sign-up-btn:hover .sign-up-btn-border {
+    animation: sign-up-btn-border-flicker 1s;
     animation-fill-mode: forwards;
   }
 
-  @keyframes turn-on-text {
+  @keyframes sign-up-btn-color-change {
     0% {
       @apply text-white;
     }
@@ -21,7 +21,7 @@
     }
   }
 
-  @keyframes turn-on-border {
+  @keyframes sign-up-btn-border-flicker {
     0% {
       @apply opacity-100;
       fill: none;
@@ -48,7 +48,7 @@
     }
     48% {
       @apply opacity-100;
-      fill: none;
+      fill: #fff;
     }
     to {
       @apply opacity-100;

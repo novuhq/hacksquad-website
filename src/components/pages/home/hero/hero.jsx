@@ -1,7 +1,7 @@
 import Image from 'next/future/image';
 import React from 'react';
 
-import CtaButton from 'components/shared/cta-button';
+import SignUpButton from 'components/shared/sign-up-button';
 
 import bgLeftGlitch from './images/bg-left-glitch.png';
 import bgLogo from './images/bg-logo.png';
@@ -32,7 +32,7 @@ const Hero = () => (
           2022
         </span>
         <p className="mx-auto mt-[58px] max-w-[716px] text-center text-lg">{description}</p>
-        <CtaButton className="mx-auto mt-10" />
+        <SignUpButton className="mx-auto mt-10" />
 
         <Image
           className="absolute left-1/2 top-1/2 -z-10 mt-[-25px] -translate-x-1/2 -translate-y-1/2 transform"
