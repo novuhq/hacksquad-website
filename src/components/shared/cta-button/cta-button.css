@@ -1,0 +1,58 @@
+@layer components {
+  .cta-btn:hover {
+    animation: turn-on-text 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .cta-btn:hover .cta-btn-border {
+    animation: turn-on-border 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes turn-on-text {
+    0% {
+      @apply text-white;
+    }
+    48% {
+      @apply text-white;
+    }
+    to {
+      @apply text-black;
+    }
+  }
+
+  @keyframes turn-on-border {
+    0% {
+      @apply opacity-100;
+      fill: none;
+    }
+    8% {
+      @apply opacity-50;
+      fill: none;
+    }
+    16% {
+      @apply opacity-100;
+      fill: none;
+    }
+    24% {
+      @apply opacity-50;
+      fill: none;
+    }
+    32% {
+      @apply opacity-100;
+      fill: none;
+    }
+    40% {
+      @apply opacity-50;
+      fill: none;
+    }
+    48% {
+      @apply opacity-100;
+      fill: none;
+    }
+    to {
+      @apply opacity-100;
+      fill: #fff;
+    }
+  }
+}

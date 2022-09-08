@@ -10,6 +10,7 @@
 
 /* Components */
 @import './container.css';
+@import '../components/shared/cta-button/cta-button.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';

@@ -1,10 +1,11 @@
 import Image from 'next/future/image';
 import React from 'react';
 
-import GitHubIcon from 'icons/github.inline.svg';
+import CtaButton from 'components/shared/cta-button';
 
 import bg from './images/bg.jpg';
 import leftGlitch from './images/left-glitch.png';
+import logoBg from './images/logo-bg.png';
 import rightGlitch from './images/right-glitch.png';
 import Sponsors from './sponsors';
 
@@ -13,7 +14,7 @@ const description =
   'Complimentary event to win more swag, contribute code, meet community members, and participate in workshops.';
 
 const Hero = () => (
-  <section className="hero safe-paddings relative overflow-hidden pt-60 pb-[100px]">
+  <section className="hero safe-paddings relative overflow-hidden pt-[244px] pb-[100px]">
     <div className="container relative z-10 flex flex-col items-center">
       <div className="relative">
         <h1
@@ -30,17 +31,20 @@ const Hero = () => (
         >
           2022
         </span>
+        <p className="mx-auto mt-[58px] max-w-[716px] text-center text-lg">{description}</p>
+        <CtaButton className="mx-auto mt-10" />
+
+        <Image
+          className="absolute left-1/2 top-1/2 -z-10 mt-[-25px] -translate-x-1/2 -translate-y-1/2 transform"
+          src={logoBg}
+          width={743}
+          height={665}
+          loading="eager"
+          alt=""
+          priority
+          aria-hidden
+        />
       </div>
-      <p className="mt-[58px] max-w-[716px] text-center text-lg">{description}</p>
-      <button className="relative mt-10 flex h-[60px] items-center justify-center" type="button">
-        <svg width="341" height="59" viewBox="0 0 341 59" fill="none">
-          <path d="M1 58V1H324.586L340 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-        </svg>
-        <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-          <GitHubIcon className="h-[25px]" />
-          <span className="text-lg">Sign up with GitHub</span>
-        </div>
-      </button>
 
       <Sponsors />
     </div>
@@ -53,26 +57,29 @@ const Hero = () => (
       loading="eager"
       alt=""
       priority
+      aria-hidden
     />
 
     <Image
-      className="absolute left-0 top-[23%]"
+      className="absolute left-0 top-[16.4%]"
       src={leftGlitch}
       width={779}
       height={343}
       loading="eager"
       alt=""
       priority
+      aria-hidden
     />
 
     <Image
-      className="absolute right-0 top-[32%]"
+      className="absolute right-0 top-[22.8%]"
       src={rightGlitch}
       width={892}
       height={364}
       loading="eager"
       alt=""
       priority
+      aria-hidden
     />
   </section>
 );
