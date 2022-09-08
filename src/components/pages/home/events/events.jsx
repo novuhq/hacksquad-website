@@ -5,8 +5,10 @@ import SectionHeading from 'components/shared/section-heading';
 import SignUpButton from 'components/shared/sign-up-button';
 
 import ArrowIcon from './images/arrow.inline.svg';
-import bgLeftGlitch from './images/bg-left-glitch.jpg';
-import bgRightGlitch from './images/bg-right-glitch.jpg';
+import bgLeftBottomLine from './images/bg-left-bottom-line.jpg';
+import bgLeftLine from './images/bg-left-line.png';
+import bgLeft from './images/bg-left.jpg';
+import bgRight from './images/bg-right.jpg';
 
 const title = 'Welcome to Hacksquad 2022!';
 
@@ -103,8 +105,8 @@ const Events = () => {
   const items = useMemo(() => (isShownMore ? events : events.slice(0, 7)), [isShownMore]);
 
   return (
-    <section className="events safe-paddings relative overflow-hidden py-26" id="events">
-      <div className="container">
+    <section className="safe-paddings relative py-26" id="events">
+      <div className="container relative">
         <SectionHeading className="text-center">{title}</SectionHeading>
         <p className="mx-auto mt-10 max-w-[968px] text-center text-lg">
           <span className="relative before:absolute before:-right-1.5 before:-z-10 before:h-[30px] before:w-[454px] before:bg-primary-1">
@@ -140,22 +142,34 @@ const Events = () => {
 
           {!isShownMore && (
             <button
-              className="mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
+              className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
               type="button"
               onClick={() => setIsShownMore(true)}
             >
               Show more
-              <ArrowIcon className="h-2" aria-hidden />
+              <ArrowIcon
+                className="h-2 transition-[transform] duration-200 group-hover:translate-y-1.5"
+                aria-hidden
+              />
             </button>
           )}
         </div>
 
         <SignUpButton className="mx-auto mt-20" />
+
+        <Image
+          className="absolute left-[-220px] bottom-[-642px]"
+          src={bgLeftLine}
+          width={253}
+          height={1569}
+          alt=""
+          aria-hidden
+        />
       </div>
 
       <Image
         className="absolute left-0 top-2 -z-10"
-        src={bgLeftGlitch}
+        src={bgLeft}
         width={434}
         height={636}
         alt=""
@@ -163,10 +177,19 @@ const Events = () => {
       />
 
       <Image
+        className="absolute left-0 bottom-0 -z-10"
+        src={bgLeftBottomLine}
+        width={534}
+        height={20}
+        alt=""
+        aria-hidden
+      />
+
+      <Image
         className="absolute right-0 bottom-28 -z-10"
-        src={bgRightGlitch}
-        width={157}
-        height={525}
+        src={bgRight}
+        width={175}
+        height={1082}
         alt=""
         aria-hidden
       />

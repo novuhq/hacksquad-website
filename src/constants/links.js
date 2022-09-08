@@ -1,8 +1,4 @@
 export default {
-  // Pages
-  home: {
-    href: '/',
-  },
   sponsors: {
     href: '#sponsors',
   },

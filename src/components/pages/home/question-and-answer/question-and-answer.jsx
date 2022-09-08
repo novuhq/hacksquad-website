@@ -7,6 +7,7 @@ import SignUpButton from 'components/shared/sign-up-button';
 import bgLeftGlitch from './images/bg-left-glitch.png';
 import bgLeft from './images/bg-left.jpg';
 import bgRightGlitch from './images/bg-right-glitch.png';
+import bgRightLine from './images/bg-right-line.png';
 import bgRight from './images/bg-right.jpg';
 
 const title = 'Q&A';
@@ -40,6 +41,15 @@ const QuestionAndAnswer = () => (
       </ul>
 
       <SignUpButton className="mx-auto mt-14" />
+
+      <Image
+        className="absolute top-[-394px] right-[-224px]"
+        src={bgRightLine}
+        alt=""
+        width={253}
+        height={880}
+        aria-hidden
+      />
     </div>
 
     <Image
@@ -67,11 +77,11 @@ const QuestionAndAnswer = () => (
       aria-hidden
     />
     <Image
-      className="absolute top-[-296px] right-0"
+      className="absolute top-[-66px] right-0"
       src={bgRightGlitch}
       alt=""
       width={476}
-      height={1061}
+      height={832}
       aria-hidden
     />
   </section>

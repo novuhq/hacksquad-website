@@ -3,6 +3,9 @@ import React from 'react';
 
 import SectionHeading from 'components/shared/section-heading';
 
+import bgBorder from './images/bg-border.png';
+import bgGlitchLeft from './images/bg-glitch-left.jpg';
+import bgGlitchRight from './images/bg-glitch-right.jpg';
 import bg from './images/bg.jpg';
 import mug from './images/mug.jpg';
 import socks from './images/socks.jpg';
@@ -13,7 +16,7 @@ const title = 'Swag list';
 const swagList = [tShirt, mug, sticker, socks, tShirt, mug, sticker, socks];
 
 const Swag = () => (
-  <section className="swag safe-paddings relative overflow-hidden py-26" id="swag">
+  <section className="safe-paddings relative overflow-hidden py-26" id="swag">
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
       <p className="mx-auto mt-10 max-w-[716px] text-center text-lg">
@@ -23,7 +26,7 @@ const Swag = () => (
         </span>
       </p>
 
-      <ul className="grid-gap mt-20 grid grid-cols-4">
+      <ul className="grid-gap relative mt-20 grid grid-cols-4">
         {swagList.map((item, index) => (
           <li key={index}>
             <Image
@@ -36,15 +39,41 @@ const Swag = () => (
             />
           </li>
         ))}
+
+        <Image
+          className="absolute top-1/2 left-1/2 -z-10 min-w-[1532px] -translate-x-1/2 -translate-y-1/2"
+          src={bgBorder}
+          alt=""
+          width={1532}
+          height={876}
+          layout="responsive"
+          aria-hidden
+        />
       </ul>
     </div>
 
     <Image
-      className="absolute top-0 left-1/2 min-w-[1920px] -translate-x-1/2"
+      className="absolute top-0 left-1/2 -z-10 min-w-[1920px] -translate-x-1/2"
       src={bg}
       alt=""
       width={1920}
       height={340}
+      aria-hidden
+    />
+    <Image
+      className="absolute top-[46.6%] left-0 -z-10"
+      src={bgGlitchLeft}
+      alt=""
+      width={534}
+      height={17}
+      aria-hidden
+    />
+    <Image
+      className="absolute top-[20.6%] right-0 -z-10"
+      src={bgGlitchRight}
+      alt=""
+      width={534}
+      height={164}
       aria-hidden
     />
   </section>
