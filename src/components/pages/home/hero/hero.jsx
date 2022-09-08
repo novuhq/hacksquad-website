@@ -14,7 +14,7 @@ const description =
   'Complimentary event to win more swag, contribute code, meet community members, and participate in workshops.';
 
 const Hero = () => (
-  <section className="hero safe-paddings relative overflow-hidden pt-[244px] pb-[100px]">
+  <section className="hero safe-paddings relative overflow-hidden pt-[244px] pb-26">
     <div className="container relative z-10 flex flex-col items-center">
       <div className="relative">
         <h1

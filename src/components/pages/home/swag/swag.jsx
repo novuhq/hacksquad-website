@@ -13,7 +13,7 @@ const title = 'Swag list';
 const swagList = [tShirt, mug, sticker, socks, tShirt, mug, sticker, socks];
 
 const Swag = () => (
-  <section className="swag safe-paddings relative overflow-hidden py-[100px]" id="swag">
+  <section className="swag safe-paddings relative overflow-hidden py-26" id="swag">
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
       <p className="mx-auto mt-10 max-w-[716px] text-center text-lg">

@@ -103,7 +103,7 @@ const Events = () => {
   const items = useMemo(() => (isShownMore ? events : events.slice(0, 7)), [isShownMore]);
 
   return (
-    <section className="events safe-paddings relative overflow-hidden py-[100px]" id="events">
+    <section className="events safe-paddings relative overflow-hidden py-26" id="events">
       <div className="container">
         <SectionHeading className="text-center">{title}</SectionHeading>
         <p className="mx-auto mt-10 max-w-[968px] text-center text-lg">
