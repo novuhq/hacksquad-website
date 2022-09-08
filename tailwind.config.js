@@ -29,6 +29,7 @@ module.exports = {
       },
       gray: {
         1: '#C7CCD1',
+        2: '#454D54',
       },
     }),
     screens: {

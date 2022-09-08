@@ -4,7 +4,7 @@ import React from 'react';
 
 import GitHubIcon from 'icons/github.inline.svg';
 
-const CTAButton = ({ className }) => (
+const CtaButton = ({ className }) => (
   <button
     className={clsx(
       'cta-btn relative flex h-[60px] items-center justify-center !leading-none',
@@ -22,12 +22,12 @@ const CTAButton = ({ className }) => (
   </button>
 );
 
-CTAButton.propTypes = {
+CtaButton.propTypes = {
   className: PropTypes.string,
 };
 
-CTAButton.defaultProps = {
+CtaButton.defaultProps = {
   className: null,
 };
 
-export default CTAButton;
+export default CtaButton;

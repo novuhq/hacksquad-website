@@ -3,10 +3,10 @@ import React from 'react';
 
 import CtaButton from 'components/shared/cta-button';
 
+import bgLeftGlitch from './images/bg-left-glitch.png';
+import bgLogo from './images/bg-logo.png';
+import bgRightGlitch from './images/bg-right-glitch.png';
 import bg from './images/bg.jpg';
-import leftGlitch from './images/left-glitch.png';
-import logoBg from './images/logo-bg.png';
-import rightGlitch from './images/right-glitch.png';
 import Sponsors from './sponsors';
 
 const title = 'Hacksquad';
@@ -36,7 +36,7 @@ const Hero = () => (
 
         <Image
           className="absolute left-1/2 top-1/2 -z-10 mt-[-25px] -translate-x-1/2 -translate-y-1/2 transform"
-          src={logoBg}
+          src={bgLogo}
           width={743}
           height={665}
           loading="eager"
@@ -62,7 +62,7 @@ const Hero = () => (
 
     <Image
       className="absolute left-0 top-[16.4%]"
-      src={leftGlitch}
+      src={bgLeftGlitch}
       width={779}
       height={343}
       loading="eager"
@@ -73,7 +73,7 @@ const Hero = () => (
 
     <Image
       className="absolute right-0 top-[22.8%]"
-      src={rightGlitch}
+      src={bgRightGlitch}
       width={892}
       height={364}
       loading="eager"
