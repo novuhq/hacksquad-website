@@ -4,8 +4,8 @@ import React from 'react';
 import SectionHeading from 'components/shared/section-heading';
 
 import bgBorder from './images/bg-border.png';
-import bgGlitchLeft from './images/bg-glitch-left.jpg';
-import bgGlitchRight from './images/bg-glitch-right.jpg';
+import bgLeftGlitch from './images/bg-left-glitch.jpg';
+import bgRightGlitch from './images/bg-right-glitch.jpg';
 import bg from './images/bg.jpg';
 import mug from './images/mug.jpg';
 import socks from './images/socks.jpg';
@@ -16,7 +16,7 @@ const title = 'Swag list';
 const swagList = [tShirt, mug, sticker, socks, tShirt, mug, sticker, socks];
 
 const Swag = () => (
-  <section className="safe-paddings relative overflow-hidden py-26" id="swag">
+  <section className="safe-paddings relative py-26" id="swag">
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
       <p className="mx-auto mt-10 max-w-[716px] text-center text-lg">
@@ -41,7 +41,7 @@ const Swag = () => (
         ))}
 
         <Image
-          className="absolute top-1/2 left-1/2 -z-10 min-w-[1532px] -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 -z-10 min-w-full max-w-[1532px] -translate-x-1/2 -translate-y-1/2 xl:max-w-[103%]"
           src={bgBorder}
           alt=""
           width={1532}
@@ -61,16 +61,16 @@ const Swag = () => (
       aria-hidden
     />
     <Image
-      className="absolute top-[46.6%] left-0 -z-10"
-      src={bgGlitchLeft}
+      className="absolute top-[46.6%] left-0 -z-10 xl:left-[-20%]"
+      src={bgLeftGlitch}
       alt=""
       width={534}
       height={17}
       aria-hidden
     />
     <Image
-      className="absolute top-[20.6%] right-0 -z-10"
-      src={bgGlitchRight}
+      className="absolute top-[20.6%] right-0 -z-10 xl:right-[-30%]"
+      src={bgRightGlitch}
       alt=""
       width={534}
       height={164}

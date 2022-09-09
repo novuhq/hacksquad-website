@@ -106,7 +106,7 @@ const Events = () => {
 
   return (
     <section className="safe-paddings relative py-26" id="events">
-      <div className="container relative">
+      <div className="container relative z-10">
         <SectionHeading className="text-center">{title}</SectionHeading>
         <p className="mx-auto mt-10 max-w-[968px] text-center text-lg">
           <span className="relative before:absolute before:-right-1.5 before:-z-10 before:h-[30px] before:w-[454px] before:bg-primary-1">
@@ -158,17 +158,17 @@ const Events = () => {
         <SignUpButton className="mx-auto mt-20" />
 
         <Image
-          className="absolute left-[-220px] bottom-[-642px]"
+          className="absolute left-[-258px] bottom-[-648px]"
           src={bgLeftLine}
-          width={253}
-          height={1569}
+          width={289}
+          height={1557}
           alt=""
           aria-hidden
         />
       </div>
 
       <Image
-        className="absolute left-0 top-2 -z-10"
+        className="absolute left-0 top-2 xl:left-[-20%]"
         src={bgLeft}
         width={434}
         height={636}
@@ -177,7 +177,7 @@ const Events = () => {
       />
 
       <Image
-        className="absolute left-0 bottom-0 -z-10"
+        className="absolute left-0 bottom-0 xl:left-[-20%]"
         src={bgLeftBottomLine}
         width={534}
         height={20}
@@ -186,7 +186,7 @@ const Events = () => {
       />
 
       <Image
-        className="absolute right-0 bottom-28 -z-10"
+        className="absolute right-0 bottom-28 xl:right-[-7%] "
         src={bgRight}
         width={175}
         height={1082}

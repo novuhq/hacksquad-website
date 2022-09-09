@@ -6,7 +6,7 @@ import SignUpButton from 'components/shared/sign-up-button';
 import bgLeftGlitch from './images/bg-left-glitch.png';
 import bgLogo from './images/bg-logo.png';
 import bgRightGlitch from './images/bg-right-glitch.png';
-import bg from './images/bg2.jpg';
+import bg from './images/bg.jpg';
 import Sponsors from './sponsors';
 
 const title = 'Hacksquad';
@@ -14,7 +14,7 @@ const description =
   'Complimentary event to win more swag, contribute code, meet community members, and participate in workshops.';
 
 const Hero = () => (
-  <section className="safe-paddings relative overflow-hidden pt-[244px] pb-26">
+  <section className="safe-paddings relative pt-[244px] pb-26">
     <div className="container relative z-10 flex flex-col items-center">
       <div className="relative">
         <h1
@@ -61,7 +61,7 @@ const Hero = () => (
     />
 
     <Image
-      className="absolute left-0 top-[16.4%]"
+      className="absolute left-0 top-[16.4%] xl:left-[-20%]"
       src={bgLeftGlitch}
       width={779}
       height={343}
@@ -72,7 +72,7 @@ const Hero = () => (
     />
 
     <Image
-      className="absolute right-0 top-[22.8%]"
+      className="absolute right-0 top-[22.8%] xl:right-[-20%]"
       src={bgRightGlitch}
       width={892}
       height={364}

@@ -43,17 +43,17 @@ const QuestionAndAnswer = () => (
       <SignUpButton className="mx-auto mt-14" />
 
       <Image
-        className="absolute top-[-394px] right-[-224px]"
+        className="absolute top-[-394px] right-[-260px]"
         src={bgRightLine}
         alt=""
-        width={253}
-        height={880}
+        width={288}
+        height={868}
         aria-hidden
       />
     </div>
 
     <Image
-      className="absolute bottom-0 left-0"
+      className="absolute bottom-0 left-0 xl:left-[-30%]"
       src={bgLeft}
       alt=""
       width={960}
@@ -61,7 +61,7 @@ const QuestionAndAnswer = () => (
       aria-hidden
     />
     <Image
-      className="absolute top-0 right-0"
+      className="absolute top-0 right-0 xl:right-[-30%]"
       src={bgRight}
       alt=""
       width={960}
@@ -69,7 +69,7 @@ const QuestionAndAnswer = () => (
       aria-hidden
     />
     <Image
-      className="absolute bottom-[118px] left-0"
+      className="absolute bottom-[118px] left-0 xl:left-[-12%]"
       src={bgLeftGlitch}
       alt=""
       width={290}
@@ -77,7 +77,7 @@ const QuestionAndAnswer = () => (
       aria-hidden
     />
     <Image
-      className="absolute top-[-66px] right-0"
+      className="absolute top-[-66px] right-0 xl:right-[-6%]"
       src={bgRightGlitch}
       alt=""
       width={476}
