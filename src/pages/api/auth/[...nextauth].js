@@ -6,10 +6,19 @@ import prisma from '~/prisma/client';
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
+  callbacks: {
+    async signIn(user, account, profile) {
+      console.log('signIn', user, account, profile);
+      console.log('test');
+
+      return true;
+    },
+  },
   providers: [
     GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      clientId: 'fa4376d84ff29a71cbf9',
+      clientSecret: '6ef1c3140b8b407da74670e8f2f14dfbdffb00ba',
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 });

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { signIn } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,6 +12,10 @@ const SignUpButton = ({ className }) => (
       className
     )}
     href="/api/auth/signin"
+    onClick={(e) => {
+      e.preventDefault();
+      signIn();
+    }}
   >
     <svg
       className="sign-up-btn-border xs:w-full"
