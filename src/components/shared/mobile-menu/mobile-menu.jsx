@@ -77,7 +77,7 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
 
           <div className="sticky bottom-0 bg-black py-7">
             <div className="container">
-              <Button className="w-full" />
+              <Button className="h-12 w-full" />
             </div>
           </div>
         </motion.div>
