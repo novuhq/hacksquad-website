@@ -13,9 +13,9 @@ const Footer = () => (
         <span className="sr-only">Hacksquad</span>
       </div>
 
-      <div className="flex items-center space-x-10 sm:hidden">
+      <div className="flex items-center space-x-10">
         <nav>
-          <ul className="flex space-x-10">
+          <ul className="flex space-x-10 md:space-x-6">
             {MENUS.header.map(({ href, text, target }, index) => (
               <li key={index}>
                 <Link href={href} target={target}>

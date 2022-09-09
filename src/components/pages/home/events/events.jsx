@@ -105,10 +105,10 @@ const Events = () => {
   const items = useMemo(() => (isShownMore ? events : events.slice(0, 7)), [isShownMore]);
 
   return (
-    <section className="safe-paddings relative py-26" id="events">
+    <section className="safe-paddings relative py-26 md:py-20" id="events">
       <div className="container relative z-10">
         <SectionHeading className="text-center">{title}</SectionHeading>
-        <p className="mx-auto mt-10 max-w-[968px] text-center text-lg">
+        <p className="mx-auto mt-10 max-w-[968px] text-center text-lg md:mt-8 md:text-[18px]">
           <span className="relative before:absolute before:-right-1.5 before:-z-10 before:h-[30px] before:w-[454px] before:bg-primary-1">
             With the fantastic atmosphere
           </span>{' '}
@@ -117,10 +117,10 @@ const Events = () => {
           sponsors.
         </p>
       </div>
-      <div className="container relative z-10 md:px-0">
-        <div className="mx-auto mt-20 max-w-[1220px] md:max-w-none md:overflow-x-auto">
-          <div className="md:min-w-[1220px]">
-            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr]">
+      <div className="container relative z-10 mt-20 md:mt-16 md:px-0">
+        <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+          <div className="md:min-w-[1080px] md:px-7 sm:px-4">
+            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
               {eventsHeader.map((event, index) => (
                 <span className="font-medium uppercase" key={index}>
                   {event}
@@ -131,7 +131,7 @@ const Events = () => {
             <ul>
               {items.map((event, index) => (
                 <li
-                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr]"
+                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]"
                   key={index}
                 >
                   <span>{event.date}</span>
@@ -157,10 +157,10 @@ const Events = () => {
           </button>
         )}
 
-        <SignUpButton className="mx-auto mt-20" />
+        <SignUpButton className="mx-auto mt-20 md:mt-16" />
 
         <Image
-          className="absolute left-[-258px] bottom-[-648px]"
+          className="absolute left-[-258px] bottom-[-648px] md:hidden"
           src={bgLeftLine}
           width={289}
           height={1557}
@@ -188,7 +188,7 @@ const Events = () => {
       />
 
       <Image
-        className="absolute right-0 bottom-28 xl:right-[-7%]"
+        className="absolute right-0 bottom-28 xl:right-[-7%] md:right-[-18%]"
         src={bgRight}
         width={175}
         height={1082}

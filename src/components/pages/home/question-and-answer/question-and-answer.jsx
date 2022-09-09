@@ -27,15 +27,15 @@ const items = [
 ];
 
 const QuestionAndAnswer = () => (
-  <section className="safe-paddings relative py-26" id="qa">
+  <section className="safe-paddings relative py-26 md:py-20" id="qa">
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
 
       <ul className="mx-auto mt-14 max-w-[968px]">
         {items.map(({ question, answer }, index) => (
           <li className="border-b border-gray-2 py-6 last:border-none" key={index}>
-            <h3 className="text-[25px] font-medium">{question}</h3>
-            <p className="mt-5 text-lg text-gray-1">- {answer}</p>
+            <h3 className="text-[25px] font-medium md:text-lg">{question}</h3>
+            <p className="mt-5 text-lg text-gray-1 md:text-base">- {answer}</p>
           </li>
         ))}
       </ul>
@@ -69,7 +69,7 @@ const QuestionAndAnswer = () => (
       aria-hidden
     />
     <Image
-      className="absolute bottom-[118px] left-0 xl:left-[-12%] lg:left-[-26%]"
+      className="absolute bottom-[118px] left-0 xl:left-[-12%] lg:left-[-26%] md:hidden"
       src={bgLeftGlitch}
       alt=""
       width={290}
@@ -77,7 +77,7 @@ const QuestionAndAnswer = () => (
       aria-hidden
     />
     <Image
-      className="absolute top-[-66px] right-0 xl:right-[-6%]"
+      className="absolute top-[-66px] right-0 xl:right-[-6%] md:max-w-[46%]"
       src={bgRightGlitch}
       alt=""
       width={476}

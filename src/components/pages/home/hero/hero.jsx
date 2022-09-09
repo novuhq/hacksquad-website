@@ -50,7 +50,7 @@ const Hero = () => (
     </div>
 
     <Image
-      className="absolute top-0 left-1/2 min-w-[1920px] -translate-x-1/2"
+      className="absolute top-0 left-1/2 min-w-[1920px] -translate-x-1/2 md:min-w-[1540px]"
       src={bg}
       width={1920}
       height={972}
@@ -61,7 +61,7 @@ const Hero = () => (
     />
 
     <Image
-      className="absolute left-0 top-[16.4%] xl:left-[-20%] lg:left-[-40%]"
+      className="absolute left-0 top-[16.4%] xl:left-[-20%] lg:left-[-40%] md:left-[-60%]"
       src={bgLeftGlitch}
       width={779}
       height={343}
@@ -72,7 +72,7 @@ const Hero = () => (
     />
 
     <Image
-      className="absolute right-0 top-[22.8%] xl:right-[-20%] lg:right-[-40%]"
+      className="absolute right-0 top-[22.8%] xl:right-[-20%] lg:right-[-40%] md:right-[-60%]"
       src={bgRightGlitch}
       width={892}
       height={364}
