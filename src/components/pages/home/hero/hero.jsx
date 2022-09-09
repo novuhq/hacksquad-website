@@ -37,7 +37,7 @@ const Hero = () => (
         <SignUpButton className="mx-auto mt-10" />
 
         <Image
-          className="absolute left-1/2 top-1/2 -z-10 mt-[-25px] -translate-x-1/2 -translate-y-1/2 transform"
+          className="absolute left-1/2 top-1/2 -z-10 mt-[-25px] -translate-x-1/2 -translate-y-1/2 transform sm:max-w-[382px]"
           src={bgLogo}
           width={743}
           height={665}
