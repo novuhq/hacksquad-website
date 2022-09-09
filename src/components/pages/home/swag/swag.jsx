@@ -69,7 +69,7 @@ const Swag = () => (
       aria-hidden
     />
     <Image
-      className="absolute top-[20.6%] right-0 -z-10 xl:right-[-30%]"
+      className="absolute top-[20.6%] right-0 -z-10 xl:right-[-30%] lg:hidden"
       src={bgRightGlitch}
       alt=""
       width={534}

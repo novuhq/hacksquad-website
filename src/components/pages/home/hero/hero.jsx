@@ -61,7 +61,7 @@ const Hero = () => (
     />
 
     <Image
-      className="absolute left-0 top-[16.4%] xl:left-[-20%]"
+      className="absolute left-0 top-[16.4%] xl:left-[-20%] lg:left-[-40%]"
       src={bgLeftGlitch}
       width={779}
       height={343}
@@ -72,7 +72,7 @@ const Hero = () => (
     />
 
     <Image
-      className="absolute right-0 top-[22.8%] xl:right-[-20%]"
+      className="absolute right-0 top-[22.8%] xl:right-[-20%] lg:right-[-40%]"
       src={bgRightGlitch}
       width={892}
       height={364}

@@ -116,44 +116,46 @@ const Events = () => {
           Swag, meet with more community members and participate in workshops from our great
           sponsors.
         </p>
+      </div>
+      <div className="container relative z-10 md:px-0">
+        <div className="mx-auto mt-20 max-w-[1220px] md:max-w-none md:overflow-x-auto">
+          <div className="md:min-w-[1220px]">
+            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr]">
+              {eventsHeader.map((event, index) => (
+                <span className="font-medium uppercase" key={index}>
+                  {event}
+                </span>
+              ))}
+            </div>
 
-        <div className="mx-auto mt-20 max-w-[1220px]">
-          <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4">
-            {eventsHeader.map((event, index) => (
-              <span className="font-medium uppercase" key={index}>
-                {event}
-              </span>
-            ))}
+            <ul>
+              {items.map((event, index) => (
+                <li
+                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr]"
+                  key={index}
+                >
+                  <span>{event.date}</span>
+                  <p className="font-medium">{event.title}</p>
+                  <span>{event.timeZone}</span>
+                  <span>{event.company}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <ul>
-            {items.map((event, index) => (
-              <li
-                className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4"
-                key={index}
-              >
-                <span>{event.date}</span>
-                <p className="font-medium">{event.title}</p>
-                <span>{event.timeZone}</span>
-                <span>{event.company}</span>
-              </li>
-            ))}
-          </ul>
-
-          {!isShownMore && (
-            <button
-              className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
-              type="button"
-              onClick={() => setIsShownMore(true)}
-            >
-              Show more
-              <ArrowIcon
-                className="h-2 transition-[transform] duration-200 group-hover:translate-y-1.5"
-                aria-hidden
-              />
-            </button>
-          )}
         </div>
+        {!isShownMore && (
+          <button
+            className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
+            type="button"
+            onClick={() => setIsShownMore(true)}
+          >
+            Show more
+            <ArrowIcon
+              className="h-2 transition-[transform] duration-200 group-hover:translate-y-1.5"
+              aria-hidden
+            />
+          </button>
+        )}
 
         <SignUpButton className="mx-auto mt-20" />
 
@@ -186,7 +188,7 @@ const Events = () => {
       />
 
       <Image
-        className="absolute right-0 bottom-28 xl:right-[-7%] "
+        className="absolute right-0 bottom-28 xl:right-[-7%]"
         src={bgRight}
         width={175}
         height={1082}

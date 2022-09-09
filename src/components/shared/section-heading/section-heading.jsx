@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const SectionHeading = ({ className, children }) => (
-  <h2 className={clsx('font-mono text-xl font-bold uppercase leading-tight', className)}>
+  <h2
+    className={clsx(
+      'font-mono text-xl font-bold uppercase leading-tight lg:text-[50px]',
+      className
+    )}
+  >
     {'>_'}
     {children}
   </h2>

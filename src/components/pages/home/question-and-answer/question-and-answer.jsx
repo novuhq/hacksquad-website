@@ -43,7 +43,7 @@ const QuestionAndAnswer = () => (
       <SignUpButton className="mx-auto mt-14" />
 
       <Image
-        className="absolute top-[-394px] right-[-260px]"
+        className="absolute top-[-394px] right-[-260px] lg:hidden"
         src={bgRightLine}
         alt=""
         width={288}
@@ -69,7 +69,7 @@ const QuestionAndAnswer = () => (
       aria-hidden
     />
     <Image
-      className="absolute bottom-[118px] left-0 xl:left-[-12%]"
+      className="absolute bottom-[118px] left-0 xl:left-[-12%] lg:left-[-26%]"
       src={bgLeftGlitch}
       alt=""
       width={290}
