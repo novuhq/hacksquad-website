@@ -6,9 +6,12 @@
 @import './fonts.css';
 @import './global.css';
 @import './grid-gap.css';
+@import './text-highlighting.css';
 
 /* Components */
 @import './container.css';
+@import '../components/shared/sign-up-button/sign-up-button.css';
+@import '../components/shared/button/button.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';

@@ -1,8 +1,15 @@
+import Events from 'components/pages/home/events';
+import Hero from 'components/pages/home/hero';
+import QuestionAndAnswer from 'components/pages/home/question-and-answer';
+import Swag from 'components/pages/home/swag';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Home = () => (
   <LayoutMain>
-    <div className="mx-auto my-10 max-w-5xl text-center">Pixel Point Next.js Tailwind Starter</div>
+    <Hero />
+    <Events />
+    <Swag />
+    <QuestionAndAnswer />
   </LayoutMain>
 );
 

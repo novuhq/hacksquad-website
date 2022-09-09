@@ -1,4 +1,9 @@
 module.exports = {
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
   poweredByHeader: false,
   webpack(config) {
     // https://github.com/vercel/next.js/issues/25950#issuecomment-863298702

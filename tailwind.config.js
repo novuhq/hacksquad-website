@@ -29,6 +29,7 @@ module.exports = {
       },
       gray: {
         1: '#C7CCD1',
+        2: '#454D54',
       },
     }),
     screens: {
@@ -38,6 +39,11 @@ module.exports = {
       md: { max: '1023px' },
       sm: { max: '767px' },
       xs: { max: '359px' },
+    },
+    extend: {
+      spacing: {
+        26: '6.25rem',
+      },
     },
   },
   plugins: [require('tailwindcss-safe-area')],

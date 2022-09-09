@@ -1,0 +1,69 @@
+@layer components {
+  .button:hover {
+    animation: button-color-change 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .button:hover {
+    &::before {
+      animation: button-border-flicker 1s;
+      animation-fill-mode: forwards;
+    }
+
+    &::after {
+      animation: button-background-appearance 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @keyframes button-color-change {
+    0% {
+      @apply text-white;
+    }
+    48% {
+      @apply text-white;
+    }
+    to {
+      @apply text-black;
+    }
+  }
+
+  @keyframes button-background-appearance {
+    0% {
+      @apply bg-transparent;
+    }
+    48% {
+      @apply bg-transparent;
+    }
+    to {
+      @apply bg-white;
+    }
+  }
+
+  @keyframes button-border-flicker {
+    0% {
+      @apply opacity-100;
+    }
+    8% {
+      @apply opacity-50;
+    }
+    16% {
+      @apply opacity-100;
+    }
+    24% {
+      @apply opacity-50;
+    }
+    32% {
+      @apply opacity-100;
+    }
+    40% {
+      @apply opacity-50;
+    }
+    48% {
+      @apply opacity-100;
+    }
+    to {
+      @apply opacity-100;
+    }
+  }
+}
