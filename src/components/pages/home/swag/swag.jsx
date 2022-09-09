@@ -16,17 +16,17 @@ const title = 'Swag list';
 const swagList = [tShirt, mug, sticker, socks, tShirt, mug, sticker, socks];
 
 const Swag = () => (
-  <section className="safe-paddings relative py-26 md:py-20" id="swag">
+  <section className="safe-paddings relative py-26 md:py-20 sm:py-16 xs:py-12" id="swag">
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
-      <p className="mx-auto mt-10 max-w-[716px] text-center text-lg md:mt-8 md:text-[18px]">
+      <p className="mx-auto mt-10 max-w-[716px] text-center text-lg md:mt-8 md:text-[18px] sm:mt-6 sm:text-base">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus felis, lorem ut suspendisse{' '}
         <span className="relative before:absolute before:-left-1.5 before:-z-10 before:h-[30px] before:w-[318px] before:bg-primary-1">
           ut elementum.
         </span>
       </p>
 
-      <ul className="grid-gap relative mt-20 grid grid-cols-4 md:mt-16">
+      <ul className="grid-gap relative mt-20 grid grid-cols-4 md:mt-16 sm:mt-10 sm:grid-cols-2">
         {swagList.map((item, index) => (
           <li key={index}>
             <Image
@@ -41,7 +41,7 @@ const Swag = () => (
         ))}
 
         <Image
-          className="absolute top-1/2 left-1/2 -z-10 min-w-full max-w-[1532px] -translate-x-1/2 -translate-y-1/2 xl:max-w-[103%]"
+          className="absolute top-1/2 left-1/2 -z-10 min-w-full max-w-[1532px] -translate-x-1/2 -translate-y-1/2 xl:max-w-[103%] sm:hidden"
           src={bgBorder}
           alt=""
           width={1532}

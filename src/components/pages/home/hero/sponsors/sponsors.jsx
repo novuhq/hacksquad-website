@@ -8,12 +8,15 @@ import vercelLogo from './images/vercel.url.svg';
 const title = 'Sponsored by';
 
 const Sponsors = () => (
-  <div className="mt-20 w-full pt-20 md:mt-16 md:pt-16" id="sponsors">
+  <div
+    className="mt-20 w-full pt-20 md:mt-16 md:pt-16 sm:mt-10 sm:pt-10 xs:mt-6 xs:pt-6"
+    id="sponsors"
+  >
     <h2 className="text-center font-mono uppercase">{title}</h2>
 
-    <div className="mx-auto mt-10 flex max-w-[1220px] items-center justify-between md:flex-wrap md:justify-center md:gap-8">
+    <div className="mx-auto mt-10 flex max-w-[1220px] items-center justify-between md:flex-wrap md:justify-center md:gap-8 xs:mt-6">
       <img
-        className="md:max-h-[30px] md:w-auto"
+        className="md:max-h-[30px] md:w-auto xs:max-h-[20px]"
         src={dailyDevLogo}
         height={42}
         width={240}
@@ -21,7 +24,7 @@ const Sponsors = () => (
         alt="Daily.dev logo"
       />
       <img
-        className="md:max-h-[30px] md:w-auto"
+        className="md:max-h-[30px] md:w-auto xs:max-h-[20px]"
         src={vercelLogo}
         height={40}
         width={179}
@@ -29,7 +32,7 @@ const Sponsors = () => (
         alt="Vercel logo"
       />
       <img
-        className="md:max-h-[30px] md:w-auto"
+        className="md:max-h-[30px] md:w-auto xs:max-h-[20px]"
         src={amplicationLogo}
         height={44}
         width={211}
@@ -37,7 +40,7 @@ const Sponsors = () => (
         alt="Amplication logo"
       />
       <img
-        className="md:max-h-[30px] md:w-auto"
+        className="md:max-h-[30px] md:w-auto xs:max-h-[20px]"
         src={medusaLogo}
         height={44}
         width={186}

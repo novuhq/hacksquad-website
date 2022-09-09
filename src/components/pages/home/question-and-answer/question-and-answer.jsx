@@ -27,20 +27,20 @@ const items = [
 ];
 
 const QuestionAndAnswer = () => (
-  <section className="safe-paddings relative py-26 md:py-20" id="qa">
+  <section className="safe-paddings relative py-26 md:py-20 sm:py-16 xs:py-12" id="qa">
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
 
-      <ul className="mx-auto mt-14 max-w-[968px]">
+      <ul className="mx-auto mt-14 max-w-[968px] sm:mt-6 sm:text-center">
         {items.map(({ question, answer }, index) => (
           <li className="border-b border-gray-2 py-6 last:border-none" key={index}>
-            <h3 className="text-[25px] font-medium md:text-lg">{question}</h3>
+            <h3 className="text-[25px] font-medium md:text-lg sm:text-[18px]">{question}</h3>
             <p className="mt-5 text-lg text-gray-1 md:text-base">- {answer}</p>
           </li>
         ))}
       </ul>
 
-      <SignUpButton className="mx-auto mt-14" />
+      <SignUpButton className="mx-auto mt-14 sm:mt-10" />
 
       <Image
         className="absolute top-[-394px] right-[-260px] lg:hidden"

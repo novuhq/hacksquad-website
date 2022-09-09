@@ -14,7 +14,7 @@ const description =
   'Complimentary event to win more swag, contribute code, meet community members, and participate in workshops.';
 
 const Hero = () => (
-  <section className="safe-paddings relative pt-[244px] pb-26">
+  <section className="safe-paddings relative pt-[244px] pb-26 sm:pt-32 sm:pb-20">
     <div className="container relative z-10 flex flex-col items-center">
       <div className="relative">
         <h1
@@ -26,12 +26,14 @@ const Hero = () => (
           {title}
         </h1>
         <span
-          className="text-highlighting-colorful-gradient absolute right-0 flex text-right font-['Flood_Std'] text-[46px] leading-none"
+          className="text-highlighting-colorful-gradient absolute right-0 flex text-right font-['Flood_Std'] text-[46px] leading-none sm:text-[7vw]"
           aria-hidden
         >
           2022
         </span>
-        <p className="mx-auto mt-[58px] max-w-[716px] text-center text-lg">{description}</p>
+        <p className="mx-auto mt-[58px] max-w-[716px] text-center text-lg sm:mt-10 sm:text-base">
+          {description}
+        </p>
         <SignUpButton className="mx-auto mt-10" />
 
         <Image
