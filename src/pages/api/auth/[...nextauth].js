@@ -6,10 +6,18 @@ import prisma from '~/prisma/client';
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
+  // create a user to the database after logging in
   callbacks: {
-    async signIn(user, account, profile) {
-      console.log('signIn', user, account, profile);
-      console.log('test');
+    async signIn(user, profile) {
+      const { email } = user;
+      const { name } = profile;
+
+      await prisma.user.create({
+        data: {
+          email,
+          name,
+        },
+      });
 
       return true;
     },
