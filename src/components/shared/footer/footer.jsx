@@ -9,10 +9,12 @@ const Footer = () => (
   <footer className="safe-paddings">
     <div className="container flex items-center justify-between py-5 sm:flex-col sm:items-start">
       <div className="sm:flex sm:w-full sm:justify-between">
-        <div>
-          <Logo className="h-[38px]" />
-          <span className="sr-only">Hacksquad</span>
-        </div>
+        <Link href="/" passHref>
+          <a href="/">
+            <Logo className="h-[38px]" />
+            <span className="sr-only">Hacksquad</span>
+          </a>
+        </Link>
         <Button className="hidden flex-shrink-0 sm:flex" />
       </div>
       <div className="flex items-center space-x-10 sm:mt-6 sm:w-full sm:flex-col sm:justify-center">

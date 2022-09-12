@@ -10,10 +10,12 @@ import Logo from 'images/logo.inline.svg';
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
   <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full">
     <div className="container flex items-center justify-between py-5 md:py-4 sm:py-3.5">
-      <div>
-        <Logo className="h-[38px]" />
-        <span className="sr-only">Hacksquad</span>
-      </div>
+      <Link href="/" passHref>
+        <a href="/">
+          <Logo className="h-[38px]" />
+          <span className="sr-only">Hacksquad</span>
+        </a>
+      </Link>
 
       <div className="flex items-center space-x-10 sm:hidden">
         <nav>

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { signIn } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,6 +12,10 @@ const Button = ({ className }) => (
       className
     )}
     type="button"
+    onClick={(e) => {
+      e.preventDefault();
+      signIn('github', { callbackUrl: '/thank-you/' });
+    }}
   >
     <span>Join now</span>
     <ArrowIcon className="ml-2.5 block h-3" aria-hidden />

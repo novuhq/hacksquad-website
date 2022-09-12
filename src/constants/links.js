@@ -1,14 +1,14 @@
 export default {
   sponsors: {
-    href: '#sponsors',
+    href: '/#sponsors',
   },
   events: {
-    href: '#events',
+    href: '/#events',
   },
   swag: {
-    href: '#swag',
+    href: '/#swag',
   },
   qa: {
-    href: '#qa',
+    href: '/#qa',
   },
 };
