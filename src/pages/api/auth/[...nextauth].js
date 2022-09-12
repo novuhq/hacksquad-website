@@ -6,21 +6,6 @@ import prisma from '~/prisma/client';
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
-  callbacks: {
-    async signIn({ user, profile }) {
-      const { email } = user;
-      const { name } = profile;
-
-      await prisma.user.create({
-        data: {
-          email,
-          name,
-        },
-      });
-
-      return true;
-    },
-  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,

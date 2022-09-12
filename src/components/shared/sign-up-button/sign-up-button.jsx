@@ -6,15 +6,15 @@ import React from 'react';
 import GitHubIcon from 'icons/github.inline.svg';
 
 const SignUpButton = ({ className }) => (
-  <a
+  <button
     className={clsx(
       'sign-up-btn relative flex h-[60px] max-w-full items-center justify-center !leading-none',
       className
     )}
-    href="/api/auth/signin"
+    type="button"
     onClick={(e) => {
       e.preventDefault();
-      signIn();
+      signIn('github');
     }}
   >
     <svg
@@ -30,7 +30,7 @@ const SignUpButton = ({ className }) => (
       <GitHubIcon className="h-[25px]" />
       <span className="text-lg sm:text-[18px]">Sign up with GitHub</span>
     </div>
-  </a>
+  </button>
 );
 
 SignUpButton.propTypes = {
