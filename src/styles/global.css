@@ -9,6 +9,6 @@
   }
 
   main {
-    @apply overflow-hidden;
+    @apply flex-grow overflow-hidden;
   }
 }

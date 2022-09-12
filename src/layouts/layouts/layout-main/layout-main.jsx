@@ -14,10 +14,12 @@ const LayoutMain = ({ children }) => {
   return (
     <>
       <Seo />
-      <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
-      <main>{children}</main>
-      <Footer />
-      <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
+      <div className="relative flex min-h-screen flex-col">
+        <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
+        <main className="fle">{children}</main>
+        <Footer />
+        <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
+      </div>
     </>
   );
 };
