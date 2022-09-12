@@ -14,7 +14,7 @@ const SignUpButton = ({ className }) => (
     type="button"
     onClick={(e) => {
       e.preventDefault();
-      signIn('github');
+      signIn('github', { callbackUrl: '/thank-you/' });
     }}
   >
     <svg

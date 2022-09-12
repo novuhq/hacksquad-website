@@ -14,7 +14,7 @@ const Button = ({ className }) => (
     type="button"
     onClick={(e) => {
       e.preventDefault();
-      signIn('github');
+      signIn('github', { callbackUrl: '/thank-you/' });
     }}
   >
     <span>Join now</span>
