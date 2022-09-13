@@ -24,14 +24,20 @@ Join Hacktoberfest 2022 with your squad and win swag
 <div align="center">
   <br />
   <a href="https://hacksquad.dev">
-    <img width="341" alt="CTA" src="https://user-images.githubusercontent.com/17677196/189942140-2ac766dd-c09e-4675-a059-306c0d1d522c.png">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/189960927-783f0c95-99ca-4d5a-ba2d-7e04b9ef0a81.png">
+       <img width="341" alt="CTA" src="https://user-images.githubusercontent.com/17677196/189942140-2ac766dd-c09e-4675-a059-306c0d1d522c.png">
+    </picture>
   </a>
 </div>
 
 <div align="center">
   <br />
   <a href="https://discord.gg/9wcGSf22PM">
-    <img width="341" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/189949983-82a0ae9f-6c64-49f7-9387-00d8562bd78f.png">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/189961488-3dbcc428-fd60-49b3-b27e-7ea10b1c9934.png">
+      <img width="341" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/189949983-82a0ae9f-6c64-49f7-9387-00d8562bd78f.png">
+    </picture>
   </a>
 </div>
 
