@@ -1,162 +1,62 @@
-# Pixel Point Next.js Tailwind Starter
+<p align="center">
+  <a href="https://hacksquad.dev">
+    <img width="200" alt="logo" src="https://user-images.githubusercontent.com/17677196/189955036-9ca460aa-275d-4f84-ac7c-92be37b06496.png">
+  </a>
+</p>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">>_Welcome to Hacksquad 2022!</h1>
+<p align="center">
+  <a href="https://github.com/novuhq/novu/issues?q=is%3Aissue+is%3Aopen">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-raw/novuhq/novu?style=for-the-badge&logo=github&color=fff">
+      <img src="https://img.shields.io/github/issues-raw/novuhq/novu?style=for-the-badge&logo=github&color=000"/>
+    </picture>
+  </a>
+  <a href="https://github.com/novuhq/novu/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-raw/novuhq/novu/good%20first%20issue?style=for-the-badge&logo=github&label=Good%20First%20Issues&color=fff">
+      <img src="https://img.shields.io/github/issues-raw/novuhq/novu/good%20first%20issue?style=for-the-badge&logo=github&label=Good%20First%20Issues&color=000"/>
+    </picture>
+  </a>
+  <a href="https://github.com/novuhq/novu/pulls?q=is%3Apr+is%3Aopen+label%3A%22help+wanted%22">
+     <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-pr-raw/novuhq/novu/help%20wanted?style=for-the-badge&logo=github&label=Help%20Wanted%20PRs&color=fff">
+      <img src="https://img.shields.io/github/issues-pr-raw/novuhq/novu/help%20wanted?style=for-the-badge&logo=github&label=Help%20Wanted%20PRs&color=000"/>
+    </picture>
+  </a>
+</p>
 
-## Table of Contents
+<h3 align="center">
+Join Hacktoberfest 2022 with your squad and win swag
+</h3>
 
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-  - [Learn more](#learn-more)
-  - [Build the website](#deploy-on-vercel)
-- [Project Structure](#project-structure)
-- [Code Style](#code-style)
-  - [ESLint](#eslint)
-  - [Prettier](#prettier)
-  - [VS Code](#vs-code)
+<div align="center">
+  <br />
+  <a href="https://hacksquad.dev">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/189960927-783f0c95-99ca-4d5a-ba2d-7e04b9ef0a81.png">
+       <img width="341" alt="CTA" src="https://user-images.githubusercontent.com/17677196/189942140-2ac766dd-c09e-4675-a059-306c0d1d522c.png">
+    </picture>
+  </a>
+</div>
 
-## Getting Started
+<div align="center">
+  <br />
+  <a href="https://discord.gg/9wcGSf22PM">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/189961488-3dbcc428-fd60-49b3-b27e-7ea10b1c9934.png">
+      <img width="341" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/189949983-82a0ae9f-6c64-49f7-9387-00d8562bd78f.png">
+    </picture>
+  </a>
+</div>
 
-1. Clone this repository or hit "Use this template" button
+### >_HOW TO CONTRIBUTE
 
-```bash
-git clone git@github.com:pixel-point/nextjs-tailwind-starter.git
-```
+Please read [CONTRIBUTING](https://github.com/novuhq/novu/blob/main/CONTRIBUTING.md).
 
-2. Install dependencies
-
-```bash
-npm install
-```
-
-## Usage
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-### Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-### Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Project Structure
-
-```text
-├── public
-├── src
-│   ├── components
-│   │  ├── pages — React components that are being used specifically on a certain page
-│   │  └── shared — React components that are being used across the whole website
-│   ├── hooks
-│   ├── images
-│   ├── pages
-│   ├── styles
-│   ├── utils
-├── next.config.js — Main configuration file for a Next.js site. Read more about it [here](https://nextjs.org/docs/api-reference/next.config.js/introduction)
-├── postcss.config.js — Main configuration file of PostCSS. [Read more about it here](https://tailwindcss.com/docs/configuration#generating-a-post-css-configuration-file)
-└── tailwind.config.js — Main configuration file for Tailwind CSS [Read more about it here](https://tailwindcss.com/docs/configuration)
-```
-
-## Component Folder Structure
-
-### Each component includes
-
-1. Main JavaScript File
-2. Index File
-
-### Each component optionally may include
-
-1. Folder with images and icons
-2. Folder with data
-
-Also, each component may include another component that follows all above listed rules.
-
-### Example structure
-
-```bash
-component
-├── nested-component
-│  ├── data
-│  │  └── nested-component-lottie-data.json
-│  ├── images
-│  │  ├── nested-component-image.jpg
-│  │  ├── nested-component-inline-svg.inline.svg
-│  │  └── nested-component-url-svg.url.svg
-│  ├── nested-component.js
-│  └── index.js
-├── data
-│  └── component-lottie-data.json
-├── images
-│  ├── component-image.jpg
-│  ├── component-inline-svg.inline.svg
-│  └── component-url-svg.url.svg
-├── component.js
-└── index.js
-```
-
-## Code Style
-
-### ESLint
-
-[ESLint](https://eslint.org/) helps find and fix code style issues and force developers to follow same rules. Current configuration is based on [Airbnb style guide](https://github.com/airbnb/javascript).
-
-Additional commands:
-
-```bash
-npm run lint
-```
-
-Run it to check the current status of eslint issues across project.
-
-```bash
-npm run lint:fix
-```
-
-Run it to fix all possible issues.
-
-### Prettier
-
-[Prettier](https://prettier.io/) helps to format code based on defined rules. [Difference between Prettier and ESLint](https://prettier.io/docs/en/comparison.html).
-
-Additional commands:
-
-```bash
-npm run format
-```
-
-Run it to format all files across the project.
-
-### VS Code
-
-Following extensions required to simplify the process of keeping the same code style across the project:
-
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
-After installation enable "ESLint on save" by adding to your VS Code settings.json the following line:
-
-```json
-"editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-}
-```
-
-You can navigate to settings.json by using Command Pallete (CMD+Shift+P) and then type "Open settings.json".
-
-To enable Prettier go to Preferences -> Settings -> type "Format". Then check that you have esbenp.prettier-vscode as default formatter, and also enable "Format On Save".
-
-Reload VS Code and auto-format will work for you.
+### >_HERE’S WHAT YOU NEED TO KNOW TO PARTICIPATE AND COMPLETE HACKTOBERFEST:
+- Register anytime between September 26 and October 3
+- Pull requests can be made in any GITHUB or GITLAB hosted project that’s participating in Hacktoberfest (look for the “hacktoberfest” topic)
+- Project maintainers must accept your pull/merge requests for them to count toward your total
+- Have 4 pull/merge requests accepted between October 1 and October 31 to complete Hacktoberfest
+- The first 40,000 participants (maintainers and contributors) who complete Hacktoberfest can elect to receive one of two prizes: a tree planted in their name, or the Hacktoberfest 2022 t-shirt.
