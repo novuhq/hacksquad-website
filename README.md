@@ -7,13 +7,22 @@
 <h1 align="center">>_Welcome to Hacksquad 2022!</h1>
 <p align="center">
   <a href="https://github.com/novuhq/novu/issues?q=is%3Aissue+is%3Aopen">
-    <img src="https://img.shields.io/github/issues-raw/novuhq/novu?style=for-the-badge&logo=github&color=000"/>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-raw/novuhq/novu?style=for-the-badge&logo=github&color=fff">
+      <img src="https://img.shields.io/github/issues-raw/novuhq/novu?style=for-the-badge&logo=github&color=000"/>
+    </picture>
   </a>
   <a href="https://github.com/novuhq/novu/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">
-  <img src="https://img.shields.io/github/issues-raw/novuhq/novu/good%20first%20issue?style=for-the-badge&logo=github&label=Good%20First%20Issues&color=000"/>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-raw/novuhq/novu/good%20first%20issue?style=for-the-badge&logo=github&label=Good%20First%20Issues&color=fff">
+      <img src="https://img.shields.io/github/issues-raw/novuhq/novu/good%20first%20issue?style=for-the-badge&logo=github&label=Good%20First%20Issues&color=000"/>
+    </picture>
   </a>
   <a href="https://github.com/novuhq/novu/pulls?q=is%3Apr+is%3Aopen+label%3A%22help+wanted%22">
-  <img src="https://img.shields.io/github/issues-pr-raw/novuhq/novu/help%20wanted?style=for-the-badge&logo=github&label=Help%20Wanted%20PRs&color=000"/>
+     <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-pr-raw/novuhq/novu/help%20wanted?style=for-the-badge&logo=github&label=Help%20Wanted%20PRs&color=fff">
+      <img src="https://img.shields.io/github/issues-pr-raw/novuhq/novu/help%20wanted?style=for-the-badge&logo=github&label=Help%20Wanted%20PRs&color=000"/>
+    </picture>
   </a>
 </p>
 
