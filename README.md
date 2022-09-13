@@ -30,7 +30,7 @@ Join Hacktoberfest 2022 with your squad and win swag
 
 <div align="center">
   <br />
-  <a href="[https://hacksquad.dev](https://discord.gg/9wcGSf22PM)">
+  <a href="https://discord.gg/9wcGSf22PM">
     <img width="341" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/189949983-82a0ae9f-6c64-49f7-9387-00d8562bd78f.png">
   </a>
 </div>
