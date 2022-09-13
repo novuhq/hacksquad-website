@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://hacksquad.dev">
-    <img width="200" alt="hacksquad-logo" src="https://user-images.githubusercontent.com/17677196/189942507-fe4af23b-ce16-4be6-abdb-cd8826db6eb4.png">
+    <img width="200" alt="logo" src="https://user-images.githubusercontent.com/17677196/189955036-9ca460aa-275d-4f84-ac7c-92be37b06496.png">
   </a>
 </p>
 
