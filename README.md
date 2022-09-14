@@ -32,21 +32,19 @@
 <h3 align="center">Win your Swag, meet with more community members and participate in workshops from our great sponsors</h3>
 
 <div align="center">
-  <br />
   <a href="https://hacksquad.dev">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190162763-5fff6f31-0ce3-46f3-98fa-bbd220331145.png">
-       <img width="341" alt="CTA" src="https://user-images.githubusercontent.com/17677196/190161819-00fd4011-6f98-48cc-b3fb-ba1bbe8e9052.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190174353-bf387ca9-d0e6-461f-96cb-08b99e73c852.png">
+       <img width="252" alt="CTA" src="https://user-images.githubusercontent.com/17677196/190174246-4c42be0f-4d9d-4160-ad2d-20592c6483b4.png">
     </picture>
   </a>
 </div>
 
 <div align="center">
-  <br />
-  <a href="https://discord.gg/9wcGSf22PM">
+   <a href="https://discord.gg/9wcGSf22PM">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190162879-a3f29abd-efd7-4e31-a089-7e5f4c06bf43.png">
-      <img width="341" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/190162030-84912234-f95e-49ca-b54d-bb64b80a6b95.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190174144-6a81a623-6b41-4f8b-a824-5bc81ea36e17.png">
+      <img width="252" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/190174047-cc5fe476-1c56-4e33-8950-ffb50481746b.png">
     </picture>
   </a>
 </div>
