@@ -2,7 +2,7 @@ import Hero from 'components/pages/thank-you/hero';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const ThankYou = () => (
-  <LayoutMain>
+  <LayoutMain withoutFooter>
     <Hero />
   </LayoutMain>
 );
