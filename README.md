@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://hacksquad.dev">
-    <img width="200" alt="logo" src="https://user-images.githubusercontent.com/17677196/189955036-9ca460aa-275d-4f84-ac7c-92be37b06496.png">
+    <img  alt="logo" src="https://user-images.githubusercontent.com/17677196/190159412-34a1d863-1c2f-49bb-930c-054753137118.jpg">
   </a>
 </p>
 
-<h1 align="center">>_Welcome to Hacksquad 2022!</h1>
+
 <p align="center">
   <a href="https://github.com/novuhq/novu/issues?q=is%3Aissue+is%3Aopen">
     <picture>
@@ -26,16 +26,17 @@
   </a>
 </p>
 
-<h3 align="center">
-Join Hacktoberfest 2022 with your squad and win swag
-</h3>
+<h2 align="center">
+>_Welcome to Hacksquad 2022!
+</h2>
+<h3 align="center">Win your Swag, meet with more community members and participate in workshops from our great sponsors</h3>
 
 <div align="center">
   <br />
   <a href="https://hacksquad.dev">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/189960927-783f0c95-99ca-4d5a-ba2d-7e04b9ef0a81.png">
-       <img width="341" alt="CTA" src="https://user-images.githubusercontent.com/17677196/189942140-2ac766dd-c09e-4675-a059-306c0d1d522c.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190162763-5fff6f31-0ce3-46f3-98fa-bbd220331145.png">
+       <img width="341" alt="CTA" src="https://user-images.githubusercontent.com/17677196/190161819-00fd4011-6f98-48cc-b3fb-ba1bbe8e9052.png">
     </picture>
   </a>
 </div>
@@ -44,8 +45,8 @@ Join Hacktoberfest 2022 with your squad and win swag
   <br />
   <a href="https://discord.gg/9wcGSf22PM">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/189961488-3dbcc428-fd60-49b3-b27e-7ea10b1c9934.png">
-      <img width="341" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/189949983-82a0ae9f-6c64-49f7-9387-00d8562bd78f.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190162879-a3f29abd-efd7-4e31-a089-7e5f4c06bf43.png">
+      <img width="341" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/190162030-84912234-f95e-49ca-b54d-bb64b80a6b95.png">
     </picture>
   </a>
 </div>
