@@ -22,7 +22,14 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
           <ul className="flex space-x-10 md:space-x-6">
             {MENUS.header.map(({ href, text }, index) => (
               <li key={index}>
-                <Link href={href}>{text}</Link>
+                <Link href={href} passHref>
+                  <a
+                    className="py-5 transition-colors duration-200 hover:text-primary-1"
+                    href={href}
+                  >
+                    {text}
+                  </a>
+                </Link>
               </li>
             ))}
           </ul>

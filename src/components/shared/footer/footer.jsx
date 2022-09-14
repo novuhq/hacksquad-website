@@ -20,10 +20,15 @@ const Footer = () => (
       <div className="flex items-center space-x-10 sm:mt-6 sm:w-full sm:flex-col sm:justify-center">
         <nav>
           <ul className="flex space-x-10 md:space-x-6">
-            {MENUS.header.map(({ href, text, target }, index) => (
+            {MENUS.header.map(({ href, text }, index) => (
               <li key={index}>
-                <Link href={href} target={target}>
-                  {text}
+                <Link href={href} passHref>
+                  <a
+                    className="py-5 transition-colors duration-200 hover:text-primary-1"
+                    href={href}
+                  >
+                    {text}
+                  </a>
                 </Link>
               </li>
             ))}
