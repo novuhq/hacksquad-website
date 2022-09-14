@@ -17,7 +17,7 @@ const Button = ({ className }) => {
   return (
     <button
       className={clsx(
-        'button relative inline-flex h-9 items-center justify-center whitespace-nowrap px-4 text-center !leading-none outline-none before:absolute before:inset-0 before:-z-10 before:border-2 after:absolute after:inset-0 after:-z-10',
+        'base-btn-animation relative inline-flex h-9 items-center justify-center whitespace-nowrap px-4 text-center !leading-none outline-none before:absolute before:inset-0 before:-z-10 before:border-2 after:absolute after:inset-0 after:-z-10',
         className,
         isLoading && 'pointer-events-none min-w-[135px]'
       )}

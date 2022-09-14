@@ -17,7 +17,7 @@ const SignUpButton = ({ className }) => {
   return (
     <button
       className={clsx(
-        'sign-up-btn relative flex h-[60px] max-w-full items-center justify-center !leading-none',
+        'cta-btn-animation relative flex h-[60px] max-w-full items-center justify-center !leading-none',
         className,
         isLoading && 'pointer-events-none'
       )}
@@ -25,7 +25,7 @@ const SignUpButton = ({ className }) => {
       onClick={handleSignIn}
     >
       <svg
-        className="sign-up-btn-border xs:w-full"
+        className="cta-btn-animation-border xs:w-full"
         width="341"
         height="59"
         viewBox="0 0 341 59"
