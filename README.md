@@ -49,7 +49,3 @@ Join Hacktoberfest 2022 with your squad and win swag
     </picture>
   </a>
 </div>
-
-### >\_HOW TO CONTRIBUTE
-
-Please read [CONTRIBUTING](https://github.com/novuhq/novu/blob/main/CONTRIBUTING.md).
