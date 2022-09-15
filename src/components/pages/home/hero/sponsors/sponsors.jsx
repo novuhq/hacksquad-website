@@ -2,8 +2,8 @@ import React from 'react';
 
 import amplicationLogo from './images/amplication.url.svg';
 import dailyDevLogo from './images/daily-dev.url.svg';
-import medusaLogo from './images/medusa.url.svg';
-import vercelLogo from './images/vercel.url.svg';
+// import medusaLogo from './images/medusa.url.svg';
+// import vercelLogo from './images/vercel.url.svg';
 
 const title = 'Sponsored by';
 
@@ -23,14 +23,14 @@ const Sponsors = () => (
         loading="eager"
         alt="Daily.dev logo"
       />
-      <img
-        className="md:max-h-[30px] md:w-auto xs:max-h-[20px]"
-        src={vercelLogo}
-        height={40}
-        width={179}
-        loading="eager"
-        alt="Vercel logo"
-      />
+      {/* <img */}
+      {/*   className="md:max-h-[30px] md:w-auto xs:max-h-[20px]" */}
+      {/*   src={vercelLogo} */}
+      {/*   height={40} */}
+      {/*   width={179} */}
+      {/*   loading="eager" */}
+      {/*   alt="Vercel logo" */}
+      {/* /> */}
       <img
         className="md:max-h-[30px] md:w-auto xs:max-h-[20px]"
         src={amplicationLogo}
@@ -39,14 +39,14 @@ const Sponsors = () => (
         loading="eager"
         alt="Amplication logo"
       />
-      <img
-        className="md:max-h-[30px] md:w-auto xs:max-h-[20px]"
-        src={medusaLogo}
-        height={44}
-        width={186}
-        loading="eager"
-        alt="Medusa logo"
-      />
+      {/* <img */}
+      {/*   className="md:max-h-[30px] md:w-auto xs:max-h-[20px]" */}
+      {/*   src={medusaLogo} */}
+      {/*   height={44} */}
+      {/*   width={186} */}
+      {/*   loading="eager" */}
+      {/*   alt="Medusa logo" */}
+      {/* /> */}
     </div>
   </div>
 );
