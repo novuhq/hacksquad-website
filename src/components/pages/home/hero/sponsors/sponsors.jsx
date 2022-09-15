@@ -12,12 +12,12 @@ import vercelLogo from './images/vercel.url.svg';
 
 const title = 'Sponsored by';
 const logos = [
-  // {
-  //   src: dailyDevLogo,
-  //   height: 42,
-  //   width: 240,
-  //   alt: 'Daily.dev logo',
-  // },
+  {
+    src: dailyDevLogo,
+    height: 42,
+    width: 240,
+    alt: 'Daily.dev logo',
+  },
   // {
   //   src: vercelLogo,
   //   height: 40,
@@ -36,12 +36,12 @@ const logos = [
   //   width: 186,
   //   alt: 'Medusa logo',
   // },
-  {
-    src: mattermostLogo,
-    height: 44,
-    width: 256,
-    alt: 'Mattermost logo',
-  },
+  // {
+  //   src: mattermostLogo,
+  //   height: 44,
+  //   width: 256,
+  //   alt: 'Mattermost logo',
+  // },
   {
     src: tooljetLogo,
     height: 30,
