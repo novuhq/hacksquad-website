@@ -119,7 +119,8 @@ const Events = () => {
         </p>
       </div>
       <div className="container relative z-10 mt-20 md:mt-16 md:px-0 sm:mt-10">
-        <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+        {/* TODO: Display this block after events are published */}
+        {/* <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
           <div className="md:min-w-[1080px] md:px-7 sm:px-4">
             <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
               {eventsHeader.map((event, index) => (
@@ -130,12 +131,7 @@ const Events = () => {
             </div>
 
             <ul>
-              <span className="coming-soon-animation block border-b border-gray-2 py-4 text-center">
-                Coming soon<span>.</span>
-                <span>.</span>
-                <span>.</span>
-              </span>
-              {/* {items.map((event, index) => (
+              {items.map((event, index) => (
                 <li
                   className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]"
                   key={index}
@@ -145,10 +141,31 @@ const Events = () => {
                   <span>{event.timeZone}</span>
                   <span>{event.company}</span>
                 </li>
-              ))} */}
+              ))}
             </ul>
           </div>
+        </div> */}
+
+        {/* TODO: Remove this block completely after the publication of events  */}
+        <div className="mx-auto max-w-[1220px]">
+          <div className="container">
+            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-4">
+              {eventsHeader.map((event, index) => (
+                <span className="font-medium uppercase sm:text-xs" key={index}>
+                  {event}
+                </span>
+              ))}
+            </div>
+
+            <span className="coming-soon-animation block border-b border-gray-2 py-4 text-center">
+              Coming soon<span>.</span>
+              <span>.</span>
+              <span>.</span>
+            </span>
+          </div>
         </div>
+
+        {/* TODO: Display this block after events are published */}
         {/* {!isShownMore && (
           <button
             className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
