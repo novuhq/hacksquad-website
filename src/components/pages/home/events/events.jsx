@@ -129,7 +129,12 @@ const Events = () => {
             </div>
 
             <ul>
-              {items.map((event, index) => (
+              <span className="coming-soon-animation block border-b border-gray-2 py-4 text-center">
+                Coming soon<span>.</span>
+                <span>.</span>
+                <span>.</span>
+              </span>
+              {/* {items.map((event, index) => (
                 <li
                   className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]"
                   key={index}
@@ -139,11 +144,11 @@ const Events = () => {
                   <span>{event.timeZone}</span>
                   <span>{event.company}</span>
                 </li>
-              ))}
+              ))} */}
             </ul>
           </div>
         </div>
-        {!isShownMore && (
+        {/* {!isShownMore && (
           <button
             className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
             type="button"
@@ -155,7 +160,7 @@ const Events = () => {
               aria-hidden
             />
           </button>
-        )}
+        )} */}
 
         <div className="sm:px-4">
           <SignUpButton className="mx-auto mt-20 md:mt-16 sm:mt-10" />
