@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Image from 'next/future/image';
 import React, { useState, useMemo } from 'react';
 
