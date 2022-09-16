@@ -32,19 +32,24 @@ const Hero = () => (
           />
 
           <h1
-            className="font-['Bugfast'] text-[138px] leading-none md:text-[105px] sm:text-[14vw]"
-            style={{
-              textShadow:
-                '-2px -2px 0px #00FFFF, 2px 2px 0px #AA00FF, 6px 6px 0px rgba(255, 0, 149, 0.1), -6px -6px 0px rgba(0, 234, 255, 0.1), -5px -5px 24px rgba(0, 234, 255, 0.6), 5px 5px 24px rgba(170, 0, 255, 0.6)',
-            }}
+            className="text-center font-['Bugfast'] text-[138px] leading-none before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-full before:shadow-transparent before:content-[attr(data-title)] md:text-[105px] sm:text-[14vw]"
+            data-title={title}
           >
-            {title}
+            <span
+              className="block"
+              style={{
+                textShadow:
+                  '-2px -2px 0px #00FFFF, 2px 2px 0px #AA00FF, 6px 6px 0px rgba(255, 0, 149, 0.1), -6px -6px 0px rgba(0, 234, 255, 0.1), -5px -5px 24px rgba(0, 234, 255, 0.6), 5px 5px 24px rgba(170, 0, 255, 0.6)',
+              }}
+            >
+              {title}
+            </span>
           </h1>
 
           <Image
-            className="absolute right-5 top-1/2 -z-10 mt-[-3px] -translate-y-1/2 translate-x-full transform md:right-12 md:max-h-[74px] sm:hidden"
+            className="absolute right-10 top-1/2 -z-10 mt-[-3px] -translate-y-1/2 translate-x-full transform md:right-[60px] md:max-h-[74px] sm:hidden"
             src={bgTitleGlitchRight}
-            width={526}
+            width={551}
             height={98}
             loading="eager"
             alt=""
@@ -53,18 +58,18 @@ const Hero = () => (
           />
         </div>
         <span
-          className="text-highlighting-colorful-gradient absolute right-0 flex text-right font-['Flood_Std'] text-[46px] leading-none sm:text-[7vw]"
+          className="text-highlighting-colorful-gradient absolute right-0 z-10 flex text-right font-['Flood_Std'] text-[46px] leading-none sm:text-[7vw]"
           aria-hidden
         >
           2022
         </span>
-        <p className="mx-auto mt-[58px] max-w-[716px] text-center text-lg sm:mt-10 sm:text-base">
+        <p className="relative z-10 mx-auto mt-[58px] max-w-[716px] text-center text-lg sm:mt-10 sm:text-base">
           {description}
         </p>
-        <SignUpButton className="mx-auto mt-10" />
+        <SignUpButton className="relative z-10 mx-auto mt-10" />
 
         <Image
-          className="absolute left-1/2 top-1/2 -z-10 mt-[-25px] -translate-x-1/2 -translate-y-1/2 transform sm:max-w-[382px]"
+          className="absolute left-1/2 top-1/2 mt-[-25px] -translate-x-1/2 -translate-y-1/2 transform sm:mt-[-60px] sm:max-w-[382px] xs:-mt-7"
           src={bgLogo}
           width={743}
           height={665}
