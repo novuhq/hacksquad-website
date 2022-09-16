@@ -7,6 +7,7 @@ import dailyDevLogo from './images/daily-dev.url.svg';
 import fonosterLogo from './images/fonoster.url.svg';
 import mattermostLogo from './images/mattermost.url.svg';
 import medusaLogo from './images/medusa.url.svg';
+import novuLogo from './images/novu.url.svg';
 import tooljetLogo from './images/tooljet.url.svg';
 import vercelLogo from './images/vercel.url.svg';
 
@@ -14,50 +15,56 @@ const title = 'Sponsored by';
 const logos = [
   {
     src: dailyDevLogo,
-    height: 42,
-    width: 240,
+    height: 32,
+    width: 183,
     alt: 'Daily.dev logo',
   },
   // {
   //   src: vercelLogo,
-  //   height: 40,
-  //   width: 179,
+  //   height: 29,
+  //   width: 130,
   //   alt: 'Vercel logo',
   // },
   {
     src: amplicationLogo,
-    height: 44,
-    width: 211,
+    height: 32,
+    width: 154,
     alt: 'Amplication logo',
   },
   // {
   //   src: medusaLogo,
-  //   height: 44,
-  //   width: 186,
+  //   height: 38,
+  //   width: 153,
   //   alt: 'Medusa logo',
   // },
   // {
   //   src: mattermostLogo,
-  //   height: 44,
-  //   width: 256,
+  //   height: 32,
+  //   width: 186,
   //   alt: 'Mattermost logo',
   // },
   {
     src: tooljetLogo,
-    height: 30,
-    width: 149,
+    height: 21,
+    width: 105,
     alt: 'ToolJet logo',
   },
   {
+    src: novuLogo,
+    height: 33,
+    width: 106,
+    alt: 'Novu logo',
+  },
+  {
     src: appwriteLogo,
-    height: 44,
-    width: 244,
+    height: 31,
+    width: 172,
     alt: 'Appwrite logo',
   },
   // {
   //   src: fonosterLogo,
-  //   height: 47,
-  //   width: 190,
+  //   height: 34,
+  //   width: 138,
   //   alt: 'Fonoster logo',
   // },
 ];
@@ -69,14 +76,10 @@ const Sponsors = () => (
   >
     <h2 className="text-center font-mono uppercase">{title}</h2>
 
-    {/* 
-      TODO: replace the current classes with these if more than 4 logos are used in this section:
-      mx-auto mt-10 flex max-w-[1250px] flex-wrap items-center justify-center gap-x-[134px] gap-y-10 md:gap-8 xs:mt-6
-     */}
-    <div className="mx-auto mt-10 flex max-w-[1220px] items-center justify-between md:flex-wrap md:justify-center md:gap-8 xs:mt-6">
+    <div className="mx-auto mt-10 flex max-w-[1364px] flex-wrap items-center justify-center gap-x-[134px] gap-y-10 xl:gap-x-28 lg:gap-x-14 md:gap-8 sm:mt-6 sm:gap-y-5">
       {logos.map(({ src, height, width, alt }, index) => (
         <img
-          className="md:max-h-[30px] md:w-auto sm:max-h-[20px]"
+          className="md:max-h-[30px] md:w-auto sm:max-h-5 xs:max-h-4"
           src={src}
           height={height}
           width={width}

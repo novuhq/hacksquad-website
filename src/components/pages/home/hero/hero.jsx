@@ -20,7 +20,8 @@ const Hero = () => (
         <h1
           className="font-['Bugfast'] text-[138px] leading-none md:text-[105px] sm:text-[14vw]"
           style={{
-            textShadow: '-2px -2px 0px #00FFFF, 2px 2px 0px #AA00FF',
+            textShadow:
+              '-2px -2px 0px #00FFFF, 2px 2px 0px #AA00FF, 6px 6px 0px rgba(255, 0, 149, 0.1), -6px -6px 0px rgba(0, 234, 255, 0.1), -5px -5px 24px rgba(0, 234, 255, 0.6), 5px 5px 24px rgba(170, 0, 255, 0.6)',
           }}
         >
           {title}
