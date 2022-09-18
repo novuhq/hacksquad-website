@@ -13,16 +13,53 @@ import bgRight from './images/bg-right.jpg';
 const title = 'Q&A';
 const items = [
   {
-    question: 'Can I register for both Hacktoberfest and Hacksquad?',
-    answer: 'Yes',
-  },
-  {
-    question: 'Do I need other people to help me contribute code?',
-    answer: 'No, we will assign a team for you, it’s a great time to meet more community members.',
+    question: "What's in it for you?",
+    answer:
+      'Meet amazing new people, get more involved with the open-source community and win awesome swag!',
   },
   {
     question: 'When is the event happening?',
     answer: '1st October 2022',
+  },
+  {
+    question: 'How does it work?',
+    answer: (
+      <>
+        Register to the HackSquad using your GitHub, Join a team or get assigned to a random team,
+        contribute code and get Swag! Not sure where to start? Check:{' '}
+        <a
+          style={{ fontWeight: 'bold', textDecoration: 'underline' }}
+          href="https://goodfirstissue.dev"
+          target="_blank"
+          rel="noreferrer"
+        >
+          goodfirstissue.dev
+        </a>
+      </>
+    ),
+  },
+  {
+    question: 'How do you calculate the score?',
+    answer: (
+      <>
+        Each day we will calculate every team member approved PR and sum them all together. By the
+        end of the event, the top 300 teams will win awesome swag!
+      </>
+    ),
+  },
+  {
+    question: 'Can I register for both Hacktoberfest and Hacksquad?',
+    answer:
+      'Yes, and even recommended! Each contribution will be counted for both Hacktoberfest and HackSquad',
+  },
+  {
+    question: 'Do I need other people to help me contribute code?',
+    answer: 'You can join a team and invite friends or we will auto-assign you to another team',
+  },
+  {
+    question: 'I want to create a workshop for the event during October',
+    answer:
+      "That's awesome! We would be super happy to give you a stage, please email us at nevo@novu.co",
   },
 ];
 

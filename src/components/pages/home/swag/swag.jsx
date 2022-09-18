@@ -20,9 +20,11 @@ const Swag = () => (
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
       <p className="mx-auto mt-10 max-w-[716px] text-center text-lg md:mt-8 md:text-[18px] sm:mt-6 sm:text-base">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus felis, lorem ut suspendisse{' '}
+        Join a team, Contribute code and win Swag. Simple.
+        <br />
+        Swag list will be{' '}
         <span className="relative before:absolute before:-left-1.5 before:-z-10 before:h-[30px] before:w-[318px] before:bg-primary-1">
-          ut elementum.
+          updated soon
         </span>
       </p>
 
