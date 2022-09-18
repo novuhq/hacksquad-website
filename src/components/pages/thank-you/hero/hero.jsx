@@ -6,7 +6,13 @@ import bg from './images/bg.jpg';
 import TwitterIcon from './images/twitter.inline.svg';
 
 const title = '>>Thank you!';
-const description = "We'll contact you shortly by email and send detailed instructions";
+const description = (
+  <>
+    You have successfully registered to HackSquad!
+    <br />
+    We will email you once we start to join a team
+  </>
+);
 
 const Hero = () => (
   <section className="safe-paddings relative h-screen min-h-[600px]">
