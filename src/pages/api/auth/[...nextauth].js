@@ -1,8 +1,14 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import mailchimp from 'mailchimp-marketing';
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 
 import prisma from '~/prisma/client';
+
+mailchimp.setConfig({
+  apiKey: process.env.MAILCHIMP_KEY,
+  server: process.env.MAILCHIMP_SERVER,
+});
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -15,35 +21,32 @@ export default NextAuth({
   events: {
     async signIn({ user, account }) {
       // Get user email if we don't have it in public emails
-      if (!user.email) {
-        try {
-          // fetch user email
-          const emails = await fetch('https://api.github.com/user/emails', {
-            headers: {
-              Authorization: `token ${account.accessToken}`,
-            },
-          }).then((res) => res.json());
+      const { login } = await fetch('https://api.github.com/user', {
+        headers: {
+          Authorization: `Bearer ${account.access_token}`,
+        },
+      }).then((res) => res.json());
 
-          if (!emails || emails.length === 0) {
-            return;
-          }
+      await prisma.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          handle: login,
+        },
+      });
 
-          // Sort by primary email - the user may have several emails, but only one of them will be primary
-          const sortedEmails = emails.sort((a, b) => b.primary - a.primary);
-          const primaryEmail = sortedEmails[0].email;
-
-          // update user email
-          await prisma.user.update({
-            where: {
-              id: user.id,
-            },
-            data: {
-              email: primaryEmail,
-            },
-          });
-        } catch (err) {
-          console.log('Failed to set email', err);
-        }
+      if (user.email) {
+        const [name, lastName] = user.name.split(' ');
+        await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
+          email_address: user.email,
+          status: 'subscribed',
+          skip_merge_validation: true,
+          merge_fields: {
+            FNAME: name,
+            LNAME: lastName,
+          },
+        });
       }
     },
   },

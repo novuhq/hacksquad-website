@@ -21,6 +21,7 @@
     "clsx": "^1.2.1",
     "file-loader": "^6.2.0",
     "framer-motion": "^6.3.11",
+    "mailchimp-marketing": "^5.0.0",
     "next": "^12.2.5",
     "next-auth": "^4.10.3",
     "prop-types": "^15.8.1",

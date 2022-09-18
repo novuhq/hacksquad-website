@@ -42,6 +42,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  handle         String?
   accounts      Account[]
   sessions      Session[]
 }
