@@ -39,7 +39,7 @@ const items = [
     ),
   },
   {
-    question: 'How do you calculate the score?',
+    question: 'How do we calculate the score?',
     answer: (
       <>
         Each day we will calculate every team member approved PR and sum them all together. By the
