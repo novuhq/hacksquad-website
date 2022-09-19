@@ -8,9 +8,9 @@ import TwitterIcon from './images/twitter.inline.svg';
 const title = '>>Thank you!';
 const description = (
   <>
-    You have successfully registered to HackSquad!
+    You have successfully registered to HackSquad 🚀!
     <br />
-    We will email you once we start to join a team
+    We will send you more updates over the next two weeks.
   </>
 );
 
