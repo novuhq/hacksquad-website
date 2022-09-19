@@ -89,7 +89,7 @@ const QuestionAndAnswer = () => (
     <div className="container relative z-10">
       <SectionHeading className="text-center">{title}</SectionHeading>
 
-      <ul className="mx-auto mt-14 max-w-[968px] sm:mt-6">
+      <ul className="mx-auto mt-14 max-w-[968px] sm:mt-6 sm:text-center">
         {items.map(({ question, answer }, index) => (
           <li className="border-b border-gray-2 py-6 last:border-none" key={index}>
             <h3 className="text-[25px] font-medium md:text-lg sm:text-[18px]">{question}</h3>
