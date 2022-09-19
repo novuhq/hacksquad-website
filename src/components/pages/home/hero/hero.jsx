@@ -11,7 +11,7 @@ import bgTitleGlitchRight from './images/bg-title-glitch-right.png';
 import bg from './images/bg.jpg';
 import Sponsors from './sponsors';
 
-const title = 'Hacksquad';
+const title = 'HackSquad';
 const description = (
   <>
     Contribute code, meet community members, participate in workshops, and win more{' '}
