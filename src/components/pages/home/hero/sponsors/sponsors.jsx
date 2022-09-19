@@ -87,7 +87,7 @@ const Sponsors = () => (
 
     <div className="mx-auto mt-10 flex max-w-[1364px] flex-wrap items-center justify-center gap-x-[134px] gap-y-10 xl:gap-x-28 lg:gap-x-14 md:gap-8 sm:mt-6 sm:gap-y-5">
       {logos.map(({ src, url, height, width, alt }, index) => (
-        <a href={url} target="_blank" rel="noreferrer">
+        <a href={url} target="_blank" rel="noreferrer" key={index}>
           <img
             className="md:max-h-[30px] md:w-auto sm:max-h-5 xs:max-h-4"
             src={src}
@@ -95,7 +95,6 @@ const Sponsors = () => (
             width={width}
             loading="eager"
             alt={alt}
-            key={index}
           />
         </a>
       ))}
