@@ -12,8 +12,12 @@ import bg from './images/bg.jpg';
 import Sponsors from './sponsors';
 
 const title = 'Hacksquad';
-const description =
-  'Complimentary event to win more swag, contribute code, meet community members, and participate in workshops.';
+const description = (
+  <>
+    Contribute code, meet community members, participate in workshops, and win more{' '}
+    <strong>SWAG</strong>
+  </>
+);
 
 const Hero = () => (
   <section className="safe-paddings relative pt-[244px] pb-26 sm:pt-32 sm:pb-20">
