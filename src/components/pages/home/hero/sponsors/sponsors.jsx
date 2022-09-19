@@ -36,7 +36,7 @@ const logos = [
   },
   // {
   //   src: medusaLogo,
-  //   url: 'https://medusa-commerce.com/',
+  //   url: 'https://medusajs.com/',
   //   height: 38,
   //   width: 153,
   //   alt: 'Medusa logo',
