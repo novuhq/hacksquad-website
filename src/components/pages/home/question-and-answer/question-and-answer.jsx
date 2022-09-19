@@ -57,6 +57,21 @@ const items = [
     answer: 'You can join a team and invite friends or we will auto-assign you to another team',
   },
   {
+    question: 'I want support / get more updates / find a team member',
+    answer: (
+      <>
+        Feel free to follow us on{' '}
+        <a href="https://twitter.com/HackSquadDev" target="_blank" rel="noreferrer">
+          Twitter
+        </a>{' '}
+        and join our{' '}
+        <a href="https://discord.gg/vcqkXgT3Xr" target="_blank" rel="noreferrer">
+          Discord
+        </a>
+      </>
+    ),
+  },
+  {
     question: 'I want to create a workshop for the event during October',
     answer:
       "That's awesome! We would be super happy to give you a stage, please email us at nevo@novu.co",
