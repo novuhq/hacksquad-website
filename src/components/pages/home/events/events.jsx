@@ -7,7 +7,7 @@ import SignUpButton from 'components/shared/sign-up-button';
 
 import ArrowIcon from './images/arrow.inline.svg';
 import bgLeftBottomLine from './images/bg-left-bottom-line.jpg';
-import bgLeftLine from './images/bg-left-line.png';
+import bgLeftSquare from './images/bg-left-square.png';
 import bgLeft from './images/bg-left.jpg';
 import bgRight from './images/bg-right.jpg';
 
@@ -183,11 +183,12 @@ const Events = () => {
         <div className="sm:px-4">
           <SignUpButton className="mx-auto mt-20 md:mt-16 sm:mt-10" />
         </div>
+
         <Image
-          className="absolute left-[-258px] bottom-[-648px] md:hidden"
-          src={bgLeftLine}
+          className="absolute left-[-259px] top-[-162px] md:hidden"
+          src={bgLeftSquare}
           width={289}
-          height={1557}
+          height={288}
           alt=""
           aria-hidden
         />
@@ -219,6 +220,14 @@ const Events = () => {
         alt=""
         aria-hidden
       />
+
+      <div
+        className="container absolute left-1/2 top-0 h-full w-full -translate-x-1/2 xl:hidden"
+        aria-hidden
+      >
+        <span className="absolute top-[510px] left-[-116px] h-full w-[1.5px] bg-[url('/vertical-line.png')]" />
+        <span className="absolute top-[calc(100%+510px)] left-[-116px] h-[1.5px] w-[86px] bg-[url('/horizontal-line.png')]" />
+      </div>
     </section>
   );
 };
