@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import Head from 'next/head';
 
-const title = 'Hacksquad 2022 - Join Hacktoberfest with your squad';
+const title = 'HackSquad 2022 🚀';
 const description =
-  'Hacktoberfest: a month-long celebration of open-source projects, their maintainers, and the entire community of contributors.';
+  'Contribute code, meet community members, participate in workshops, and win more';
 
 const Seo = ({ isRobotsNoindexPage }) => (
   <Head>

@@ -41,7 +41,7 @@ const items = [
     ),
   },
   {
-    question: 'How do you calculate the score?',
+    question: 'How do we calculate the score?',
     answer:
       'Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 teams will win awesome swag!',
   },
@@ -53,6 +53,31 @@ const items = [
   {
     question: 'Do I need other people to help me contribute code?',
     answer: 'You can join a team and invite friends or we will auto-assign you to another team',
+  },
+  {
+    question: 'I want support / get more updates / find a team member',
+    answer: (
+      <>
+        Feel free to follow us on{' '}
+        <a
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+          href="https://twitter.com/HackSquadDev"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Twitter
+        </a>{' '}
+        and join our{' '}
+        <a
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+          href="https://discord.gg/vcqkXgT3Xr"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Discord
+        </a>
+      </>
+    ),
   },
   {
     question: 'I want to create a workshop for the event during October',
