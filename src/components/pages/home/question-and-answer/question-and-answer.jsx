@@ -61,11 +61,21 @@ const items = [
     answer: (
       <>
         Feel free to follow us on{' '}
-        <a href="https://twitter.com/HackSquadDev" target="_blank" rel="noreferrer">
+        <a
+          href="https://twitter.com/HackSquadDev"
+          style={{ fontWeight: 'bold', textDecoration: 'underline' }}
+          target="_blank"
+          rel="noreferrer"
+        >
           Twitter
         </a>{' '}
         and join our{' '}
-        <a href="https://discord.gg/vcqkXgT3Xr" target="_blank" rel="noreferrer">
+        <a
+          href="https://discord.gg/vcqkXgT3Xr"
+          style={{ fontWeight: 'bold', textDecoration: 'underline' }}
+          target="_blank"
+          rel="noreferrer"
+        >
           Discord
         </a>
       </>
