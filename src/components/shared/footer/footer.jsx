@@ -24,7 +24,7 @@ const Footer = () => (
               <li key={index}>
                 <Link href={href} passHref>
                   <a
-                    className="py-5 transition-colors duration-200 hover:text-primary-1"
+                    className="py-5 transition-colors duration-200 hover:text-primary-2"
                     href={href}
                   >
                     {text}
