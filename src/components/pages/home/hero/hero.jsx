@@ -62,7 +62,7 @@ const Hero = () => (
           />
         </div>
         <span
-          className="text-highlighting-colorful-gradient absolute right-0 z-10 flex text-right font-['Flood_Std'] text-[46px] leading-none sm:text-[7vw]"
+          className="text-highlighting-colorful-gradient absolute right-0 z-10 block text-right font-['Flood_Std'] text-[46px] leading-none sm:text-[7vw]"
           aria-hidden
         >
           2022
