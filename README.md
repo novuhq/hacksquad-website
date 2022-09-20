@@ -36,13 +36,8 @@ Register to the HackSquad using your GitHub, Join a team or get assigned to a **
 
 **You can sign-up for both Hacktoberfest and HackSquad**
 
-You can also find the full source-code of HackSquad here:
-https://github.com/novuhq/hacksquad-website
-
 Let's crash it 🚀
 
 ![Party](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/10lybwxpyas6xmiohohn.gif)
 
 **P.S** If you want to create a workshop for the HackSquad community during October email me at: nevo@novu.co
-
-**P.P.S** Please let me know in the comments what kind of events you are looking for, and additional activities 🚀
