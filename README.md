@@ -4,47 +4,45 @@
   </a>
 </p>
 
-
-<p align="center">
-  <a href="https://github.com/novuhq/novu/issues?q=is%3Aissue+is%3Aopen">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-raw/novuhq/novu?style=for-the-badge&logo=github&color=fff">
-      <img src="https://img.shields.io/github/issues-raw/novuhq/novu?style=for-the-badge&logo=github&color=000"/>
-    </picture>
-  </a>
-  <a href="https://github.com/novuhq/novu/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-raw/novuhq/novu/good%20first%20issue?style=for-the-badge&logo=github&label=Good%20First%20Issues&color=fff">
-      <img src="https://img.shields.io/github/issues-raw/novuhq/novu/good%20first%20issue?style=for-the-badge&logo=github&label=Good%20First%20Issues&color=000"/>
-    </picture>
-  </a>
-  <a href="https://github.com/novuhq/novu/pulls?q=is%3Apr+is%3Aopen+label%3A%22help+wanted%22">
-     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/issues-pr-raw/novuhq/novu/help%20wanted?style=for-the-badge&logo=github&label=Help%20Wanted%20PRs&color=fff">
-      <img src="https://img.shields.io/github/issues-pr-raw/novuhq/novu/help%20wanted?style=for-the-badge&logo=github&label=Help%20Wanted%20PRs&color=000"/>
-    </picture>
-  </a>
-</p>
-
 <h2 align="center">
->_Welcome to Hacksquad 2022!
+Welcome to Hacksquad 2022!
 </h2>
-<h3 align="center">Win your Swag, meet with more community members and participate in workshops from our great sponsors</h3>
+<h3 align="center">
+Contribute code, meet community members, participate in workshops, and win more SWAG
+</h3>
 
-<div align="center">
-  <a href="https://hacksquad.dev">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190174353-bf387ca9-d0e6-461f-96cb-08b99e73c852.png">
-       <img width="252" alt="CTA" src="https://user-images.githubusercontent.com/17677196/190174246-4c42be0f-4d9d-4160-ad2d-20592c6483b4.png">
-    </picture>
-  </a>
-</div>
+With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your **Swag**, meet with more community members and participate in workshops from our great sponsors.
 
-<div align="center">
-   <a href="https://discord.gg/9wcGSf22PM">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/190174144-6a81a623-6b41-4f8b-a824-5bc81ea36e17.png">
-      <img width="252" alt="CTA-discord" src="https://user-images.githubusercontent.com/17677196/190174047-cc5fe476-1c56-4e33-8950-ffb50481746b.png">
-    </picture>
-  </a>
-</div>
+![sponsors](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r339s38y82ool9atuo0c.png)
+
+HackSquad allows contributors to contribute code **as a team** instead of a single contributor. Engage the community in a friendly competition over the month of October.
+
+[SIGN UP TO HACKSQUAD 2022 🚀](https://hacksquad.dev)
+
+## How does it work?
+
+Register to the HackSquad using your GitHub, Join a team or get assigned to a **random team**. Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 teams will win awesome swag!
+
+![Swag](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hlxy4bujkak9wzhmqgmm.png)
+
+## What can you expect from the event?
+
+- Meet new community members
+- Code contribution, dah 😎
+- Participate in awesome workshops such as: How to contribute code, Going over good first issues, Engineering best practices, Solving PRs together.
+- Win swag
+
+[SIGN UP TO HACKSQUAD 2022 🚀](https://hacksquad.dev)
+
+**You can sign-up for both Hacktoberfest and HackSquad**
+
+You can also find the full source-code of HackSquad here:
+https://github.com/novuhq/hacksquad-website
+
+Let's crash it 🚀
+
+![Party](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/10lybwxpyas6xmiohohn.gif)
+
+**P.S** If you want to create a workshop for the HackSquad community during October email me at: nevo@novu.co
+
+**P.P.S** Please let me know in the comments what kind of events you are looking for, and additional activities 🚀
