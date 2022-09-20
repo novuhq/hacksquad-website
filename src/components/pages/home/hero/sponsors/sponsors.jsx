@@ -16,63 +16,54 @@ const logos = [
   {
     src: dailyDevLogo,
     url: 'https://daily.dev/',
-    height: 32,
     width: 183,
     alt: 'Daily.dev logo',
   },
   // {
   //   src: vercelLogo,
   //   url: 'https://vercel.com/',
-  //   height: 29,
   //   width: 130,
   //   alt: 'Vercel logo',
   // },
   {
     src: amplicationLogo,
     url: 'https://amplication.com/',
-    height: 32,
     width: 154,
     alt: 'Amplication logo',
   },
   // {
   //   src: medusaLogo,
   //   url: 'https://medusajs.com/',
-  //   height: 38,
-  //   width: 153,
+  //   width: 149,
   //   alt: 'Medusa logo',
   // },
   // {
   //   src: mattermostLogo,
   //   url: 'https://mattermost.com/',
-  //   height: 32,
-  //   width: 186,
+  //   width: 184,
   //   alt: 'Mattermost logo',
   // },
   {
     src: novuLogo,
     url: 'https://novu.co/',
-    height: 33,
     width: 106,
     alt: 'Novu logo',
   },
   {
     src: tooljetLogo,
     url: 'https://tooljet.io/',
-    height: 21,
     width: 105,
     alt: 'ToolJet logo',
   },
   {
     src: appwriteLogo,
     url: 'https://appwrite.io/',
-    height: 31,
     width: 172,
     alt: 'Appwrite logo',
   },
   // {
   //   src: fonosterLogo,
   //   url: 'https://fonoster.com/',
-  //   height: 34,
   //   width: 138,
   //   alt: 'Fonoster logo',
   // },
@@ -85,13 +76,13 @@ const Sponsors = () => (
   >
     <h2 className="text-center font-mono uppercase">{title}</h2>
 
-    <div className="mx-auto mt-10 flex max-w-[1364px] flex-wrap items-center justify-center gap-x-[134px] gap-y-10 xl:gap-x-28 lg:gap-x-14 md:gap-8 sm:mt-6 sm:gap-y-5">
+    <div className="mx-auto mt-10 flex max-w-[1364px] flex-wrap items-center justify-center gap-x-[134px] gap-y-10 xl:gap-x-28 lg:gap-x-14 sm:mt-6 sm:gap-x-10 sm:gap-y-8">
       {logos.map(({ src, url, height, width, alt }, index) => (
         <a href={url} target="_blank" rel="noreferrer" key={index}>
           <img
-            className="md:max-h-[30px] md:w-auto sm:max-h-5 xs:max-h-4"
+            className="w-auto md:h-[35px] sm:max-h-[30px]"
             src={src}
-            height={height}
+            height={40}
             width={width}
             loading="eager"
             alt={alt}
