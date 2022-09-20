@@ -28,7 +28,7 @@ const items = [
         Register to the HackSquad using your GitHub, Join a team or get assigned to a random team,
         contribute code and get Swag! Not sure where to start? Check:{' '}
         <a
-          style={{ fontWeight: 'bold', textDecoration: 'underline' }}
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://goodfirstissue.dev"
           target="_blank"
           rel="noreferrer"
@@ -40,12 +40,8 @@ const items = [
   },
   {
     question: 'How do we calculate the score?',
-    answer: (
-      <>
-        Each day we will calculate every team member approved PR and sum them all together. By the
-        end of the event, the top 300 teams will win awesome swag!
-      </>
-    ),
+    answer:
+      'Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 teams will win awesome swag!',
   },
   {
     question: 'Can I register for both Hacktoberfest and Hacksquad?',
@@ -62,8 +58,8 @@ const items = [
       <>
         Feel free to follow us on{' '}
         <a
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://twitter.com/HackSquadDev"
-          style={{ fontWeight: 'bold', textDecoration: 'underline' }}
           target="_blank"
           rel="noreferrer"
         >
@@ -71,8 +67,8 @@ const items = [
         </a>{' '}
         and join our{' '}
         <a
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://discord.gg/vcqkXgT3Xr"
-          style={{ fontWeight: 'bold', textDecoration: 'underline' }}
           target="_blank"
           rel="noreferrer"
         >
@@ -96,7 +92,7 @@ const QuestionAndAnswer = () => (
       <ul className="mx-auto mt-14 max-w-[968px] sm:mt-6 sm:text-center">
         {items.map(({ question, answer }, index) => (
           <li className="border-b border-gray-2 py-6 last:border-none" key={index}>
-            <h3 className="text-[25px] font-medium md:text-lg sm:text-[18px]">{question}</h3>
+            <h3 className="text-[24px] font-medium md:text-lg sm:text-[18px]">{question}</h3>
             <p className="mt-5 text-lg text-gray-1 md:text-base">- {answer}</p>
           </li>
         ))}

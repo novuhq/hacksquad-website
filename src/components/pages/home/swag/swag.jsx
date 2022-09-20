@@ -3,17 +3,21 @@ import React from 'react';
 
 import SectionHeading from 'components/shared/section-heading';
 
+import bag from './images/bag.jpg';
 import bgBorder from './images/bg-border.png';
 import bgLeftGlitch from './images/bg-left-glitch.jpg';
 import bgRightGlitch from './images/bg-right-glitch.jpg';
 import bg from './images/bg.jpg';
+import box from './images/box.jpg';
+import hoodie from './images/hoodie.jpg';
 import mug from './images/mug.jpg';
-import socks from './images/socks.jpg';
+import sticker2 from './images/sticker-2.jpg';
 import sticker from './images/sticker.jpg';
+import tShirt2 from './images/t-shirt-2.jpg';
 import tShirt from './images/t-shirt.jpg';
 
 const title = 'Swag list';
-const swagList = [tShirt, mug, sticker, socks, tShirt, mug, sticker, socks];
+const swagList = [tShirt, mug, sticker, bag, box, hoodie, tShirt2, sticker2];
 
 const Swag = () => (
   <section className="safe-paddings relative py-26 md:py-20 sm:py-16 xs:py-12" id="swag">
@@ -30,15 +34,11 @@ const Swag = () => (
 
       <ul className="grid-gap relative mt-20 grid grid-cols-4 md:mt-16 sm:mt-10 sm:grid-cols-2">
         {swagList.map((item, index) => (
-          <li key={index}>
-            <Image
-              className="border border-gray-2"
-              src={item}
-              alt="Swag item"
-              width={338}
-              height={338}
-              layout="responsive"
-            />
+          <li
+            className="relative before:absolute before:h-full before:w-full before:border before:border-gray-2"
+            key={index}
+          >
+            <Image src={item} alt="Swag item" width={338} height={388} layout="responsive" />
           </li>
         ))}
 

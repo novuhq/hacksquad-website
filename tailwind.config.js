@@ -6,6 +6,9 @@ module.exports = {
   corePlugins: {
     container: false,
   },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     fontFamily: {
       sans: ['Input Mono', ...defaultTheme.fontFamily.sans],
@@ -26,6 +29,7 @@ module.exports = {
       white: '#ffffff',
       primary: {
         1: '#FF0095',
+        2: '#00EAFF',
       },
       gray: {
         1: '#C7CCD1',
