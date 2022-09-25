@@ -8,6 +8,7 @@ const Leaderboard = ({ teams }) => (
     seo={{
       isRobotsNoindexPage: true,
     }}
+    absolute={false}
     withoutFooter
   >
     <Hero teams={teams} />
