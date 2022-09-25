@@ -49,7 +49,7 @@ const SignUpButton = ({ className, alternativeText }) => {
           <>
             <GitHubIcon className="h-[25px]" />
             <span className="text-lg sm:text-[18px]">
-              {alternativeText ? 'Sign up with GitHub' : 'alternativeText'}
+              {alternativeText ? 'Sign up with GitHub' : alternativeText}
             </span>
           </>
         )}
