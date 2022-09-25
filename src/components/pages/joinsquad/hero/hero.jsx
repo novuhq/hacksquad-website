@@ -6,20 +6,20 @@ import bg from './images/bg.jpg';
 import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
-const title = '>>Thank you!';
+const title = '>>Join an existing squad';
 const description = (
   <>
-    You have successfully registered to HackSquad 🚀
+    If you know which squad you want to join to,
     <br />
-    You can create your team and invite people to join (up to 5 people).
+    please ask one of the squad members to send you an invite link
     <br />
-    Or randomly be selected into another team.
+    If you want the system to auto-assign you to a team,
     <br />
-    To join an existing team, ask any team member to send you an invite!
+    Go back and click "Auto assign me"
   </>
 );
 
-const Hero = () => (
+const JoinSquad = () => (
   <section className="safe-paddings relative h-screen min-h-[600px]">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center">
       <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
@@ -42,7 +42,7 @@ const Hero = () => (
           </svg>
 
           <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-            <span className="text-lg sm:text-[18px]">Go to wizard</span>
+            <span className="text-lg sm:text-[18px]">Go back</span>
           </div>
         </a>
       </Link>
@@ -84,4 +84,4 @@ const Hero = () => (
   </section>
 );
 
-export default Hero;
+export default JoinSquad;

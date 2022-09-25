@@ -3,7 +3,8 @@
     "baseUrl": "src",
     "jsx": "react",
     "paths": {
-      "~/prisma/*": ["../prisma/*"]
+      "~/prisma/*": ["../prisma/*"],
+      "~/helpers/*": ["../helpers/*"]
     }
   }
 }

@@ -36,13 +36,26 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model Team {
+  id              String    @id @default(cuid())
+  name            String
+  score           Int?
+  ownerId         String @unique
+  owner           User @relation(name: "owner", fields: [ownerId], references: [id])
+  users           User[]
+  allowAutoAssign Boolean
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  handle         String?
+  handle        String?
+  teamId        String?
+  teamOwner     Team?   @relation("owner")
+  team          Team?   @relation(fields: [teamId], references: [id])
   accounts      Account[]
   sessions      Session[]
 }

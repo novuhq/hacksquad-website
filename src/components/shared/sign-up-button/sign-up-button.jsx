@@ -1,15 +1,22 @@
 import clsx from 'clsx';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import GitHubIcon from 'icons/github.inline.svg';
 
-const SignUpButton = ({ className }) => {
+const SignUpButton = ({ className, alternativeText }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const { status } = useSession();
+  const router = useRouter();
 
   const handleSignIn = (e) => {
     e.preventDefault();
+    if (status === 'authenticated') {
+      router.push('/myteam');
+      return;
+    }
     setIsLoading(true);
     signIn('github', { callbackUrl: '/thank-you/' });
   };
@@ -36,10 +43,14 @@ const SignUpButton = ({ className }) => {
       <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
         {isLoading ? (
           <div className="h-7 w-7 animate-spin rounded-full border border-b border-transparent border-b-white" />
+        ) : status === 'authenticated' ? (
+          <span className="text-lg sm:text-[18px]">Go to my Squad</span>
         ) : (
           <>
             <GitHubIcon className="h-[25px]" />
-            <span className="text-lg sm:text-[18px]">Sign up with GitHub</span>
+            <span className="text-lg sm:text-[18px]">
+              {alternativeText ? 'Sign up with GitHub' : 'alternativeText'}
+            </span>
           </>
         )}
       </div>
@@ -49,10 +60,12 @@ const SignUpButton = ({ className }) => {
 
 SignUpButton.propTypes = {
   className: PropTypes.string,
+  alternativeText: PropTypes.string,
 };
 
 SignUpButton.defaultProps = {
   className: null,
+  alternativeText: '',
 };
 
 export default SignUpButton;

@@ -10,8 +10,11 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_SERVER,
 });
 
-export default NextAuth({
+export const authOptions = {
   adapter: PrismaAdapter(prisma),
+  session: {
+    maxAge: 30 * 24 * 60 * 60,
+  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -51,4 +54,6 @@ export default NextAuth({
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
+
+export default NextAuth(authOptions);

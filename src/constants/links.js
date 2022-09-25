@@ -1,4 +1,10 @@
 export default {
+  my_team: {
+    href: '/myteam',
+  },
+  leaderboard: {
+    href: '/leaderboard',
+  },
   sponsors: {
     href: '/#sponsors',
   },

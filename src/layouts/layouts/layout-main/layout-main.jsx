@@ -1,3 +1,4 @@
+import { SessionProvider } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
@@ -8,11 +9,10 @@ import Seo from 'components/shared/seo';
 
 const LayoutMain = ({ seo, children, withoutFooter }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <>
+    <SessionProvider>
       <Seo {...seo} />
       <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
@@ -20,7 +20,7 @@ const LayoutMain = ({ seo, children, withoutFooter }) => {
         {!withoutFooter && <Footer />}
         <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
       </div>
-    </>
+    </SessionProvider>
   );
 };
 

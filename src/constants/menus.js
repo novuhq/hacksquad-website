@@ -3,6 +3,10 @@ import LINKS from 'constants/links.js';
 const MENUS = {
   header: [
     {
+      text: 'Leaderboard',
+      ...LINKS.leaderboard,
+    },
+    {
       text: 'Sponsors',
       ...LINKS.sponsors,
     },

@@ -1,35 +1,41 @@
-import Image from 'next/future/image';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-import bg from './images/bg.jpg';
 import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
-const title = '>>Thank you!';
-const description = (
-  <>
-    You have successfully registered to HackSquad 🚀
-    <br />
-    You can create your team and invite people to join (up to 5 people).
-    <br />
-    Or randomly be selected into another team.
-    <br />
-    To join an existing team, ask any team member to send you an invite!
-  </>
-);
+const title = '>>Leaderboard';
 
-const Hero = () => (
+const Hero = ({ teams }) => (
   <section className="safe-paddings relative h-screen min-h-[600px]">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center">
       <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
         {title}
       </h1>
-      <p className="mt-10 text-center text-lg sm:mt-6 sm:text-base">{description}</p>
-      <Link href="/myteam" passHref>
+      <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
+        <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
+          <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
+            <span className="font-medium uppercase">Place</span>
+            <span className="font-medium uppercase">Name</span>
+            <span className="font-medium uppercase">Score</span>
+          </div>
+
+          {teams.map((team, index) => (
+            <ul>
+              <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
+                <span>{index + 1}</span>
+                <p className="font-medium">{team.name}</p>
+                <span>{team.score}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+      <Link href="/" passHref>
         <a
           className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
-          href="/myteam"
+          href="/"
         >
           <svg
             className="cta-btn-animation-border xs:w-full"
@@ -42,12 +48,12 @@ const Hero = () => (
           </svg>
 
           <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-            <span className="text-lg sm:text-[18px]">Go to wizard</span>
+            <span className="text-lg sm:text-[18px]">Back to Homepage</span>
           </div>
         </a>
       </Link>
 
-      <div className="absolute bottom-20 flex flex-col items-center md:bottom-12">
+      <div className="mt-20 flex flex-col items-center md:bottom-12">
         <span className="font-mono uppercase">Let’s connect</span>
         <div className="flex items-center space-x-8">
           <a
@@ -70,18 +76,11 @@ const Hero = () => (
         </div>
       </div>
     </div>
-
-    <Image
-      className="absolute top-0 left-1/2 min-h-screen w-full min-w-[1920px] -translate-x-1/2 md:min-w-[1230px]"
-      src={bg}
-      width={1920}
-      height={1080}
-      loading="eager"
-      alt=""
-      priority
-      aria-hidden
-    />
   </section>
 );
+
+Hero.propTypes = {
+  teams: PropTypes.array,
+};
 
 export default Hero;

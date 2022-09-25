@@ -20,7 +20,7 @@ const Footer = () => (
       <div className="flex items-center space-x-10 sm:mt-6 sm:w-full">
         <nav className="sm:w-full">
           <ul className="flex space-x-10 md:space-x-6 sm:justify-between">
-            {MENUS.header.map(({ href, text }, index) => (
+            {MENUS.header.slice(1).map(({ href, text }, index) => (
               <li key={index}>
                 <Link href={href} passHref>
                   <a
