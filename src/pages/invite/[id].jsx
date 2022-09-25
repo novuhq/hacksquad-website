@@ -1,7 +1,6 @@
 const Join = () => <></>;
 
 export async function getServerSideProps(context) {
-  console.log('hello');
   await fetch(`${process.env.HOST}/api/invite`, {
     ...context.req,
     method: 'POST',

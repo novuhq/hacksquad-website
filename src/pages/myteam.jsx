@@ -1,35 +1,33 @@
-import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 import Hero from 'components/pages/team/hero';
 import LayoutMain from 'layouts/layouts/layout-main';
 
-const Myteam = ({ info }) => (
-  <LayoutMain
-    seo={{
-      isRobotsNoindexPage: true,
-    }}
-    withoutFooter
-  >
-    <Hero info={info} />
-  </LayoutMain>
-);
+const Myteam = () => {
+  const [info, setInfo] = useState(false);
+  useEffect(() => {
+    (async () => {
+      setInfo(
+        await (
+          await fetch(`/api/team`, {
+            credentials: 'include',
+          })
+        ).json()
+      );
+    })();
+  }, []);
 
-Myteam.propTypes = {
-  info: PropTypes.object,
+  if (!info) return <></>;
+  return (
+    <LayoutMain
+      seo={{
+        isRobotsNoindexPage: true,
+      }}
+      withoutFooter
+    >
+      <Hero info={info} />
+    </LayoutMain>
+  );
 };
-
-export async function getServerSideProps(context) {
-  const info = await (
-    await fetch(`${process.env.HOST}/api/team`, {
-      ...context.req,
-    })
-  ).json();
-
-  return {
-    props: {
-      info,
-    },
-  };
-}
 
 export default Myteam;

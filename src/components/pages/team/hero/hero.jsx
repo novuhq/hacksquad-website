@@ -12,6 +12,9 @@ const title = '>>My Squad';
 
 const Hero = ({ info }) => {
   const { status } = useSession();
+  if (status === 'loading') {
+    return <></>;
+  }
   if (status !== 'authenticated') {
     return <NoLogged />;
   }

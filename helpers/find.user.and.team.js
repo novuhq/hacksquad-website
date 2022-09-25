@@ -5,6 +5,7 @@ import { authOptions } from '../src/pages/api/auth/[...nextauth]';
 import prisma from '~/prisma/client';
 
 export default async function findUserAndTeam(req, res) {
+  console.log(req.cookies);
   const partialUser = await unstable_getServerSession(req, res, authOptions);
   if (!partialUser) {
     return { user: null, team: null, admin: false };
