@@ -4,15 +4,15 @@ import Hero from 'components/pages/leaderboard/hero';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Leaderboard = ({ teams }) => (
-    <LayoutMain
-      seo={{
-        isRobotsNoindexPage: true,
-      }}
-      withoutFooter
-    >
-      <Hero teams={teams} />
-    </LayoutMain>
-  );
+  <LayoutMain
+    seo={{
+      isRobotsNoindexPage: true,
+    }}
+    withoutFooter
+  >
+    <Hero teams={teams} />
+  </LayoutMain>
+);
 
 Leaderboard.propTypes = {
   teams: PropTypes.array,

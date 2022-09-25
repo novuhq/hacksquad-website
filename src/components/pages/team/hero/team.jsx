@@ -8,7 +8,7 @@ import GitHubIcon from '../../../../icons/github.inline.svg';
 const Team = ({ info }) => {
   const [teamName, setTeamName] = useState(info.team.name);
   const [randomJoin, setRandomJoin] = useState(info.team.allowAutoAssign);
-  const invite = `${window.location.origin  }/invite/${  info.team.id}`;
+  const invite = `${window.location.origin}/invite/${info.team.id}`;
   const debounce = useDebouncedCallback(async (name, allowAutoAssign) => {
     await fetch('/api/change-team', {
       headers: {

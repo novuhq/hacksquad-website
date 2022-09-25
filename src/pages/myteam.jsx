@@ -4,15 +4,15 @@ import Hero from 'components/pages/team/hero';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Myteam = ({ info }) => (
-    <LayoutMain
-      seo={{
-        isRobotsNoindexPage: true,
-      }}
-      withoutFooter
-    >
-      <Hero info={info} />
-    </LayoutMain>
-  );
+  <LayoutMain
+    seo={{
+      isRobotsNoindexPage: true,
+    }}
+    withoutFooter
+  >
+    <Hero info={info} />
+  </LayoutMain>
+);
 
 Myteam.propTypes = {
   info: PropTypes.object,
