@@ -23,6 +23,7 @@ const Myteam = () => {
       seo={{
         isRobotsNoindexPage: true,
       }}
+      absolute={false}
       withoutFooter
     >
       <Hero info={info} />

@@ -7,7 +7,7 @@ import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 import Seo from 'components/shared/seo';
 
-const LayoutMain = ({ seo, children, withoutFooter }) => {
+const LayoutMain = ({ seo, children, withoutFooter, absolute }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -15,7 +15,11 @@ const LayoutMain = ({ seo, children, withoutFooter }) => {
     <SessionProvider>
       <Seo {...seo} />
       <div className="relative flex min-h-screen flex-col">
-        <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
+        <Header
+          absolute={absolute}
+          isMobileMenuOpen={isMobileMenuOpen}
+          onBurgerClick={handleHeaderBurgerClick}
+        />
         <main className="flex-grow overflow-hidden">{children}</main>
         {!withoutFooter && <Footer />}
         <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
@@ -32,9 +36,11 @@ LayoutMain.propTypes = {
   }),
   children: PropTypes.node.isRequired,
   withoutFooter: PropTypes.bool,
+  absolute: PropTypes.bool,
 };
 
 LayoutMain.defaultProps = {
   seo: null,
   withoutFooter: false,
+  absolute: true,
 };
