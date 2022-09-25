@@ -20,7 +20,7 @@ Leaderboard.propTypes = {
 
 export async function getStaticProps() {
   // Call an external API endpoint to get posts
-  const res = await fetch(`${process.env.HOST}/api/leaderboard`);
+  const res = await fetch(`/api/leaderboard`);
   const { teams } = await res.json();
 
   // By returning { props: { posts } }, the Blog component
