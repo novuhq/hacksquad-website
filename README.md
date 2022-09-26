@@ -32,7 +32,7 @@ HackSquad allows contributors to contribute code **as a team** instead of a sing
 
 ## How does it work?
 
-Register to the HackSquad using your GitHub, Join a team or get assigned to a **random team**. Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 teams will win awesome swag!
+Register to the HackSquad using your GitHub, Join a team or get assigned to a **random team**. Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 winners will win awesome swag! around ~60 teams!
 
 <a href="https://www.hacksquad.dev/#swag">
   <img src="https://user-images.githubusercontent.com/17677196/191267474-ab378f53-9d40-4dc6-ac98-ce4ceb0a8edc.png" alt="Swag"/>
