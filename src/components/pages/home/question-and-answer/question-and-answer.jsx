@@ -41,7 +41,7 @@ const items = [
   {
     question: 'How do we calculate the score?',
     answer:
-      'Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 teams will win awesome swag!',
+      'Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 winners will win awesome swag! around ~60 teams!',
   },
   {
     question: 'Can I register for both Hacktoberfest and Hacksquad?',
