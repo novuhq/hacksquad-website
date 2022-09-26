@@ -8,7 +8,7 @@ import TwitterIcon from './images/twitter.inline.svg';
 const title = '>>Leaderboard';
 
 const Hero = ({ teams }) => (
-  <section className="safe-paddings relative h-screen min-h-[600px]">
+  <section className="safe-paddings relative min-h-[600px]">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center">
       <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
         {title}
