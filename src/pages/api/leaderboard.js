@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     orderBy: {
       score: 'desc',
     },
-    take: 300,
+    take: 100,
   });
   res.status(200).json({ teams });
 }
