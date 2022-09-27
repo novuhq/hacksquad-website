@@ -32,12 +32,6 @@ const logos = [
     alt: 'Amplication logo',
   },
   // {
-  //   src: medusaLogo,
-  //   url: 'https://medusajs.com/',
-  //   width: 149,
-  //   alt: 'Medusa logo',
-  // },
-  // {
   //   src: mattermostLogo,
   //   url: 'https://mattermost.com/',
   //   width: 184,
@@ -54,12 +48,6 @@ const logos = [
     url: 'https://tooljet.io/',
     width: 105,
     alt: 'ToolJet logo',
-  },
-  {
-    src: appwriteLogo,
-    url: 'https://appwrite.io/',
-    width: 172,
-    alt: 'Appwrite logo',
   },
   // {
   //   src: fonosterLogo,
