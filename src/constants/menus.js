@@ -26,6 +26,10 @@ const MENUS = {
 
   mobile: [
     {
+      text: 'Leaderboard',
+      ...LINKS.leaderboard,
+    },
+    {
       text: 'Sponsors',
       ...LINKS.sponsors,
     },
