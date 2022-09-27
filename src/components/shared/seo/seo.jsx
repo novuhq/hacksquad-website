@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 const title = 'HackSquad 2022 🚀';
 const description =
-  'Contribute code, meet community members, participate in workshops, and win more';
+  'Contribute code, meet community members, participate in workshops, and win SWAG!';
 
 const Seo = ({ isRobotsNoindexPage }) => (
   <Head>
