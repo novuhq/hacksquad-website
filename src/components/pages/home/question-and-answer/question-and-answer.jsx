@@ -78,7 +78,7 @@ const items = [
   },
   {
     question: 'Do I need other people to help me contribute code?',
-    answer: 'You can join a squads and invite friends or we will auto-assign you to another squads',
+    answer: 'You can join a squad and invite friends or we will auto-assign you to another squads',
   },
   {
     question: 'I want support / get more updates / find a squads member',
