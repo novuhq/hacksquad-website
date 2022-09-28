@@ -13,20 +13,20 @@ import bgRight from './images/bg-right.jpg';
 const title = 'Q&A';
 const items = [
   {
-    question: "What's in it for you?",
+    question: "What's in it for me?",
     answer:
       'Meet amazing new people, get more involved with the open-source community and win awesome swag!',
   },
   {
     question: 'When is the event happening?',
-    answer: '1st October 2022',
+    answer: 'Between 1st - 31st October 2022',
   },
   {
     question: 'How does it work?',
     answer: (
       <>
-        Register to the HackSquad using your GitHub, Join a team or get assigned to a random team,
-        contribute code and get Swag! Not sure where to start? Check:{' '}
+        Register to the HackSquad using your GitHub, Join a squads or get assigned to a random
+        squads, contribute code and get Swag! Not sure where to start? Check:{' '}
         <a
           className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://goodfirstissue.dev"
@@ -39,9 +39,37 @@ const items = [
     ),
   },
   {
+    question: 'How many members can join a squad?',
+    answer: (
+      <>
+        Each squad can have a maximum of 5 members.
+        <br />
+        If you can't find all 5, you can always turn on the "Allow random people to join my squad"
+        <br />
+      </>
+    ),
+  },
+  {
     question: 'How do we calculate the score?',
-    answer:
-      'Each day we will calculate every team member approved PR and sum them all together. By the end of the event, the top 300 winners will win awesome swag! around ~60 teams!',
+    answer: (
+      <>
+        Each day at midnight we will calculate every squad member <strong>MERGED PR</strong> and sum
+        them all together. By the end of the event, the top 60 squads will win awesome swag! The
+        calculation method can be{' '}
+        <a
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+          href="https://github.com/novuhq/hacksquad-background/blob/main/src/services/github/github.service.ts"
+          target="_blank"
+          rel="noreferrer"
+        >
+          found here
+        </a>
+      </>
+    ),
+  },
+  {
+    question: 'How many people will get swag?',
+    answer: <>The top 60 squads will win awesome swag! around ~300 winners!</>,
   },
   {
     question: 'Can I register for both Hacktoberfest and Hacksquad?',
@@ -50,10 +78,10 @@ const items = [
   },
   {
     question: 'Do I need other people to help me contribute code?',
-    answer: 'You can join a team and invite friends or we will auto-assign you to another team',
+    answer: 'You can join a squads and invite friends or we will auto-assign you to another squads',
   },
   {
-    question: 'I want support / get more updates / find a team member',
+    question: 'I want support / get more updates / find a squads member',
     answer: (
       <>
         Feel free to follow us on{' '}
@@ -76,6 +104,30 @@ const items = [
         </a>
       </>
     ),
+  },
+  {
+    question: 'Does the swag in the picture is the actual swag?',
+    answer: (
+      <>
+        Most of it is! We will also add more Swag from our sponsors.
+        <br />
+        We still haven&apos;t finalized everything.
+      </>
+    ),
+  },
+  {
+    question: 'How long will it take to receive the swag?',
+    answer: (
+      <>
+        We are sending the swag from the US.
+        <br />
+        We assume that it will reach everybody within 60-90 days.
+      </>
+    ),
+  },
+  {
+    question: 'Do I need to pay duty for the SWAG?',
+    answer: <>No! We are taking care of it!</>,
   },
   {
     question: 'I want to create a workshop for the event during October',

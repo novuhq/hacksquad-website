@@ -11,11 +11,11 @@ const description = (
   <>
     You have successfully registered to HackSquad 🚀
     <br />
-    You can create your team and invite people to join (up to 5 people).
+    You can create your squad and invite people to join (up to 5 people).
     <br />
-    Or randomly be selected into another team.
+    Or randomly be selected into another squad.
     <br />
-    To join an existing team, ask any team member to send you an invite!
+    To join an existing squad, ask any squad member to send you an invite!
   </>
 );
 
