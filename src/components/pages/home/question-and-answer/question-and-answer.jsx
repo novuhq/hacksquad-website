@@ -25,8 +25,8 @@ const items = [
     question: 'How does it work?',
     answer: (
       <>
-        Register to the HackSquad using your GitHub, Join a squads or get assigned to a random
-        squads, contribute code and get Swag! Not sure where to start? Check:{' '}
+        Register to the HackSquad using your GitHub, Join a squad or get assigned to a random squad,
+        contribute code and get Swag! Not sure where to start? Check:{' '}
         <a
           className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://goodfirstissue.dev"
