@@ -43,6 +43,7 @@ model Team {
   ownerId         String @unique
   owner           User @relation(name: "owner", fields: [ownerId], references: [id])
   users           User[]
+  githubTeamId    Int?
   allowAutoAssign Boolean
 }
 
@@ -56,6 +57,7 @@ model User {
   teamId        String?
   teamOwner     Team?   @relation("owner")
   team          Team?   @relation(fields: [teamId], references: [id])
+  githubUserId  Int?
   accounts      Account[]
   sessions      Session[]
 }
