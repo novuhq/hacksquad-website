@@ -81,6 +81,10 @@ const items = [
     answer: 'You can join a squad and invite friends or we will auto-assign you to another squads',
   },
   {
+    question: 'Which repository can I contribute to?',
+    answer: 'Any public repository you want! Please make sure not to spam! We check 🤫',
+  },
+  {
     question: 'I want support / get more updates / find a squads member',
     answer: (
       <>
