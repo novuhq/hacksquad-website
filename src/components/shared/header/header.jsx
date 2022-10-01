@@ -1,13 +1,17 @@
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-import Novu from '~/helpers/novu';
+
+const Novu = dynamic(() => import('~/helpers/novu'), {
+  suspense: true,
+});
 
 const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => (
   <header
@@ -38,7 +42,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => (
             ))}
           </ul>
         </nav>
-        <Novu />
+        <Suspense fallback="">
+          <Novu />
+        </Suspense>
         <Button />
       </div>
       <Burger className="hidden sm:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
