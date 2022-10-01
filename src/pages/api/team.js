@@ -4,7 +4,6 @@ import findUserAndTeam from '~/helpers/find.user.and.team';
 export default async (req, res) => {
   if (req.query.id) {
     const normalTeam = await findTeam(req.query.id);
-    console.log(normalTeam);
     res.status(200).json({ team: normalTeam });
     return;
   }
