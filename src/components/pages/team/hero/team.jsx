@@ -62,7 +62,7 @@ const Team = ({ info }) => {
           <div className="mb-10">
             {info.team.users.length > 1 && (
               <div className="mb-5 flex">
-                <div>Send a message to your team: </div>
+                <div>Send a message to your squad: </div>
                 <div className="ml-3 flex-1">
                   <input
                     type="text"
