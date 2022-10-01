@@ -1,7 +1,7 @@
 @layer utilities {
   .scrollbar-hidden {
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 
     &::-webkit-scrollbar {
       display: none;
