@@ -85,8 +85,8 @@ const items = [
     answer: 'Any public repository you want! Please make sure not to spam! We check 🤫',
   },
   {
-    question: 'My team won! am I going to get Swag',
-    answer: 'The win swag, even if your team wins, you would need to have 1 MERGED PR',
+    question: 'My team won! am I going to get SWAG?',
+    answer: 'To win swag, even if your team wins, you would need to have 1 MERGED PR',
   },
   {
     question: 'I want support / get more updates / find a squads member',
