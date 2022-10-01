@@ -24,6 +24,10 @@
   animation-delay: 0.4s;
 }
 
+[data-test-id='notification-bell'] > svg {
+  color: white !important;
+}
+
 @keyframes blink {
   0% {
     opacity: 0;

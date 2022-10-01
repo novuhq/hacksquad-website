@@ -1,4 +1,5 @@
 import findUserAndTeam from '~/helpers/find.user.and.team';
+import sendNotification from '~/helpers/send-notification';
 import prisma from '~/prisma/client';
 
 export default async (req, res) => {
@@ -24,6 +25,15 @@ export default async (req, res) => {
       teamId: req.body.id,
     },
   });
+
+  sendNotification(
+    'new-squad-member',
+    {
+      name: user.name,
+    },
+    req.body.id,
+    user.id
+  );
 
   res.status(200).send('completed');
 };

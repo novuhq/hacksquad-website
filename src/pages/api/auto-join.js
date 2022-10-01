@@ -1,5 +1,6 @@
 import createSlug from '~/helpers/create-slug';
 import findUserAndTeam from '~/helpers/find.user.and.team';
+import sendNotification from '~/helpers/send-notification';
 import prisma from '~/prisma/client';
 
 export default async function handler(req, res) {
@@ -20,6 +21,15 @@ LIMIT 1
 `;
 
   if (findTeam.length) {
+    sendNotification(
+      'new-squad-member',
+      {
+        name: user.name,
+      },
+      findTeam[0].id,
+      user.id
+    );
+
     await prisma.user.update({
       where: {
         id: user.id,
