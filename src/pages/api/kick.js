@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       where: {
         id: req.query.id,
       },
-      select: {
+      data: {
         teamId: null,
       },
     });
