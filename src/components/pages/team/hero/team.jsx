@@ -74,7 +74,7 @@ const Team = ({ info }) => {
                 </div>
                 <div className="ml-3 w-20 border border-gray-1 text-center">
                   <button
-                    disabled={contact.length > 2}
+                    disabled={contact.length <= 2}
                     type="button"
                     style={{ border: 0, padding: 0 }}
                     onClick={sendMessage}
