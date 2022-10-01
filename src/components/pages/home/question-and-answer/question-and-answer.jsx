@@ -114,7 +114,7 @@ const items = [
     ),
   },
   {
-    question: 'Does the swag in the picture is the actual swag?',
+    question: 'Is the swag in the picture the actual swag?',
     answer: (
       <>
         Most of it is! We will also add more Swag from our sponsors.
