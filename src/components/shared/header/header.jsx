@@ -1,13 +1,13 @@
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Novu = dynamic(() => import('~/helpers/novu'));
+import Novu from '~/helpers/novu';
 
 const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => (
   <header
