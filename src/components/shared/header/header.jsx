@@ -17,7 +17,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => (
       <Link href="/" passHref>
         <a href="/">
           <Logo className="h-[38px]" />
-          <span className="sr-only">Hacksquad</span>
+          <span className="sr-only">HackSquad</span>
         </a>
       </Link>
 
