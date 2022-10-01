@@ -60,23 +60,25 @@ const Team = ({ info }) => {
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
           <div className="mb-10">
-            <div className="mb-5 flex">
-              <div>Send a message to your team: </div>
-              <div className="ml-3 flex-1">
-                <input
-                  type="text"
-                  name="score"
-                  className="w-full"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                />
+            {info.team.users.length > 1 && (
+              <div className="mb-5 flex">
+                <div>Send a message to your team: </div>
+                <div className="ml-3 flex-1">
+                  <input
+                    type="text"
+                    name="score"
+                    className="w-full"
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                  />
+                </div>
+                <div className="ml-3 w-20 border border-gray-1 text-center">
+                  <button type="button" style={{ border: 0, padding: 0 }} onClick={sendMessage}>
+                    Send
+                  </button>
+                </div>
               </div>
-              <div className="ml-3 w-20 border border-gray-1 text-center">
-                <button type="button" style={{ border: 0, padding: 0 }} onClick={sendMessage}>
-                  Send
-                </button>
-              </div>
-            </div>
+            )}
             <div className="mb-5">
               <label>
                 Squad name:{' '}
