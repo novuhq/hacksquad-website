@@ -83,7 +83,7 @@ const Team = ({ info }) => {
               </label>
             </div>
           </div>
-          <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
+          <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
             <span className="font-medium uppercase">#</span>
             <span className="font-medium uppercase">Name</span>
             <span className="font-medium uppercase">GitHub</span>
@@ -91,9 +91,9 @@ const Team = ({ info }) => {
 
           {info.team.users.map((user, index) => (
             <ul>
-              <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
+              <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
                 <span>{index + 1}</span>
-                <p className="font-medium">{user.name}</p>
+                <p className="font-medium truncate">{user.name}</p>
                 <p className="font-medium">
                   <a href={`https://github.com/${user.handle}`} target="_blank" rel="noreferrer">
                     <GitHubIcon className="h-[30px]" />
