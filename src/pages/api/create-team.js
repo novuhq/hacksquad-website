@@ -1,3 +1,4 @@
+import createSlug from '~/helpers/create-slug';
 import findUserAndTeam from '~/helpers/find.user.and.team';
 import prisma from '~/prisma/client';
 
@@ -15,6 +16,7 @@ export default async function handler(req, res) {
   const { id } = await prisma.team.create({
     data: {
       name: req.body.name,
+      slug: createSlug(req.body.name),
       score: 0,
       ownerId: user.id,
       allowAutoAssign: false,

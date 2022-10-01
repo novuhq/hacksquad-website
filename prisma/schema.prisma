@@ -39,12 +39,16 @@ model Session {
 model Team {
   id              String    @id @default(cuid())
   name            String
+  slug            String? @db.VarChar(255) @unique
   score           Int?
   ownerId         String @unique
   owner           User @relation(name: "owner", fields: [ownerId], references: [id])
   users           User[]
+  prs             String?
   githubTeamId    Int?
   allowAutoAssign Boolean
+
+  @@index([slug])
 }
 
 model User {
@@ -53,6 +57,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  score         Int?
   handle        String?
   teamId        String?
   teamOwner     Team?   @relation("owner")

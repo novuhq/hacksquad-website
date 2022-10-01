@@ -1,3 +1,4 @@
+import createSlug from '~/helpers/create-slug';
 import findUserAndTeam from '~/helpers/find.user.and.team';
 import prisma from '~/prisma/client';
 
@@ -35,6 +36,7 @@ LIMIT 1
   const { id } = await prisma.team.create({
     data: {
       name: `${user.name}'s Team`,
+      slug: createSlug(`${user.name}'s Team`),
       score: 0,
       ownerId: user.id,
       allowAutoAssign: true,
