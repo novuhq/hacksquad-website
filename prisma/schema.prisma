@@ -57,7 +57,6 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  score         Int?
   handle        String?
   teamId        String?
   teamOwner     Team?   @relation("owner")
