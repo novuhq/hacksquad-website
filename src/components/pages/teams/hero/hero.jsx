@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
@@ -11,12 +11,19 @@ import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
   const moderator = useModerator();
+  const [disqualified, setDisqualified] = useState(team.disqualified);
   const kick = (id) => async () => {
     if (confirm('Are you sure?')) {
       await fetch(`/api/kick?id=${id}`);
       window.location.reload();
     }
   };
+
+  const changeTeamStatus = async () => {
+    await fetch(`/api/disqualified?id=${team.id}`);
+    setDisqualified(!disqualified);
+  };
+
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative z-10 flex h-full flex-col items-center justify-center">
@@ -24,6 +31,28 @@ const Hero = ({ team }) => {
           {'>>'}
           {team.name}
         </h1>
+        {moderator && (
+          <a
+            className="cta-btn-animation relative mt-3 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6"
+            onClick={changeTeamStatus}
+          >
+            <svg
+              className="cta-btn-animation-border xs:w-full"
+              width="268"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
+
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">
+                {!disqualified ? 'Disqualify Team' : 'Bring team back to the game'}
+              </span>
+            </div>
+          </a>
+        )}
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
             <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">

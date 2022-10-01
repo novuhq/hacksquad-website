@@ -47,8 +47,10 @@ model Team {
   prs             String?
   githubTeamId    Int?
   allowAutoAssign Boolean
+  disqualified    Boolean @default(false)
 
   @@index([slug])
+  @@index([disqualified])
 }
 
 model User {
