@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
-
-import 'react-toastify/dist/ReactToastify.css';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
@@ -41,13 +39,6 @@ const Team = ({ info }) => {
 
   return (
     <>
-      <ToastContainer
-        theme="dark"
-        position="bottom-right"
-        pauseOnHover={false}
-        autoClose={3000}
-        closeButton={false}
-      />
       {info.team.users.length < 5 && (
         <CopyToClipboard text={invite} onCopy={() => toast.success('Copied to Clipboard')}>
           <a className="cta-btn-animation relative mt-3 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6">
@@ -70,7 +61,7 @@ const Team = ({ info }) => {
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
           <div className="mb-10">
-            {info.team.users.length > 0 && (
+            {info.team.users.length > 1 && (
               <div className="mb-5 flex">
                 <div>Send a message to your squad: </div>
                 <div className="ml-3 flex-1">
