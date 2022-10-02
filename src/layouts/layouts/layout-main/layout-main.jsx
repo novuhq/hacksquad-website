@@ -1,6 +1,9 @@
 import { SessionProvider } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
@@ -14,6 +17,13 @@ const LayoutMain = ({ seo, children, withoutFooter, absolute }) => {
   return (
     <SessionProvider>
       <Seo {...seo} />
+      <ToastContainer
+        theme="dark"
+        position="bottom-right"
+        pauseOnHover={false}
+        autoClose={3000}
+        closeButton={false}
+      />
       <div className="relative flex min-h-screen flex-col">
         <Header
           absolute={absolute}
