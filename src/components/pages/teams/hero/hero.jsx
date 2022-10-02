@@ -84,12 +84,12 @@ const Hero = ({ team }) => {
                     {user.name}
                   </p>
                   {moderator && (
-                    <p className="truncate font-medium" onClick={kick(user.id)}>
+                    <p className="cursor-pointer truncate font-medium" onClick={kick(user.id)}>
                       Remove
                     </p>
                   )}
                   {moderator && (
-                    <p className="truncate font-medium" onClick={disqualifiedMember(user.id)}>
+                    <p className="cursor-pointer truncate font-medium" onClick={disqualifiedMember(user.id)}>
                       {user.disqualified ? 'Bring Back to the game' : 'Disqualify'}
                     </p>
                   )}
