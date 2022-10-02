@@ -53,6 +53,13 @@ model Team {
   @@index([disqualified])
 }
 
+model Report {
+  pr              String @unique
+  status          Status
+
+  @@index([status])
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -75,4 +82,9 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+enum Status {
+    REPORT
+    DELETED
 }
