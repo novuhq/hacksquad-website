@@ -29,6 +29,11 @@ const Hero = ({ team }) => {
     window.location.reload();
   };
 
+  const disqualifiedMember = (id) => async () => {
+    await fetch(`/api/disqualified-member?id=${id}`);
+    window.location.reload();
+  };
+
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative z-10 flex h-full flex-col items-center justify-center">
@@ -64,15 +69,28 @@ const Hero = ({ team }) => {
               <span className="font-medium uppercase">Place</span>
               <span className="font-medium uppercase">Name</span>
               {moderator && <span className="font-medium uppercase">Remove from team</span>}
+              {moderator && <span className="font-medium uppercase">Disqualify</span>}
             </div>
             {team.users.map((user, index) => (
               <ul>
                 <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
                   <span>{index + 1}</span>
-                  <p className="truncate font-medium">{user.name}</p>
+                  <p className="truncate font-medium">
+                    {!!user.disqualified && (
+                      <span className="font-bold" style={{ color: 'red' }}>
+                        DISQUALIFY:{' '}
+                      </span>
+                    )}{' '}
+                    {user.name}
+                  </p>
                   {moderator && (
                     <p className="truncate font-medium" onClick={kick(user.id)}>
                       Remove
+                    </p>
+                  )}
+                  {moderator && (
+                    <p className="truncate font-medium" onClick={disqualifiedMember(user.id)}>
+                      {user.disqualified ? 'Bring Back to the game' : 'Disqualify'}
                     </p>
                   )}
                 </li>

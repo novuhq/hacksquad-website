@@ -13,7 +13,7 @@ export default async (req, res) => {
     },
   });
 
-  if (!user || team || teamInfo.users.length >= 5) {
+  if (!user || team || teamInfo.users.filter((f) => !f.disqualified).length >= 5) {
     res.status(400).send("Something isn't right");
     return;
   }

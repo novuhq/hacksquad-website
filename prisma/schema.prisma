@@ -69,6 +69,7 @@ model User {
   moderator     Boolean @default(false)
   handle        String?
   teamId        String?
+  disqualified  Boolean @default(false)
   teamOwner     Team?   @relation("owner")
   team          Team?   @relation(fields: [teamId], references: [id])
   githubUserId  Int?

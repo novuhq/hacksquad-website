@@ -13,6 +13,7 @@ export default async function findUserAndTeam(req, res) {
   if (!user.teamId) {
     return { user, team: null, admin: false };
   }
+
   return {
     user,
     team: await prisma.team.findUnique({
