@@ -56,7 +56,7 @@ const Hero = ({ teams }) => (
 
       <div className="mt-20 flex flex-col items-center md:bottom-12">
         <span className="font-mono uppercase">Let’s connect</span>
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-8 pb-5">
           <a
             className="group mt-5"
             href="https://twitter.com/HackSquadDev"
