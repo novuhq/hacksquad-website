@@ -53,9 +53,9 @@ const items = [
     question: 'How do we calculate the score?',
     answer: (
       <>
-        Each day at midnight we will calculate every squad member <strong>MERGED PR</strong> and sum
-        them all together. By the end of the event, the top 60 squads will win awesome swag! The
-        calculation method can be{' '}
+        Each hour we calculate squad members <strong>MERGED PRs</strong> and sum them all together.
+        By the end of the event, the top 60 squads will win awesome swag! The calculation method can
+        be{' '}
         <a
           className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://github.com/novuhq/hacksquad-background/blob/main/src/services/github/github.service.ts"
