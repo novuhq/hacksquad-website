@@ -1,6 +1,6 @@
 import findUser from '~/helpers/find.user';
 import findUserAndTeam from '~/helpers/find.user.and.team';
-import sendNotification from '~/helpers/send-notification';
+import sendOneNotification from '~/helpers/send-one-notification';
 import prisma from '~/prisma/client';
 
 export default async function handler(req, res) {
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     },
   });
 
-  sendNotification(
+  sendOneNotification(
     'disqualified',
     {
       name: userF.name,
