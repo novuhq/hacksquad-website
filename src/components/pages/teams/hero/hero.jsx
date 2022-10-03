@@ -10,7 +10,7 @@ import TwitterIcon from './images/twitter.inline.svg';
 import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
-  const moderator = useModerator();
+  const moderator = true;
   const [disqualified, setDisqualified] = useState(team.disqualified);
   const kick = (id) => async () => {
     if (confirm('Are you sure?')) {
