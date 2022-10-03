@@ -53,7 +53,7 @@ const items = [
     question: 'How do we calculate the score?',
     answer: (
       <>
-        Each hour we calculate squad members <strong>MERGED PRs</strong> and sum them all together.
+        Each hour we calculate the number of <strong>MERGED PRs</strong> of each squad member and sum them all up. Each PR is worth 1 point.
         By the end of the event, the top 60 squads will win awesome swag! The calculation method can
         be{' '}
         <a
