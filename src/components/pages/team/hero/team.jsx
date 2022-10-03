@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
@@ -19,7 +20,7 @@ const Team = ({ info }) => {
       body: JSON.stringify({ contact }),
       method: 'POST',
     });
-    alert('Message sent!');
+    toast.success('Message sent!');
     setContact('');
   }, [contact]);
   const debounce = useDebouncedCallback(async (name, allowAutoAssign) => {
@@ -39,7 +40,7 @@ const Team = ({ info }) => {
   return (
     <>
       {info.team.users.length < 5 && (
-        <CopyToClipboard text={invite} onCopy={() => alert('Copied to clipboard')}>
+        <CopyToClipboard text={invite} onCopy={() => toast.success('Copied to Clipboard')}>
           <a className="cta-btn-animation relative mt-3 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6">
             <svg
               className="cta-btn-animation-border xs:w-full"
