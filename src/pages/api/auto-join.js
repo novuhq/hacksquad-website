@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   const findTeam = await prisma.$queryRaw`
 SELECT "Team"."id" FROM "Team"
 LEFT JOIN "User" ON ("Team"."id" = "User"."teamId")
-WHERE "Team"."allowAutoAssign" = true and "User"."disqualified" = false
+WHERE "Team"."allowAutoAssign" = true and "User"."disqualified" = false and "Team"."disqualified" = false
 GROUP BY "Team"."id"
 HAVING count("User"."id") < 5
 ORDER BY count("User"."id")
