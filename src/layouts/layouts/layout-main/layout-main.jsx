@@ -46,6 +46,7 @@ LayoutMain.propTypes = {
   }),
   children: PropTypes.node.isRequired,
   withoutFooter: PropTypes.bool,
+  overflow: PropTypes.bool,
   absolute: PropTypes.bool,
 };
 
