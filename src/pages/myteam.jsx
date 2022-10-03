@@ -24,6 +24,7 @@ const Myteam = () => {
         isRobotsNoindexPage: true,
       }}
       absolute={false}
+      overflow
       withoutFooter
     >
       <Hero info={info} />
