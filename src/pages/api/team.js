@@ -7,11 +7,9 @@ export default async (req, res) => {
       const normalTeam = await findTeam(req.query.id);
       res.status(200).json({ team: normalTeam });
     } catch (error) {
-      res
-        .status(404)
-        .json({
-          err: "I'm sorry but that team doesn't exist (yet), maybe you'll be the one to make it!",
-        });
+      res.status(404).json({
+        err: "I'm sorry but that team doesn't exist (yet), maybe you'll be the one to make it!",
+      });
     }
     return;
   }
@@ -20,10 +18,8 @@ export default async (req, res) => {
     const { team, admin } = await findUserAndTeam(req, res);
     res.status(200).json({ team, admin });
   } catch (error) {
-    res
-      .status(404)
-      .json({
-        err: "I'm sorry but that team doesn't exist (yet), maybe you'll be the one to make it!",
-      });
+    res.status(404).json({
+      err: "I'm sorry but that team doesn't exist (yet), maybe you'll be the one to make it!",
+    });
   }
 };
