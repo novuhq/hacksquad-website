@@ -50,7 +50,7 @@ Register to the HackSquad using your GitHub, Join a squad or get assigned to a *
 </p>
 
 <p align="center"><strong>You can sign-up for both Hacktoberfest and HackSquad</strong></p>
-
+<p align="center">Still got any questions/queries or just looking for a good team, Join us on <a href="https://discord.gg/hf7uaPS4">Discord</a> or <a href="https://twitter.com/HackSquadDev">Twitter</a></p>
 <p align="center">Let's crash it 🚀</p>
 <p align="center">
   <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/10lybwxpyas6xmiohohn.gif" alt="Party"/>
