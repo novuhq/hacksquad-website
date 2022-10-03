@@ -10,7 +10,7 @@ import TwitterIcon from './images/twitter.inline.svg';
 import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
-  const moderator = useModerator();
+  const moderator = true;
   const [disqualified, setDisqualified] = useState(team.disqualified);
   const kick = (id) => async () => {
     if (confirm('Are you sure?')) {
@@ -65,16 +65,16 @@ const Hero = ({ team }) => {
         )}
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
-            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
+            <div className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[70px_150px_230px_1fr_1fr]">
               <span className="font-medium uppercase">Place</span>
               <span className="font-medium uppercase">Name</span>
               <span className="font-medium uppercase">GitHub</span>
-              {moderator && <span className="font-medium uppercase">Remove from team</span>}
+              {moderator && <span className="font-medium uppercase">Remove</span>}
               {moderator && <span className="font-medium uppercase">Disqualify</span>}
             </div>
             {team.users.map((user, index) => (
               <ul>
-                <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
+                <li className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[70px_150px_230px_1fr_1fr]">
                   <span>{index + 1}</span>
                   <p className="truncate font-medium">
                     {!!user.disqualified && (
