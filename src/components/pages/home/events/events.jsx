@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import moment from 'moment';
 import Image from 'next/future/image';
 import React, { useState, useMemo } from 'react';
 
@@ -13,91 +14,31 @@ import bgRight from './images/bg-right.jpg';
 
 const title = 'Welcome to Hacksquad 2022!';
 
-const eventsHeader = ['Date', 'Event', 'Time Zone', 'Company'];
+const eventsHeader = ['Date', 'Event', 'Company', 'Rsvp'];
 const events = [
   {
-    date: '3 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
+    date: moment.utc('2022-10-12T07:00:00'),
+    title: 'How to get started with open-source contributions',
+    company: 'Teja @ ToolJet',
+    link: 'https://zoom.us/webinar/register/WN_FC0U3ggyQBel-EvWBtEtgQ',
   },
   {
-    date: '4 Oct',
-    title: 'Lorem ipsum dolor sit amet',
-    timeZone: 'UTC +0',
-    company: 'Name',
+    date: moment.utc('2022-10-19T07:00:00'),
+    title: 'GitHub like a boss',
+    company: 'Michelle @ GitHub',
+    link: 'https://zoom.us/webinar/register/WN_ICktK3LHTB6HDwJD9OWQPA',
   },
   {
-    date: '5 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
+    date: moment.utc('2022-10-19T19:00:00'),
+    title: 'Contributing to a GitHub repository',
+    company: 'Michael @ Amplication',
+    link: 'https://zoom.us/webinar/register/WN_Va4469XbSKut4zt48f6uMA',
   },
   {
-    date: '11 Oct',
-    title: 'Lorem ipsum dolor sit amet',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '12 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '13 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '18 Oct',
-    title: 'Lorem ipsum dolor sit amet',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '3 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '4 Oct',
-    title: 'Lorem ipsum dolor sit amet',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '5 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '11 Oct',
-    title: 'Lorem ipsum dolor sit amet',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '12 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '13 Oct',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    timeZone: 'UTC +0',
-    company: 'Name',
-  },
-  {
-    date: '18 Oct',
-    title: 'Lorem ipsum dolor sit amet',
-    timeZone: 'UTC +0',
-    company: 'Name',
+    date: moment.utc('2022-10-26T19:00:00'),
+    title: 'How to build on Ethereum using Scaffold-ETH',
+    company: 'Kevin @ Scaffold-ETH',
+    link: 'https://zoom.us/webinar/register/WN_o2SLdW2uQl29qRMwmTYBqg',
   },
 ];
 
@@ -119,8 +60,7 @@ const Events = () => {
         </p>
       </div>
       <div className="container relative z-10 mt-20 md:mt-16 md:px-0 sm:mt-10">
-        {/* TODO: Display this block after events are published */}
-        {/* <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+        <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
           <div className="md:min-w-[1080px] md:px-7 sm:px-4">
             <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
               {eventsHeader.map((event, index) => (
@@ -136,34 +76,38 @@ const Events = () => {
                   className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]"
                   key={index}
                 >
-                  <span>{event.date}</span>
+                  <span>{event.date.local().format('lll')}</span>
                   <p className="font-medium">{event.title}</p>
-                  <span>{event.timeZone}</span>
                   <span>{event.company}</span>
+                  <span>
+                    <a href={event.link} className="font-bold underline" target="_blank" rel="noreferrer">
+                      CLICK HERE
+                    </a>
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
-        </div> */}
+        </div>
 
         {/* TODO: Remove this block completely after the publication of events  */}
-        <div className="mx-auto max-w-[1220px]">
-          <div className="container">
-            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-4">
-              {eventsHeader.map((event, index) => (
-                <span className="font-medium uppercase sm:text-xs" key={index}>
-                  {event}
-                </span>
-              ))}
-            </div>
+        {/* <div className="mx-auto max-w-[1220px]"> */}
+        {/*   <div className="container"> */}
+        {/*     <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-4"> */}
+        {/*       {eventsHeader.map((event, index) => ( */}
+        {/*         <span className="font-medium uppercase sm:text-xs" key={index}> */}
+        {/*           {event} */}
+        {/*         </span> */}
+        {/*       ))} */}
+        {/*     </div> */}
 
-            <span className="coming-soon-animation block border-b border-gray-2 py-4 text-center">
-              Coming soon<span>.</span>
-              <span>.</span>
-              <span>.</span>
-            </span>
-          </div>
-        </div>
+        {/*     <span className="coming-soon-animation block border-b border-gray-2 py-4 text-center"> */}
+        {/*       Coming soon<span>.</span> */}
+        {/*       <span>.</span> */}
+        {/*       <span>.</span> */}
+        {/*     </span> */}
+        {/*   </div> */}
+        {/* </div> */}
 
         {/* TODO: Display this block after events are published */}
         {/* {!isShownMore && (
