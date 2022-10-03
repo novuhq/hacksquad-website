@@ -9,5 +9,5 @@ export default async (req, res) => {
   }
 
   const { team, admin } = await findUserAndTeam(req, res);
-  res.status(200).json({ team, admin });
+  res.status(200).json({ team, admin, a: 1 });
 };
