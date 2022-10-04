@@ -10,7 +10,7 @@ import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 import Seo from 'components/shared/seo';
 
-const LayoutMain = ({ seo, children, withoutFooter, absolute, overflow }) => {
+const LayoutMain = ({ seo, children, withoutFooter, absolute }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -30,7 +30,7 @@ const LayoutMain = ({ seo, children, withoutFooter, absolute, overflow }) => {
           isMobileMenuOpen={isMobileMenuOpen}
           onBurgerClick={handleHeaderBurgerClick}
         />
-        <main className={`flex-grow overflow-${overflow? 'auto' : 'hidden'}`}>{children}</main>
+        <main className="flex-grow overflow-hidden">{children}</main>
         {!withoutFooter && <Footer />}
         <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
       </div>
