@@ -18,7 +18,7 @@ const eventsHeader = ['Date', 'Event', 'Company', 'Rsvp'];
 const events = [
   {
     date: moment.utc('2022-10-12T07:00:00'),
-    title: 'How to get started with open-source contributions',
+    title: 'Get started with open-source contributions with ToolJet',
     company: 'Teja @ ToolJet',
     link: 'https://zoom.us/webinar/register/WN_FC0U3ggyQBel-EvWBtEtgQ',
   },
@@ -59,6 +59,7 @@ const Events = () => {
           sponsors.
         </p>
       </div>
+
       <div className="container relative z-10 mt-20 md:mt-16 md:px-0 sm:mt-10">
         <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
           <div className="md:min-w-[1080px] md:px-7 sm:px-4">
