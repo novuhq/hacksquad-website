@@ -15,7 +15,7 @@ const leadersHeader = ['Place', 'Name', 'Score'];
 const Hero = ({ teams }) => (
   <section className="safe-paddings relative min-h-[600px]">
     <Image
-      className="absolute top-[70px] left-0 -z-20 md:max-h-[74px] sm:hidden"
+      className="absolute top-[70px] left-0 -z-20 md:top-10 sm:hidden"
       src={bgLeftGlitch}
       width={464}
       height={78}
@@ -25,7 +25,7 @@ const Hero = ({ teams }) => (
       aria-hidden
     />
     <Image
-      className="absolute left-0 right-0 top-0 -z-10 md:max-h-[74px] sm:hidden"
+      className="absolute left-0 right-0 top-0 -z-10 lg:hidden"
       src={bgTitleGlitch}
       width={1920}
       height={219}
@@ -35,7 +35,7 @@ const Hero = ({ teams }) => (
       aria-hidden
     />
     <Image
-      className="absolute right-0 top-9 -z-20 md:max-h-[74px] sm:hidden"
+      className="absolute right-0 top-9 -z-20 md:top-12 sm:hidden"
       src={bgRightGlitch}
       width={474}
       height={105}
@@ -48,9 +48,9 @@ const Hero = ({ teams }) => (
       <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
         {title}
       </h1>
-      <div className="md:scrollbar-hidden mx-auto mt-20 md:overflow-x-auto">
+      <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
         <div className="min-w-[716px] md:min-w-[600px] md:px-7 sm:px-4">
-          <div className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 pb-4">
+          <div className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[80px_1fr_80px]">
             {leadersHeader.map((header, index) => (
               <span className="font-medium uppercase" key={index}>
                 {header}
@@ -60,7 +60,7 @@ const Hero = ({ teams }) => (
           <ul>
             {teams.map((team, index) => (
               <li
-                className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 py-4"
+                className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[80px_1fr_80px]"
                 key={index}
               >
                 <span>{index + 1}</span>
@@ -75,7 +75,7 @@ const Hero = ({ teams }) => (
       </div>
       <Link href="/" passHref>
         <a
-          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
+          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none"
           href="/"
         >
           <svg

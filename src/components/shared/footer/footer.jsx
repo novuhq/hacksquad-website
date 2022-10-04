@@ -8,13 +8,8 @@ import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
 const Footer = ({ isBordered }) => (
-  <footer className="safe-paddings">
-    <div
-      className={clsx(
-        'container flex items-center justify-between py-5 sm:flex-col sm:items-start',
-        isBordered && 'border-t border-gray-2'
-      )}
-    >
+  <footer className={clsx('safe-paddings', isBordered && 'border-t border-gray-2')}>
+    <div className="container flex items-center justify-between py-5 sm:flex-col sm:items-start">
       <div className="sm:flex sm:w-full sm:justify-between">
         <Link href="/" passHref>
           <a href="/">
@@ -27,7 +22,7 @@ const Footer = ({ isBordered }) => (
       <div className="flex items-center space-x-10 sm:mt-6 sm:w-full">
         <nav className="sm:w-full">
           <ul className="flex space-x-10 md:space-x-6 sm:justify-between">
-            {MENUS.header.map(({ href, text }, index) => (
+            {MENUS.header.slice(1).map(({ href, text }, index) => (
               <li key={index}>
                 <Link href={href} passHref>
                   <a

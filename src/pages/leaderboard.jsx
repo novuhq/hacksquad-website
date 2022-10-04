@@ -19,15 +19,14 @@ Leaderboard.propTypes = {
   teams: PropTypes.array,
 };
 
+Leaderboard.defaultProps = {
+  teams: [],
+};
+
 export async function getServerSideProps() {
   // Call an external API endpoint to get posts
-  // const res = await fetch(`${process.env.HOST}/api/leaderboard`);
-  const teams = [
-    { slug: '/ee', name: 'EE Team', score: '123' },
-    { slug: '/oo', name: 'OoO', score: '89' },
-    { slug: '/slug', name: 'Super Mario team', score: '77' },
-    { slug: '/1', name: "MohamadElhadidy's Team", score: '34' },
-  ]; // await res.json();
+  const res = await fetch(`${process.env.HOST}/api/leaderboard`);
+  const { teams } = await res.json();
 
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time
