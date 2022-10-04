@@ -2,14 +2,15 @@ import clsx from 'clsx';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import GitHubIcon from 'icons/github.inline.svg';
 
 const SignUpButton = ({ className, alternativeText }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingState, setIsLoadingState] = useState(false);
   const { status } = useSession();
   const router = useRouter();
+  const isLoading = useMemo(() => isLoadingState || status === 'loading', [isLoadingState, status]);
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const SignUpButton = ({ className, alternativeText }) => {
       router.push('/myteam');
       return;
     }
-    setIsLoading(true);
+    setIsLoadingState(true);
     signIn('github', { callbackUrl: '/thank-you/' });
   };
 
