@@ -140,7 +140,12 @@ const Team = ({ info }) => {
                   {user.name}
                 </p>
                 <p className="font-medium">
-                  <a href={`https://github.com/${user.handle}`} target="_blank" rel="noreferrer">
+                  <a
+                    href={`https://github.com/${user.handle}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${user.name}'s Github (opens in new link)`}
+                  >
                     <GitHubIcon className="h-[30px]" />
                   </a>
                 </p>
