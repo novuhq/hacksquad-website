@@ -10,7 +10,7 @@ import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 import Seo from 'components/shared/seo';
 
-const LayoutMain = ({ seo, children, withoutFooter, absolute, overflow }) => {
+const LayoutMain = ({ seo, children, withoutFooter, isFooterBordered, absolute, overflow }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -30,8 +30,8 @@ const LayoutMain = ({ seo, children, withoutFooter, absolute, overflow }) => {
           isMobileMenuOpen={isMobileMenuOpen}
           onBurgerClick={handleHeaderBurgerClick}
         />
-        <main className={`flex-grow overflow-${overflow? 'auto' : 'hidden'}`}>{children}</main>
-        {!withoutFooter && <Footer />}
+        <main className={`flex-grow overflow-${overflow ? 'auto' : 'hidden'}`}>{children}</main>
+        {!withoutFooter && <Footer isBordered={isFooterBordered} />}
         <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
       </div>
     </SessionProvider>
@@ -46,6 +46,7 @@ LayoutMain.propTypes = {
   }),
   children: PropTypes.node.isRequired,
   withoutFooter: PropTypes.bool,
+  isFooterBordered: PropTypes.bool,
   overflow: PropTypes.bool,
   absolute: PropTypes.bool,
 };
@@ -53,5 +54,6 @@ LayoutMain.propTypes = {
 LayoutMain.defaultProps = {
   seo: null,
   withoutFooter: false,
+  isFooterBordered: false,
   absolute: true,
 };

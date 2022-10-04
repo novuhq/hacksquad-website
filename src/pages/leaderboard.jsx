@@ -9,7 +9,7 @@ const Leaderboard = ({ teams }) => (
       isRobotsNoindexPage: true,
     }}
     absolute={false}
-    withoutFooter
+    isFooterBordered
   >
     <Hero teams={teams} />
   </LayoutMain>
