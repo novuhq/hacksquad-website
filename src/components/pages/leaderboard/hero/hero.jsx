@@ -20,17 +20,20 @@ const Hero = ({ teams }) => (
             <span className="font-medium uppercase">Name</span>
             <span className="font-medium uppercase">Score</span>
           </div>
-          {teams.map((team, index) => (
-            <ul>
-              <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
+          <ul>
+            {teams.map((team, index) => (
+              <li
+                key={team.slug}
+                className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]"
+              >
                 <span>{index + 1}</span>
                 <p className="truncate font-medium">
                   <Link href={`/team/${team.slug}`}>{team.name}</Link>
                 </p>
                 <span>{team.score}</span>
               </li>
-            </ul>
-          ))}
+            ))}
+          </ul>
         </div>
       </div>
       <Link href="/" passHref>
