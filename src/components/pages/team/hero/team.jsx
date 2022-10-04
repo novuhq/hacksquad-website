@@ -75,7 +75,7 @@ const Team = ({ info }) => {
           toast.error(response.message);
         }
       } catch (err) {
-        console.log('from here', err);
+        console.error(err);
       }
     }
   };
