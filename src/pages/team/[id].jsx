@@ -18,10 +18,17 @@ const Team = ({ team }) => (
 
 export async function getServerSideProps(context) {
   // Call an external API endpoint to get posts
-  const res = await fetch(`${process.env.HOST}/api/team?id=${context.params.id}`);
-  const { team } = await res.json();
-
-  if (!team?.id) {
+  try {
+    // By returning { props: { posts } }, the Blog component
+    // will receive `posts` as a prop at build time
+    const res = await fetch(`${process.env.HOST}/api/team?id=${context.params.id}`);
+    const { team } = await res.json();
+    return {
+      props: {
+        team,
+      },
+    };
+  } catch (error) {
     return {
       redirect: {
         permanent: false,
@@ -29,14 +36,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      team,
-    },
-  };
 }
 
 Team.propTypes = {
