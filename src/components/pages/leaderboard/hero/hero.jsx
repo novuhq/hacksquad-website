@@ -14,36 +14,6 @@ const leadersHeader = ['Place', 'Name', 'Score'];
 
 const Hero = ({ teams }) => (
   <section className="safe-paddings relative min-h-[600px]">
-    <Image
-      className="absolute top-[70px] left-0 -z-20 md:top-10 sm:hidden"
-      src={bgLeftGlitch}
-      width={464}
-      height={78}
-      loading="eager"
-      alt="Left Glitch image"
-      priority
-      aria-hidden
-    />
-    <Image
-      className="absolute left-0 right-0 top-0 -z-10 lg:hidden"
-      src={bgTitleGlitch}
-      width={1920}
-      height={219}
-      loading="eager"
-      alt="Center Glitch image"
-      priority
-      aria-hidden
-    />
-    <Image
-      className="absolute right-0 top-9 -z-20 md:top-12 sm:hidden"
-      src={bgRightGlitch}
-      width={474}
-      height={105}
-      loading="eager"
-      alt="Right Glitch image"
-      priority
-      aria-hidden
-    />
     <div className="container relative flex h-full flex-col items-center justify-center py-16">
       <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
         {title}
@@ -61,7 +31,7 @@ const Hero = ({ teams }) => (
             {teams.map((team, index) => (
               <li
                 className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[80px_1fr_80px]"
-                key={index}
+                key={team.slug}
               >
                 <span>{index + 1}</span>
                 <p className="truncate font-medium">
@@ -94,6 +64,36 @@ const Hero = ({ teams }) => (
       </Link>
       <Socials className="mt-10" />
     </div>
+    <Image
+      className="absolute top-[70px] left-0 -z-20 md:top-10 sm:hidden"
+      src={bgLeftGlitch}
+      width={464}
+      height={78}
+      loading="eager"
+      alt="Left Glitch image"
+      priority
+      aria-hidden
+    />
+    <Image
+      className="absolute left-0 right-0 top-0 -z-10 lg:hidden"
+      src={bgTitleGlitch}
+      width={1920}
+      height={219}
+      loading="eager"
+      alt="Center Glitch image"
+      priority
+      aria-hidden
+    />
+    <Image
+      className="absolute right-0 top-9 -z-20 md:top-12 sm:hidden"
+      src={bgRightGlitch}
+      width={474}
+      height={105}
+      loading="eager"
+      alt="Right Glitch image"
+      priority
+      aria-hidden
+    />
   </section>
 );
 
