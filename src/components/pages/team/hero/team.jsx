@@ -1,5 +1,7 @@
+import moment from 'moment';
+import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
@@ -7,10 +9,22 @@ import { useDebouncedCallback } from 'use-debounce';
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
 const Team = ({ info }) => {
+  const session = useSession();
+
+  //
+  const [contact, setContact] = useState('');
   const [teamName, setTeamName] = useState(info.team.name);
   const [randomJoin, setRandomJoin] = useState(info.team.allowAutoAssign);
-  const [contact, setContact] = useState('');
+
   const invite = `${window.location.origin}/invite/${info.team.id}`;
+
+  //
+  const currentUser = useMemo(
+    () => info.team.users.find((user) => user.email === session?.data?.user?.email),
+    [info.team.users, session?.data?.user?.email]
+  );
+  const isCurrentUserNew = moment(currentUser.createdAt).isAfter(moment().subtract(3, 'days'));
+
   const sendMessage = useCallback(async () => {
     fetch('/api/send-message', {
       headers: {
@@ -23,6 +37,7 @@ const Team = ({ info }) => {
     toast.success('Message sent!');
     setContact('');
   }, [contact]);
+
   const debounce = useDebouncedCallback(async (name, allowAutoAssign) => {
     await fetch('/api/change-team', {
       headers: {
@@ -37,27 +52,77 @@ const Team = ({ info }) => {
     });
   }, 500);
 
+  const leaveTeam = async () => {
+    if (!currentUser) return;
+
+    if (confirm('Are you sure want to leave the team?')) {
+      try {
+        const response = await fetch('/api/leave-team', {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify({
+            id: currentUser.id,
+          }),
+        }).then((res) => res.json());
+
+        if (response.success === true) {
+          window.location.reload();
+        } else {
+          toast.error(response.message);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
+
   return (
     <>
-      {info.team.users.length < 5 && (
-        <CopyToClipboard text={invite} onCopy={() => toast.success('Copied to Clipboard')}>
-          <a className="cta-btn-animation relative mt-3 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6">
-            <svg
-              className="cta-btn-animation-border xs:w-full"
-              width="268"
-              height="59"
-              viewBox="0 0 268 59"
-              fill="none"
-            >
-              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-            </svg>
+      <div className="gapy-y-1 mt-6 flex flex-wrap justify-center gap-x-5">
+        {info.team.users.length < 5 && (
+          <CopyToClipboard text={invite} onCopy={() => toast.success('Copied to Clipboard')}>
+            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
+              <svg
+                className="cta-btn-animation-border xs:w-full"
+                width="200"
+                height="59"
+                viewBox="0 0 268 59"
+                fill="none"
+              >
+                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+              </svg>
 
-            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-              <span className="text-lg sm:text-[18px]">Invite people</span>
-            </div>
-          </a>
-        </CopyToClipboard>
-      )}
+              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+                <span className="text-lg sm:text-[18px]">Invite people</span>
+              </div>
+            </a>
+          </CopyToClipboard>
+        )}
+
+        {isCurrentUserNew && info.team.users.length > 1 && (
+          <div onClick={leaveTeam}>
+            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
+              <svg
+                className="cta-btn-animation-border xs:w-full"
+                width="200"
+                height="59"
+                viewBox="0 0 268 59"
+                fill="none"
+              >
+                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+              </svg>
+
+              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+                <span className="text-lg sm:text-[18px]">Leave Team</span>
+              </div>
+            </a>
+          </div>
+        )}
+      </div>
+
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
           <div className="mb-10">
