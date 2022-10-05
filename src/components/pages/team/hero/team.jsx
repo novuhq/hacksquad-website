@@ -1,7 +1,8 @@
+import moment from 'moment';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
@@ -20,10 +21,11 @@ const Team = ({ info }) => {
   const invite = `${window.location.origin}/invite/${info.team.id}`;
 
   //
-  const currentUser = info.team.users.find((user) => user.email === session?.data?.user?.email);
-  const isCurrentUserOld =
-    Math.abs(new Date(currentUser.createdAt).getTime() - new Date().getTime()) >
-    3 * 24 * 60 * 60 * 1000;
+  const currentUser = useMemo(
+    () => info.team.users.find((user) => user.email === session?.data?.user?.email),
+    [info.team.users, session?.data?.user?.email]
+  );
+  const isCurrentUserOld = moment(currentUser.createdAt).isBefore(moment().subtract(3, 'days'));
 
   const sendMessage = useCallback(async () => {
     fetch('/api/send-message', {
@@ -104,7 +106,7 @@ const Team = ({ info }) => {
         )}
 
         {!isCurrentUserOld && info.team.users.length > 1 && (
-          <div onClick={() => leaveTeam()}>
+          <div onClick={leaveTeam}>
             <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
               <svg
                 className="cta-btn-animation-border xs:w-full"
