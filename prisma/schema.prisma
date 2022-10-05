@@ -60,7 +60,18 @@ model Report {
   @@index([status])
 }
 
+model Social {
+  createdAt     DateTime  @default(now())
+  id            String    @id @default(cuid())
+  type          SocialMedia
+  userId        String
+  user          User @relation(fields: [userId], references: [id])
+  accessToken   String
+  refreshToken  String
+}
+
 model User {
+  createdAt     DateTime  @default(now())
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
@@ -75,6 +86,7 @@ model User {
   githubUserId  Int?
   accounts      Account[]
   sessions      Session[]
+  social        Social[]
 }
 
 model VerificationToken {
@@ -83,6 +95,9 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+enum SocialMedia {
+    TWITTER
 }
 
 enum Status {

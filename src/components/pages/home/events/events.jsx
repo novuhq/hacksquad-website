@@ -82,8 +82,8 @@ const Events = () => {
                   <span>{event.company}</span>
                   <span>
                     <a
+                      className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
                       href={event.link}
-                      className="font-bold underline"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -115,8 +115,7 @@ const Events = () => {
         {/*   </div> */}
         {/* </div> */}
 
-        {/* TODO: Display this block after events are published */}
-        {/* {!isShownMore && (
+        {!isShownMore && items.length !== events.length && (
           <button
             className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
             type="button"
@@ -128,7 +127,7 @@ const Events = () => {
               aria-hidden
             />
           </button>
-        )} */}
+        )}
 
         <div className="sm:px-4">
           <SignUpButton className="mx-auto mt-20 md:mt-16 sm:mt-10" />
