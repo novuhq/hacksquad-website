@@ -31,7 +31,7 @@ const LayoutMain = ({ seo, children, withoutFooter, isFooterBordered, absolute }
           onBurgerClick={handleHeaderBurgerClick}
         />
         <main className="flex-grow overflow-hidden">{children}</main>
-        {!withoutFooter && <Footer isBordered={isFooterBordered} />}
+        {!withoutFooter && <Footer withBorder={isFooterBordered} />}
         <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
       </div>
     </SessionProvider>

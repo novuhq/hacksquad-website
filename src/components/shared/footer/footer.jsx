@@ -7,8 +7,8 @@ import Button from 'components/shared/button';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Footer = ({ isBordered }) => (
-  <footer className={clsx('safe-paddings', isBordered && 'border-t border-gray-2')}>
+const Footer = ({ withBorder }) => (
+  <footer className={clsx('safe-paddings', withBorder && 'border-t border-gray-2')}>
     <div className="container flex items-center justify-between py-5 sm:flex-col sm:items-start">
       <div className="sm:flex sm:w-full sm:justify-between">
         <Link href="/" passHref>
@@ -44,11 +44,11 @@ const Footer = ({ isBordered }) => (
 );
 
 Footer.propTypes = {
-  isBordered: PropTypes.bool,
+  withBorder: PropTypes.bool,
 };
 
 Footer.defaultProps = {
-  isBordered: false,
+  withBorder: false,
 };
 
 export default Footer;
