@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 import Hero from 'components/pages/leaderboard/hero';
 import LayoutMain from 'layouts/layouts/layout-main';
+import Topfab from 'components/shared/FAB/topfab';
+
 
 const Leaderboard = ({ teams }) => (
   <LayoutMain
@@ -12,6 +14,7 @@ const Leaderboard = ({ teams }) => (
     withoutFooter
   >
     <Hero teams={teams} />
+    <Topfab />
   </LayoutMain>
 );
 
