@@ -62,7 +62,7 @@ export default async function twitter(req, res, query) {
 
   return {
     redirect: {
-      permanent: true,
+      permanent: false,
       destination: '/bonuses',
     },
   };
