@@ -23,7 +23,7 @@ const Team = ({ info }) => {
     () => info.team.users.find((user) => user.email === session?.data?.user?.email),
     [info.team.users, session?.data?.user?.email]
   );
-  const isCurrentUserOld = moment(currentUser.createdAt).isBefore(moment().subtract(3, 'days'));
+  const isCurrentUserNew = moment(currentUser.createdAt).isAfter(moment().subtract(3, 'days'));
 
   const sendMessage = useCallback(async () => {
     fetch('/api/send-message', {
@@ -102,7 +102,7 @@ const Team = ({ info }) => {
           </CopyToClipboard>
         )}
 
-        {!isCurrentUserOld && info.team.users.length > 1 && (
+        {isCurrentUserNew && info.team.users.length > 1 && (
           <div onClick={leaveTeam}>
             <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
               <svg
