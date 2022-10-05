@@ -9,12 +9,17 @@ export default async function findUserAndTeam(req, res) {
   if (!partialUser) {
     return { user: null, team: null, admin: false };
   }
-  const user = await prisma.user.findUnique({ where: { email: partialUser.user.email } });
+  const { social, ...user } = await prisma.user.findUnique({
+    where: { email: partialUser.user.email },
+    include: { social: true },
+  });
+  const twitter = !!social.find((p) => p.type === 'TWITTER');
   if (!user.teamId) {
-    return { user, team: null, admin: false };
+    return { user, twitter, team: null, admin: false };
   }
 
   return {
+    twitter,
     user,
     team: await prisma.team.findUnique({
       where: { id: user.teamId },
