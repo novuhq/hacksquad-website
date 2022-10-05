@@ -55,6 +55,7 @@ const JoinSquad = () => (
             href="https://twitter.com/HackSquadDev"
             target="_blank"
             rel="noreferrer"
+            aria-label="Hacksquad Twitter (opens in new tab)"
           >
             <TwitterIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
           </a>
@@ -64,6 +65,7 @@ const JoinSquad = () => (
             href="https://discord.gg/vcqkXgT3Xr"
             target="_blank"
             rel="noreferrer"
+            aria-label="Hacksquad Discord (opens in new tab)"
           >
             <DiscordIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
           </a>

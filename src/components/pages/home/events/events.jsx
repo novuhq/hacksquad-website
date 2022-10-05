@@ -18,7 +18,7 @@ const eventsHeader = ['Date', 'Event', 'Company', 'Rsvp'];
 const events = [
   {
     date: moment.utc('2022-10-12T07:00:00'),
-    title: 'How to get started with open-source contributions',
+    title: 'Get started with open-source contributions with ToolJet',
     company: 'Teja @ ToolJet',
     link: 'https://zoom.us/webinar/register/WN_FC0U3ggyQBel-EvWBtEtgQ',
   },
@@ -59,6 +59,7 @@ const Events = () => {
           sponsors.
         </p>
       </div>
+
       <div className="container relative z-10 mt-20 md:mt-16 md:px-0 sm:mt-10">
         <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
           <div className="md:min-w-[1080px] md:px-7 sm:px-4">
@@ -80,7 +81,12 @@ const Events = () => {
                   <p className="font-medium">{event.title}</p>
                   <span>{event.company}</span>
                   <span>
-                    <a href={event.link} className="font-bold underline" target="_blank" rel="noreferrer">
+                    <a
+                      className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+                      href={event.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       CLICK HERE
                     </a>
                   </span>
@@ -109,8 +115,7 @@ const Events = () => {
         {/*   </div> */}
         {/* </div> */}
 
-        {/* TODO: Display this block after events are published */}
-        {/* {!isShownMore && (
+        {!isShownMore && items.length !== events.length && (
           <button
             className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
             type="button"
@@ -122,7 +127,7 @@ const Events = () => {
               aria-hidden
             />
           </button>
-        )} */}
+        )}
 
         <div className="sm:px-4">
           <SignUpButton className="mx-auto mt-20 md:mt-16 sm:mt-10" />
