@@ -11,7 +11,6 @@ import GitHubIcon from '../../../../icons/github.inline.svg';
 const Team = ({ info }) => {
   const session = useSession();
 
-  //
   const [contact, setContact] = useState('');
   const [teamName, setTeamName] = useState(info.team.name);
   const [randomJoin, setRandomJoin] = useState(info.team.allowAutoAssign);
@@ -128,18 +127,18 @@ const Team = ({ info }) => {
             className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
           >
             <svg
-                className="cta-btn-animation-border xs:w-full"
-                width="200"
-                height="59"
-                viewBox="0 0 268 59"
-                fill="none"
-              >
-                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-              </svg>
+              className="cta-btn-animation-border xs:w-full"
+              width="200"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
 
-              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-                <span className="text-lg sm:text-[18px]">Bonuses</span>
-              </div>
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">Bonuses</span>
+            </div>
           </a>
         </div>
       </div>
