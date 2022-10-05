@@ -1,6 +1,5 @@
 import moment from 'moment';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, { useCallback, useMemo, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -10,7 +9,6 @@ import { useDebouncedCallback } from 'use-debounce';
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
 const Team = ({ info }) => {
-  const router = useRouter();
   const session = useSession();
 
   //
@@ -71,8 +69,7 @@ const Team = ({ info }) => {
         }).then((res) => res.json());
 
         if (response.success === true) {
-          toast.success(response.message);
-          router.push('/joinsquad');
+          window.location.reload();
         } else {
           toast.error(response.message);
         }
