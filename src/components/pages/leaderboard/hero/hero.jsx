@@ -65,7 +65,7 @@ const Hero = ({ teams }) => (
       <Socials className="mt-10" />
     </div>
     <Image
-      className="absolute top-[70px] left-0 -z-20 md:top-10 sm:hidden"
+      className="absolute top-[70px] left-0 -z-20 md:top-10 sm:top-12 sm:max-w-[240px]"
       src={bgLeftGlitch}
       width={464}
       height={78}
@@ -75,7 +75,7 @@ const Hero = ({ teams }) => (
       aria-hidden
     />
     <Image
-      className="absolute left-0 right-0 top-0 -z-10 lg:hidden"
+      className="absolute left-0 right-0 top-0 -z-10 md:hidden"
       src={bgTitleGlitch}
       width={1920}
       height={219}
@@ -85,7 +85,7 @@ const Hero = ({ teams }) => (
       aria-hidden
     />
     <Image
-      className="absolute right-0 top-9 -z-20 md:top-12 sm:hidden"
+      className="absolute right-0 top-9 -z-20 md:top-12 sm:top-20 sm:max-w-[260px]"
       src={bgRightGlitch}
       width={474}
       height={105}
