@@ -1,5 +1,5 @@
 import LayoutMain from 'layouts/layouts/layout-main';
-
+import Topfab from 'components/shared/FAB/topfab';
 import JoinSquad from '../components/pages/joinsquad/hero';
 
 const ThankYou = () => (
@@ -10,6 +10,7 @@ const ThankYou = () => (
     withoutFooter
   >
     <JoinSquad />
+    <Topfab />
   </LayoutMain>
 );
 

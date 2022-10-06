@@ -11,6 +11,7 @@
 /* Components */
 @import './container.css';
 @import './button-animation.css';
+@import './fab.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import Topfab from 'components/shared/FAB/topfab';
 import Hero from 'components/pages/team/hero';
 import LayoutMain from 'layouts/layouts/layout-main';
 
@@ -28,6 +28,7 @@ const Myteam = () => {
       withoutFooter
     >
       <Hero info={info} />
+      <Topfab />
     </LayoutMain>
   );
 };
