@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 
 import Hero from 'components/pages/leaderboard/hero';
-import LayoutMain from 'layouts/layouts/layout-main';
 import Topfab from 'components/shared/FAB/topfab';
-
+import LayoutMain from 'layouts/layouts/layout-main';
 
 const Leaderboard = ({ teams }) => (
   <LayoutMain
