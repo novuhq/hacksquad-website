@@ -20,7 +20,7 @@ const Hero = ({ teams }) => (
       </h1>
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
         <div className="min-w-[716px] md:min-w-[600px] md:px-7 sm:px-4">
-          <div className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[80px_1fr_80px]">
+          <div className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[50px_160px_40px]">
             {leadersHeader.map((header, index) => (
               <span className="font-medium uppercase" key={index}>
                 {header}
@@ -30,7 +30,7 @@ const Hero = ({ teams }) => (
           <ul>
             {teams.map((team, index) => (
               <li
-                className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[80px_1fr_80px]"
+                className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[50px_160px_40px]"
                 key={team.slug}
               >
                 <span>{index + 1}</span>
