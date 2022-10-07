@@ -19,7 +19,7 @@ const Hero = ({ teams }) => (
         {title}
       </h1>
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
-        <div className="min-w-[716px] md:min-w-[600px] md:px-7 sm:px-4">
+        <div className="min-w-[716px] md:min-w-[600px] sm:min-w-[300px] md:px-7 sm:px-4">
           <div className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[50px_160px_40px]">
             {leadersHeader.map((header, index) => (
               <span className="font-medium uppercase" key={index}>
