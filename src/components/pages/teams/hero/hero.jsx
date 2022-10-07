@@ -36,7 +36,7 @@ const Hero = ({ team }) => {
 
   return (
     <section className="safe-paddings relative min-h-[600px]">
-      <div className="container relative z-10 flex h-full flex-col items-center justify-center">
+      <div className="container relative z-10 flex h-full flex-col items-center justify-center sm:px-0">
         <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
           {'>>'}
           {team.name}
@@ -76,9 +76,9 @@ const Hero = ({ team }) => {
               {team.users.map((user, index) => (
                 <li
                   key={user.handle}
-                  className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[70px_150px_230px_1fr_1fr]"
+                  className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[150px_80px_120px]"
                 >
-                  <span>{index + 1}</span>
+                  <span className="sm:hidden">{index + 1}</span>
                   <p className="truncate font-medium">
                     {!!user.disqualified && (
                       <span className="font-bold" style={{ color: 'red' }}>
@@ -127,9 +127,9 @@ const Hero = ({ team }) => {
               {JSON.parse(team.prs || '[]').map((pr, index) => (
                 <li
                   key={pr.url}
-                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]"
+                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]"
                 >
-                  <span>{index + 1}</span>
+                  <span className="sm:hidden">{index + 1}</span>
                   <p className="truncate font-medium">
                     {pr.status === 'DELETED' && (
                       <span className="font-bold" style={{ color: 'red' }}>
