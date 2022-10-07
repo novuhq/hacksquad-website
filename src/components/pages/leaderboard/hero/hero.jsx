@@ -14,8 +14,8 @@ const leadersHeader = ['Place', 'Name', 'Score'];
 
 const Hero = ({ teams }) => (
   <section className="safe-paddings relative min-h-[600px]">
-    <div className="container relative flex h-full flex-col items-center justify-center py-16">
-      <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
+    <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
+      <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
         {title}
       </h1>
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
