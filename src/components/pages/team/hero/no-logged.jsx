@@ -1,11 +1,10 @@
 import Image from 'next/future/image';
 import React from 'react';
 
-import SignUpButton from '../../../shared/sign-up-button';
+import SignUpButton from 'components/shared/sign-up-button';
+import Socials from 'components/shared/socials';
 
 import bg from './images/bg.jpg';
-import DiscordIcon from './images/discord.inline.svg';
-import TwitterIcon from './images/twitter.inline.svg';
 
 const title = '>>Sign in!';
 const description = <>Oh no, you have probably signed out of the system</>;
@@ -18,29 +17,7 @@ const NoLogged = () => (
       </h1>
       <p className="mt-10 text-center text-lg sm:mt-6 sm:text-base">{description}</p>
       <SignUpButton alternativeText="Sign In" className="relative z-10 mx-auto mt-10" />
-
-      <div className="absolute bottom-20 flex flex-col items-center md:bottom-12">
-        <span className="font-mono uppercase">Let’s connect</span>
-        <div className="flex items-center space-x-8">
-          <a
-            className="group mt-5"
-            href="https://twitter.com/HackSquadDev"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <TwitterIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
-          </a>
-
-          <a
-            className="group mt-5"
-            href="https://discord.gg/vcqkXgT3Xr"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <DiscordIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
-          </a>
-        </div>
-      </div>
+      <Socials className="absolute bottom-20 md:bottom-12" />
     </div>
 
     <Image

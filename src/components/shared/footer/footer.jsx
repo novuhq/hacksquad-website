@@ -1,12 +1,14 @@
+import clsx from 'clsx';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Footer = () => (
-  <footer className="safe-paddings">
+const Footer = ({ withBorder }) => (
+  <footer className={clsx('safe-paddings', withBorder && 'border-t border-gray-2')}>
     <div className="container flex items-center justify-between py-5 sm:flex-col sm:items-start">
       <div className="sm:flex sm:w-full sm:justify-between">
         <Link href="/" passHref>
@@ -40,5 +42,13 @@ const Footer = () => (
     </div>
   </footer>
 );
+
+Footer.propTypes = {
+  withBorder: PropTypes.bool,
+};
+
+Footer.defaultProps = {
+  withBorder: false,
+};
 
 export default Footer;

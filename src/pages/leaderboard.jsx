@@ -11,7 +11,7 @@ const Leaderboard = ({ teams }) => (
       isRobotsNoindexPage: true,
     }}
     absolute={false}
-    withoutFooter
+    isFooterBordered
   >
     <Hero teams={teams} />
     <Topfab />
@@ -20,6 +20,10 @@ const Leaderboard = ({ teams }) => (
 
 Leaderboard.propTypes = {
   teams: PropTypes.array,
+};
+
+Leaderboard.defaultProps = {
+  teams: [],
 };
 
 export async function getServerSideProps() {
