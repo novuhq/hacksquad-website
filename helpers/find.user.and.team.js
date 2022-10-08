@@ -18,15 +18,18 @@ export default async function findUserAndTeam(req, res) {
     return { user, twitter, team: null, admin: false };
   }
 
+  const team = await prisma.team.findUnique({
+    where: { id: user.teamId },
+    include: {
+      users: true,
+    },
+  });
+
+  team.users = team?.users?.map(({ email, ...all }) => all);
   return {
     twitter,
     user,
-    team: await prisma.team.findUnique({
-      where: { id: user.teamId },
-      include: {
-        users: true,
-      },
-    }),
+    team,
     get admin() {
       return this.team.ownerId === user.id;
     },

@@ -8,6 +8,8 @@ export default async function findTeam(id) {
     },
   });
 
+  team.users = team?.users?.map(({ email, ...all }) => all);
+
   const prIds = JSON.parse(team.prs || '[]').map((p) => p.id);
   const prStatuses = await prisma.report.findMany({
     where: {
