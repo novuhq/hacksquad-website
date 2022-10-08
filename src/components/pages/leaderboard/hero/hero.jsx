@@ -1,41 +1,51 @@
+import Image from 'next/future/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import DiscordIcon from './images/discord.inline.svg';
-import TwitterIcon from './images/twitter.inline.svg';
+import Socials from 'components/shared/socials';
 
-const title = '>>Leaderboard';
+import bgLeftGlitch from './images/bg-left-glitch.png';
+import bgRightGlitch from './images/bg-right-glitch.png';
+import bgTitleGlitch from './images/bg-title-glitch.png';
+
+const title = '>_Leaderboard';
+const leadersHeader = ['Place', 'Name', 'Score'];
 
 const Hero = ({ teams }) => (
   <section className="safe-paddings relative min-h-[600px]">
-    <div className="container relative z-10 flex h-full flex-col items-center justify-center">
-      <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
+    <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
+      <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
         {title}
       </h1>
-      <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
-        <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
-          <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
-            <span className="font-medium uppercase">Place</span>
-            <span className="font-medium uppercase">Name</span>
-            <span className="font-medium uppercase">Score</span>
+      <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
+        <div className="min-w-[716px] md:min-w-[600px] sm:min-w-[300px] md:px-7 sm:px-4">
+          <div className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[50px_160px_40px]">
+            {leadersHeader.map((header, index) => (
+              <span className="font-medium uppercase" key={index}>
+                {header}
+              </span>
+            ))}
           </div>
-          {teams.map((team, index) => (
-            <ul>
-              <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
+          <ul>
+            {teams.map((team, index) => (
+              <li
+                className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[50px_160px_40px]"
+                key={team.slug}
+              >
                 <span>{index + 1}</span>
                 <p className="truncate font-medium">
                   <Link href={`/team/${team.slug}`}>{team.name}</Link>
                 </p>
                 <span>{team.score}</span>
               </li>
-            </ul>
-          ))}
+            ))}
+          </ul>
         </div>
       </div>
       <Link href="/" passHref>
         <a
-          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
+          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none"
           href="/"
         >
           <svg
@@ -47,41 +57,52 @@ const Hero = ({ teams }) => (
           >
             <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
           </svg>
-
           <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
             <span className="text-lg sm:text-[18px]">Back to Homepage</span>
           </div>
         </a>
       </Link>
-
-      <div className="mt-20 flex flex-col items-center md:bottom-12">
-        <span className="font-mono uppercase">Let’s connect</span>
-        <div className="flex items-center space-x-8">
-          <a
-            className="group mt-5"
-            href="https://twitter.com/HackSquadDev"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <TwitterIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
-          </a>
-
-          <a
-            className="group mt-5"
-            href="https://discord.gg/vcqkXgT3Xr"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <DiscordIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
-          </a>
-        </div>
-      </div>
+      <Socials className="mt-10" />
     </div>
+    <Image
+      className="absolute top-[70px] left-0 -z-20 md:top-10 sm:top-12 sm:max-w-[360px] xs:max-w-[240px]"
+      src={bgLeftGlitch}
+      width={464}
+      height={78}
+      loading="eager"
+      alt="Left Glitch image"
+      priority
+      aria-hidden
+    />
+    <Image
+      className="absolute left-0 right-0 top-0 -z-10 md:hidden"
+      src={bgTitleGlitch}
+      width={1920}
+      height={219}
+      loading="eager"
+      alt="Center Glitch image"
+      priority
+      aria-hidden
+    />
+    <Image
+      className="absolute right-0 top-9 -z-20 md:top-12 sm:top-20 sm:max-w-[360px] xs:max-w-[260px]"
+      src={bgRightGlitch}
+      width={474}
+      height={105}
+      loading="eager"
+      alt="Right Glitch image"
+      priority
+      aria-hidden
+    />
   </section>
 );
 
 Hero.propTypes = {
   teams: PropTypes.array,
+};
+
+Hero.defaultProps = {
+  teams: [],
 };
 
 export default Hero;

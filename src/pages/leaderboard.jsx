@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import Hero from 'components/pages/leaderboard/hero';
+import Topfab from 'components/shared/FAB/topfab';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Leaderboard = ({ teams }) => (
@@ -9,14 +10,19 @@ const Leaderboard = ({ teams }) => (
       isRobotsNoindexPage: true,
     }}
     absolute={false}
-    withoutFooter
+    isFooterBordered
   >
     <Hero teams={teams} />
+    <Topfab />
   </LayoutMain>
 );
 
 Leaderboard.propTypes = {
   teams: PropTypes.array,
+};
+
+Leaderboard.defaultProps = {
+  teams: [],
 };
 
 export async function getServerSideProps() {

@@ -36,7 +36,7 @@ const Hero = ({ team }) => {
 
   return (
     <section className="safe-paddings relative min-h-[600px]">
-      <div className="container relative z-10 flex h-full flex-col items-center justify-center">
+      <div className="container relative z-10 flex h-full flex-col items-center justify-center sm:px-0">
         <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
           {'>>'}
           {team.name}
@@ -65,16 +65,20 @@ const Hero = ({ team }) => {
         )}
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
-            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
-              <span className="font-medium uppercase">Place</span>
+            <div className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[150px_80px_120px]">
+              <span className="font-medium uppercase sm:hidden">Place</span>
               <span className="font-medium uppercase">Name</span>
-              {moderator && <span className="font-medium uppercase">Remove from team</span>}
+              <span className={`font-medium uppercase ${moderator && 'sm:hidden'}`}>GitHub</span>
+              {moderator && <span className="font-medium uppercase">Remove</span>}
               {moderator && <span className="font-medium uppercase">Disqualify</span>}
             </div>
-            {team.users.map((user, index) => (
-              <ul>
-                <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
-                  <span>{index + 1}</span>
+            <ul>
+              {team.users.map((user, index) => (
+                <li
+                  key={user.handle}
+                  className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[150px_80px_120px]"
+                >
+                  <span className="sm:hidden">{index + 1}</span>
                   <p className="truncate font-medium">
                     {!!user.disqualified && (
                       <span className="font-bold" style={{ color: 'red' }}>
@@ -83,19 +87,27 @@ const Hero = ({ team }) => {
                     )}{' '}
                     {user.name}
                   </p>
+                  <p className={`font-medium ${moderator && 'sm:hidden'}`}>
+                    <a href={`https://github.com/${user.handle}`} target="_blank" rel="noreferrer">
+                      <GitHubIcon className="h-[30px]" />
+                    </a>
+                  </p>
                   {moderator && (
                     <p className="cursor-pointer truncate font-medium" onClick={kick(user.id)}>
                       Remove
                     </p>
                   )}
                   {moderator && (
-                    <p className="cursor-pointer truncate font-medium" onClick={disqualifiedMember(user.id)}>
+                    <p
+                      className="cursor-pointer truncate font-medium"
+                      onClick={disqualifiedMember(user.id)}
+                    >
                       {user.disqualified ? 'Bring Back to the game' : 'Disqualify'}
                     </p>
                   )}
                 </li>
-              </ul>
-            ))}
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -105,16 +117,19 @@ const Hero = ({ team }) => {
 
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
-            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
-              <span className="font-medium uppercase">Place</span>
+            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]">
+              <span className="font-medium uppercase sm:hidden">Place</span>
               <span className="font-medium uppercase">Name</span>
               <span className="font-medium uppercase">Pull</span>
               {moderator && <span className="font-medium uppercase">Remove Pull</span>}
             </div>
-            {JSON.parse(team.prs || '[]').map((pr, index) => (
-              <ul>
-                <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
-                  <span>{index + 1}</span>
+            <ul>
+              {JSON.parse(team.prs || '[]').map((pr, index) => (
+                <li
+                  key={pr.url}
+                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]"
+                >
+                  <span className="sm:hidden">{index + 1}</span>
                   <p className="truncate font-medium">
                     {pr.status === 'DELETED' && (
                       <span className="font-bold" style={{ color: 'red' }}>
@@ -134,8 +149,8 @@ const Hero = ({ team }) => {
                     </p>
                   )}
                 </li>
-              </ul>
-            ))}
+              ))}
+            </ul>
           </div>
         </div>
 

@@ -9,6 +9,7 @@ const Team = ({ team }) => (
       isRobotsNoindexPage: true,
     }}
     absolute={false}
+    overflow
     withoutFooter
   >
     <Hero team={team} />

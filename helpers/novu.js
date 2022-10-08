@@ -22,7 +22,13 @@ const Novu = () => {
       applicationIdentifier={process.env.NEXT_PUBLIC_NOVU_APP_ID}
     >
       <PopoverNotificationCenter ref={ref} onNotificationClick={onClick}>
-        {({ unseenCount }) => <NotificationBell colorScheme="dark" unseenCount={unseenCount} />}
+        {({ unseenCount }) => (
+          <NotificationBell
+            colorScheme="dark"
+            unseenCount={unseenCount}
+            aria-label="Notifications"
+          />
+        )}
       </PopoverNotificationCenter>
     </NovuProvider>
   );

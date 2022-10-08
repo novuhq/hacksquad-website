@@ -60,7 +60,18 @@ model Report {
   @@index([status])
 }
 
+model Social {
+  createdAt     DateTime  @default(now())
+  id            String    @id @default(cuid())
+  type          SocialMedia
+  userId        String
+  user          User @relation(fields: [userId], references: [id])
+  accessToken   String
+  refreshToken  String
+}
+
 model User {
+  createdAt     DateTime  @default(now())
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
@@ -69,12 +80,16 @@ model User {
   moderator     Boolean @default(false)
   handle        String?
   teamId        String?
+  inviteId      String?
   disqualified  Boolean @default(false)
   teamOwner     Team?   @relation("owner")
   team          Team?   @relation(fields: [teamId], references: [id])
+  invite        User?   @relation("user", fields: [inviteId], references: [id])
+  invited       User[]  @relation("user")
   githubUserId  Int?
   accounts      Account[]
   sessions      Session[]
+  social        Social[]
 }
 
 model VerificationToken {
@@ -83,6 +98,9 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+enum SocialMedia {
+    TWITTER
 }
 
 enum Status {
