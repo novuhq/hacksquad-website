@@ -7,15 +7,14 @@ import LayoutMain from 'layouts/layouts/layout-main';
 const Myteam = () => {
   const [info, setInfo] = useState(false);
   useEffect(() => {
-    (async () => {
-      setInfo(
-        await (
-          await fetch(`/api/team`, {
-            credentials: 'include',
-          })
-        ).json()
-      );
-    })();
+    const getTeam = async () => {
+      const data = await fetch(`/api/team`, {
+        credentials: 'include',
+      });
+      const json = await data.json();
+      setInfo(json);
+    };
+    getTeam();
   }, []);
 
   if (!info) return <></>;
