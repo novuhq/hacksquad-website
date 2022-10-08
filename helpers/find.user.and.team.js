@@ -25,7 +25,10 @@ export default async function findUserAndTeam(req, res) {
     },
   });
 
-  team.users = team?.users?.map(({ email, ...all }) => all);
+  team.users = team?.users?.map(({ email, ...all }) => ({
+    ...all,
+    email: user.id === all.id ? email : undefined,
+  }));
   return {
     twitter,
     user,
