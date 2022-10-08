@@ -65,6 +65,11 @@ const Hero = ({ team }) => {
         )}
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
+            <div className="mb-10">
+                  <label>
+                    Squad Score: <input type="text" name="score" value={team.score} disabled />
+                  </label>
+             </div>
             <div className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[150px_80px_120px]">
               <span className="font-medium uppercase sm:hidden">Place</span>
               <span className="font-medium uppercase">Name</span>
