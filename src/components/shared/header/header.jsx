@@ -4,10 +4,10 @@ import React from 'react';
 
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
+import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
 import Novu from '~/helpers/novu';
-import Navbar from '../navbar/navbar';
 
 const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => (
   <header
@@ -22,7 +22,22 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => (
       </Link>
 
       <div className="flex items-center space-x-10 sm:hidden">
-        <Navbar />
+        <nav>
+          <ul className="flex space-x-10 md:space-x-6">
+            {MENUS.header.map(({ href, text }, index) => (
+              <li key={index}>
+                <Link href={href} passHref>
+                  <a
+                    className="py-5 transition-colors duration-200 hover:text-primary-2"
+                    href={href}
+                  >
+                    {text}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <Novu />
         <Button />
       </div>
