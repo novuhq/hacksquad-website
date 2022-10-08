@@ -24,7 +24,17 @@ export default async function findUserAndTeam(req, res) {
     team: await prisma.team.findUnique({
       where: { id: user.teamId },
       include: {
-        users: true,
+        users: {
+          select: {
+            createdAt: true,
+            id: true,
+            name: true,
+            moderator: true,
+            handle: true,
+            teamId: true,
+            disqualified: true,
+          },
+        },
       },
     }),
     get admin() {
