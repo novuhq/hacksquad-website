@@ -68,6 +68,7 @@ model User {
   emailVerified DateTime?
   image         String?
   moderator     Boolean @default(false)
+  cleaner       Boolean @default(false)
   handle        String?
   teamId        String?
   disqualified  Boolean @default(false)

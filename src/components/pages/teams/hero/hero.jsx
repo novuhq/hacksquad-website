@@ -10,30 +10,37 @@ import TwitterIcon from './images/twitter.inline.svg';
 import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
-  const moderator = useModerator();
+  const { moderator, cleaner } = useModerator();
+
   const [disqualified, setDisqualified] = useState(team.disqualified);
-  const kick = (id) => async () => {
-    if (confirm('Are you sure?')) {
+
+  //
+  const kick = (id, name) => async () => {
+    if (confirm(`Are you sure want to kick "${name}" from the team?`)) {
       await fetch(`/api/kick?id=${id}`);
       window.location.reload();
     }
   };
 
+  //
   const changeTeamStatus = async () => {
     await fetch(`/api/disqualified?id=${team.id}`);
     setDisqualified(!disqualified);
   };
 
+  //
   const removePr = (id) => async () => {
     await fetch(`/api/remove-pr?id=${id}`);
     window.location.reload();
   };
 
+  //
   const disqualifiedMember = (id) => async () => {
     await fetch(`/api/disqualified-member?id=${id}`);
     window.location.reload();
   };
 
+  //
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative z-10 flex h-full flex-col items-center justify-center">
@@ -41,6 +48,7 @@ const Hero = ({ team }) => {
           {'>>'}
           {team.name}
         </h1>
+
         {moderator && (
           <a
             className="cta-btn-animation relative mt-3 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6"
@@ -63,6 +71,7 @@ const Hero = ({ team }) => {
             </div>
           </a>
         )}
+
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
             <div className="grid grid-cols-[175px_420px_175px_175px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr] sm:grid-cols-[70px_150px_230px_1fr_1fr]">
@@ -72,6 +81,7 @@ const Hero = ({ team }) => {
               {moderator && <span className="font-medium uppercase">Remove</span>}
               {moderator && <span className="font-medium uppercase">Disqualify</span>}
             </div>
+
             <ul>
               {team.users.map((user, index) => (
                 <li
@@ -92,11 +102,16 @@ const Hero = ({ team }) => {
                       <GitHubIcon className="h-[30px]" />
                     </a>
                   </p>
+
                   {moderator && (
-                    <p className="cursor-pointer truncate font-medium" onClick={kick(user.id)}>
+                    <p
+                      className="cursor-pointer truncate font-medium"
+                      onClick={kick(user.id, user.name)}
+                    >
                       Remove
                     </p>
                   )}
+
                   {moderator && (
                     <p
                       className="cursor-pointer truncate font-medium"
@@ -121,8 +136,10 @@ const Hero = ({ team }) => {
               <span className="font-medium uppercase">Place</span>
               <span className="font-medium uppercase">Name</span>
               <span className="font-medium uppercase">Pull</span>
-              {moderator && <span className="font-medium uppercase">Remove Pull</span>}
+
+              {(moderator || cleaner) && <span className="font-medium uppercase">Remove Pull</span>}
             </div>
+
             <ul>
               {JSON.parse(team.prs || '[]').map((pr, index) => (
                 <li
@@ -143,7 +160,8 @@ const Hero = ({ team }) => {
                       <GitHubIcon className="h-[30px]" />
                     </a>
                   </p>
-                  {moderator && (
+
+                  {(moderator || cleaner) && (
                     <p className="cursor-pointer truncate font-medium" onClick={removePr(pr.id)}>
                       {pr.status === 'DELETED' ? 'Return' : 'Remove'}
                     </p>
