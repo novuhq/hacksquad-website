@@ -1,7 +1,8 @@
 .fab-btn{
     position: fixed;
-    bottom: 80px;
-    right: 60px;
+    background:#000000bd;
+    bottom: 38px;
+    right: 20px;
     z-index: 999;
     border: 1px solid white;
     font-size: 24px;
