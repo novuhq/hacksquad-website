@@ -113,7 +113,7 @@ const Hero = ({ team }) => {
         </div>
 
         <MergedPRs team={team} />
-
+        
         <Link href="/leaderboard" passHref>
           <a
             className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"

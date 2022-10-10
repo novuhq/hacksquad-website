@@ -5,14 +5,12 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
-import useModerator from '~/helpers/use.moderator';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
 import MergedPRs from './merged-prs';
 
 const Team = ({ info }) => {
   const session = useSession();
-  const moderator = useModerator();
 
   const [contact, setContact] = useState('');
   const [teamName, setTeamName] = useState(info.team.name);
