@@ -23,7 +23,7 @@ const events = [
     link: 'https://zoom.us/webinar/register/WN_FC0U3ggyQBel-EvWBtEtgQ',
   },
   {
-    date: moment.utc('2022-10-13T22:00:00'),
+    date: moment.utc('2022-10-15T15:00:00'),
     title: 'Building a Discord bot in Rust, Javascript and Python',
     company: 'Community Event',
     link: 'https://zoom.us/webinar/register/WN_ny1Ifn0PQW-E5oClswIEJw',
