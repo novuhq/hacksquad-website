@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Hero from 'components/pages/team/hero';
+import Topfab from 'components/shared/FAB/topfab';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Myteam = () => {
@@ -28,6 +29,7 @@ const Myteam = () => {
       withoutFooter
     >
       <Hero info={info} />
+      <Topfab />
     </LayoutMain>
   );
 };

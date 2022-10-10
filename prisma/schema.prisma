@@ -80,9 +80,12 @@ model User {
   moderator     Boolean @default(false)
   handle        String?
   teamId        String?
+  inviteId      String?
   disqualified  Boolean @default(false)
   teamOwner     Team?   @relation("owner")
   team          Team?   @relation(fields: [teamId], references: [id])
+  invite        User?   @relation("user", fields: [inviteId], references: [id])
+  invited       User[]  @relation("user")
   githubUserId  Int?
   accounts      Account[]
   sessions      Session[]

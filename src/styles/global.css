@@ -7,6 +7,10 @@
     @apply min-w-[320px] bg-black font-sans text-base leading-normal text-white antialiased;
     -webkit-tap-highlight-color: transparent;
   }
+  *:focus-visible {
+    outline: 2px transparent solid;
+    box-shadow: 0 0 0 2px #000, 0 0 0 4px #fff;
+  }
 }
 
 .coming-soon-animation span {

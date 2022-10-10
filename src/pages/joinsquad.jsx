@@ -1,3 +1,4 @@
+import Topfab from 'components/shared/FAB/topfab';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 import JoinSquad from '../components/pages/joinsquad/hero';
@@ -10,6 +11,7 @@ const ThankYou = () => (
     withoutFooter
   >
     <JoinSquad />
+    <Topfab />
   </LayoutMain>
 );
 

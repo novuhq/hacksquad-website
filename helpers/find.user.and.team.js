@@ -5,7 +5,7 @@ import { authOptions } from '../src/pages/api/auth/[...nextauth]';
 import prisma from '~/prisma/client';
 
 export default async function findUserAndTeam(req, res) {
-  const partialUser = await unstable_getServerSession(req, res, authOptions);
+  const partialUser = await unstable_getServerSession(req, res, authOptions(req, res));
   if (!partialUser) {
     return { user: null, team: null, admin: false };
   }
@@ -18,15 +18,21 @@ export default async function findUserAndTeam(req, res) {
     return { user, twitter, team: null, admin: false };
   }
 
+  const team = await prisma.team.findUnique({
+    where: { id: user.teamId },
+    include: {
+      users: true,
+    },
+  });
+
+  team.users = team?.users?.map(({ email, ...all }) => ({
+    ...all,
+    email: user.id === all.id ? email : undefined,
+  }));
   return {
     twitter,
     user,
-    team: await prisma.team.findUnique({
-      where: { id: user.teamId },
-      include: {
-        users: true,
-      },
-    }),
+    team,
     get admin() {
       return this.team.ownerId === user.id;
     },

@@ -20,7 +20,7 @@ const Team = ({ info }) => {
 
   //
   const currentUser = useMemo(
-    () => info.team.users.find((user) => user.email === session?.data?.user?.email),
+    () => info.team.users.find((user) => user?.email === session?.data?.user?.email),
     [info.team.users, session?.data?.user?.email]
   );
   const isCurrentUserNew = moment(currentUser.createdAt).isAfter(moment().subtract(3, 'days'));

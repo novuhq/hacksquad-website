@@ -1,4 +1,5 @@
 import Hero from 'components/pages/thank-you/hero';
+import Topfab from 'components/shared/FAB/topfab';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const ThankYou = () => (
@@ -9,6 +10,7 @@ const ThankYou = () => (
     withoutFooter
   >
     <Hero />
+    <Topfab />
   </LayoutMain>
 );
 
