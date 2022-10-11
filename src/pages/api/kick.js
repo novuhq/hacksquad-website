@@ -1,3 +1,5 @@
+import { ActionType } from '@prisma/client';
+
 import findUserAndTeam from '~/helpers/find.user.and.team';
 import prisma from '~/prisma/client';
 
@@ -34,14 +36,26 @@ export default async function handler(req, res) {
       },
     });
 
-    await prisma.user.update({
-      where: {
-        id: req.query.id,
-      },
-      data: {
-        teamId: null,
-      },
-    });
+    await Promise.all([
+      // Removing user from team
+      prisma.user.update({
+        where: {
+          id: req.query.id,
+        },
+        data: {
+          teamId: null,
+        },
+      }),
+
+      // Logging the action
+      prisma.actionLogs.create({
+        data: {
+          actionType: ActionType.KICK_USER,
+          admin: user,
+          userId: req.query.id,
+        },
+      }),
+    ]);
 
     res.json({ finish: true });
     return;

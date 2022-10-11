@@ -1,8 +1,12 @@
+import { ActionType } from '@prisma/client';
+
+//
 import findTeamById from '~/helpers/find.team.by.id';
 import findUserAndTeam from '~/helpers/find.user.and.team';
 import sendNotification from '~/helpers/send-notification';
 import prisma from '~/prisma/client';
 
+//
 export default async function handler(req, res) {
   const { user } = await findUserAndTeam(req, res);
   if (!user?.moderator || !req?.query?.id) {
@@ -10,24 +14,32 @@ export default async function handler(req, res) {
     return;
   }
 
-  const team = await findTeamById(req.query.id);
+  const teamF = await findTeamById(req.query.id);
 
-  await prisma.team.update({
-    where: {
-      id: req.query.id,
-    },
-    data: {
-      disqualified: !team.disqualified,
-    },
-  });
+  await Promise.all([
+    // Performing action on team
+    prisma.team.update({
+      where: { id: req.query.id },
+      data: { disqualified: !teamF.disqualified },
+    }),
 
-  if (!team.disqualified) {
+    // Logging the action
+    prisma.actionLogs.create({
+      data: {
+        actionType: teamF.disqualified ? ActionType.RECOVER_TEAM : ActionType.DISQUALITY_TEAM,
+        admin: user,
+        team: teamF,
+      },
+    }),
+  ]);
+
+  if (!teamF.disqualified) {
     res.status(200).send();
     return;
   }
 
   Promise.all(
-    team.users.map((u) =>
+    teamF.users.map((u) =>
       sendNotification(
         'disqualified',
         {

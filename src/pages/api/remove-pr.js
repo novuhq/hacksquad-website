@@ -1,3 +1,5 @@
+import { ActionType } from '@prisma/client';
+
 import findUserAndTeam from '~/helpers/find.user.and.team';
 import prisma from '~/prisma/client';
 
@@ -13,13 +15,22 @@ export default async function handler(req, res) {
     },
   });
 
-  // Recovering the PR if it is marked as deleted
   if (data) {
-    await prisma.report.delete({
-      where: {
-        pr: req.query.id,
-      },
-    });
+    await Promise.all([
+      // Recovering the PR
+      prisma.report.delete({
+        where: { pr: req.query.id },
+      }),
+
+      // Logging the action
+      prisma.actionLogs.create({
+        data: {
+          admin: user,
+          pr: req.query.id,
+          actionType: ActionType.RECOVER_PR,
+        },
+      }),
+    ]);
 
     res.json({
       finish: true,
@@ -30,13 +41,24 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Marking the PR as deleted
-  await prisma.report.create({
-    data: {
-      pr: req.query.id,
-      status: 'DELETED',
-    },
-  });
+  await Promise.all([
+    // Marking the PR as deleted
+    prisma.report.create({
+      data: {
+        pr: req.query.id,
+        status: 'DELETED',
+      },
+    }),
+
+    // Logging the action
+    prisma.actionLogs.create({
+      data: {
+        admin: user,
+        pr: req.query.id,
+        actionType: ActionType.DELTE_PR,
+      },
+    }),
+  ]);
 
   res.json({
     finish: true,
