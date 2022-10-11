@@ -11,7 +11,6 @@ import GitHubIcon from '../../../../icons/github.inline.svg';
 const Team = ({ info }) => {
   const session = useSession();
 
-  //
   const [contact, setContact] = useState('');
   const [teamName, setTeamName] = useState(info.team.name);
   const [randomJoin, setRandomJoin] = useState(info.team.allowAutoAssign);
@@ -20,7 +19,7 @@ const Team = ({ info }) => {
 
   //
   const currentUser = useMemo(
-    () => info.team.users.find((user) => user.email === session?.data?.user?.email),
+    () => info.team.users.find((user) => user?.email === session?.data?.user?.email),
     [info.team.users, session?.data?.user?.email]
   );
   const isCurrentUserNew = moment(currentUser.createdAt).isAfter(moment().subtract(3, 'days'));
@@ -121,6 +120,27 @@ const Team = ({ info }) => {
             </a>
           </div>
         )}
+
+        <div>
+          <a
+            href="/bonuses"
+            className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
+          >
+            <svg
+              className="cta-btn-animation-border xs:w-full"
+              width="200"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
+
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">Bonuses</span>
+            </div>
+          </a>
+        </div>
       </div>
 
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">

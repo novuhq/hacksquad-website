@@ -12,7 +12,7 @@ import bgLeftSquare from './images/bg-left-square.png';
 import bgLeft from './images/bg-left.jpg';
 import bgRight from './images/bg-right.jpg';
 
-const title = 'Welcome to Hacksquad 2022!';
+const title = 'Welcome to HackSquad 2022!';
 
 const eventsHeader = ['Date', 'Event', 'Company', 'Rsvp'];
 const events = [
@@ -23,9 +23,21 @@ const events = [
     link: 'https://zoom.us/webinar/register/WN_FC0U3ggyQBel-EvWBtEtgQ',
   },
   {
+    date: moment.utc('2022-10-15T15:00:00'),
+    title: 'Building a Discord bot in Rust, Javascript and Python',
+    company: 'Community Event',
+    link: 'https://zoom.us/webinar/register/WN_ny1Ifn0PQW-E5oClswIEJw',
+  },
+  {
     date: moment.utc('2022-10-19T07:00:00'),
     title: 'GitHub like a boss',
     company: 'Michelle @ GitHub',
+    link: 'https://zoom.us/webinar/register/WN_ICktK3LHTB6HDwJD9OWQPA',
+  },
+  {
+    date: moment.utc('2022-10-19T13:00:00'),
+    title: 'Extending and embedding open-source projects',
+    company: 'Raz @ Permit.io',
     link: 'https://zoom.us/webinar/register/WN_ICktK3LHTB6HDwJD9OWQPA',
   },
   {

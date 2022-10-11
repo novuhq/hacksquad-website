@@ -10,7 +10,7 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_SERVER,
 });
 
-export const authOptions = {
+export const authOptions = (req) => ({
   adapter: PrismaAdapter(prisma),
   session: {
     maxAge: 30 * 24 * 60 * 60,
@@ -30,12 +30,21 @@ export const authOptions = {
         },
       }).then((res) => res.json());
 
+      const getInvite = req?.cookies?.invite
+        ? await prisma.user.findUnique({
+            where: {
+              email: Buffer.from(req?.cookies?.invite, 'base64').toString(),
+            },
+          })
+        : undefined;
+
       await prisma.user.update({
         where: {
           id: user.id,
         },
         data: {
           handle: login,
+          ...(getInvite && getInvite.id !== user.id ? { inviteId: getInvite.id } : {}),
         },
       });
 
@@ -54,6 +63,6 @@ export const authOptions = {
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
-};
+});
 
-export default NextAuth(authOptions);
+export default (req, res, context) => NextAuth(authOptions(req, res))(req, res, context);
