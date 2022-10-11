@@ -5,6 +5,11 @@ import GitHubIcon from '../../../../icons/github.inline.svg';
 const MergedPRs = ({team}) => {
   const moderator = useModerator();
 
+  const removePr = (id) => async () => {
+    await fetch(`/api/remove-pr?id=${id}`);
+    window.location.reload();
+  };
+
   return (
     <>
       <h2 className="mt-20 font-mono text-lg font-bold uppercase leading-tight lg:text-[25px] md:text-[25px] xs:text-[25px]">

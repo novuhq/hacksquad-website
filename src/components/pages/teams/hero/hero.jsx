@@ -25,11 +25,6 @@ const Hero = ({ team }) => {
     setDisqualified(!disqualified);
   };
 
-  const removePr = (id) => async () => {
-    await fetch(`/api/remove-pr?id=${id}`);
-    window.location.reload();
-  };
-
   const disqualifiedMember = (id) => async () => {
     await fetch(`/api/disqualified-member?id=${id}`);
     window.location.reload();
