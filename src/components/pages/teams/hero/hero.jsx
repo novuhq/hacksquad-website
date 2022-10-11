@@ -13,6 +13,7 @@ const Hero = ({ team }) => {
   const { moderator, cleaner } = useModerator();
 
   const [disqualified, setDisqualified] = useState(team.disqualified);
+  const [pullRequests, setPullRequests] = useState(JSON.parse(team?.prs || '[]'));
 
   //
   const kick = (id, name) => async () => {
@@ -30,8 +31,13 @@ const Hero = ({ team }) => {
 
   //
   const removePr = (id) => async () => {
-    await fetch(`/api/remove-pr?id=${id}`);
-    window.location.reload();
+    const response = await fetch(`/api/remove-pr?id=${id}`).then((res) => res.json());
+
+    const updatedPrList = [...pullRequests].map((pr) =>
+      pr.id === response.id ? { ...pr, status: response.status } : pr
+    );
+
+    setPullRequests(updatedPrList);
   };
 
   //
@@ -141,7 +147,7 @@ const Hero = ({ team }) => {
             </div>
 
             <ul>
-              {JSON.parse(team.prs || '[]').map((pr, index) => (
+              {pullRequests.map((pr, index) => (
                 <li
                   key={pr.url}
                   className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]"

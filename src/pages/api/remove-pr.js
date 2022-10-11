@@ -13,15 +13,24 @@ export default async function handler(req, res) {
     },
   });
 
+  // Recovering the PR if it is marked as deleted
   if (data) {
     await prisma.report.delete({
       where: {
         pr: req.query.id,
       },
     });
-    return res.json({ finish: true });
+
+    res.json({
+      finish: true,
+      id: req.query.id,
+      status: '',
+    });
+
+    return;
   }
 
+  // Marking the PR as deleted
   await prisma.report.create({
     data: {
       pr: req.query.id,
@@ -29,5 +38,9 @@ export default async function handler(req, res) {
     },
   });
 
-  res.json({ finish: true });
+  res.json({
+    finish: true,
+    id: req.query.id,
+    status: 'DELETED',
+  });
 }
