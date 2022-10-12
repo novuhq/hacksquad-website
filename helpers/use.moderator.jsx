@@ -2,23 +2,28 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
 const useModerator = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [mod, setMod] = useState(false);
+  const [cleaner, setCleaner] = useState(false);
+  const [moderator, setModerator] = useState(false);
+
   const { status } = useSession();
 
+  //
+  const getModDetails = async () => {
+    const { moderator: isModerator, cleaner: isCleaner } = await fetch('/api/mod').then((res) =>
+      res.json()
+    );
+
+    setModerator(isModerator);
+    setCleaner(isCleaner);
+  };
+
+  //
   useEffect(() => {
-    (async () => {
-      if (status !== 'authenticated') {
-        return;
-      }
-
-      const { moderator: isModerator } = await (await fetch(`/api/mod`)).json();
-
-      setMod(isModerator);
-    })();
+    getModDetails();
   }, [status]);
 
-  return mod;
+  //
+  return { moderator, cleaner };
 };
 
 export default useModerator;
