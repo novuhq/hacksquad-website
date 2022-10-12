@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   await prisma.actionLogs.create({
     data: {
       actionType: ActionType.KICK_USER,
-      admin: user,
+      adminId: user.id,
       userId: req.query.id,
     },
   });

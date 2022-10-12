@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       // Logging the action
       prisma.actionLogs.create({
         data: {
-          admin: user,
+          adminId: user.id,
           pr: req.query.id,
           actionType: ActionType.RECOVER_PR,
         },
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
     // Logging the action
     prisma.actionLogs.create({
       data: {
-        admin: user,
+        adminId: user.id,
         pr: req.query.id,
         actionType: ActionType.DELTE_PR,
       },

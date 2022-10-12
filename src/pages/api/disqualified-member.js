@@ -27,8 +27,8 @@ export default async function handler(req, res) {
     prisma.actionLogs.create({
       data: {
         actionType: userF.disqualified ? ActionType.RECOVER_USER : ActionType.DISQUALIFY_USER,
-        admin: user,
-        user: userF,
+        adminId: user.id,
+        userId: userF.id,
       },
     }),
   ]);
