@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import DiscordIcon from 'images/social/discord.inline.svg';
-import TwitterIcon from 'images/social/twitter.inline.svg';
 import GithubIcon from 'images/social/github.inline.svg';
+import TwitterIcon from 'images/social/twitter.inline.svg';
 
 const Socials = ({ className: additionalClassName }) => (
   <section className={clsx('flex items-center', additionalClassName)}>
