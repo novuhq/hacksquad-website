@@ -72,7 +72,7 @@ model ActionLogs {
   // action type i.e. if is for PR or for user or team
   actionType      ActionType
   // id of the PR
-  pr              String?     @unique
+  pr              String?
   // details of user on which action was taken
   user            User?       @relation("affectedUser", fields: [userId], references: [id])
   userId          String?
@@ -81,7 +81,8 @@ model ActionLogs {
   teamId          String? 
   // details of user who took the action
   admin           User        @relation("admin", fields: [adminId], references: [id])
-  adminId         String      @unique
+  adminId         String
+  @@unique([pr, adminId], name: "prAdmin")
 }
 
 model Report {
