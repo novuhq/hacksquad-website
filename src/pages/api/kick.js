@@ -24,6 +24,15 @@ export default async function handler(req, res) {
     },
   });
 
+  // Logging the action
+  await prisma.actionLogs.create({
+    data: {
+      actionType: ActionType.KICK_USER,
+      admin: user,
+      userId: req.query.id,
+    },
+  });
+
   // not only one in the team
   if (users.length > 1) {
     const randomUser = users.find((u) => u.id !== req?.query.id);
@@ -36,26 +45,15 @@ export default async function handler(req, res) {
       },
     });
 
-    await Promise.all([
-      // Removing user from team
-      prisma.user.update({
-        where: {
-          id: req.query.id,
-        },
-        data: {
-          teamId: null,
-        },
-      }),
-
-      // Logging the action
-      prisma.actionLogs.create({
-        data: {
-          actionType: ActionType.KICK_USER,
-          admin: user,
-          userId: req.query.id,
-        },
-      }),
-    ]);
+    // Removing user from team
+    await prisma.user.update({
+      where: {
+        id: req.query.id,
+      },
+      data: {
+        teamId: null,
+      },
+    });
 
     res.json({ finish: true });
     return;
