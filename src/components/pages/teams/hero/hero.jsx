@@ -7,8 +7,8 @@ import GitHubIcon from '../../../../icons/github.inline.svg';
 import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
-import useModerator from '~/helpers/use.moderator';
 import MergedPrs from 'components/pages/team/hero/merged-prs';
+import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
   const { moderator } = useModerator();
