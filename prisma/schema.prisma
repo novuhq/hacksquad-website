@@ -74,6 +74,7 @@ model ActionLogs {
   actionType      ActionType
   // id of the PR
   pr              String?
+  prDetails       String?
   // details of user on which action was taken
   user            User?       @relation("affectedUser", fields: [userId], references: [id])
   userId          String?
@@ -83,6 +84,9 @@ model ActionLogs {
   // details of user who took the action
   admin           User        @relation("admin", fields: [adminId], references: [id])
   adminId         String
+
+  @@index([pr])
+  @@index([prDetails])
 }
 
 model Report {
