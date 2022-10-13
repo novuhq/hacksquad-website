@@ -22,6 +22,7 @@ export default async function handler(req, res) {
         ...[req.query.user ? { userId: req.query.user } : {}],
       ],
     },
+    orderBy: [{ createdAt: 'desc' }],
     take: 30,
     skip: 30 * (page - 1),
     select: {
