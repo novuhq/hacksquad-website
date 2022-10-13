@@ -2,12 +2,13 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
+import MergedPrs from 'components/pages/team/hero/merged-prs';
+
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
 import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
-import MergedPrs from 'components/pages/team/hero/merged-prs';
 import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {

@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
+
 import MergedPrs from './merged-prs';
 
 const Team = ({ info }) => {
