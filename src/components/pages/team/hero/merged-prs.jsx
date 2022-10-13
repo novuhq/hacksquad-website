@@ -3,11 +3,18 @@ import useModerator from '~/helpers/use.moderator';
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
 const MergedPRs = ({team}) => {
-  const moderator = useModerator();
+  const { moderator, cleaner} = useModerator();
+
+  const [pullRequests, setPullRequests] = useState(JSON.parse(team?.prs || '[]'));
 
   const removePr = (id) => async () => {
-    await fetch(`/api/remove-pr?id=${id}`);
-    window.location.reload();
+    const response = await fetch(`/api/remove-pr?id=${id}`).then((res) => res.json());
+
+    const updatedPrList = [...pullRequests].map((pr) =>
+      pr.id === response.id ? { ...pr, status: response.status } : pr
+    );
+
+    setPullRequests(updatedPrList);
   };
 
   return (

@@ -11,10 +11,9 @@ import useModerator from '~/helpers/use.moderator';
 import MergedPRs from 'components/pages/team/hero/merged-prs';
 
 const Hero = ({ team }) => {
-  const { moderator, cleaner } = useModerator();
+  const { moderator } = useModerator();
 
   const [disqualified, setDisqualified] = useState(team.disqualified);
-  const [pullRequests, setPullRequests] = useState(JSON.parse(team?.prs || '[]'));
 
   //
   const kick = (id, name) => async () => {
