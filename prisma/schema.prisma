@@ -69,6 +69,7 @@ enum ActionType {
 
 model ActionLogs {
   id              String      @id @default(cuid())
+  createdAt       DateTime    @default(now())
   // action type i.e. if is for PR or for user or team
   actionType      ActionType
   // id of the PR
@@ -82,7 +83,6 @@ model ActionLogs {
   // details of user who took the action
   admin           User        @relation("admin", fields: [adminId], references: [id])
   adminId         String
-  @@unique([pr, adminId], name: "prAdmin")
 }
 
 model Report {

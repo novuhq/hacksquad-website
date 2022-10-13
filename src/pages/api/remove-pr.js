@@ -5,7 +5,9 @@ import prisma from '~/prisma/client';
 
 export default async function handler(req, res) {
   const { user } = await findUserAndTeam(req, res);
-  if (!user?.moderator || !user?.cleaner || !req?.query?.id) {
+
+  if (!req?.query?.id || !(user?.moderator || user?.cleaner)) {
+    res.json({ success: false, message: 'Invalid request' });
     return;
   }
 
