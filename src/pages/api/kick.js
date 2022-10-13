@@ -1,3 +1,5 @@
+import { ActionType } from '@prisma/client';
+
 import findUserAndTeam from '~/helpers/find.user.and.team';
 import prisma from '~/prisma/client';
 
@@ -22,6 +24,15 @@ export default async function handler(req, res) {
     },
   });
 
+  // Logging the action
+  await prisma.actionLogs.create({
+    data: {
+      actionType: ActionType.KICK_USER,
+      adminId: user.id,
+      userId: req.query.id,
+    },
+  });
+
   // not only one in the team
   if (users.length > 1) {
     const randomUser = users.find((u) => u.id !== req?.query.id);
@@ -34,6 +45,7 @@ export default async function handler(req, res) {
       },
     });
 
+    // Removing user from team
     await prisma.user.update({
       where: {
         id: req.query.id,

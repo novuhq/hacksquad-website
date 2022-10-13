@@ -37,20 +37,52 @@ model Session {
 }
 
 model Team {
-  id              String    @id @default(cuid())
+  id              String        @id @default(cuid())
   name            String
-  slug            String? @unique
+  slug            String?       @unique
   score           Int?
-  ownerId         String @unique
-  owner           User @relation(name: "owner", fields: [ownerId], references: [id])
+  ownerId         String        @unique
+  owner           User          @relation(name: "owner", fields: [ownerId], references: [id])
   users           User[]
+  actionLogs      ActionLogs[]  @relation("team")
   prs             String?
   githubTeamId    Int?
   allowAutoAssign Boolean
-  disqualified    Boolean @default(false)
+  disqualified    Boolean       @default(false)
 
   @@index([slug])
   @@index([disqualified])
+}
+
+enum ActionType {
+  KICK_USER
+  // 
+  DELTE_PR
+  RECOVER_PR
+  // 
+  DISQUALIFY_USER
+  RECOVER_USER
+  // 
+  DISQUALITY_TEAM
+  RECOVER_TEAM
+}
+
+model ActionLogs {
+  id              String      @id @default(cuid())
+  createdAt       DateTime    @default(now())
+  // action type i.e. if is for PR or for user or team
+  actionType      ActionType
+  // id of the PR
+  pr              String?
+  // details of user on which action was taken
+  user            User?       @relation("affectedUser", fields: [userId], references: [id])
+  userId          String?
+  // details of team
+  team            Team?       @relation("team", fields: [teamId], references: [id])
+  teamId          String? 
+  // details of user who took the action
+  admin           User        @relation("admin", fields: [adminId], references: [id])
+  adminId         String
 }
 
 model Report {
@@ -71,25 +103,28 @@ model Social {
 }
 
 model User {
-  createdAt     DateTime  @default(now())
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  moderator     Boolean @default(false)
-  handle        String?
-  teamId        String?
-  inviteId      String?
-  disqualified  Boolean @default(false)
-  teamOwner     Team?   @relation("owner")
-  team          Team?   @relation(fields: [teamId], references: [id])
-  invite        User?   @relation("user", fields: [inviteId], references: [id])
-  invited       User[]  @relation("user")
-  githubUserId  Int?
-  accounts      Account[]
-  sessions      Session[]
-  social        Social[]
+  createdAt           DateTime  @default(now())
+  id                  String    @id @default(cuid())
+  name                String?
+  email               String?   @unique
+  emailVerified       DateTime?
+  image               String?
+  moderator           Boolean @default(false)
+  cleaner             Boolean @default(false)
+  handle              String?
+  teamId              String?
+  inviteId            String?
+  disqualified        Boolean @default(false)
+  teamOwner           Team?   @relation("owner")
+  team                Team?   @relation(fields: [teamId], references: [id])
+  invite              User?   @relation("user", fields: [inviteId], references: [id])
+  invited             User[]  @relation("user")
+  githubUserId        Int?
+  accounts            Account[]
+  sessions            Session[]
+  social              Social[]
+  userActionLogs      ActionLogs[] @relation("affectedUser")
+  adminActionLogs     ActionLogs[] @relation("admin")
 }
 
 model VerificationToken {

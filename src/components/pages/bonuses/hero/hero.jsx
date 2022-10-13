@@ -17,24 +17,24 @@ const Hero = ({ twitter }) => (
         {title}
       </h1>
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
-        <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
-          <div className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[20px_150px_230px_1fr]">
-            <span className="font-medium uppercase">Num</span>
+        <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-1">
+          <div className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+            <span className="font-medium uppercase sm:hidden">#</span>
             <span className="font-medium uppercase">Type</span>
-            <span className="font-medium uppercase">Total Points</span>
-            <span className="font-medium uppercase">Connect</span>
+            <span className="font-medium uppercase">Points</span>
+            <span className="font-medium uppercase">Claim</span>
           </div>
           <ul>
-            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[20px_150px_230px_1fr]">
-              <span>1</span>
-              <span>Connect your twitter account to like and retweet HackSquad twitter</span>
+            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+              <span className="sm:hidden">1</span>
+              <span>Twitter connection</span>
               <span>2</span>
               <span>{twitter ? 'Connected' : <TwitterButton />}</span>
             </li>
-            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[20px_150px_230px_1fr]">
-              <span>2</span>
-              <span>Invite friends to register to HackSquad</span>
-              <span>1 point per friend. Max 5 friends</span>
+            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+              <span className="sm:hidden">2</span>
+              <span>Friend invite</span>
+              <span>1 per friend [Max:5]</span>
               <span>
                 <InviteButton />
               </span>
