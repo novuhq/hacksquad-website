@@ -25,7 +25,7 @@ const Hero = ({ info }) => {
           {title}
         </h1>
         {!info.team ? <NoTeam /> : <Team info={info} />}
-        <Socials className="mt-20" />
+        <Socials className="mt-20 mb-10" />
       </div>
     </section>
   );
