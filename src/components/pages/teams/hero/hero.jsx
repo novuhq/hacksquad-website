@@ -8,7 +8,7 @@ import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
 import useModerator from '~/helpers/use.moderator';
-import MergedPRs from 'components/pages/team/hero/merged-prs';
+import MergedPrs from 'components/pages/team/hero/merged-prs';
 
 const Hero = ({ team }) => {
   const { moderator } = useModerator();
@@ -29,6 +29,7 @@ const Hero = ({ team }) => {
     setDisqualified(!disqualified);
   };
 
+  //
   const disqualifiedMember = (id) => async () => {
     await fetch(`/api/disqualified-member?id=${id}`);
     window.location.reload();
@@ -120,8 +121,8 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
-        <MergedPRs team={team} />
-        
+        <MergedPrs team={team} />
+
         <Link href="/leaderboard" passHref>
           <a
             className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"

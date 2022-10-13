@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
-import MergedPRs from './merged-prs';
+import MergedPrs from './merged-prs';
 
 const Team = ({ info }) => {
   const session = useSession();
@@ -243,7 +243,7 @@ const Team = ({ info }) => {
           </ul>
         </div>
       </div>
-      <MergedPRs team={info} />
+      <MergedPrs team={info.team} />
     </>
   );
 };
