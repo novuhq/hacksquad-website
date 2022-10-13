@@ -31,7 +31,9 @@ const Hero = ({ team }) => {
 
   //
   const removePr = (id) => async () => {
-    const response = await fetch(`/api/remove-pr?id=${id}`).then((res) => res.json());
+    const response = await fetch(`/api/remove-pr?id=${id}&team=${team.id}`).then((res) =>
+      res.json()
+    );
 
     const updatedPrList = [...pullRequests].map((pr) =>
       pr.id === response.id ? { ...pr, status: response.status } : pr

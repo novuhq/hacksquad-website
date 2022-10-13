@@ -6,7 +6,7 @@ import prisma from '~/prisma/client';
 export default async function handler(req, res) {
   const { user } = await findUserAndTeam(req, res);
 
-  if (!req?.query?.id || !(user?.moderator || user?.cleaner)) {
+  if (!req?.query?.id || !req.query.team || !(user?.moderator || user?.cleaner)) {
     res.json({ success: false, message: 'Invalid request' });
     return;
   }
@@ -28,6 +28,7 @@ export default async function handler(req, res) {
       prisma.actionLogs.create({
         data: {
           adminId: user.id,
+          teamId: req.query.team,
           pr: req.query.id,
           actionType: ActionType.RECOVER_PR,
         },
@@ -57,6 +58,7 @@ export default async function handler(req, res) {
       data: {
         adminId: user.id,
         pr: req.query.id,
+        teamId: req.query.team,
         actionType: ActionType.DELTE_PR,
       },
     }),
