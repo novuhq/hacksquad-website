@@ -38,7 +38,7 @@ const events = [
     date: moment.utc('2022-10-19T13:00:00'),
     title: 'Extending and embedding open-source projects',
     company: 'Raz @ Permit.io',
-    link: 'https://zoom.us/webinar/register/WN_ICktK3LHTB6HDwJD9OWQPA',
+    link: 'https://zoom.us/webinar/register/WN_UKnmeOqUTVSY4zQlTJlLFQ',
   },
   {
     date: moment.utc('2022-10-19T19:00:00'),
