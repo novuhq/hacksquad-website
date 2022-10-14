@@ -146,7 +146,7 @@ const Team = ({ info }) => {
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
           <div className="mb-10">
-            {info.team.users.length == 1 && (
+            {info.team.users.length > 1 && (
               <div className="mb-5 flex sm:block">
                 <div>Send a message to your squad: </div>
                 <div className="ml-3 flex-1">
