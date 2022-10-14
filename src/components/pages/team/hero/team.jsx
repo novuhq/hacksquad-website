@@ -146,14 +146,14 @@ const Team = ({ info }) => {
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
           <div className="mb-10">
-            {info.team.users.length > 1 && (
-              <div className="mb-5 flex">
+            {info.team.users.length == 1 && (
+              <div className="mb-5 flex sm:block">
                 <div>Send a message to your squad: </div>
                 <div className="ml-3 flex-1">
                   <input
                     type="text"
                     name="score"
-                    className="w-full"
+                    className="w-full sm:w-72 sm:my-2"
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
                   />
@@ -192,7 +192,7 @@ const Team = ({ info }) => {
             </div>
             <div>
               <label>
-                Allow random people to join my team:{' '}
+                Allow random people to join:{' '}
                 <input
                   disabled={!info.admin}
                   type="checkbox"
