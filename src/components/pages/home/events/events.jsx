@@ -87,6 +87,11 @@ const Events = () => {
               {items.map((event, index) => (
                 <li
                   className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]"
+                  style={{
+                    opacity: moment().isAfter(event.date) ? 0.5 : 1,
+                    filter: moment().isAfter(event.date) ? 'grayscale(100%)' : 'grayscale(0%)',
+                    pointerEvents: moment().isAfter(event.date) ? 'none' : '',
+                  }}
                   key={index}
                 >
                   <span>{event.date.local().format('lll')}</span>
