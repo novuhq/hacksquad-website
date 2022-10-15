@@ -47,6 +47,12 @@ const events = [
     link: 'https://zoom.us/webinar/register/WN_Va4469XbSKut4zt48f6uMA',
   },
   {
+    date: moment.utc('2022-10-26T13:00:00'),
+    title: 'Building a Notion like system with Nest.js, React and Novu',
+    company: 'Nevo @ Novu',
+    link: 'https://zoom.us/webinar/register/WN_-1XAeCeARqesnoaYFuRvGA',
+  },
+  {
     date: moment.utc('2022-10-26T19:00:00'),
     title: 'How to build on Ethereum using Scaffold-ETH',
     company: 'Kevin @ Scaffold-ETH',
