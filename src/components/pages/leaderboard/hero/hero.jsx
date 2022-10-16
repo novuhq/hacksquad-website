@@ -41,11 +41,9 @@ const Hero = ({ teams }) => {
                 >
                   <span>{index + 1}</span>
                   <p className="truncate font-medium">
-                    <Link href={`/team/${team.slug}`}>
-                      <>
-                        {team.name} {score <= team.score ? '👑' : ''}
-                      </>
-                    </Link>
+                    <Link href={`/team/${team.slug}`}>{`${team.name} ${
+                      score <= team.score ? '👑' : ''
+                    }`}</Link>
                   </p>
                   <span>{team.score}</span>
                 </li>
