@@ -14,6 +14,7 @@ export default async function handler(req, res) {
       id: req.query.id,
     },
     select: {
+      id: true,
       team: true,
     },
   });
@@ -33,8 +34,17 @@ export default async function handler(req, res) {
     },
   });
 
+  await prisma.user.update({
+    where: {
+      id: req.query.id,
+    },
+    data: {
+      teamId: null,
+    },
+  });
+
   // not only one in the team
-  if (users.length > 1) {
+  if (users.length > 1 && data?.id === data?.team?.ownerId) {
     const randomUser = users.find((u) => u.id !== req?.query.id);
     await prisma.team.update({
       where: {
@@ -44,26 +54,13 @@ export default async function handler(req, res) {
         ownerId: randomUser.id,
       },
     });
-
-    // Removing user from team
-    await prisma.user.update({
+  } else if (users.length === 1) {
+    await prisma.team.delete({
       where: {
-        id: req.query.id,
-      },
-      data: {
-        teamId: null,
+        id: data.team.id,
       },
     });
-
-    res.json({ finish: true });
-    return;
   }
-
-  await prisma.team.delete({
-    where: {
-      id: data.team.id,
-    },
-  });
 
   res.json({ finish: true });
 }
