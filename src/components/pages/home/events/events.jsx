@@ -29,12 +29,6 @@ const events = [
     link: 'https://zoom.us/webinar/register/WN_ny1Ifn0PQW-E5oClswIEJw',
   },
   {
-    date: moment.utc('2022-10-19T07:00:00'),
-    title: 'GitHub like a boss',
-    company: 'Michelle @ GitHub',
-    link: 'https://zoom.us/webinar/register/WN_ICktK3LHTB6HDwJD9OWQPA',
-  },
-  {
     date: moment.utc('2022-10-19T13:00:00'),
     title: 'Extending and embedding open-source projects',
     company: 'Raz @ Permit.io',
