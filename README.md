@@ -8,10 +8,10 @@
 Welcome to Hacksquad 2022!
 </h2>
 <h3 align="center">
-Contribute code as a squad, meet community members, participate in workshops, and win SWAG
+Contribute code as a squad, meet community members, participate in workshops, and win SWAGS
 </h3>
 
-With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your **Swag**, meet with more community members and participate in workshops from our great sponsors.
+With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your chance to win **Swags**, meet with more community members,network and participate in workshops from our great sponsors.
 
 <a href="https://www.hacksquad.dev/#sponsors">
   </br>
@@ -40,10 +40,10 @@ Register to the HackSquad using your GitHub, Join a squad or get assigned to a *
 
 ## What can you expect from the event?
 
-- Meet new community members
-- Code contribution, dah 😎
+- Meet new community members.
+- Code contribution, dah 😎.
 - Participate in awesome workshops such as: How to contribute code, Going over good first issues, Engineering best practices, Solving PRs together.
-- Win swag
+- Win swags🤩🤩.
 
 <p align="center">
   <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2022, AND JOIN A TEAM 🚀</a>
