@@ -20,6 +20,7 @@ export default async function handler(req, res) {
         ...[req.query.admin ? { adminId: req.query.admin } : {}],
         ...[req.query.team ? { teamId: req.query.team } : {}],
         ...[req.query.user ? { userId: req.query.user } : {}],
+        ...[req.query.prType ? { actionType: req.query.prType } : {}],
       ],
     },
     orderBy: [{ createdAt: 'desc' }],
@@ -34,6 +35,13 @@ export default async function handler(req, res) {
           id: true,
           name: true,
           slug: true,
+        },
+      },
+      user: {
+        select: {
+          id: true,
+          name: true,
+          handle: true,
         },
       },
       admin: {

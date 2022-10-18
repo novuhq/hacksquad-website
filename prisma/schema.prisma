@@ -87,6 +87,11 @@ model ActionLogs {
 
   @@index([pr])
   @@index([prDetails])
+  @@index([actionType])
+  @@index([createdAt])
+  @@index([teamId])
+  @@index([adminId])
+  @@index([userId])
 }
 
 model Report {
