@@ -63,12 +63,12 @@ const Events = () => {
       <div className="container relative z-10">
         <SectionHeading className="text-center">{title}</SectionHeading>
         <p className="mx-auto mt-10 max-w-[968px] text-center text-lg md:mt-8 md:text-[18px] sm:mt-6 sm:text-base">
-          <span className="relative before:absolute before:-right-1.5 before:-z-10 before:h-[30px] before:w-[454px] before:bg-primary-1">
-            With the fantastic atmosphere
+          <span className="relative before:absolute before:-right-1.5 before:-z-10 before:h-[30px] before:w-[350px] before:bg-primary-1">
+            The fantastic atmosphere
           </span>{' '}
-          of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your
-          Swag, meet with more community members and participate in workshops from our great
-          sponsors.
+          of Hacktoberfest is here, we have decided to create Hacksquad. Hacksquad is here to
+          enhance your Swag, meet with more community members and participate in workshops from our
+          great sponsors.
         </p>
       </div>
 

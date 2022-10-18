@@ -53,9 +53,9 @@ const items = [
     question: 'How do we calculate the score?',
     answer: (
       <>
-        Each hour we calculate the number of <strong>MERGED PRs</strong> of each squad member and sum them all up. Each PR is worth 1 point.
-        By the end of the event, the top 60 squads will win awesome swag! The calculation method can
-        be{' '}
+        Each hour we calculate the number of <strong>MERGED PRs</strong> of each squad member and
+        sum them all up. Each PR is worth 1 point. By the end of the event, the top 60 squads will
+        win awesome swag! The calculation method can be{' '}
         <a
           className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://github.com/novuhq/hacksquad-background/blob/main/src/services/github/github.service.ts"
@@ -141,6 +141,21 @@ const items = [
     question: 'I want to create a workshop for the event during October',
     answer:
       "That's awesome! We would be super happy to give you a stage, please email us at nevo@novu.co",
+  },
+  {
+    question: "Now what's next?",
+    answer: (
+      <>
+        Register/login using Github sign in Then visit this{' '}
+        <a
+          href="https://github.com/novuhq/hacksquad-website"
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+        >
+          github repository
+        </a>{' '}
+        and start making your contributions
+      </>
+    ),
   },
 ];
 

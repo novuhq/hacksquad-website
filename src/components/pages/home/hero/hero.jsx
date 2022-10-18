@@ -15,7 +15,7 @@ const title = 'HackSquad';
 const description = (
   <>
     Contribute code, meet community members, participate in workshops, and win more{' '}
-    <strong>SWAG</strong>
+    <strong>SWAGS</strong>
   </>
 );
 
