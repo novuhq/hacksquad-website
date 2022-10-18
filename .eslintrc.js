@@ -22,6 +22,7 @@ module.exports = {
     'no-unused-vars': 'error',
     'no-shadow': 'off',
     'no-undef': 'error',
+    'react-hooks/exhaustive-deps': 'off',
     'react/prop-types': 'error',
     'react/no-array-index-key': 'off',
     'react/react-in-jsx-scope': 'off',
