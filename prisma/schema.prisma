@@ -56,13 +56,13 @@ model Team {
 
 enum ActionType {
   KICK_USER
-  // 
+  //
   DELTE_PR
   RECOVER_PR
-  // 
+  //
   DISQUALIFY_USER
   RECOVER_USER
-  // 
+  //
   DISQUALITY_TEAM
   RECOVER_TEAM
 }
@@ -80,7 +80,7 @@ model ActionLogs {
   userId          String?
   // details of team
   team            Team?       @relation("team", fields: [teamId], references: [id])
-  teamId          String? 
+  teamId          String?
   // details of user who took the action
   admin           User        @relation("admin", fields: [adminId], references: [id])
   adminId         String
@@ -118,6 +118,7 @@ model User {
   email               String?   @unique
   emailVerified       DateTime?
   image               String?
+  score               Int     @default(0)
   moderator           Boolean @default(false)
   cleaner             Boolean @default(false)
   handle              String?
@@ -134,6 +135,28 @@ model User {
   social              Social[]
   userActionLogs      ActionLogs[] @relation("affectedUser")
   adminActionLogs     ActionLogs[] @relation("admin")
+  winners             Winners[]
+}
+
+model Winners {
+    id            String    @id @default(cuid())
+    month         Int
+    year          Int
+    userId        String
+    lastDateClaim DateTime
+    type          WinnerType
+    user          User      @relation(fields: [userId], references: [id])
+    claimed       DateTime?
+    @@unique([month, year, userId, type])
+    @@index([month])
+    @@index([year])
+    @@index([userId])
+    @@index([claimed])
+}
+
+enum WinnerType {
+    EXTRA
+    COMPETITION
 }
 
 model VerificationToken {
