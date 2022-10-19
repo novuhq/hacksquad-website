@@ -10,6 +10,8 @@ import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 import Seo from 'components/shared/seo';
 
+import Banner from '../../../components/shared/banner';
+
 const LayoutMain = ({ seo, children, withoutFooter, isFooterBordered, absolute }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -26,6 +28,7 @@ const LayoutMain = ({ seo, children, withoutFooter, isFooterBordered, absolute }
         closeButton={false}
       />
       <div className="relative flex min-h-screen flex-col">
+        <Banner />
         <Header
           absolute={absolute}
           isMobileMenuOpen={isMobileMenuOpen}

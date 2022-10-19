@@ -15,7 +15,7 @@ import bgRight from './images/bg-right.jpg';
 const title = 'Welcome to HackSquad 2022!';
 
 const eventsHeader = ['Date', 'Event', 'Company', 'Rsvp'];
-const events = [
+export const events = [
   {
     date: moment.utc('2022-10-12T07:00:00'),
     title: 'Get started with open-source contributions with ToolJet',
