@@ -6,7 +6,7 @@ import Hero from '../components/pages/bonuses/hero';
 
 import twitter from '~/helpers/twitter';
 
-const Home = ({ twitter }) => (
+const Home = ({ twitter, devto }) => (
   <LayoutMain
     seo={{
       isRobotsNoindexPage: true,
@@ -14,12 +14,13 @@ const Home = ({ twitter }) => (
     absolute={false}
     withoutFooter
   >
-    <Hero twitter={twitter} />
+    <Hero twitter={twitter} devto={devto} />
   </LayoutMain>
 );
 
 Home.propTypes = {
   twitter: PropTypes.bool,
+  devto: PropTypes.bool,
 };
 
 export async function getServerSideProps(context) {

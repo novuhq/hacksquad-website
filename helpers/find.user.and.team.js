@@ -14,8 +14,9 @@ export default async function findUserAndTeam(req, res) {
     include: { social: true },
   });
   const twitter = !!social.find((p) => p.type === 'TWITTER');
+  const devto = !!social.find((p) => p.type === 'DEVTO');
   if (!user.teamId) {
-    return { user, twitter, team: null, admin: false };
+    return { user, twitter, devto, team: null, admin: false };
   }
 
   const team = await prisma.team.findUnique({
@@ -31,6 +32,7 @@ export default async function findUserAndTeam(req, res) {
   }));
   return {
     twitter,
+    devto,
     user,
     team,
     get admin() {

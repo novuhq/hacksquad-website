@@ -2,8 +2,8 @@ import { SessionProvider } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
+import ReactTooltip from 'react-tooltip';
 
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
@@ -17,6 +17,7 @@ const LayoutMain = ({ seo, children, withoutFooter, isFooterBordered, absolute }
   return (
     <SessionProvider>
       <Seo {...seo} />
+      <ReactTooltip padding={20} />
       <ToastContainer
         theme="dark"
         position="bottom-right"

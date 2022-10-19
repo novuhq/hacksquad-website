@@ -4,10 +4,10 @@ import findUserAndTeam from '~/helpers/find.user.and.team';
 import prisma from '~/prisma/client';
 
 export default async function twitter(req, res, query) {
-  const { user, twitter } = await findUserAndTeam(req, res);
+  const { user, twitter, devto } = await findUserAndTeam(req, res);
 
   if (!user?.id || !query.code) {
-    return { props: { twitter } };
+    return { props: { twitter, devto } };
   }
 
   const data = await (

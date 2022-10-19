@@ -9,6 +9,23 @@ generator client {
 
 }
 
+model Articles {
+    id           String  @id @default(cuid())
+    articleId    Int     @unique
+    createdAt    DateTime
+    articleTitle String
+    articleLink  String
+    votes        ArticlesVotes[]
+}
+
+model ArticlesVotes {
+    id           String  @id @default(cuid())
+    userId       String
+    user         User @relation(fields: [userId], references: [id])
+    articleId    String
+    article      Articles  @relation(fields: [articleId], references: [id])
+}
+
 model Account {
   id                 String  @id @default(cuid())
   userId             String
@@ -136,6 +153,7 @@ model User {
   userActionLogs      ActionLogs[] @relation("affectedUser")
   adminActionLogs     ActionLogs[] @relation("admin")
   winners             Winners[]
+  votes               ArticlesVotes[]
 }
 
 model Winners {
@@ -166,8 +184,10 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
 enum SocialMedia {
     TWITTER
+    DEVTO
 }
 
 enum Status {
