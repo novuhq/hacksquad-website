@@ -63,7 +63,7 @@ export const toDisplay = () => {
   }
 
   const before = events.find(
-    (e) => e.date.diff(moment(), 'hour') <= 2 && e.date.diff(moment(), 'hour') > 0
+    (e) => e.date.diff(moment(), 'hour') <= 2 && e.date.diff(moment(), 'minutes') > 1
   );
   if (before) {
     return {
