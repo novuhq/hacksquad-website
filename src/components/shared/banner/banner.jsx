@@ -9,7 +9,7 @@ const Banner = () => {
   }
   return (
     <a
-      className="bg-gray-3 group  relative z-20 block overflow-hidden"
+      className="bg-gray-3 group relative z-20 block overflow-hidden"
       target="_blank"
       href={display.link}
       rel="noreferrer"
