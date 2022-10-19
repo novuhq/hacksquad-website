@@ -7,8 +7,7 @@ import Button from 'components/shared/button';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-import { toDisplay } from '../banner/banner';
-
+import { toDisplay } from '~/helpers/events';
 import Novu from '~/helpers/novu';
 
 const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {

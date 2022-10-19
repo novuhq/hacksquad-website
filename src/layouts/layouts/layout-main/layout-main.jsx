@@ -12,7 +12,14 @@ import Seo from 'components/shared/seo';
 
 import Banner from '../../../components/shared/banner';
 
-const LayoutMain = ({ seo, children, withoutFooter, isFooterBordered, absolute }) => {
+const LayoutMain = ({
+  seo,
+  children,
+  withoutFooter,
+  additionalClass,
+  isFooterBordered,
+  absolute,
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -34,7 +41,7 @@ const LayoutMain = ({ seo, children, withoutFooter, isFooterBordered, absolute }
           isMobileMenuOpen={isMobileMenuOpen}
           onBurgerClick={handleHeaderBurgerClick}
         />
-        <main className="flex-grow overflow-hidden">{children}</main>
+        <main className={`flex-grow overflow-hidden ${additionalClass || ''}`}>{children}</main>
         {!withoutFooter && <Footer withBorder={isFooterBordered} />}
         <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
       </div>
@@ -49,6 +56,7 @@ LayoutMain.propTypes = {
     isRobotsNoindexPage: PropTypes.bool,
   }),
   children: PropTypes.node.isRequired,
+  additionalClass: PropTypes.string,
   withoutFooter: PropTypes.bool,
   isFooterBordered: PropTypes.bool,
   absolute: PropTypes.bool,
@@ -56,6 +64,7 @@ LayoutMain.propTypes = {
 
 LayoutMain.defaultProps = {
   seo: null,
+  additionalClass: '',
   withoutFooter: false,
   isFooterBordered: false,
   absolute: true,

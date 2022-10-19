@@ -1,43 +1,10 @@
-import moment from 'moment';
 import React from 'react';
 
-import { events } from '../../pages/home/events/events';
+import { toDisplay } from '~/helpers/events';
 
-export const toDisplay = () => {
-  const live = events.find(
-    (e) => moment().isAfter(e.date) && e.date.add(1, 'hour').isAfter(moment())
-  );
-  if (live) {
-    return {
-      link: live.link,
-      component: (
-        <>
-          <strong>[LIVE NOW]</strong> <strong>{live.title}</strong> - {live.company}
-        </>
-      ),
-    };
-  }
-
-  const before = events.find(
-    (e) => e.date.diff(moment(), 'hour') <= 2 && e.date.diff(moment(), 'hour') > 0
-  );
-  if (before) {
-    return {
-      link: before.link,
-      component: (
-        <>
-          <strong>[GOING LIVE - RSVP NOW]</strong> - <strong>{before.title}</strong> -{' '}
-          {before.company}
-        </>
-      ),
-    };
-  }
-
-  return undefined;
-};
 const Banner = () => {
   const display = toDisplay();
-  if (!display) {
+  if (!display?.component) {
     return <></>;
   }
   return (

@@ -12,47 +12,13 @@ import bgLeftSquare from './images/bg-left-square.png';
 import bgLeft from './images/bg-left.jpg';
 import bgRight from './images/bg-right.jpg';
 
+import { eventsList } from '~/helpers/events';
+
 const title = 'Welcome to HackSquad 2022!';
 
 const eventsHeader = ['Date', 'Event', 'Company', 'Rsvp'];
-export const events = [
-  {
-    date: moment.utc('2022-10-12T07:00:00'),
-    title: 'Get started with open-source contributions with ToolJet',
-    company: 'Teja @ ToolJet',
-    link: 'https://zoom.us/webinar/register/WN_FC0U3ggyQBel-EvWBtEtgQ',
-  },
-  {
-    date: moment.utc('2022-10-15T15:00:00'),
-    title: 'Building a Discord bot in Rust, Javascript and Python',
-    company: 'Community Event',
-    link: 'https://zoom.us/webinar/register/WN_ny1Ifn0PQW-E5oClswIEJw',
-  },
-  {
-    date: moment.utc('2022-10-19T13:00:00'),
-    title: 'Extending and embedding open-source projects',
-    company: 'Raz @ Permit.io',
-    link: 'https://zoom.us/webinar/register/WN_UKnmeOqUTVSY4zQlTJlLFQ',
-  },
-  {
-    date: moment.utc('2022-10-19T19:00:00'),
-    title: 'Contributing to a GitHub repository',
-    company: 'Michael @ Amplication',
-    link: 'https://zoom.us/webinar/register/WN_Va4469XbSKut4zt48f6uMA',
-  },
-  {
-    date: moment.utc('2022-10-26T13:00:00'),
-    title: 'Building a Notion like system with Nest.js, React and Novu',
-    company: 'Nevo @ Novu',
-    link: 'https://zoom.us/webinar/register/WN_-1XAeCeARqesnoaYFuRvGA',
-  },
-  {
-    date: moment.utc('2022-10-26T19:00:00'),
-    title: 'How to build on Ethereum using Scaffold-ETH',
-    company: 'Kevin @ Scaffold-ETH',
-    link: 'https://zoom.us/webinar/register/WN_o2SLdW2uQl29qRMwmTYBqg',
-  },
-];
+
+const events = eventsList();
 
 const Events = () => {
   const [isShownMore, setIsShownMore] = useState(false);
