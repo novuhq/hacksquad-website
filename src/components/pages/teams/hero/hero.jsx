@@ -88,7 +88,7 @@ const Hero = ({ team }) => {
               <span className={`font-medium uppercase ${moderator && 'sm:hidden'}`}>GitHub</span>
               {moderator && <span className="font-medium uppercase">Remove</span>}
               {moderator && <span className="font-medium uppercase">Disqualify</span>}
-              {moderator && <span className="font-medium uppercase">Score</span>}
+              {(moderator || cleaner) && <span className="font-medium uppercase">Score</span>}
             </div>
 
             <ul>
@@ -129,7 +129,7 @@ const Hero = ({ team }) => {
                       {user.disqualified ? 'Bring Back to the game' : 'Disqualify'}
                     </p>
                   )}
-                  {moderator && (
+                  {(moderator || cleaner) && (
                     <p className="cursor-pointer truncate text-center font-medium">{user.score}</p>
                   )}
                 </li>
