@@ -27,6 +27,13 @@ export const eventsList = () => [
     iframe: 'https://player.restream.io/?token=f58612ea832948d496a517a9518a336d',
   },
   {
+    date: moment.utc('2022-10-26T10:00:00'),
+    title: 'How to add a real-time notification center to your React app with Novu and Next.js',
+    company: 'Dima @ Novu',
+    link: 'https://zoom.us/webinar/register/WN_LjPCMI6PSwGySO9jSHpGIw',
+    iframe: 'https://player.restream.io/?token=2ca3022d36de46d3a878f07433ec0eb3',
+  },
+  {
     date: moment.utc('2022-10-26T13:00:00'),
     title: 'Building a Notion like system with Nest.js, React and Novu',
     company: 'Nevo @ Novu',
