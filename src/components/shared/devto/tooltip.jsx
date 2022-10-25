@@ -5,7 +5,7 @@ const DevToToolTip = () => (
     <span
       data-tip={renderToString(
         <div style={{ padding: 30 }}>
-          1. Head over to dev.to, click you profile on the top right
+          1. Head over to dev.to, click your profile on the top right
           <br />
           2. Click Settings
           <br />
