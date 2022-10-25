@@ -4,7 +4,15 @@ export default async function findTeam(id) {
   const team = await prisma.team.findUnique({
     where: { slug: id },
     include: {
-      users: true,
+      users: {
+        include: {
+          winners: {
+            where: {
+              claimed: null,
+            },
+          },
+        },
+      },
     },
   });
 

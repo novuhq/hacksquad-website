@@ -26,8 +26,6 @@ export default async function handler(req, res) {
     return;
   }
 
-  console.log('hi');
-
   try {
     const data = await (
       await fetch(`https://dev.to/api/readinglist`, {

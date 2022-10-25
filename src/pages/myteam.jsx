@@ -19,6 +19,7 @@ const Myteam = () => {
   }, []);
 
   if (!info) return <></>;
+
   return (
     <LayoutMain
       seo={{

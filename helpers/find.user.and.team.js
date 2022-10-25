@@ -9,14 +9,25 @@ export default async function findUserAndTeam(req, res) {
   if (!partialUser) {
     return { user: null, team: null, admin: false };
   }
-  const { social, ...user } = await prisma.user.findUnique({
+  const { social, winners, ...user } = await prisma.user.findUnique({
     where: { email: partialUser.user.email },
-    include: { social: true },
+    include: {
+      social: true,
+      winners: {
+        where: {
+          claimed: null,
+          lastDateClaim: {
+            gte: new Date(),
+          },
+        },
+      },
+    },
   });
+
   const twitter = !!social.find((p) => p.type === 'TWITTER');
   const devto = !!social.find((p) => p.type === 'DEVTO');
   if (!user.teamId) {
-    return { user, twitter, devto, team: null, admin: false };
+    return { user, twitter, winners, devto, team: null, admin: false };
   }
 
   const team = await prisma.team.findUnique({
@@ -34,6 +45,7 @@ export default async function findUserAndTeam(req, res) {
     twitter,
     devto,
     user,
+    winners,
     team,
     get admin() {
       return this.team.ownerId === user.id;

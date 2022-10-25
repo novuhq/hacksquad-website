@@ -18,6 +18,7 @@ const Hero = ({ info }) => {
   if (status !== 'authenticated') {
     return <NoLogged />;
   }
+
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative z-10 flex h-full flex-col items-center justify-center">
