@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import Hero from 'components/pages/teams/hero';
+import Topfab from 'components/shared/FAB/topfab';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Team = ({ team }) => (
@@ -13,6 +14,7 @@ const Team = ({ team }) => (
     withoutFooter
   >
     <Hero team={team} />
+    <Topfab />
   </LayoutMain>
 );
 
