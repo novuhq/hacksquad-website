@@ -31,7 +31,7 @@ export const eventsList = () => [
     title: 'How to add a real-time notification center to your React app with Novu and Next.js',
     company: 'Dima @ Novu',
     link: 'https://zoom.us/webinar/register/WN_LjPCMI6PSwGySO9jSHpGIw',
-    iframe: 'https://player.restream.io/?token=2ca3022d36de46d3a878f07433ec0eb3',
+    iframe: 'https://player.restream.io/?token=5f8e25ea45fe412698e4892dc0c53ddc',
   },
   {
     date: moment.utc('2022-10-26T13:00:00'),
