@@ -10,6 +10,7 @@ const Seo = ({ isRobotsNoindexPage }) => (
     <title>{title}</title>
     <link rel="icon" href="/favicon.png" type="image/png" />
     {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
+    <meta name="description" content={description} />
     {/* Open Graph */}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
