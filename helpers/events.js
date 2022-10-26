@@ -2,7 +2,7 @@ import moment from 'moment';
 
 export const eventsList = () => [
   {
-    date: moment.utc('2022-10-12T07:00:01'),
+    date: moment.utc('2022-10-12T07:00:02'),
     title: 'Get started with open-source contributions with ToolJet',
     company: 'Teja @ ToolJet',
     link: 'https://zoom.us/webinar/register/WN_FC0U3ggyQBel-EvWBtEtgQ',
