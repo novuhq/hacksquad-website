@@ -41,6 +41,7 @@ export default async function findUserAndTeam(req, res) {
     ...all,
     email: user.id === all.id ? email : undefined,
   }));
+
   return {
     twitter,
     devto,
