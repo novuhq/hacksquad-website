@@ -7,7 +7,7 @@ import GithubIcon from 'images/social/github.inline.svg';
 import TwitterIcon from 'images/social/twitter.inline.svg';
 
 const Socials = ({ className: additionalClassName }) => (
-  <section className={clsx('flex items-center', additionalClassName)}>
+  <section className={clsx('flex items-center mb-20', additionalClassName)}>
     <div className="pr-8 text-center">
       <h2 className="font-mono font-medium uppercase">Let’s connect</h2>
       <div className="flex items-center justify-center space-x-8">
