@@ -29,6 +29,7 @@ const Form = ({ info }) => {
             </div>
             <div className="ml-2">
               {winner.type === 'COMPETITION' && 'Competition Winner'}
+              {winner.type === 'NOVU' && 'Novu Swag Claim'}
               {winner.type === 'EXTRA' && 'Giveaway or other'} - Expires on{' '}
               {moment.utc(winner.lastDateClaim).local().format('DD/MM/YYYY HH:mm')}
             </div>

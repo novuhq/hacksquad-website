@@ -50,22 +50,25 @@ export default async function handler(req, res) {
 
   await Promise.all(
     winnersMap.map(async (win) => {
-      await airTable.base(process.env.AIRTABLE_BASE).table('Hacksquad 2022').create({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        phone_number: req.body.phone_number,
-        shipping_address1: req.body.shipping_address1,
-        shipping_address2: req.body.shipping_address2,
-        shipping_city: req.body.shipping_city,
-        shipping_state: req.body.shipping_state,
-        shipping_zip: req.body.shipping_zip,
-        shipping_country: req.body.shipping_country,
-        shirt_size: req.body.shirt_size,
-        company_name: 'HackSquad',
-        variation: win.type,
-        'github-handle': handle,
-      });
+      await airTable
+        .base(process.env.AIRTABLE_BASE)
+        .table('Hacksquad 2022')
+        .create({
+          first_name: req.body.first_name,
+          last_name: req.body.last_name,
+          email: req.body.email,
+          phone_number: req.body.phone_number,
+          shipping_address1: req.body.shipping_address1,
+          shipping_address2: req.body.shipping_address2,
+          shipping_city: req.body.shipping_city,
+          shipping_state: req.body.shipping_state,
+          shipping_zip: req.body.shipping_zip,
+          shipping_country: req.body.shipping_country,
+          shirt_size: req.body.shirt_size,
+          company_name: win.type === 'NOVU' ? 'Novu' : 'HackSquad',
+          variation: win.type,
+          'github-handle': handle,
+        });
 
       await prisma.winners.update({
         where: {

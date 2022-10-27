@@ -175,6 +175,7 @@ model Winners {
 enum WinnerType {
     EXTRA
     COMPETITION
+    NOVU
 }
 
 model VerificationToken {
