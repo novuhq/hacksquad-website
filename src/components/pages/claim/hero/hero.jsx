@@ -5,6 +5,10 @@ import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+import Hero2 from 'components/pages/no-win/hero';
+
+import Novu from '../../../shared/socials/novu';
+
 import Form from './form';
 import NoLogged from './no-logged';
 
@@ -48,14 +52,19 @@ const Hero = ({ info }) => {
     return <NoLogged />;
   }
 
+  if (info.length === 0) {
+    return <Hero2 />;
+  }
+
   return (
     <FormProvider {...all}>
       <form
         className="safe-paddings relative mb-20 min-h-[600px]"
         onSubmit={all.handleSubmit(onSubmit)}
       >
-        <div className="container relative z-10 flex h-full flex-col items-center justify-center">
-          <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
+        <div className="container relative z-10 flex h-full flex-col items-center justify-center pt-10">
+          <Novu />
+          <h1 className="mt-10 font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
             {title}
           </h1>
           <div className="w-500 mt-10 grid w-full max-w-[800px] grid-cols-[1fr] gap-x-5 gap-y-5">
