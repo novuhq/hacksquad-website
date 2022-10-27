@@ -10,6 +10,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
 const Team = ({ info }) => {
+  console.log(info);
   const session = useSession();
   const [contact, setContact] = useState('');
   const [teamName, setTeamName] = useState(info.team.name);
@@ -203,6 +204,12 @@ const Team = ({ info }) => {
                     debounce(e.target.value, randomJoin);
                   }}
                 />
+              </label>
+            </div>
+            <div className="mb-5">
+              <label>
+                {/* Pass the value for Rank here */}
+                Rank: <input type="text" name="rank" value={info.team.rank ?? 0} disabled />
               </label>
             </div>
             <div className="mb-5">
