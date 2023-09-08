@@ -1,0 +1,13 @@
+@layer base {
+  .safe-paddings {
+    @apply px-safe;
+
+    header& {
+      @apply pt-safe;
+    }
+
+    footer& {
+      @apply pb-safe;
+    }
+  }
+}

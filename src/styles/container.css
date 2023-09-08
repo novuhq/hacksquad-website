@@ -1,0 +1,6 @@
+/* TODO: Add max-widths for each breakpoint + paddings for the resolution when the container fluid */
+@layer components {
+  .container {
+    @apply mx-auto;
+  }
+}
