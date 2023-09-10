@@ -9,9 +9,12 @@ import Logo from 'images/logo.inline.svg';
 
 import { toDisplay } from '~/helpers/events';
 import Novu from '~/helpers/novu';
+import useModerator from '~/helpers/use.moderator';
 
 const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
   const display = toDisplay();
+  const { moderator, cleaner } = useModerator();
+
   return (
     <header
       className={`safe-paddings ${
@@ -41,6 +44,18 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
                   </Link>
                 </li>
               ))}
+              {(moderator || cleaner) && (
+                <li>
+                  <Link href="/repositories" passHref>
+                    <a
+                      className="py-5 transition-colors duration-200 hover:text-primary-2"
+                      href="/repositories"
+                    >
+                      Repository List
+                    </a>
+                  </Link>
+                </li>
+              )}
             </ul>
           </nav>
           <Novu />

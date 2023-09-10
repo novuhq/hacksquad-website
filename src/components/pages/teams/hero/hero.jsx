@@ -1,19 +1,29 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
 import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
+import RepositoryStatus from '~/helpers/repository.status';
 import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
   const { moderator, cleaner } = useModerator();
 
   const [disqualified, setDisqualified] = useState(team.disqualified);
-  const [pullRequests, setPullRequests] = useState(JSON.parse(team?.prs || '[]'));
+  const [pullRequests] = useState(JSON.parse(team?.prs || '[]'));
+  const changeToRepository = useMemo(() => pullRequests
+      .map((p) => ({
+        ...p,
+        url: new URL(p.url).pathname.split('/').slice(0, 3).join('/'),
+      }))
+      .filter((current, index, all) => {
+        const firstIndex = all.findIndex((item) => item.url === current.url);
+        return firstIndex === index;
+      }), [pullRequests]);
 
   //
   const kick = (id, name) => async () => {
@@ -27,25 +37,6 @@ const Hero = ({ team }) => {
   const changeTeamStatus = async () => {
     await fetch(`/api/disqualified?id=${team.id}`);
     setDisqualified(!disqualified);
-  };
-
-  //
-  const removePr = (id) => async () => {
-    const response = await fetch(`/api/remove-pr?id=${id}&team=${team.id}`).then((res) =>
-      res.json()
-    );
-
-    const updatedPrList = [...pullRequests].map((pr) =>
-      pr.id === response.id ? { ...pr, status: response.status } : pr
-    );
-
-    setPullRequests(updatedPrList);
-  };
-
-  //
-  const disqualifiedMember = (id) => async () => {
-    await fetch(`/api/disqualified-member?id=${id}`);
-    window.location.reload();
   };
 
   //
@@ -87,7 +78,6 @@ const Hero = ({ team }) => {
               <span className="font-medium uppercase">Name</span>
               <span className={`font-medium uppercase ${moderator && 'sm:hidden'}`}>GitHub</span>
               {moderator && <span className="font-medium uppercase">Remove</span>}
-              {moderator && <span className="font-medium uppercase">Disqualify</span>}
               {(moderator || cleaner) && <span className="font-medium uppercase">Score</span>}
             </div>
 
@@ -121,14 +111,6 @@ const Hero = ({ team }) => {
                     </p>
                   )}
 
-                  {moderator && (
-                    <p
-                      className="cursor-pointer truncate font-medium"
-                      onClick={disqualifiedMember(user.id)}
-                    >
-                      {user.disqualified ? 'Bring Back to the game' : 'Disqualify'}
-                    </p>
-                  )}
                   {(moderator || cleaner) && (
                     <p className="cursor-pointer truncate text-center font-medium">{user.score}</p>
                   )}
@@ -139,7 +121,7 @@ const Hero = ({ team }) => {
         </div>
 
         <h2 className="mt-20 font-mono text-lg font-bold uppercase leading-tight lg:text-[25px] md:text-[25px] xs:text-[25px]">
-          {'>>'}Latest Merged Pull Requests
+          {'>>'} Contributed to repositories (TOTAL PR: {pullRequests.length})
         </h2>
 
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
@@ -147,13 +129,15 @@ const Hero = ({ team }) => {
             <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]">
               <span className="font-medium uppercase sm:hidden">Place</span>
               <span className="font-medium uppercase">Name</span>
-              <span className="font-medium uppercase">Pull</span>
+              <span className="font-medium uppercase">Repository</span>
 
-              {(moderator || cleaner) && <span className="font-medium uppercase">Remove Pull</span>}
+              {(moderator || cleaner) && (
+                <span className="font-medium uppercase">Repository Status</span>
+              )}
             </div>
 
             <ul>
-              {pullRequests.map((pr, index) => (
+              {changeToRepository.map((pr, index) => (
                 <li
                   key={pr.url}
                   className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]"
@@ -165,7 +149,7 @@ const Hero = ({ team }) => {
                         DELETED:{' '}
                       </span>
                     )}
-                    {pr.title}
+                    https://github.com{pr.url}
                   </p>
                   <p className="font-medium">
                     <a href={pr.url} target="_blank" rel="noreferrer">
@@ -173,11 +157,7 @@ const Hero = ({ team }) => {
                     </a>
                   </p>
 
-                  {(moderator || cleaner) && (
-                    <p className="cursor-pointer truncate font-medium" onClick={removePr(pr.id)}>
-                      {pr.status === 'DELETED' ? 'Return' : 'Remove'}
-                    </p>
-                  )}
+                  {(moderator || cleaner) && <RepositoryStatus url={pr.url} />}
                 </li>
               ))}
             </ul>

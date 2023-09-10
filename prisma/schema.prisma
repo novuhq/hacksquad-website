@@ -1,46 +1,44 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/migrate-shadow
+generator client {
+  provider = "prisma-client-js"
 }
 
-generator client {
-  provider        = "prisma-client-js"
-
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Articles {
-    id           String  @id @default(cuid())
-    articleId    Int     @unique
-    createdAt    DateTime
-    articleTitle String
-    articleLink  String
-    votes        ArticlesVotes[]
+  id           String          @id @default(cuid())
+  articleId    Int             @unique
+  createdAt    DateTime
+  articleTitle String
+  articleLink  String
+  votes        ArticlesVotes[]
 }
 
 model ArticlesVotes {
-    id           String  @id @default(cuid())
-    userId       String
-    user         User @relation(fields: [userId], references: [id])
-    articleId    String
-    article      Articles  @relation(fields: [articleId], references: [id])
+  id        String   @id @default(cuid())
+  userId    String
+  articleId String
+  article   Articles @relation(fields: [articleId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -54,53 +52,35 @@ model Session {
 }
 
 model Team {
-  id              String        @id @default(cuid())
+  id              String       @id @default(cuid())
   name            String
-  slug            String?       @unique
+  slug            String?      @unique
   score           Int?
-  ownerId         String        @unique
-  owner           User          @relation(name: "owner", fields: [ownerId], references: [id])
-  users           User[]
-  actionLogs      ActionLogs[]  @relation("team")
+  ownerId         String       @unique
   prs             String?
   githubTeamId    Int?
   allowAutoAssign Boolean
-  disqualified    Boolean       @default(false)
+  disqualified    Boolean      @default(false)
+  owner           User         @relation("owner", fields: [ownerId], references: [id])
+  actionLogs      ActionLogs[] @relation("team")
+  users           User[]
 
   @@index([slug])
   @@index([disqualified])
 }
 
-enum ActionType {
-  KICK_USER
-  //
-  DELTE_PR
-  RECOVER_PR
-  //
-  DISQUALIFY_USER
-  RECOVER_USER
-  //
-  DISQUALITY_TEAM
-  RECOVER_TEAM
-}
-
 model ActionLogs {
-  id              String      @id @default(cuid())
-  createdAt       DateTime    @default(now())
-  // action type i.e. if is for PR or for user or team
-  actionType      ActionType
-  // id of the PR
-  pr              String?
-  prDetails       String?
-  // details of user on which action was taken
-  user            User?       @relation("affectedUser", fields: [userId], references: [id])
-  userId          String?
-  // details of team
-  team            Team?       @relation("team", fields: [teamId], references: [id])
-  teamId          String?
-  // details of user who took the action
-  admin           User        @relation("admin", fields: [adminId], references: [id])
-  adminId         String
+  id         String     @id @default(cuid())
+  createdAt  DateTime   @default(now())
+  actionType ActionType
+  pr         String?
+  prDetails  String?
+  userId     String?
+  teamId     String?
+  adminId    String
+  admin      User       @relation("admin", fields: [adminId], references: [id])
+  team       Team?      @relation("team", fields: [teamId], references: [id])
+  user       User?      @relation("affectedUser", fields: [userId], references: [id])
 
   @@index([pr])
   @@index([prDetails])
@@ -112,70 +92,65 @@ model ActionLogs {
 }
 
 model Report {
-  pr              String @unique
-  status          Status
+  pr     String @unique
+  status Status
 
   @@index([status])
 }
 
 model Social {
-  createdAt     DateTime  @default(now())
-  id            String    @id @default(cuid())
-  type          SocialMedia
-  userId        String
-  user          User @relation(fields: [userId], references: [id])
-  accessToken   String
-  refreshToken  String
+  createdAt    DateTime    @default(now())
+  id           String      @id @default(cuid())
+  type         SocialMedia
+  userId       String
+  accessToken  String
+  refreshToken String
+  user         User        @relation(fields: [userId], references: [id])
 }
 
 model User {
-  createdAt           DateTime  @default(now())
-  id                  String    @id @default(cuid())
-  name                String?
-  email               String?   @unique
-  emailVerified       DateTime?
-  image               String?
-  score               Int     @default(0)
-  moderator           Boolean @default(false)
-  cleaner             Boolean @default(false)
-  handle              String?
-  teamId              String?
-  inviteId            String?
-  disqualified        Boolean @default(false)
-  teamOwner           Team?   @relation("owner")
-  team                Team?   @relation(fields: [teamId], references: [id])
-  invite              User?   @relation("user", fields: [inviteId], references: [id])
-  invited             User[]  @relation("user")
-  githubUserId        Int?
-  accounts            Account[]
-  sessions            Session[]
-  social              Social[]
-  userActionLogs      ActionLogs[] @relation("affectedUser")
-  adminActionLogs     ActionLogs[] @relation("admin")
-  winners             Winners[]
-  votes               ArticlesVotes[]
+  id              String          @id @default(cuid())
+  name            String?
+  email           String?         @unique
+  handle          String?
+  emailVerified   DateTime?
+  image           String?
+  cleaner         Boolean         @default(false)
+  createdAt       DateTime        @default(now())
+  disqualified    Boolean         @default(false)
+  githubUserId    Int?
+  inviteId        String?
+  moderator       Boolean         @default(false)
+  score           Int             @default(0)
+  teamId          String?
+  invite          User?           @relation("user", fields: [inviteId], references: [id])
+  team            Team?           @relation(fields: [teamId], references: [id])
+  accounts        Account[]
+  adminActionLogs ActionLogs[]    @relation("admin")
+  userActionLogs  ActionLogs[]    @relation("affectedUser")
+  votes           ArticlesVotes[]
+  sessions        Session[]
+  social          Social[]
+  teamOwner       Team?           @relation("owner")
+  invited         User[]          @relation("user")
+  winners         Winners[]
 }
 
 model Winners {
-    id            String    @id @default(cuid())
-    month         Int
-    year          Int
-    userId        String
-    lastDateClaim DateTime
-    type          WinnerType
-    user          User      @relation(fields: [userId], references: [id])
-    claimed       DateTime?
-    @@unique([month, year, userId, type])
-    @@index([month])
-    @@index([year])
-    @@index([userId])
-    @@index([claimed])
-}
+  id            String     @id @default(cuid())
+  month         Int
+  year          Int
+  userId        String
+  lastDateClaim DateTime
+  type          WinnerType
+  claimed       DateTime?
+  user          User       @relation(fields: [userId], references: [id])
 
-enum WinnerType {
-    EXTRA
-    COMPETITION
-    NOVU
+  @@unique([month, year, userId, type])
+  @@index([month])
+  @@index([year])
+  @@index([userId])
+  @@index([claimed])
 }
 
 model VerificationToken {
@@ -186,12 +161,44 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model Repositories {
+    id            String    @id @default(cuid())
+    date          DateTime
+    status        RepositoryStatus
+    url           String
+    @@index([url])
+    @@unique([url])
+}
+
+enum RepositoryStatus {
+   NOT_DETERMINED
+   ACCEPTED
+   DENIED
+   BANNED
+}
+
+enum ActionType {
+  KICK_USER
+  DELTE_PR
+  RECOVER_PR
+  DISQUALIFY_USER
+  RECOVER_USER
+  DISQUALITY_TEAM
+  RECOVER_TEAM
+}
+
+enum WinnerType {
+  EXTRA
+  COMPETITION
+  NOVU
+}
+
 enum SocialMedia {
-    TWITTER
-    DEVTO
+  TWITTER
+  DEVTO
 }
 
 enum Status {
-    REPORT
-    DELETED
+  REPORT
+  DELETED
 }
