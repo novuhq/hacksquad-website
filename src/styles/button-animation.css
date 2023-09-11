@@ -1,0 +1,126 @@
+@layer components {
+  .cta-btn-animation:hover {
+    animation: cta-btn-animation-color-change 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .cta-btn-animation:hover .cta-btn-animation-border {
+    animation: cta-btn-animation-border-flicker 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes cta-btn-animation-color-change {
+    0% {
+      @apply text-white;
+    }
+    48% {
+      @apply text-white;
+    }
+    to {
+      @apply text-black;
+    }
+  }
+
+  @keyframes cta-btn-animation-border-flicker {
+    0% {
+      @apply opacity-100;
+      fill: none;
+    }
+    8% {
+      @apply opacity-50;
+      fill: none;
+    }
+    16% {
+      @apply opacity-100;
+      fill: none;
+    }
+    24% {
+      @apply opacity-50;
+      fill: none;
+    }
+    32% {
+      @apply opacity-100;
+      fill: none;
+    }
+    40% {
+      @apply opacity-50;
+      fill: none;
+    }
+    48% {
+      @apply opacity-100;
+      fill: #fff;
+    }
+    to {
+      @apply opacity-100;
+      fill: #fff;
+    }
+  }
+
+  .base-btn-animation:hover {
+    animation: base-btn-animation-color-change 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .base-btn-animation:hover {
+    &::before {
+      animation: base-btn-animation-border-flicker 1s;
+      animation-fill-mode: forwards;
+    }
+
+    &::after {
+      animation: base-btn-animation-background-appearance 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @keyframes base-btn-animation-color-change {
+    0% {
+      @apply text-white;
+    }
+    48% {
+      @apply text-white;
+    }
+    to {
+      @apply text-black;
+    }
+  }
+
+  @keyframes base-btn-animation-background-appearance {
+    0% {
+      @apply bg-transparent;
+    }
+    48% {
+      @apply bg-transparent;
+    }
+    to {
+      @apply bg-white;
+    }
+  }
+
+  @keyframes base-btn-animation-border-flicker {
+    0% {
+      @apply opacity-100;
+    }
+    8% {
+      @apply opacity-50;
+    }
+    16% {
+      @apply opacity-100;
+    }
+    24% {
+      @apply opacity-50;
+    }
+    32% {
+      @apply opacity-100;
+    }
+    40% {
+      @apply opacity-50;
+    }
+    48% {
+      @apply opacity-100;
+    }
+    to {
+      @apply opacity-100;
+    }
+  }
+}

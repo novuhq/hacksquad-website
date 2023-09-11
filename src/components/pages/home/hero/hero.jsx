@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
-import Button from 'components/shared/button';
-import ArrowRight from 'svgs/arrow-right.inline.svg';
+import SignUpButton from 'components/shared/sign-up-button';
 
 import heroImage from './images/home-hero.jpg';
 import Sponsors from './sponsors';
@@ -15,10 +14,7 @@ const Hero = () => (
       <p className="max-w-lg text-20 leading-normal md:text-18 sm:mx-auto">
         Contribute code, meet community members, participate in workshops, and win more SWAG.
       </p>
-      <Button className="mt-8" size="md" theme="fill">
-        Sign up with GitHub
-        <ArrowRight className="w-3" aria-hidden />
-      </Button>
+      <SignUpButton className="mt-8" size="md" />
       <Sponsors />
     </div>
     <Image

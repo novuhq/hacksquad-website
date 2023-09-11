@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 
-import Button from 'components/shared/button';
-import ArrowRight from 'svgs/arrow-right.inline.svg';
+import SignUpButton from 'components/shared/sign-up-button';
 
 const title = 'Welcome to <br/> Hacksquad 2023';
 
@@ -67,10 +66,7 @@ const Events = () => (
           Hacksquad is here to enhance your Swag, meet with more community members and participate
           in workshops from our great sponsors.
         </p>
-        <Button className="mb-2 shrink-0" size="md" theme="fill">
-          Sign up with GitHub
-          <ArrowRight className="w-3" aria-hidden />
-        </Button>
+        <SignUpButton className="mb-2 shrink-0" size="md" />
       </div>
     </div>
 
