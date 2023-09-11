@@ -16,7 +16,7 @@ const styles = {
   base: 'relative cta-btn-animation inline-flex max-w-full items-center justify-center leading-normal rounded-sm items-center justify-center bg-yellow text-black',
 };
 
-const SignUpButton = ({ className: additionalClassName, size }) => {
+const SignUpButton = ({ className: additionalClassName = null, size = 'sm' }) => {
   const className = clsx(styles.base, styles.size[size], additionalClassName);
   const [isLoading, setIsLoading] = useState(false);
   // const { status } = useSession();
@@ -64,12 +64,6 @@ SignUpButton.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)),
   // alternativeText: PropTypes.string,
-};
-
-SignUpButton.defaultProps = {
-  className: null,
-  size: 'sm',
-  // alternativeText: '',
 };
 
 export default SignUpButton;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ANIMATION_DURATION = 0.2;
 
-const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
+const Burger = ({ className: additionalClassName = null, isToggled = false, onClick = null }) => (
   <motion.button
     className={clsx('relative h-8 w-6', additionalClassName)}
     type="button"
@@ -92,12 +92,6 @@ Burger.propTypes = {
   className: PropTypes.string,
   isToggled: PropTypes.bool,
   onClick: PropTypes.func,
-};
-
-Burger.defaultProps = {
-  className: null,
-  isToggled: false,
-  onClick: null,
 };
 
 export default Burger;

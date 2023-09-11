@@ -15,7 +15,14 @@ const styles = {
   },
 };
 
-const Button = ({ className: additionalClassName, to, size, theme, children, ...otherProps }) => {
+const Button = ({
+  className: additionalClassName = null,
+  to = null,
+  size = 'sm',
+  theme,
+  children,
+  ...otherProps
+}) => {
   const className = clsx(styles.base, styles.size[size], styles.theme[theme], additionalClassName);
 
   const Tag = to ? Link : 'button';
@@ -33,12 +40,6 @@ Button.propTypes = {
   size: PropTypes.oneOf(Object.keys(styles.size)),
   theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
   children: PropTypes.node.isRequired,
-};
-
-Button.defaultProps = {
-  className: null,
-  to: null,
-  size: 'sm',
 };
 
 export default Button;
