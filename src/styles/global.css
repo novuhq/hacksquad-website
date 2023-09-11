@@ -3,4 +3,10 @@
     @apply min-w-[320px] bg-black font-sans text-white antialiased;
     -webkit-tap-highlight-color: transparent;
   }
+
+  .text-with-link {
+    a {
+      @apply text-purple transition-colors duration-200;
+    }
+  }
 }
