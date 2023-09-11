@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 import Link from 'components/shared/link';
 
 const styles = {
-  size: {},
-  base: 'inline-flex gap-3 px-4 py-1.5 text-16 font-medium leading-normal rounded-sm items-center justify-center',
+  size: {
+    sm: 'gap-3 px-4 py-1.5 text-16 font-medium md:text-14 md:px-4.5',
+    md: 'gap-4 px-5 py-2 text-18 font-bold md:text-16 md:px-6 sm:text-14',
+  },
+  base: 'inline-flex leading-normal rounded-sm items-center justify-center',
   theme: {
-    fill: 'bg-yellow text-black md:text-14 md:px-4.5',
-    outline: 'text-white border border-white md:text-14',
+    fill: 'bg-yellow text-black',
+    outline: 'text-white border border-white',
   },
 };
 
@@ -27,7 +30,7 @@ const Button = ({ className: additionalClassName, to, size, theme, children, ...
 Button.propTypes = {
   className: PropTypes.string,
   to: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(styles.size)).isRequired,
+  size: PropTypes.oneOf(Object.keys(styles.size)),
   theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
   children: PropTypes.node.isRequired,
 };
@@ -35,6 +38,7 @@ Button.propTypes = {
 Button.defaultProps = {
   className: null,
   to: null,
+  size: 'sm',
 };
 
 export default Button;

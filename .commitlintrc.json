@@ -4,17 +4,7 @@
     "scope-enum": [
       2,
       "always",
-      [
-        "components",
-        "constants",
-        "hooks",
-        "icons",
-        "images",
-        "pages",
-        "styles",
-        "templates",
-        "utils"
-      ]
+      ["app", "components", "constants", "hooks", "svgs", "images", "styles", "utils"]
     ]
   }
 }

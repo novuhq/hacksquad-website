@@ -1,24 +1,24 @@
-import { motion, useAnimation } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
-import Link from 'components/shared/link';
+import Button from 'components/shared/button';
+import MENUS from 'constants/menus';
+import ArrowUp from 'svgs/arrow-up.inline.svg';
 
 const ANIMATION_DURATION = 0.2;
 
 const variants = {
-  from: {
+  hidden: {
     opacity: 0,
     translateY: 30,
     transition: {
       duration: ANIMATION_DURATION,
     },
-    transitionEnd: {
-      zIndex: -1,
-    },
   },
-  to: {
-    zIndex: 999,
+  visible: {
+    zIndex: 40,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -27,54 +27,70 @@ const variants = {
   },
 };
 
-// TODO: Add links
-const links = [
-  {
-    text: '',
-    to: '',
-  },
-];
-
-const MobileMenu = ({ isOpen }) => {
+const MobileMenu = ({ isOpen, setIsOpen }) => {
   const controls = useAnimation();
 
   useEffect(() => {
     if (isOpen) {
-      controls.start('to');
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
     } else {
-      controls.start('from');
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     }
   }, [isOpen, controls]);
 
+  const handleLinkClick = (e) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    window.location.href = e.target.href;
+  };
+
   return (
-    <motion.nav
-      // TODO: Add "top" value equal to the header's height so mobile menu would be positioned right after the header, e.g. "top-20"
-      //       Check out this screenshot for better understanding — https://user-images.githubusercontent.com/20713191/144218387-afd19e0c-c33d-4c8f-8cfe-b6e6214d236c.png
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute right-8 left-8 z-[-1] hidden rounded-md px-8 pt-4 pb-7 lg:block md:right-4 md:left-4"
-      initial="from"
-      animate={controls}
-      variants={variants}
-      // TODO: Replace the color to the one from the color palette
-      style={{ boxShadow: '0px 10px 20px rgba(26, 26, 26, 0.4)' }}
-    >
-      <ul className="flex flex-col text-center">
-        {links.map(({ text, to }, index) => (
-          <li key={index}>
-            {/* TODO: Add needed props so the link would have styles */}
-            <Link className="block py-4" to={to}>
-              {text}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      {/* TODO: Add a button if needed */}
-    </motion.nav>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black pt-16 sm:pt-[60px]"
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={variants}
+        >
+          <nav className="flex h-full w-full overflow-x-hidden overflow-y-scroll">
+            <ul className="my-auto flex w-full flex-col">
+              {MENUS.mobile.map(({ href, text }, index) => (
+                <li key={index}>
+                  <Link
+                    className="text-2xl inline-block w-full py-6 text-center"
+                    href={href}
+                    passHref
+                    onClick={handleLinkClick}
+                  >
+                    {text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="sticky bottom-0 bg-black py-7">
+            <div className="container">
+              <Button className="w-full" to="#" theme="fill">
+                Join now
+                <ArrowUp width={12} height={12} aria-hidden />
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool,
+  setIsOpen: PropTypes.func.isRequired,
 };
 
 MobileMenu.defaultProps = {
