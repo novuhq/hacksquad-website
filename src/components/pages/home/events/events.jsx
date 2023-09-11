@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import SignUpButton from 'components/shared/sign-up-button';
+import CalendarIcon from 'svgs/calendar.inline.svg';
 
 const title = 'Welcome to <br/> Hacksquad 2023';
 
@@ -8,42 +9,56 @@ const eventsHeader = ['Date', 'Event', 'Company', 'RSVP'];
 const events = [
   {
     date: 'Oct 12, 2023 <br/> 9:00 AM',
+    startDate: '20231012T090000',
+    endDate: '20231012T120000',
     title: 'Get started with open-source contributions with ToolJet',
     company: 'Teja <a href="https://link.com" target="_blank">@ToolJet</a>',
     rsvp: '',
   },
   {
     date: 'Oct 15, 2023 <br/> 5:00 PM',
+    startDate: '20231015T090000',
+    endDate: '20231015T120000',
     title: 'Building a Discord bot in Rust, Javascript and Python',
     company: 'Community Event',
     rsvp: '',
   },
   {
     date: 'Oct 19, 2023 <br/> 3:00 PM',
+    startDate: '20231019T090000',
+    endDate: '20231019T120000',
     title: 'Extending and embedding open-source projects',
     company: 'Raz <a href="https://link.com" target="_blank">@Permit.io</a>',
     rsvp: '',
   },
   {
     date: 'Oct 19, 2023 <br/> 9:00 PM',
+    startDate: '20231019T090000',
+    endDate: '20231019T120000',
     title: 'Contributing to a GitHub repository',
     company: 'Michael <a href="https://link.com" target="_blank">@Amplication</a>',
     rsvp: '',
   },
   {
     date: 'Oct 26, 2023 <br/> 12:00 PM',
+    startDate: '20231026T090000',
+    endDate: '20231026T120000',
     title: 'How to add a real-time notification center to your React app with Novu and Next.js',
     company: 'Dima <a href="https://link.com" target="_blank">@Novu</a>',
     rsvp: '',
   },
   {
     date: 'Oct 26, 2023 <br/> 3:00 PM',
+    startDate: '20231026T090000',
+    endDate: '20231026T120000',
     title: 'Building a Notion like system with Nest.js, React and Novu',
     company: 'Nevo <a href="https://link.com" target="_blank">@Novu</a>',
     rsvp: '',
   },
   {
     date: 'Oct 26, 2023 <br/> 9:00 PM',
+    startDate: '20231026T090000',
+    endDate: '20231026T120000',
     title: 'How to build on Ethereum using Scaffold-ETH',
     company: 'Kevin <a href="https://link.com" target="_blank">@Scaffold-ETH</a>',
     rsvp: '',
@@ -82,18 +97,23 @@ const Events = () => (
           </div>
 
           <ul>
-            {events.map((event, index) => (
+            {events.map(({ date, title, company, startDate, endDate }, index) => (
               <li
                 className={clsx('border-b border-white border-opacity-20 py-4', tableGridClass)}
                 key={index}
               >
-                <span className="text-grey-1" dangerouslySetInnerHTML={{ __html: event.date }} />
-                <p className="max-w-md font-medium">{event.title}</p>
-                <p className="text-with-link" dangerouslySetInnerHTML={{ __html: event.company }} />
+                <span className="text-grey-1" dangerouslySetInnerHTML={{ __html: date }} />
+                <p className="max-w-md font-medium">{title}</p>
+                <p className="text-with-link" dangerouslySetInnerHTML={{ __html: company }} />
                 <span>
-                  <button className="" data-event={event.rsvp}>
+                  <a
+                    className="inline-flex items-center gap-x-2.5 rounded-[2px] bg-[rgba(255,255,255,0.10)] px-2.5 py-1 text-14 leading-1.125"
+                    target="_blank"
+                    href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&location="World Wide Web"&amp;sprop=&amp;sprop=name:`} rel="noreferrer"
+                  >
+                    <CalendarIcon aria-hidden />
                     Add to calendar
-                  </button>
+                  </a>
                 </span>
               </li>
             ))}
