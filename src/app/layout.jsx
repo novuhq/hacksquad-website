@@ -1,5 +1,9 @@
 import { Inter } from 'next/font/google';
-import 'styles/global.css';
+
+import Footer from 'components/shared/footer';
+import Header from 'components/shared/header';
+
+import 'styles/main.css';
 
 const inter = Inter({
   weight: ['400', '500', '600', '700'],
@@ -12,7 +16,13 @@ const inter = Inter({
 const RootLayout = ({ children }) => (
   <html lang="en" className={inter.variable}>
     <head />
-    <body>{children}</body>
+    <body>
+      <div className="relative flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer className="mt-auto" />
+      </div>
+    </body>
   </html>
 );
 

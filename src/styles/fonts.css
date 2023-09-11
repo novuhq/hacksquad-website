@@ -1,0 +1,25 @@
+@layer base {
+  @font-face {
+    font-family: 'Cal Sans';
+    src: url('/fonts/cal-sans/cal-sans-semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Cal Sans Fallback';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Arial Bold');
+    ascent-override: 106.67%;
+    descent-override: 21.33%;
+    line-gap-override: 0%;
+    size-adjust: 93.74%;
+  }
+
+  body {
+    @apply min-w-[320px] font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
