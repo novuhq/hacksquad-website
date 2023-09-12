@@ -14,16 +14,16 @@ const Hero = ({ teams = [] }) => (
       <div className="md:scrollbar-hidden mx-auto mt-[76px] w-[798px] md:w-full md:overflow-x-auto">
         <div className="md:min-w-[700px] md:px-7 sm:px-4">
           <div className={clsx('border-b border-white border-opacity-20 pb-4', tableGridClass)}>
-            <span className="text-20 font-medium uppercase leading-normal">Place</span>
-            <span className="text-20 font-medium uppercase leading-normal">Name</span>
-            <span className="text-20 font-medium uppercase leading-normal">Score</span>
+            <span className="text-20 font-medium uppercase leading-normal md:text-18">Place</span>
+            <span className="text-20 font-medium uppercase leading-normal md:text-18">Name</span>
+            <span className="text-20 font-medium uppercase leading-normal md:text-18">Score</span>
           </div>
 
           <ul>
             {teams.map((team, index) => (
               <li
                 className={clsx(
-                  'border-b border-white border-opacity-20 py-4 text-20 leading-normal',
+                  'border-b border-white border-opacity-20 py-4 text-20 leading-normal md:text-18',
                   tableGridClass
                 )}
               >

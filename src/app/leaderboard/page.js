@@ -1,4 +1,5 @@
 import Hero from 'components/pages/leaderboard/hero';
+import JoinUs from 'components/shared/join-us';
 import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
 // import getTeams from 'utils/get-teams';
@@ -22,14 +23,14 @@ const testTeams = [
   },
 ];
 
-const LeaderboardPage = async () => 
+const LeaderboardPage = async () => (
   // const teamsList = await getTeams();
 
-   (
+  <>
     <Hero teams={testTeams} />
-  )
-;
-
+    <JoinUs />
+  </>
+);
 export async function generateMetadata() {
   return getMetadata(SEO_DATA.LEADERBOARD);
 }
