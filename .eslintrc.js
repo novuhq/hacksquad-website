@@ -29,6 +29,7 @@ module.exports = {
     'no-shadow': 'off',
     'no-undef': 'error',
     'react/prop-types': 'error',
+    'react/require-default-props': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-danger': 'off',
