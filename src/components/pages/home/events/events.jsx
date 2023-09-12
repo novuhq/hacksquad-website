@@ -84,26 +84,26 @@ const Events = () => (
 
     <div className="container mt-[73px] md:mt-16 md:px-0 sm:mt-10">
       {/* TODO: Remove this block completely after the publication of events  */}
-      {/* <div className="mx-auto max-w-[1220px]"> */}
-      {/*   <div className="container"> */}
-      {/*     <div className={clsx('border-b border-white border-opacity-20 pb-4', tableGridClass)}> */}
-      {/*       {eventsHeader.map((event, index) => ( */}
-      {/*         <span className="font-medium uppercase" key={index}> */}
-      {/*           {event} */}
-      {/*         </span> */}
-      {/*       ))} */}
-      {/*     </div> */}
+      <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+        <div className="container">
+          <div className="grid grid-cols-[230px_575px_200px_1fr] gap-x-5 border-b border-white border-opacity-20 pb-4 lg:grid-cols-[130px_390px_200px_1fr] md:grid-cols-[1fr_1fr_1fr_1fr]">
+            {eventsHeader.map((event, index) => (
+              <span className="font-medium uppercase" key={index}>
+                {event}
+              </span>
+            ))}
+          </div>
 
-      {/*     <span className="coming-soon-animation block border-b border-white border-opacity-20 py-4 text-center"> */}
-      {/*       Coming soon <span>.</span> */}
-      {/*       <span>.</span> */}
-      {/*       <span>.</span> */}
-      {/*     </span> */}
-      {/*   </div> */}
-      {/* </div> */}
+          <span className="coming-soon-animation block border-b border-white border-opacity-20 py-4 text-center">
+            Coming soon <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </span>
+        </div>
+      </div>
 
       {/* TODO: Display this block after events are published */}
-      <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+      {/* <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
         <div className="md:min-w-[1080px] sm:px-4">
           <div className={clsx('border-b border-white border-opacity-20 pb-4', tableGridClass)}>
             {eventsHeader.map((event, index) => (
@@ -137,7 +137,7 @@ const Events = () => (
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
 
     <div className="container text-center">
