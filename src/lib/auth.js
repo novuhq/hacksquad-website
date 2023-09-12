@@ -1,6 +1,6 @@
+import mailchimp from '@mailchimp/mailchimp_marketing';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import * as Prisma from '@prisma/client';
-import mailchimp from 'mailchimp-marketing';
 import GithubProvider from 'next-auth/providers/github';
 
 const prisma = new Prisma.PrismaClient();
