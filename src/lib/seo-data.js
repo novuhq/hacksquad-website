@@ -1,7 +1,7 @@
 export const SEO_DATA = {
   INDEX: {
-    title: 'Home | gitness',
-    description: 'gitness is an Open-source code hosting & pipeline engine.',
+    title: 'HackSquad 2023 🚀',
+    description: 'Contribute code, meet community members, participate in workshops, and win SWAG!',
     pathname: '',
   },
 };
