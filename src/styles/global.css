@@ -4,6 +4,15 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  .cta-backdrop {
+    @apply relative;
+
+    &:after {
+      content: '';
+      @apply absolute h-[120%] w-[110%] rounded-sm bg-cta-blur opacity-50 blur-[30px];
+    }
+  }
+
   .text-with-link {
     a {
       @apply text-purple transition-colors duration-200;

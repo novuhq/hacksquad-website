@@ -22,6 +22,7 @@ module.exports = {
       36: '36px',
       42: '42px',
       60: '60px',
+      80: '80px',
       92: '92px',
       114: '114px',
     },
@@ -55,10 +56,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'home-hero-title':
-          'linear-gradient(19deg, rgba(82, 0, 255, 0) 15.14%, rgba(82, 0, 255, 0.2) 63.6%);',
-        'gradient-title':
-          'linear-gradient(101.58deg, rgba(82, 0, 255, 0) 15.14%, rgba(82, 0, 255, 0.2) 63.6%);',
+        'home-hero-title': 'radial-gradient(rgba(82, 0, 255, 0) 0%, rgba(82, 0, 255, 0.2) 80%);',
+        'cta-blur': 'linear-gradient(180deg, rgba(255, 234, 0, 0) 0%, #FFEA00 100%);',
       },
     },
   },

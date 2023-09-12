@@ -33,9 +33,8 @@ const logos = [
 ];
 
 const Sponsors = () => (
-  <div className="container mt-28 py-9">
-    <h2 className="text-center text-16 uppercase leading-normal text-grey-1">Sponsored by</h2>
-    <ul className="mt-8 flex flex-wrap justify-center gap-x-[116px] gap-y-10 md:gap-x-16 sm:gap-x-10">
+  <div className="container mt-28 py-10">
+    <ul className="flex flex-wrap justify-center gap-x-[111px] gap-y-10 md:gap-x-16 sm:gap-x-10">
       {logos.map((props, index) => (
         <li className="shrink-0" key={index}>
           <Image className="w-auto sm:h-9" priority {...props} />

@@ -201,7 +201,7 @@ const list = [
 ];
 
 const TwitterTimeline = () => (
-  <section className="safe-paddings relative py-36 md:py-20 sm:py-16 xs:py-12">
+  <section className="safe-paddings relative py-32 md:py-20 sm:py-16 xs:py-12">
     <div className="container text-center">
       <h2 className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xs:max-w-[246px]">
         Join the party
@@ -218,7 +218,7 @@ const TwitterTimeline = () => (
         <ArrowUp aria-hidden />
       </Link>
     </div>
-    <div className="container mt-[70px] md:mt-16 md:px-0 sm:mt-10">
+    <div className="container mt-[74px] md:mt-16 sm:mt-10">
       <ul className="columns-4 gap-x-8 space-y-8 lg:columns-3 sm:columns-2 sm:gap-x-4 sm:space-y-4">
         {list.map(
           ({ twitterPhoto, twitterName, twitterAccountName, twitterUrl, text, photo }, index) => (
@@ -240,7 +240,7 @@ const TwitterTimeline = () => (
                     width={36}
                     height={36}
                   />
-                  <div className="flex flex-col gap-y-1 text-14 leading-1.125">
+                  <div className="flex flex-col gap-y-1 text-14 leading-1.125 sm:break-all">
                     <h3 className="font-medium">{twitterName}</h3>
                     <p className="opacity-40">@{twitterAccountName}</p>
                   </div>

@@ -13,7 +13,7 @@ const styles = {
     sm: 'gap-3 px-4 py-1.5 text-16 font-medium md:text-14 md:px-4.5',
     md: 'gap-4 px-5 py-2 text-18 font-bold md:text-16 md:px-6 sm:text-14',
   },
-  base: 'relative cta-btn-animation inline-flex max-w-full items-center justify-center leading-normal rounded-sm items-center justify-center bg-yellow text-black',
+  base: 'relative cta-btn-animation cta-backdrop inline-flex max-w-full items-center justify-center leading-normal rounded-sm items-center justify-center bg-yellow text-black',
 };
 
 const SignUpButton = ({ className: additionalClassName = null, size = 'sm' }) => {
