@@ -16,7 +16,9 @@ const Hero = () => (
       <p className="max-w-lg text-20 leading-normal md:text-18 sm:mx-auto">
         Contribute code, meet community members, participate in workshops, and win more SWAG.
       </p>
-      <SignUpButton className="mt-8" size="md" />
+      <SignUpButton className="mt-8" size="md">
+        Sign up with GitHub
+      </SignUpButton>
       <Sponsors />
     </div>
     <Image

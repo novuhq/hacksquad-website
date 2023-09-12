@@ -141,7 +141,9 @@ const Events = () => (
     </div>
 
     <div className="container text-center">
-      <SignUpButton className="mt-16" size="md" />
+      <SignUpButton className="mt-16" size="md">
+        Sign up with GitHub
+      </SignUpButton>
     </div>
   </section>
 );

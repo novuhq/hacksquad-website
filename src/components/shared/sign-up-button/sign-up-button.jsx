@@ -16,7 +16,7 @@ const styles = {
   base: 'relative cta-btn-animation cta-backdrop inline-flex max-w-full items-center justify-center leading-normal rounded-sm items-center justify-center bg-yellow text-black',
 };
 
-const SignUpButton = ({ className: additionalClassName = null, size = 'sm' }) => {
+const SignUpButton = ({ className: additionalClassName = null, size = 'sm', children }) => {
   const className = clsx(styles.base, styles.size[size], additionalClassName);
   const [isLoading, setIsLoading] = useState(false);
   // const { status } = useSession();
@@ -40,7 +40,7 @@ const SignUpButton = ({ className: additionalClassName = null, size = 'sm' }) =>
       onClick={handleSignIn}
     >
       <span>
-        Sign up with GitHub
+        {children}
         {/* {status === 'authenticated' ? ( */}
         {/*   <span className="text-lg sm:text-[18px]">Go to my Squad</span> */}
         {/* ) : ( */}
@@ -63,6 +63,7 @@ const SignUpButton = ({ className: additionalClassName = null, size = 'sm' }) =>
 SignUpButton.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)),
+  children: PropTypes.node.isRequired,
   // alternativeText: PropTypes.string,
 };
 
