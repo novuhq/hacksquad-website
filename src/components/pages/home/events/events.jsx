@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import clsx from 'clsx';
 
 import SignUpButton from 'components/shared/sign-up-button';
@@ -86,7 +87,27 @@ const Events = () => (
     </div>
 
     <div className="container mt-[70px] md:mt-16 md:px-0 sm:mt-10">
-      <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+      {/* TODO: Remove this block completely after the publication of events  */}
+      <div className="mx-auto max-w-[1220px]">
+        <div className="container">
+          <div className={clsx('border-b border-white border-opacity-20 pb-4', tableGridClass)}>
+            {eventsHeader.map((event, index) => (
+              <span className="font-medium uppercase" key={index}>
+                {event}
+              </span>
+            ))}
+          </div>
+
+          <span className="coming-soon-animation block border-b border-white border-opacity-20 py-4 text-center">
+            Coming soon <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </span>
+        </div>
+      </div>
+
+      {/* TODO: Display this block after events are published */}
+      {/* <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
         <div className="md:min-w-[1080px] sm:px-4">
           <div className={clsx('border-b border-white border-opacity-20 pb-4', tableGridClass)}>
             {eventsHeader.map((event, index) => (
@@ -109,7 +130,8 @@ const Events = () => (
                   <a
                     className="inline-flex items-center gap-x-2.5 rounded-[2px] bg-[rgba(255,255,255,0.10)] px-2.5 py-1 text-14 leading-1.125"
                     target="_blank"
-                    href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&location="World Wide Web"&amp;sprop=&amp;sprop=name:`} rel="noreferrer"
+                    href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&location="World Wide Web"&amp;sprop=&amp;sprop=name:`}
+                    rel="noreferrer"
                   >
                     <CalendarIcon aria-hidden />
                     Add to calendar
@@ -119,7 +141,7 @@ const Events = () => (
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   </section>
 );
