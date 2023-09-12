@@ -12,6 +12,8 @@ module.exports = {
       titles: ['Cal Sans', 'Cal Sans Fallback', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
+      12: '12px',
+      13: '13px',
       14: '14px',
       16: '16px',
       18: '18px',
@@ -20,6 +22,9 @@ module.exports = {
       36: '36px',
       42: '42px',
       60: '60px',
+      80: '80px',
+      92: '92px',
+      114: '114px',
     },
     lineHeight: {
       none: '100%',
@@ -48,6 +53,12 @@ module.exports = {
       md: { max: '1023px' },
       sm: { max: '767px' },
       xs: { max: '359px' },
+    },
+    extend: {
+      backgroundImage: {
+        'home-hero-title': 'radial-gradient(rgba(82, 0, 255, 0) 0%, rgba(82, 0, 255, 0.2) 80%);',
+        'cta-blur': 'linear-gradient(180deg, rgba(255, 234, 0, 0) 0%, #FFEA00 100%);',
+      },
     },
   },
   plugins: [require('tailwindcss-safe-area')],

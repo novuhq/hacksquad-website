@@ -3,4 +3,51 @@
     @apply min-w-[320px] bg-black font-sans text-white antialiased;
     -webkit-tap-highlight-color: transparent;
   }
+
+  .cta-backdrop {
+    @apply relative;
+
+    &:after {
+      content: '';
+      @apply absolute h-[120%] w-[110%] rounded-sm bg-cta-blur opacity-50 blur-[30px];
+    }
+  }
+
+  .text-with-link {
+    a {
+      @apply text-purple transition-colors duration-200;
+    }
+  }
+
+  .text-with-hashtags {
+    @apply mt-6 inline-flex flex-wrap gap-x-1;
+
+    span {
+      @apply text-purple;
+    }
+  }
+
+  .coming-soon-animation span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  .coming-soon-animation span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .coming-soon-animation span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+  }
 }
