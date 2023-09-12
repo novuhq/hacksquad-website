@@ -1,18 +1,17 @@
-import mailchimp from '@mailchimp/mailchimp_marketing';
+// import mailchimp from '@mailchimp/mailchimp_marketing';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import * as Prisma from '@prisma/client';
 import GithubProvider from 'next-auth/providers/github';
 
-const prisma = new Prisma.PrismaClient();
+import prisma from '../../prisma/client';
 
 if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
   throw new Error('The GITHUB_ID and GITHUB_SECRET environment variables are required.');
 }
 
-mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_KEY,
-  server: process.env.MAILCHIMP_SERVER,
-});
+// mailchimp.setConfig({
+//   apiKey: process.env.MAILCHIMP_KEY,
+//   server: process.env.MAILCHIMP_SERVER,
+// });
 
 export const authOptions = (req) => ({
   adapter: PrismaAdapter(prisma),
@@ -52,19 +51,19 @@ export const authOptions = (req) => ({
         },
       });
 
-      if (user.email) {
-        const [name, lastName] = user.name.split(' ');
-        await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
-          email_address: user.email,
-          status: 'subscribed',
-          skip_merge_validation: true,
-          merge_fields: {
-            FNAME: name,
-            LNAME: lastName,
-          },
-        });
-      }
+      // if (user.email) {
+      //   const [name, lastName] = user.name.split(' ');
+      //   await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
+      //     email_address: user.email,
+      //     status: 'subscribed',
+      //     skip_merge_validation: true,
+      //     merge_fields: {
+      //       FNAME: name,
+      //       LNAME: lastName,
+      //     },
+      //   });
+      // }
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_AUTH_SECRET,
 });
