@@ -40,7 +40,7 @@ const JoinUs = () => (
       {socialList.map(({ icon, name, text, link, linkText }, index) => (
         <li className="col-span-4 sm:col-span-full" key={index}>
           <Link
-            className="flex flex-col items-center justify-center rounded-[6px] bg-[rgba(255,255,255,0.08)] px-14 py-7 md:p-6"
+            className="flex flex-col items-center justify-center rounded-[6px] bg-[rgba(255,255,255,0.08)] px-14 py-7 transition-colors duration-200 hover:bg-[rgba(255,255,255,0.10)] md:p-6"
             to={link}
           >
             <img src={icon} width={40} height={40} alt="" loading="lazy" />
@@ -48,7 +48,7 @@ const JoinUs = () => (
             <p className="mt-3 text-16 leading-normal text-grey-1">{text}</p>
             <p className="mt-4 flex items-center gap-x-2.5 text-16 font-medium leading-normal text-purple">
               {linkText}
-              <ArrowUp className="" aria-hidden />
+              <ArrowUp aria-hidden />
             </p>
           </Link>
         </li>

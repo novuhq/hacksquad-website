@@ -35,7 +35,7 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-            <Button className="" to="#" theme="fill">
+            <Button className="" to="#" theme="outline">
               Join now
               <ArrowUp width={12} height={12} aria-hidden />
             </Button>
