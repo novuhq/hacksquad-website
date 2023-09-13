@@ -27,5 +27,9 @@
     text-align: center;
     writing-mode: tb-rl;
     transform: rotate(-180deg);
+
+    @media screen(sm) {
+      right: 6px;
+    }
   }
 }

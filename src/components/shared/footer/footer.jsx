@@ -7,7 +7,7 @@ import ArrowUp from 'svgs/arrow-up.inline.svg';
 import logo from 'svgs/logo.svg';
 
 const Footer = () => (
-  <footer className="safe-paddings border-t border-[rgba(255,255,255,0.20)]">
+  <footer className="safe-paddings relative z-50 border-t border-[rgba(255,255,255,0.20)] bg-black">
     <div className="container flex items-center justify-between py-3.5 md:py-3">
       <Link to="/">
         <Image src={logo} width={36} height={36} alt="Hacksquad" />

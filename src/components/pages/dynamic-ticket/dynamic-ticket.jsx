@@ -51,7 +51,7 @@ const DynamicTicket = () => {
   };
 
   return (
-    <div className="absolute inset-0 flex flex-col justify-center overflow-hidden py-20">
+    <div className="flex min-h-[calc(100vh-70px)] flex-col justify-center overflow-hidden py-20 lg:py-10">
       <div className="container grid grid-cols-12 gap-10 lg:grid-cols-1 lg:gap-0">
         <div className="col-span-6 self-center pr-16 lg:col-span-full lg:pr-0 lg:text-center">
           <h2 className="max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:mx-auto lg:text-42 md:text-36">
