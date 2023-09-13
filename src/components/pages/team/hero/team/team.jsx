@@ -1,7 +1,6 @@
 'use client';
 
 import moment from 'moment';
-import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -9,6 +8,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
 
+import Button from 'components/shared/button';
 import githubIcon from 'svgs/github.svg';
 
 const Team = ({ info }) => {
@@ -84,83 +84,26 @@ const Team = ({ info }) => {
       <div className="gapy-y-1 mt-6 flex flex-wrap justify-center gap-x-5">
         {info.team.users.length < 5 && (
           <CopyToClipboard text={invite} onCopy={() => toast.success('Copied to Clipboard')}>
-            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
-              <svg
-                className="cta-btn-animation-border xs:w-full"
-                width="200"
-                height="59"
-                viewBox="0 0 268 59"
-                fill="none"
-              >
-                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-              </svg>
-
-              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-                <span className="text-lg sm:text-[18px]">Invite people</span>
-              </div>
-            </a>
+            <Button theme="fill-white" size="md">
+              Invite people
+            </Button>
           </CopyToClipboard>
         )}
 
         {isCurrentUserNew && info.team.users.length > 1 && (
-          <div onClick={leaveTeam}>
-            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
-              <svg
-                className="cta-btn-animation-border xs:w-full"
-                width="200"
-                height="59"
-                viewBox="0 0 268 59"
-                fill="none"
-              >
-                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-              </svg>
-
-              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-                <span className="text-lg sm:text-[18px]">Leave Team</span>
-              </div>
-            </a>
-          </div>
+          <Button theme="fill-white" size="md" onClick={leaveTeam}>
+            Leave Team
+          </Button>
         )}
 
-        <div>
-          <a
-            href="/bonuses"
-            className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
-          >
-            <svg
-              className="cta-btn-animation-border xs:w-full"
-              width="200"
-              height="59"
-              viewBox="0 0 268 59"
-              fill="none"
-            >
-              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-            </svg>
-
-            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-              <span className="text-lg sm:text-[18px]">Bonuses</span>
-            </div>
-          </a>
-        </div>
+        <Button to="/bonuses" theme="fill-white" size="md">
+          Bonuses
+        </Button>
 
         {!!info?.winners?.length && (
-          <Link href="/winner">
-            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
-              <svg
-                className="cta-btn-animation-border xs:w-full"
-                width="200"
-                height="59"
-                viewBox="0 0 268 59"
-                fill="none"
-              >
-                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-              </svg>
-
-              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-                <span className="text-lg sm:text-[18px]">Claim Prizes 🎉</span>
-              </div>
-            </a>
-          </Link>
+          <Button to="/winner" theme="fill-white" size="md">
+            Claim Prizes 🎉
+          </Button>
         )}
       </div>
 

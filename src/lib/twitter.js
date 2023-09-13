@@ -5,7 +5,6 @@ import findUserAndTeam from 'lib/find-user-and-team';
 import prisma from '../../prisma/client';
 
 export default async function twitter(query) {
-  console.log(!query.code);
   const { user, twitter, devto } = await findUserAndTeam();
 
   if (!user?.id || !query.code) {

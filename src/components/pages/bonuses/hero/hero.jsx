@@ -14,7 +14,7 @@ import TwitterIcon from './images/twitter.inline.svg';
 const TITLE = 'Bonuses';
 
 const Hero = ({ twitter, devto }) => (
-  <section className="safe-paddings relative min-h-[600px]">
+  <section className="safe-paddings relative min-h-[600px] pt-[92px]">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center">
       <h1 className="leading-tight font-titles text-60 font-bold lg:text-[50px] md:text-[40px] xs:text-[32px]">
         {TITLE}
@@ -59,7 +59,7 @@ const Hero = ({ twitter, devto }) => (
       </Button>
 
       <div className="mt-20 flex flex-col items-center md:bottom-12">
-        <span className="font-mono uppercase">Let’s connect</span>
+        <span className="font-titles uppercase">Let’s connect</span>
         <div className="flex items-center space-x-8">
           <a
             className="group mt-5"
@@ -85,7 +85,6 @@ const Hero = ({ twitter, devto }) => (
 );
 
 Hero.propTypes = {
-  teams: PropTypes.array,
   twitter: PropTypes.bool,
   devto: PropTypes.bool,
 };

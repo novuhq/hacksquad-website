@@ -18,7 +18,7 @@ const DESCRIPTION = (
 const Hero = () => (
   <section className="safe-paddings relative h-screen min-h-[600px]">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center">
-      <h1 className="font-mono leading-tight text-60 font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
+      <h1 className="leading-tight font-titles text-60 font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
         {TITLE}
       </h1>
       <p className="text-lg sm:text-base mt-10 text-center sm:mt-6">{DESCRIPTION}</p>
