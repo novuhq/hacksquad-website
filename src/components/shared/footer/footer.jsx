@@ -1,13 +1,16 @@
-import Image from 'next/image';
+'use client';
 
-import Button from 'components/shared/button';
+import Image from 'next/image';
+import PropTypes from 'prop-types';
+
 import Link from 'components/shared/link';
 import MENUS from 'constants/menus';
-import ArrowUp from 'svgs/arrow-up.inline.svg';
 import logo from 'svgs/logo.svg';
 
-const Footer = () => (
-  <footer className="safe-paddings relative z-50 border-t border-[rgba(255,255,255,0.20)] bg-black">
+import SignUpButton from '../sign-up-button';
+
+const Footer = ({ isAuthorized = false }) => (
+  <footer className="safe-paddings border-t border-[rgba(255,255,255,0.20)]">
     <div className="container flex items-center justify-between py-3.5 md:py-3">
       <Link to="/">
         <Image src={logo} width={36} height={36} alt="Hacksquad" />
@@ -22,13 +25,22 @@ const Footer = () => (
             </li>
           ))}
         </ul>
-        <Button className="" to="#" theme="outline">
-          Join now
-          <ArrowUp width={12} height={12} aria-hidden />
-        </Button>
+
+        <SignUpButton
+          size="sm"
+          theme="outline"
+          to={isAuthorized ? '/my-team' : null}
+          isSignInButton={!isAuthorized}
+        >
+          {!isAuthorized ? 'Join now' : 'My Squad'}
+        </SignUpButton>
       </nav>
     </div>
   </footer>
 );
+
+Footer.propTypes = {
+  isAuthorized: PropTypes.bool,
+};
 
 export default Footer;

@@ -1,70 +1,77 @@
 'use client';
 
 import clsx from 'clsx';
-// import { signIn, useSession } from 'next-auth/react';
-// import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+import Link from 'components/shared/link';
 import ArrowRight from 'svgs/arrow-right.inline.svg';
+import ArrowUp from 'svgs/arrow-up.inline.svg';
 
 const styles = {
+  base: 'relative inline-flex max-w-full items-center justify-center leading-none rounded-sm items-center',
   size: {
-    sm: 'gap-3 px-4 py-1.5 text-16 font-medium md:text-14 md:px-4.5',
-    md: 'gap-4 px-5 py-2 text-18 font-bold md:text-16 md:px-6 sm:text-14',
+    sm: 'gap-3 px-4 h-9 text-16 font-medium md:text-14 md:px-4.5',
+    md: 'gap-4 px-5 h-12 text-18 font-bold md:text-16 md:px-6 sm:text-14',
   },
-  base: 'relative cta-btn-animation cta-backdrop inline-flex max-w-full items-center justify-center leading-normal rounded-sm items-center justify-center bg-yellow text-black',
+  theme: {
+    'fill-yellow': 'bg-yellow text-black',
+    outline: 'text-white border border-white',
+  },
 };
 
-const SignUpButton = ({ className: additionalClassName = null, size = 'sm', children }) => {
-  const className = clsx(styles.base, styles.size[size], additionalClassName);
+const SignUpButton = ({ className = null, to = null, size = 'sm', theme, children }) => {
   const [isLoading, setIsLoading] = useState(false);
-  // const { status } = useSession();
-  // const router = useRouter();
 
-  // TODO: uncomment when implementing login logic
+  const Tag = to ? Link : 'button';
+
   const handleSignIn = (e) => {
     e.preventDefault();
-    // if (status === 'authenticated') {
-    //   router.push('/myteam');
-    //   return;
-    // }
-    setIsLoading(true);
-    // signIn('github', { callbackUrl: '/thank-you/' });
-  };
 
+    setIsLoading(true);
+    signIn('github');
+  };
   return (
-    <button
-      className={clsx(className, isLoading && 'pointer-events-none')}
-      type="button"
-      onClick={handleSignIn}
-    >
-      <span>
-        {children}
-        {/* {status === 'authenticated' ? ( */}
-        {/*   <span className="text-lg sm:text-[18px]">Go to my Squad</span> */}
-        {/* ) : ( */}
-        {/*   <> */}
-        {/*     <span className="text-lg sm:text-[18px]"> */}
-        {/*       {!alternativeText ? 'Sign up with GitHub' : alternativeText} */}
-        {/*     </span> */}
-        {/*   </> */}
-        {/* )} */}
-      </span>
-      {isLoading ? (
-        <span className="h-3 w-3 animate-spin rounded-full border border-b border-transparent border-b-black" />
-      ) : (
-        <ArrowRight className="w-3" aria-hidden />
+    <Tag
+      className={clsx(
+        styles.base,
+        styles.size[size],
+        styles.theme[theme],
+        className,
+        isLoading && 'pointer-events-none'
       )}
-    </button>
+      to={to}
+      type={!to && 'button'}
+      onClick={!to && handleSignIn}
+    >
+      {children}
+      {isLoading ? (
+        <span
+          className={clsx('h-3 w-3 animate-spin rounded-full border border-b border-transparent', {
+            'border-b-black': theme === 'fill-yellow',
+            'border-b-white': theme === 'outline',
+          })}
+        />
+      ) : (
+        <>
+          {size === 'sm' ? (
+            <ArrowUp className="w-3" aria-hidden />
+          ) : (
+            <ArrowRight className="w-3" aria-hidden />
+          )}
+        </>
+      )}
+    </Tag>
   );
 };
 
 SignUpButton.propTypes = {
   className: PropTypes.string,
+  to: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)),
+  theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
   children: PropTypes.node.isRequired,
-  // alternativeText: PropTypes.string,
 };
 
 export default SignUpButton;
