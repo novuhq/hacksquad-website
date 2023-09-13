@@ -46,48 +46,48 @@ export const authOptions = {
       return session;
     },
   },
-  // TODO: comment out these lines after adding mailchimp integration
-  // events: {
-  //   async signIn({ user, account }) {
-  //     // Get user email if we don't have it in public emails
-  //     const { login } = await fetch('https://api.github.com/user', {
-  //       headers: {
-  //         Authorization: `Bearer ${account.access_token}`,
-  //       },
-  //     }).then((res) => res.json());
+  events: {
+    async signIn({ user, account }) {
+      // Get user email if we don't have it in public emails
+      const { login } = await fetch('https://api.github.com/user', {
+        headers: {
+          Authorization: `Bearer ${account.access_token}`,
+        },
+      }).then((res) => res.json());
 
-  //     const getInvite = req?.cookies?.invite
-  //       ? await prisma.user.findUnique({
-  //           where: {
-  //             email: Buffer.from(req?.cookies?.invite, 'base64').toString(),
-  //           },
-  //         })
-  //       : undefined;
+      // TODO: comment out these lines after adding mailchimp integration
+      //     const getInvite = req?.cookies?.invite
+      //       ? await prisma.user.findUnique({
+      //           where: {
+      //             email: Buffer.from(req?.cookies?.invite, 'base64').toString(),
+      //           },
+      //         })
+      //       : undefined;
 
-  //     await prisma.user.update({
-  //       where: {
-  //         id: user.id,
-  //       },
-  //       data: {
-  //         handle: login,
-  //         ...(getInvite && getInvite.id !== user.id ? { inviteId: getInvite.id } : {}),
-  //       },
-  //     });
+      //     if (user.email) {
+      //       const [name, lastName] = user.name.split(' ');
+      //       await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
+      //         email_address: user.email,
+      //         status: 'subscribed',
+      //         skip_merge_validation: true,
+      //         merge_fields: {
+      //           FNAME: name,
+      //           LNAME: lastName,
+      //         },
+      //       });
+      //     }
+      //   },
 
-  //     if (user.email) {
-  //       const [name, lastName] = user.name.split(' ');
-  //       await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
-  //         email_address: user.email,
-  //         status: 'subscribed',
-  //         skip_merge_validation: true,
-  //         merge_fields: {
-  //           FNAME: name,
-  //           LNAME: lastName,
-  //         },
-  //       });
-  //     }
-  //   },
-  // },
+      await prisma.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          handle: login,
+        },
+      });
+    },
+  },
 };
 
 // Helper function to get session without passing config every time
