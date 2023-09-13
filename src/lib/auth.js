@@ -9,6 +9,7 @@ if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
   throw new Error('The GITHUB_ID and GITHUB_SECRET environment variables are required.');
 }
 
+// TODO: add mailchimp integration
 // mailchimp.setConfig({
 //   apiKey: process.env.MAILCHIMP_KEY,
 //   server: process.env.MAILCHIMP_SERVER,
@@ -45,6 +46,7 @@ export const authOptions = {
       return session;
     },
   },
+  // TODO: comment out these lines after adding mailchimp integration
   // events: {
   //   async signIn({ user, account }) {
   //     // Get user email if we don't have it in public emails
