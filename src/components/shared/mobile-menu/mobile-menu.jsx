@@ -27,7 +27,7 @@ const variants = {
   },
 };
 
-const MobileMenu = ({ isOpen, setIsOpen }) => {
+const MobileMenu = ({ isOpen = false, setIsOpen }) => {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -91,10 +91,6 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool,
   setIsOpen: PropTypes.func.isRequired,
-};
-
-MobileMenu.defaultProps = {
-  isOpen: false,
 };
 
 export default MobileMenu;
