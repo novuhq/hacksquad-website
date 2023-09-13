@@ -5,11 +5,13 @@ import Link from 'components/shared/link';
 
 const styles = {
   size: {
-    sm: 'gap-3 px-4 h-9 text-16 font-medium md:text-14 md:px-4.5',
-    md: 'gap-4 px-5 h-12 text-18 font-bold md:text-16 md:px-6 sm:text-14',
+    xs: 'px-4 h-9 text-16 font-medium md:text-14 md:px-4.5',
+    sm: 'px-5 h-11 text-18 font-bold md:text-14 md:px-5',
+    md: 'px-5 h-12 text-18 font-bold md:text-16 md:px-6 sm:text-14',
   },
   base: 'inline-flex leading-normal rounded-sm items-center justify-center',
   theme: {
+    'fill-white': 'bg-white text-black',
     'fill-yellow': 'bg-yellow text-black',
     outline: 'text-white border border-white',
   },
