@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 import Link from 'components/shared/link';
-import ArrowUp from 'svgs/arrow-up.inline.svg';
 
 import User1ContentPhoto from './images/user-1-content.jpg';
 import User1Photo from './images/user-1.jpg';
@@ -215,7 +214,20 @@ const TwitterTimeline = () => (
         to="https://twitter.com/HackSquadDev"
       >
         Explore more on X
-        <ArrowUp aria-hidden />
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+          <path
+            d="M13.498 2.5L2.49805 13.5"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M6.16406 2.5H13.4974V9.83333"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="square"
+          />
+        </svg>
       </Link>
     </div>
     <div className="container mt-[74px] md:mt-16 sm:mt-10">

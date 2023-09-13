@@ -162,7 +162,7 @@ const QuestionAndAnswer = () => {
 
   return (
     <section
-      className="safe-paddings relative scroll-mt-5 py-28 md:py-20 sm:py-16 xxs:py-12"
+      className="safe-paddings relative scroll-mt-5 py-28 pb-40 md:py-20 sm:py-16 xs:py-12"
       id="qa"
     >
       <div className="container">
@@ -188,14 +188,12 @@ const QuestionAndAnswer = () => {
                   key={index}
                   initial="from"
                   animate={isActive ? 'to' : 'exit'}
+                  role="button"
+                  tabIndex="0"
+                  onClick={handleHeaderClick}
+                  onKeyDown={handleHeaderClick}
                 >
-                  <div
-                    className="flex justify-between space-x-2.5 text-white outline-none"
-                    role="button"
-                    tabIndex="0"
-                    onClick={handleHeaderClick}
-                    onKeyDown={handleHeaderClick}
-                  >
+                  <div className="flex justify-between space-x-2.5 text-white outline-none">
                     <h3 className="text-20 font-medium leading-normal">{question}</h3>
                     <m.svg
                       className="relative mt-3 flex-shrink-0"
