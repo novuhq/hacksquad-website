@@ -10,7 +10,6 @@ import Sponsors from './sponsors';
 
 const Hero = ({ isAuthorized = false }) => (
   <section className="safe-paddings overflow-hidden">
-    {/*  pb-28 pt-72 sm:py-20  */}
     <div className="container relative z-20 mt-[310px] sm:text-center">
       <h1 className="max-w-2xl bg-white bg-home-hero-title bg-clip-text pb-6 font-titles text-114 font-semibold leading-none text-transparent lg:text-92 md:text-60 xs:max-w-[246px] xs:text-42">
         <span className="block text-80 leading-[60px]">2023</span>
