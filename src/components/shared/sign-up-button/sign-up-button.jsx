@@ -49,7 +49,7 @@ const SignUpButton = ({ className = null, to = null, size = 'sm', theme, childre
       {isLoading ? (
         <span
           className={clsx('h-3 w-3 animate-spin rounded-full border border-b border-transparent', {
-            'border-b-black': theme === 'fill',
+            'border-b-black': theme === 'fill-yellow',
             'border-b-white': theme === 'outline',
           })}
         />
