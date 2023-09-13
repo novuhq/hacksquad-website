@@ -10,7 +10,7 @@ async function MyTeam() {
   const session = await auth();
 
   if (!session?.user) {
-    redirect('/');
+    redirect('/sign-in');
   }
 
   return (
