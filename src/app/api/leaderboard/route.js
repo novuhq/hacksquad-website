@@ -18,9 +18,7 @@ export async function GET() {
     },
   };
 
-  const teams = await prisma.team.findMany({
-    data,
-  });
+  const teams = await prisma.team.findMany(data);
 
   return NextResponse.json(teams);
 }
