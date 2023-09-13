@@ -1,11 +1,14 @@
+'use client';
+
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import SignUpButton from 'components/shared/sign-up-button';
 
 import heroImage from './images/home-hero.jpg';
 import Sponsors from './sponsors';
 
-const Hero = () => (
+const Hero = ({ isAuthorized = false }) => (
   <section className="safe-paddings overflow-hidden">
     {/*  pb-28 pt-72 sm:py-20  */}
     <div className="container relative z-20 mt-[310px] sm:text-center">
@@ -16,8 +19,15 @@ const Hero = () => (
       <p className="max-w-lg text-20 leading-normal md:text-18 sm:mx-auto">
         Contribute code, meet community members, participate in workshops, and win more SWAG.
       </p>
-      <SignUpButton className="mt-8" size="md">
-        Sign up with GitHub
+
+      <SignUpButton
+        className="mt-8"
+        size="md"
+        theme="fill-yellow"
+        to={isAuthorized ? '/my-team' : null}
+        isSignInButton={!isAuthorized}
+      >
+        {!isAuthorized ? 'Sign up with GitHub' : 'Go to my Squad'}
       </SignUpButton>
       <Sponsors />
     </div>
@@ -30,5 +40,9 @@ const Hero = () => (
     />
   </section>
 );
+
+Hero.propTypes = {
+  isAuthorized: PropTypes.bool,
+};
 
 export default Hero;
