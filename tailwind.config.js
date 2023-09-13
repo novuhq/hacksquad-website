@@ -41,6 +41,22 @@ module.exports = {
         2: '#454d54',
       },
     }),
+    extend: {
+      backgroundImage: () => ({
+        'color-picker-variant-1': 'linear-gradient(135deg, #42E2FE 0%, #4382F9 100%);',
+        'color-picker-variant-2': 'linear-gradient(135deg, #D64996 0%, #2B54C7 100%);',
+        'color-picker-variant-3': 'linear-gradient(135deg, #FEEDAA 0%, #EAA94F 100%);',
+        'color-picker-variant-4': 'linear-gradient(135deg, #00FFFF 0%, #4FEA71 100%);',
+        'color-picker-variant-5': 'linear-gradient(135deg, #FF9E75 0%, #F05600 100%);',
+        'color-picker-variant-6': 'linear-gradient(135deg, #AAFEF9 0%, #8728FF 99.48%);',
+        'ticket-text-variant-1': 'linear-gradient(215.67deg, #ffffff 41.51%, #66ffcc 79.11%)',
+        'ticket-text-variant-2': 'linear-gradient(215.67deg, #ffffff 41.51%, #e6ff66 79.11%)',
+        'ticket-text-variant-3': 'linear-gradient(215.67deg, #ffffff 41.51%, #ff99dd 79.11%)',
+        'ticket-text-variant-4': 'linear-gradient(215.67deg, #ffffff 41.51%, #ccccff 79.11%)',
+        'ticket-text-variant-5': 'linear-gradient(215.67deg, #ffffff 41.51%, #ccccff 79.11%)',
+        'ticket-text-variant-6': 'linear-gradient(215.67deg, #ffffff 41.51%, #ccccff 79.11%)',
+      }),
+    },
     screens: {
       '2xl': { max: '1919px' },
       xl: { max: '1535px' },

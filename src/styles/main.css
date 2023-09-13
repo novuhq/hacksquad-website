@@ -9,6 +9,7 @@
 
 /* Components */
 @import './container.css';
+@import './ticket.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';
