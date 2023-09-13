@@ -9,7 +9,7 @@ async function JoinSquad() {
   const session = await auth();
 
   if (!session?.user) {
-    redirect('/');
+    redirect('/sign-in');
   }
 
   return <Hero />;

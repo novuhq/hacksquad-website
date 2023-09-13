@@ -14,7 +14,7 @@ async function Bonuses({ searchParams }) {
   const session = await auth();
 
   if (!session?.user) {
-    redirect('/');
+    redirect('/sign-in');
   }
 
   const { twitter, devto } = await getData(searchParams);
