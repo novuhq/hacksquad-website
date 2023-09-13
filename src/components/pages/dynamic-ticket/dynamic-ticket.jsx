@@ -3,11 +3,14 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import SignUpButton from 'components/shared/sign-up-button';
+import SocialShare from 'components/shared/social-share';
 import GithubIcon from 'svgs/github.inline.svg';
 import LogoOneColor from 'svgs/logo-one-color.inline.svg';
+import getShortName from 'utils/get-short-name';
 
 const colorVariants = [
   {
@@ -42,9 +45,13 @@ const colorVariants = [
   },
 ];
 
-const DynamicTicket = () => {
-  const [selectedColorSchema, setSelectedColorSchema] = useState('1');
-  const withColorPicker = true;
+const DynamicTicket = async ({
+  user: { id: number, name, login: githubHandle, colorSchema },
+  session,
+}) => {
+  const [selectedColorSchema, setSelectedColorSchema] = useState(null);
+  const currentColorSchema = selectedColorSchema || colorSchema || '1';
+  const isAuthorized = !!session;
 
   const handleColorClick = (e) => {
     setSelectedColorSchema(e.target.id);
@@ -55,31 +62,51 @@ const DynamicTicket = () => {
       <div className="container grid grid-cols-12 gap-10 lg:grid-cols-1 lg:gap-0">
         <div className="col-span-6 self-center pr-16 lg:col-span-full lg:pr-0 lg:text-center">
           <h2 className="max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:mx-auto lg:text-42 md:text-36">
-            Ron Wasikowski’s Ticket
+            {isAuthorized ? (
+              <>
+                You’re In. <br /> Make it Unique.
+              </>
+            ) : (
+              `${name}’s Ticket`
+            )}
           </h2>
-          <p className="mt-5 max-w-sm text-20 leading-normal text-grey-1 lg:mx-auto md:text-18">
-            Join Ron at Hacksquad 2023 and get your exclusive participation ticket!
+          <p className="mt-5 max-w-3xl text-20 leading-normal text-grey-1 lg:mx-auto md:text-18">
+            {isAuthorized
+              ? 'Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway of SWAG!'
+              : `Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`}
           </p>
-          <SignUpButton className="mt-10" size="md">
-            Create your ticket
-          </SignUpButton>
+          <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
+            <SignUpButton
+              className="shrink-0"
+              size="md"
+              theme="fill-yellow"
+              to={isAuthorized ? '/my-team' : null}
+              isSignInButton={!isAuthorized}
+            >
+              {!isAuthorized ? 'Create your ticket' : 'My Squad'}
+            </SignUpButton>
+            {/*  FIXME: pass current page URL  */}
+            {isAuthorized && (
+              <SocialShare url={typeof window !== 'undefined' ? window.location.href : '/'} />
+            )}
+          </div>
         </div>
         <div className="col-span-6 -ml-9 self-center lg:col-span-full lg:ml-0">
           <div className="lg:mt-10">
             <section
               className={clsx('ticket', {
                 'before:bg-[rgba(63,103,192,0.6)] after:bg-[rgba(63,103,192,0.3)]':
-                  selectedColorSchema === '1',
+                  currentColorSchema === '1',
                 'before:bg-[rgba(119,57,199,0.6)] after:bg-[rgba(94,57,199,0.3)]':
-                  selectedColorSchema === '2',
+                  currentColorSchema === '2',
                 'before:bg-[rgba(174,139,14,0.6)] after:bg-[rgba(192,94,63,0.3)]':
-                  selectedColorSchema === '3',
+                  currentColorSchema === '3',
                 'before:bg-[rgba(21,139,139,0.6)] after:bg-[rgba(18,130,126,0.3)]':
-                  selectedColorSchema === '4',
+                  currentColorSchema === '4',
                 'before:bg-[rgba(192,109,49,0.6)] after:bg-[rgba(0,68,171,0.3)]':
-                  selectedColorSchema === '5',
+                  currentColorSchema === '5',
                 'before:bg-[rgba(57,105,199,0.6)] after:bg-[rgba(179,57,199,0.3)]':
-                  selectedColorSchema === '6',
+                  currentColorSchema === '6',
               })}
             >
               <div className="absolute inset-0 z-30 flex flex-col">
@@ -88,23 +115,23 @@ const DynamicTicket = () => {
                     className={clsx(
                       'inline-flex gap-x-2 bg-white bg-clip-text font-titles text-20 font-semibold leading-none text-transparent',
                       {
-                        'bg-ticket-heading-variant-1': selectedColorSchema === '1',
-                        'bg-ticket-heading-variant-2': selectedColorSchema === '2',
-                        'bg-ticket-heading-variant-3': selectedColorSchema === '3',
-                        'bg-ticket-heading-variant-4': selectedColorSchema === '4',
-                        'bg-ticket-heading-variant-5': selectedColorSchema === '5',
-                        'bg-ticket-heading-variant-6': selectedColorSchema === '6',
+                        'bg-ticket-heading-variant-1': currentColorSchema === '1',
+                        'bg-ticket-heading-variant-2': currentColorSchema === '2',
+                        'bg-ticket-heading-variant-3': currentColorSchema === '3',
+                        'bg-ticket-heading-variant-4': currentColorSchema === '4',
+                        'bg-ticket-heading-variant-5': currentColorSchema === '5',
+                        'bg-ticket-heading-variant-6': currentColorSchema === '6',
                       }
                     )}
                   >
                     <LogoOneColor
                       className={clsx({
-                        'text-[#3664CB]': selectedColorSchema === '1',
-                        'text-[#6140DA]': selectedColorSchema === '2',
-                        'text-[#CF953F]': selectedColorSchema === '3',
-                        'text-[#1BE2DB]': selectedColorSchema === '4',
-                        'text-[#9185A1]': selectedColorSchema === '5',
-                        'text-[#A46CE8]': selectedColorSchema === '6',
+                        'text-[#3664CB]': currentColorSchema === '1',
+                        'text-[#6140DA]': currentColorSchema === '2',
+                        'text-[#CF953F]': currentColorSchema === '3',
+                        'text-[#1BE2DB]': currentColorSchema === '4',
+                        'text-[#9185A1]': currentColorSchema === '5',
+                        'text-[#A46CE8]': currentColorSchema === '6',
                       })}
                       aria-hidden
                     />
@@ -113,20 +140,20 @@ const DynamicTicket = () => {
                 </header>
                 <div className="mt-auto px-8 pb-6 xs:px-4 xs:pb-4">
                   <p className="text-36 font-medium leading-none text-white xs:text-24">
-                    Ron Wasikowski
+                    {getShortName(name)}
                   </p>
                   <p
                     className={clsx('mt-3 flex items-center gap-x-3 text-18 leading-none', {
-                      'text-[#5085DC]': selectedColorSchema === '1',
-                      'text-[#8352DD]': selectedColorSchema === '2',
-                      'text-[#E5A659]': selectedColorSchema === '3',
-                      'text-[#37D7AF]': selectedColorSchema === '4',
-                      'text-[#1E8BE5]': selectedColorSchema === '5',
-                      'text-[#DF6DFB]': selectedColorSchema === '6',
+                      'text-[#5085DC]': currentColorSchema === '1',
+                      'text-[#8352DD]': currentColorSchema === '2',
+                      'text-[#E5A659]': currentColorSchema === '3',
+                      'text-[#37D7AF]': currentColorSchema === '4',
+                      'text-[#1E8BE5]': currentColorSchema === '5',
+                      'text-[#DF6DFB]': currentColorSchema === '6',
                     })}
                   >
                     <GithubIcon aria-hidden />
-                    ron97wasikowski
+                    {githubHandle}
                   </p>
                 </div>
                 <footer className="ticket-footer">
@@ -134,31 +161,31 @@ const DynamicTicket = () => {
                     className={clsx(
                       'bg-white bg-clip-text font-mono text-36 font-thin leading-none text-transparent xs:text-24',
                       {
-                        'bg-ticket-number-variant-1': selectedColorSchema === '1',
-                        'bg-ticket-number-variant-2': selectedColorSchema === '2',
-                        'bg-ticket-number-variant-3': selectedColorSchema === '3',
-                        'bg-ticket-number-variant-4': selectedColorSchema === '4',
-                        'bg-ticket-number-variant-5': selectedColorSchema === '5',
-                        'bg-ticket-number-variant-6': selectedColorSchema === '6',
+                        'bg-ticket-number-variant-1': currentColorSchema === '1',
+                        'bg-ticket-number-variant-2': currentColorSchema === '2',
+                        'bg-ticket-number-variant-3': currentColorSchema === '3',
+                        'bg-ticket-number-variant-4': currentColorSchema === '4',
+                        'bg-ticket-number-variant-5': currentColorSchema === '5',
+                        'bg-ticket-number-variant-6': currentColorSchema === '6',
                       }
                     )}
                   >
-                    No {'000245864'.padStart(6, '0')}
+                    No {`${number}`.padStart(6, '0')}
                   </p>
                 </footer>
               </div>
               <Image
                 className="relative z-20 w-full lg:mx-auto lg:w-auto"
                 src={
-                  selectedColorSchema === '1'
+                  currentColorSchema === '1'
                     ? '/images/ticket-1.png'
-                    : selectedColorSchema === '2'
+                    : currentColorSchema === '2'
                     ? '/images/ticket-2.png'
-                    : selectedColorSchema === '3'
+                    : currentColorSchema === '3'
                     ? '/images/ticket-3.png'
-                    : selectedColorSchema === '4'
+                    : currentColorSchema === '4'
                     ? '/images/ticket-4.png'
-                    : selectedColorSchema === '5'
+                    : currentColorSchema === '5'
                     ? '/images/ticket-5.png'
                     : '/images/ticket-6.png'
                 }
@@ -169,7 +196,7 @@ const DynamicTicket = () => {
               />
             </section>
 
-            {withColorPicker && (
+            {isAuthorized && (
               <div className="mt-8 flex items-center gap-6 lg:my-7 lg:justify-center sm:flex-wrap">
                 <p className="text-18 leading-none text-grey-1 lg:text-16 sm:w-full sm:text-center">
                   Pick a color:
@@ -228,6 +255,25 @@ const DynamicTicket = () => {
       </div>
     </div>
   );
+};
+
+DynamicTicket.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    login: PropTypes.string.isRequired,
+    colorSchema: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+  session: PropTypes.shape({
+    user: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default DynamicTicket;
