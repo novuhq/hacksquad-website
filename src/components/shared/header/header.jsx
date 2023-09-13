@@ -1,17 +1,18 @@
 'use client';
 
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import Burger from 'components/shared/burger';
-import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import MobileMenu from 'components/shared/mobile-menu';
 import MENUS from 'constants/menus';
-import ArrowUp from 'svgs/arrow-up.inline.svg';
 import logo from 'svgs/logo.svg';
 
-const Header = () => {
+import SignUpButton from '../sign-up-button';
+
+const Header = ({ isAuthorized = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -35,10 +36,15 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-            <Button className="" to="#" theme="outline">
-              Join now
-              <ArrowUp width={12} height={12} aria-hidden />
-            </Button>
+
+            <SignUpButton
+              size="sm"
+              theme="outline"
+              to={isAuthorized ? '/my-team' : null}
+              isSignInButton={!isAuthorized}
+            >
+              {!isAuthorized ? 'Join now' : 'My Squad'}
+            </SignUpButton>
           </nav>
 
           <Burger
@@ -51,6 +57,10 @@ const Header = () => {
       <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
     </>
   );
+};
+
+Header.propTypes = {
+  isAuthorized: PropTypes.bool,
 };
 
 export default Header;

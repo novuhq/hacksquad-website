@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import SignUpButton from 'components/shared/sign-up-button';
 import CalendarIcon from 'svgs/calendar.inline.svg';
@@ -68,7 +69,7 @@ const events = [
 const tableGridClass =
   'grid gap-x-5 grid-cols-[230px_575px_200px_1fr] lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_480px_200px_1fr]';
 
-const Events = () => (
+const Events = ({ isAuthorized = false }) => (
   <section className="safe-paddings relative py-20 md:py-20 sm:py-16 xs:py-12" id="events">
     <div className="container text-center">
       <h2
@@ -141,11 +142,21 @@ const Events = () => (
     </div>
 
     <div className="container text-center">
-      <SignUpButton className="mt-16" size="md">
-        Sign up with GitHub
+      <SignUpButton
+        className="mt-16"
+        size="md"
+        theme="fill-yellow"
+        to={isAuthorized ? '/my-team' : null}
+        isSignInButton={!isAuthorized}
+      >
+        {!isAuthorized ? 'Sign up with GitHub' : 'Go to my Squad'}
       </SignUpButton>
     </div>
   </section>
 );
+
+Events.propTypes = {
+  isAuthorized: PropTypes.bool,
+};
 
 export default Events;
