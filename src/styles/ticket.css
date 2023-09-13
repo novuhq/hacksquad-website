@@ -1,6 +1,6 @@
 @layer components {
   .ticket {
-    @apply relative z-0 before:pointer-events-none before:absolute before:z-10 before:h-4/6 before:w-5/6 before:rounded-full before:transition-colors before:duration-200 after:pointer-events-none after:absolute after:z-10 after:h-4/6 after:w-1/2 after:rounded-full after:transition-colors after:duration-200;
+    @apply relative z-0 min-w-[330px] max-w-[640px] before:pointer-events-none before:absolute before:z-10 before:h-4/6 before:w-5/6 before:rounded-full before:transition-colors before:duration-200 after:pointer-events-none after:absolute after:z-10 after:h-4/6 after:w-1/2 after:rounded-full after:transition-colors after:duration-200 lg:mx-auto;
 
     &:before {
       top: -16%;
@@ -17,5 +17,15 @@
     @media (pointer: coarse) {
       pointer-events: none;
     }
+  }
+
+  .ticket-footer {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 1rem;
+    text-align: center;
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
   }
 }

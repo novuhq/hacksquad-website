@@ -5,6 +5,10 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 
+import SignUpButton from 'components/shared/sign-up-button';
+import GithubIcon from 'svgs/github.inline.svg';
+import LogoOneColor from 'svgs/logo-one-color.inline.svg';
+
 const colorVariants = [
   {
     id: 1,
@@ -56,6 +60,9 @@ const DynamicTicket = () => {
           <p className="mt-5 max-w-sm text-20 leading-normal text-grey-1 lg:mx-auto md:text-18">
             Join Ron at Hacksquad 2023 and get your exclusive participation ticket!
           </p>
+          <SignUpButton className="mt-10" size="md">
+            Create your ticket
+          </SignUpButton>
         </div>
         <div className="col-span-6 -ml-9 self-center lg:col-span-full lg:ml-0">
           <div className="lg:mt-10">
@@ -75,6 +82,71 @@ const DynamicTicket = () => {
                   selectedColorSchema === '6',
               })}
             >
+              <div className="absolute inset-0 z-30 flex flex-col">
+                <header className="px-8 pt-7 xs:px-4 xs:pt-4">
+                  <h2
+                    className={clsx(
+                      'inline-flex gap-x-2 bg-white bg-clip-text font-titles text-20 font-semibold leading-none text-transparent',
+                      {
+                        'bg-ticket-heading-variant-1': selectedColorSchema === '1',
+                        'bg-ticket-heading-variant-2': selectedColorSchema === '2',
+                        'bg-ticket-heading-variant-3': selectedColorSchema === '3',
+                        'bg-ticket-heading-variant-4': selectedColorSchema === '4',
+                        'bg-ticket-heading-variant-5': selectedColorSchema === '5',
+                        'bg-ticket-heading-variant-6': selectedColorSchema === '6',
+                      }
+                    )}
+                  >
+                    <LogoOneColor
+                      className={clsx({
+                        'text-[#3664CB]': selectedColorSchema === '1',
+                        'text-[#6140DA]': selectedColorSchema === '2',
+                        'text-[#CF953F]': selectedColorSchema === '3',
+                        'text-[#1BE2DB]': selectedColorSchema === '4',
+                        'text-[#9185A1]': selectedColorSchema === '5',
+                        'text-[#A46CE8]': selectedColorSchema === '6',
+                      })}
+                      aria-hidden
+                    />
+                    Hacksquad 2023
+                  </h2>
+                </header>
+                <div className="mt-auto px-8 pb-6 xs:px-4 xs:pb-4">
+                  <p className="text-36 font-medium leading-none text-white xs:text-24">
+                    Ron Wasikowski
+                  </p>
+                  <p
+                    className={clsx('mt-3 flex items-center gap-x-3 text-18 leading-none', {
+                      'text-[#5085DC]': selectedColorSchema === '1',
+                      'text-[#8352DD]': selectedColorSchema === '2',
+                      'text-[#E5A659]': selectedColorSchema === '3',
+                      'text-[#37D7AF]': selectedColorSchema === '4',
+                      'text-[#1E8BE5]': selectedColorSchema === '5',
+                      'text-[#DF6DFB]': selectedColorSchema === '6',
+                    })}
+                  >
+                    <GithubIcon aria-hidden />
+                    ron97wasikowski
+                  </p>
+                </div>
+                <footer className="ticket-footer">
+                  <p
+                    className={clsx(
+                      'bg-white bg-clip-text font-mono text-36 font-thin leading-none text-transparent xs:text-24',
+                      {
+                        'bg-ticket-number-variant-1': selectedColorSchema === '1',
+                        'bg-ticket-number-variant-2': selectedColorSchema === '2',
+                        'bg-ticket-number-variant-3': selectedColorSchema === '3',
+                        'bg-ticket-number-variant-4': selectedColorSchema === '4',
+                        'bg-ticket-number-variant-5': selectedColorSchema === '5',
+                        'bg-ticket-number-variant-6': selectedColorSchema === '6',
+                      }
+                    )}
+                  >
+                    No {'000245864'.padStart(6, '0')}
+                  </p>
+                </footer>
+              </div>
               <Image
                 className="relative z-20 w-full lg:mx-auto lg:w-auto"
                 src={

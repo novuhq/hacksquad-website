@@ -162,11 +162,11 @@ const QuestionAndAnswer = () => {
 
   return (
     <section
-      className="safe-paddings relative scroll-mt-5 py-28 md:py-20 sm:py-16 xs:py-12"
+      className="safe-paddings relative scroll-mt-5 py-28 md:py-20 sm:py-16 xxs:py-12"
       id="qa"
     >
       <div className="container">
-        <h2 className="bg-white bg-gradient-title bg-clip-text pb-6 text-center font-titles text-60 leading-1.125 text-transparent">
+        <h2 className="bg-gradient-title bg-white bg-clip-text pb-6 text-center font-titles text-60 leading-1.125 text-transparent">
           {title}
         </h2>
 

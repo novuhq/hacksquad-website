@@ -69,10 +69,10 @@ const tableGridClass =
   'grid gap-x-5 grid-cols-[230px_575px_200px_1fr] lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_480px_200px_1fr]';
 
 const Events = () => (
-  <section className="safe-paddings relative py-20 md:py-20 sm:py-16 xs:py-12" id="events">
+  <section className="safe-paddings relative py-20 md:py-20 sm:py-16 xxs:py-12" id="events">
     <div className="container text-center">
       <h2
-        className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xs:max-w-[246px]"
+        className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xxs:max-w-[246px]"
         dangerouslySetInnerHTML={{ __html: title }}
       />
       <p className="mx-auto mt-5 max-w-[800px] text-20 leading-normal text-grey-1 md:text-18">
