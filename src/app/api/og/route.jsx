@@ -133,7 +133,7 @@ export async function GET(request) {
                 fontFamily: 'monospace',
               }}
             >
-              #{`${id}`.slice(0, 10)}
+              No {`${id}`.slice(0, 10)}
             </p>
           </div>
         </div>

@@ -49,6 +49,7 @@ const colorVariants = [
 const DynamicTicket = ({
   user: { id: number, name, handle: githubHandle, colorSchema },
   isAuthorized = false,
+  isDefault = false,
 }) => {
   const { data } = useSession();
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
@@ -78,7 +79,12 @@ const DynamicTicket = ({
       <div className="container grid grid-cols-12 gap-10 lg:grid-cols-1 lg:gap-0">
         <div className="col-span-6 self-center pr-16 lg:col-span-full lg:pr-0 lg:text-center">
           <h2 className="max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:mx-auto lg:text-42 md:text-36">
-            {isAuthorized ? (
+            {/* eslint-disable-next-line no-nested-ternary */}
+            {isDefault ? (
+              <>
+                Share your <br /> Hacksquad spirit
+              </>
+            ) : isAuthorized ? (
               <>
                 You’re In. <br /> Make it Unique.
               </>
@@ -87,7 +93,10 @@ const DynamicTicket = ({
             )}
           </h2>
           <p className="mt-5 max-w-3xl text-20 leading-normal text-grey-1 lg:mx-auto md:text-18">
-            {isAuthorized
+            {/* eslint-disable-next-line no-nested-ternary */}
+            {isDefault
+              ? 'Create and share your custom ticket to join our giveaway and win great prizes!'
+              : isAuthorized
               ? 'Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway of SWAG!'
               : `Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`}
           </p>
@@ -279,6 +288,7 @@ DynamicTicket.propTypes = {
     id: PropTypes.string.isRequired,
   }).isRequired,
   isAuthorized: PropTypes.bool,
+  isDefault: PropTypes.bool,
 };
 
 export default DynamicTicket;

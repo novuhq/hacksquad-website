@@ -7,7 +7,7 @@ import prisma from 'utils/prisma';
 const buildOgImageUrl = (data) =>
   data ? '/api/og?'.concat(new URLSearchParams(data)) : '/api/og?';
 
-const TicketPage = async ({ params }) => {
+const DynamicTicketPage = async ({ params }) => {
   const session = await auth();
   // eslint-disable-next-line no-use-before-define
   const userData = await getTicketData(params.handle);
@@ -77,6 +77,6 @@ export async function generateStaticParams() {
   }));
 }
 
-export default TicketPage;
+export default DynamicTicketPage;
 
 export const revalidate = 60;
