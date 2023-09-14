@@ -40,11 +40,10 @@ export const authOptions = (req) => ({
       if (account) {
         token.access_token = account.access_token;
       }
+
       if (profile) {
         token.githubHandle = profile.login;
       }
-
-      // >>>>>>> main
 
       return token;
     },
@@ -54,7 +53,6 @@ export const authOptions = (req) => ({
         session.user.colorSchema = token.colorSchema;
         session.user.userId = token.uid;
         session.user.githubHandle = token.githubHandle;
-        // >>>>>>> main
       }
 
       return session;
