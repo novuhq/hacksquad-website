@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import DynamicTicket from 'components/pages/ticket/dynamic-ticket';
 import { auth } from 'lib/auth';
 import getMetadata from 'lib/get-metadata';
@@ -11,6 +13,8 @@ const DynamicTicketPage = async ({ params }) => {
   const session = await auth();
   // eslint-disable-next-line no-use-before-define
   const userData = await getTicketData(params.handle);
+
+  if (!userData) notFound();
 
   return <DynamicTicket user={userData} isAuthorized={!!session} />;
 };
@@ -40,8 +44,6 @@ export async function generateMetadata({ params }) {
   if (userData) {
     return getMetadata({ ...SEO_DATA.TICKET(userData), imagePath: buildOgImageUrl(userData) });
   }
-
-  return getMetadata(SEO_DATA.DEFAULT_TICKET);
 }
 
 async function getTicketData(handle) {

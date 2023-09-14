@@ -25,7 +25,7 @@ const Header = ({ isAuthorized = false }) => {
       <header
         className={clsx(
           'safe-paddings z-50',
-          isTicketPage ? 'absolute inset-0 w-full' : 'relative'
+          isTicketPage ? 'absolute left-0 top-0 w-full' : 'relative'
         )}
       >
         <div className="container flex items-center justify-between py-4 md:py-3">
