@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/server';
 
-import getShortName from 'utils/get-short-name';
+import getShortName from 'lib/get-short-name';
 
 export const runtime = 'edge';
 

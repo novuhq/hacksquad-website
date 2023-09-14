@@ -4,7 +4,8 @@ import DynamicTicket from 'components/pages/ticket/dynamic-ticket';
 import { auth } from 'lib/auth';
 import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
-import prisma from 'utils/prisma';
+
+import prisma from '../../../../prisma/client';
 
 const buildOgImageUrl = (data) =>
   data ? '/api/og?'.concat(new URLSearchParams(data)) : '/api/og?';
