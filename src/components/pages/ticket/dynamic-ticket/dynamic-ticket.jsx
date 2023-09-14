@@ -191,7 +191,7 @@ const DynamicTicket = ({
                 <footer className="ticket-footer">
                   <p
                     className={clsx(
-                      'bg-white bg-clip-text font-mono text-36 font-light leading-none text-transparent xs:text-24',
+                      'bg-white bg-clip-text font-mono text-36 font-extralight leading-none text-transparent xs:text-24',
                       {
                         'bg-ticket-number-variant-1': currentColorSchema === '1',
                         'bg-ticket-number-variant-2': currentColorSchema === '2',

@@ -39,6 +39,13 @@ export async function GET(request) {
       new URL(process.env.NEXT_PUBLIC_DEFAULT_SITE_URL + colorSchemeMap[color], import.meta.url)
     ).then((res) => res.arrayBuffer());
 
+    const fontData = await fetch(
+      new URL(
+        `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/fonts/jetbrains-mono/jetbrains-mono-extralight.ttf`,
+        import.meta.url
+      )
+    ).then((res) => res.arrayBuffer());
+
     return new ImageResponse(
       (
         <div
@@ -118,7 +125,7 @@ export async function GET(request) {
               position: 'absolute',
               top: '0',
               bottom: '0',
-              right: '-25%',
+              right: '-27%',
               display: 'flex',
               textAlign: 'center',
               transform: 'rotate(270deg)',
@@ -129,8 +136,8 @@ export async function GET(request) {
                 margin: '0',
                 color: textColor,
                 fontSize: '44px',
-                fontWeight: 200,
-                fontFamily: 'monospace',
+                fontWeight: 300,
+                fontFamily: 'JetBrainsMono',
               }}
             >
               No {`${id}`.slice(0, 10)}
@@ -141,6 +148,13 @@ export async function GET(request) {
       {
         width: 1200,
         height: 630,
+        fonts: [
+          {
+            name: 'JetBrainsMono',
+            data: fontData,
+            style: 'normal',
+          },
+        ],
       }
     );
   } catch (e) {

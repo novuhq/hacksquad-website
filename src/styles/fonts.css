@@ -21,15 +21,15 @@
   @font-face {
     font-family: 'JetBrains Mono';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     font-display: swap;
-    src: url('/fonts/jetbrains-mono-light.woff2') format('woff2');
+    src: url('/fonts/jetbrains-mono/jetbrains-mono-extralight.woff2') format('woff2');
   }
 
   @font-face {
     font-family: 'JetBrains Mono Fallback';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     src: local('Courier New');
     ascent-override: 102.02%;
     descent-override: 30%;
