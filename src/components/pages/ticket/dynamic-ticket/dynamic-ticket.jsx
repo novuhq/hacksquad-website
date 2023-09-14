@@ -55,7 +55,7 @@ const DynamicTicket = ({
   const { data } = useSession();
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
-  const isColorPickerShow = isAuthorized || isDefault;
+  const isColorPickerShow = !isHomeSection && (isAuthorized || isDefault);
 
   useEffect(() => {
     if (!selectedColorSchema || isDefault) return;
