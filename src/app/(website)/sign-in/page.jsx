@@ -18,7 +18,7 @@ async function SignIn() {
 
   return (
     <>
-      <section className="safe-paddings relative pt-[92px]">
+      <section className="safe-paddings relative pt-40">
         <div className="container relative z-10 flex h-full flex-col items-center justify-center">
           <h1 className="leading-tight font-titles text-60 font-bold lg:text-[50px] md:text-[40px] xs:text-[32px]">
             {TITLE}

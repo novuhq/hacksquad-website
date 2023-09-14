@@ -167,7 +167,7 @@ const Hero = ({ searchParams = null }) => {
   }, [page, admin, user, prType, team]);
 
   return (
-    <section className="safe-paddings relative pt-[92px]">
+    <section className="safe-paddings relative pt-40">
       <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
         <h1 className="leading-tight font-titles text-60 font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
           {TITLE}

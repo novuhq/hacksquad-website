@@ -14,27 +14,27 @@ import TwitterIcon from './images/twitter.inline.svg';
 const TITLE = 'Bonuses';
 
 const Hero = ({ twitter, devto }) => (
-  <section className="safe-paddings relative min-h-[600px] pt-[92px]">
+  <section className="safe-paddings relative min-h-[600px] pt-40">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center">
       <h1 className="leading-tight font-titles text-60 font-bold lg:text-[50px] md:text-[40px] xs:text-[32px]">
         {TITLE}
       </h1>
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-1">
-          <div className="border-gray-2 grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b pb-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+          <div className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
             <span className="font-medium uppercase sm:hidden">#</span>
             <span className="font-medium uppercase">Type</span>
             <span className="font-medium uppercase">Points</span>
             <span className="font-medium uppercase">Claim</span>
           </div>
           <ul>
-            <li className="border-gray-2 grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
               <span className="sm:hidden">1</span>
               <span>Twitter connection</span>
               <span>2</span>
               <span className="text-left">{twitter ? 'Connected' : <TwitterButton />}</span>
             </li>
-            <li className="border-gray-2 grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
               <span className="sm:hidden">2</span>
               <span>Friend invite</span>
               <span>1 per friend [Max:5]</span>
@@ -42,7 +42,7 @@ const Hero = ({ twitter, devto }) => (
                 <InviteButton />
               </span>
             </li>
-            <li className="border-gray-2 grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
               <span className="sm:hidden">3</span>
               <span>
                 <DevToToolTip />
