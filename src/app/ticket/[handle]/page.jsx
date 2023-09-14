@@ -1,4 +1,4 @@
-import DynamicTicket from 'components/pages/dynamic-ticket';
+import DynamicTicket from 'components/pages/ticket/dynamic-ticket';
 import { auth } from 'lib/auth';
 import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
@@ -12,7 +12,7 @@ const TicketPage = async ({ params }) => {
   // eslint-disable-next-line no-use-before-define
   const userData = await getTicketData(params.handle);
 
-  return <DynamicTicket user={userData} session={session} />;
+  return <DynamicTicket user={userData} isAuthorized={!!session} />;
 };
 
 export async function generateMetadata({ params }) {

@@ -15,7 +15,7 @@ if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
 //   server: process.env.MAILCHIMP_SERVER,
 // });
 
-export const authOptions = {
+export const createOptions = (req) => ({
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: 'jwt',
@@ -28,17 +28,31 @@ export const authOptions = {
   ],
   callbacks: {
     async jwt({ token }) {
+      if (req) {
+        const { searchParams } = new URL(req.url);
+        const colorSchema = searchParams.get('colorSchema');
+
+        if (colorSchema) {
+          token.colorSchema = colorSchema;
+        }
+      }
+
       token.uid = token.sub;
 
       return token;
     },
     async session({ session, token }) {
-      if (token.uid) {
+      if (token.colorSchema) {
+        session.colorSchema = token.colorSchema;
+      }
+
+      if (token.uid && token.colorSchema) {
         return {
           ...session,
           user: {
             ...session.user,
             id: token.uid,
+            colorSchema: token.colorSchema,
           },
         };
       }
@@ -88,10 +102,10 @@ export const authOptions = {
       });
     },
   },
-};
+});
 
 // Helper function to get session without passing config every time
 // https://next-auth.js.org/configuration/nextjs#getserversession
 export function auth(...args) {
-  return getServerSession(...args, authOptions);
+  return getServerSession(...args, createOptions());
 }

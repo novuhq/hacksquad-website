@@ -3,8 +3,9 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import SignUpButton from 'components/shared/sign-up-button';
 import SocialShare from 'components/shared/social-share';
@@ -47,11 +48,26 @@ const colorVariants = [
 
 const DynamicTicket = ({
   user: { id: number, name, handle: githubHandle, colorSchema },
-  session = null,
+  isAuthorized = false,
 }) => {
+  const { data } = useSession();
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
-  const isAuthorized = !!session;
+
+  useEffect(() => {
+    if (!selectedColorSchema) return;
+
+    const { id } = data.user;
+
+    const updateUserDataTimer = setTimeout(async () => {
+      await fetch(`/api/update-user?id=${id}&colorSchema=${selectedColorSchema}`);
+      await fetch(`/api/auth/session?colorSchema=${selectedColorSchema}`);
+    }, 1000);
+
+    // eslint-disable-next-line consistent-return
+    return () => clearTimeout(updateUserDataTimer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedColorSchema]);
 
   const handleColorClick = (e) => {
     setSelectedColorSchema(e.target.id);
@@ -204,7 +220,7 @@ const DynamicTicket = ({
                 <div className="flex gap-5 lg:gap-4">
                   {colorVariants.map((item, i) => {
                     const { id, title, buttonColorClass } = item;
-                    const isActive = selectedColorSchema === `${id}`;
+                    const isActive = currentColorSchema === `${id}`;
 
                     return (
                       <motion.button
@@ -225,17 +241,15 @@ const DynamicTicket = ({
                               'shadow-[0_0_0_1px_rgba(255,255,255,0.2)]': !isActive,
                             },
                             isActive && {
-                              'shadow-[0_0_0_1px_rgba(66,226,254,0.5)]':
-                                selectedColorSchema === '1',
-                              'shadow-[0_0_0_1px_rgba(214,73,150,0.5)]':
-                                selectedColorSchema === '2',
+                              'shadow-[0_0_0_1px_rgba(66,226,254,0.5)]': currentColorSchema === '1',
+                              'shadow-[0_0_0_1px_rgba(214,73,150,0.5)]': currentColorSchema === '2',
                               'shadow-[0_0_0_1px_rgba(254,237,170,0.5)]':
-                                selectedColorSchema === '3',
-                              'shadow-[0_0_0_1px_rgba(0,255,255,0.5)]': selectedColorSchema === '4',
+                                currentColorSchema === '3',
+                              'shadow-[0_0_0_1px_rgba(0,255,255,0.5)]': currentColorSchema === '4',
                               'shadow-[0_0_0_1px_rgba(255,158,117,0.5)]':
-                                selectedColorSchema === '5',
+                                currentColorSchema === '5',
                               'shadow-[0_0_0_1px_rgba(170,254,249,0.5)]':
-                                selectedColorSchema === '6',
+                                currentColorSchema === '6',
                             }
                           )}
                           initial={{ opacity: 0, scale: 0.9 }}
@@ -264,12 +278,7 @@ DynamicTicket.propTypes = {
     colorSchema: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired,
-  session: PropTypes.shape({
-    user: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    }),
-  }),
+  isAuthorized: PropTypes.bool,
 };
 
 export default DynamicTicket;
