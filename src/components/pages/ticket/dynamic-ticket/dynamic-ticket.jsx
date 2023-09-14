@@ -99,7 +99,7 @@ const DynamicTicket = ({
               `${name}’s Ticket`
             )}
           </h2>
-          <p className="mt-5 max-w-3xl text-20 leading-normal text-grey-1 lg:mx-auto md:text-18">
+          <p className="text-grey-1 mt-5 max-w-3xl text-20 leading-normal lg:mx-auto md:text-18">
             {/* eslint-disable-next-line no-nested-ternary */}
             {isDefault
               ? 'Create and share your custom ticket to join our giveaway and win great prizes!'
@@ -234,7 +234,7 @@ const DynamicTicket = ({
 
             {isColorPickerShow && (
               <div className="mt-8 flex items-center gap-6 lg:my-7 lg:justify-center sm:flex-wrap">
-                <p className="text-18 leading-none text-grey-1 lg:text-16 sm:w-full sm:text-center">
+                <p className="text-grey-1 text-18 leading-none lg:text-16 sm:w-full sm:text-center">
                   Pick a color:
                 </p>
                 <div className="flex gap-5 lg:gap-4">

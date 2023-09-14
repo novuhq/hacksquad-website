@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
           <div className="relative flex min-h-screen flex-col">
             <Header isAuthorized={!!session} />
             <main className="flex-1">{children}</main>
-            <Footer />
+            <Footer isAuthorized={!!session} />
           </div>
         </NextAuthSessionProvider>
       </body>

@@ -33,7 +33,7 @@ const JoinUs = () => (
     <h2 className="mx-auto max-w-2xl font-titles text-60 font-semibold leading-none md:text-42 xs:max-w-[246px]">
       Join to our community
     </h2>
-    <p className="mt-6 text-20 leading-normal text-grey-1 md:text-18">
+    <p className="mt-6 text-20 leading-normal text-gray-1 md:text-18">
       Check out where you can find us and stay connected!
     </p>
     <ul className="grid-gap mx-auto mb-14 mt-[72px] grid max-w-[1008px] grid-cols-12 lg:mt-12 md:mt-10">
@@ -45,7 +45,7 @@ const JoinUs = () => (
           >
             <img src={icon} width={40} height={40} alt="" loading="lazy" />
             <h3 className="mt-6 text-20 font-semibold leading-1.125">{name}</h3>
-            <p className="mt-3 text-16 leading-normal text-grey-1">{text}</p>
+            <p className="mt-3 text-16 leading-normal text-gray-1">{text}</p>
             <p className="mt-4 flex items-center gap-x-2.5 text-16 font-medium leading-normal text-purple">
               {linkText}
               <ArrowUp aria-hidden />

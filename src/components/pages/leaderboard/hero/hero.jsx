@@ -45,7 +45,7 @@ const Hero = ({ teams = [] }) => (
                   tableGridClass
                 )}
               >
-                <span className="text-grey-1">{index + 1}</span>
+                <span className="text-gray-1">{index + 1}</span>
                 <p>{team.name}</p>
                 <span>{team.score}</span>
               </li>
