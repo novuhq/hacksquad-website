@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
@@ -30,7 +29,7 @@ const Header = ({ isAuthorized = false }) => {
       >
         <div className="container flex items-center justify-between py-4 md:py-3">
           <Link to="/">
-            <Image src={logo} width={36} height={36} alt="Hacksquad" />
+            <img src={logo} width={36} height={36} alt="Hacksquad" />
           </Link>
           <nav className="flex items-center gap-10 md:hidden">
             <ul className="flex items-center gap-10">
