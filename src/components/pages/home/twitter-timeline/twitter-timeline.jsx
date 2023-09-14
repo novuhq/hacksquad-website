@@ -200,10 +200,7 @@ const list = [
 ];
 
 const TwitterTimeline = () => (
-  <section
-    className="twitter-cards safe-paddings relative py-[100px] md:py-20 sm:py-16 xs:py-12"
-    id="swag"
-  >
+  <section className="safe-paddings relative py-[100px] md:py-20 sm:py-16 xs:py-12" id="swag">
     <div className="container text-center">
       <h2 className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xxs:max-w-[246px]">
         Join the party
