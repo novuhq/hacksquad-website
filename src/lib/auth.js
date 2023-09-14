@@ -15,7 +15,7 @@ if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
 //   server: process.env.MAILCHIMP_SERVER,
 // });
 
-export const createOptions = (req) => ({
+export const authOptions = (req) => ({
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: 'jwt',
@@ -27,7 +27,20 @@ export const createOptions = (req) => ({
     }),
   ],
   callbacks: {
-    async jwt({ token }) {
+    async jwt({ user, account, token, profile }) {
+    // <<<<<<< HEAD
+    //     async jwt({ token }) {
+    //       if (req) {
+    //         const { searchParams } = new URL(req.url);
+    //         const colorSchema = searchParams.get('colorSchema');
+    //
+    //         if (colorSchema) {
+    //           token.colorSchema = colorSchema;
+    //         }
+    //       }
+    //
+    //       token.uid = token.sub;
+    // =======
       if (req) {
         const { searchParams } = new URL(req.url);
         const colorSchema = searchParams.get('colorSchema');
@@ -37,24 +50,45 @@ export const createOptions = (req) => ({
         }
       }
 
-      token.uid = token.sub;
+      if (user) {
+        token.uid = user.id;
+        token.colorSchema = user.colorSchema;
+      }
+
+      if (account) {
+        token.access_token = account.access_token;
+      }
+      if (profile) {
+        token.githubHandle = profile.login;
+      }
+
+
+      // >>>>>>> main
 
       return token;
     },
-    async session({ session, token }) {
-      if (token.colorSchema) {
-        session.colorSchema = token.colorSchema;
-      }
 
-      if (token.uid && token.colorSchema) {
-        return {
-          ...session,
-          user: {
-            ...session.user,
-            id: token.uid,
-            colorSchema: token.colorSchema,
-          },
-        };
+    async session({ session, token }) {
+      if (session?.user) {
+      // <<<<<<< HEAD
+      //       if (token.colorSchema) {
+      //         session.colorSchema = token.colorSchema;
+      //       }
+      //
+      //       if (token.uid && token.colorSchema) {
+      //         return {
+      //           ...session,
+      //           user: {
+      //             ...session.user,
+      //             id: token.uid,
+      //             colorSchema: token.colorSchema,
+      //           },
+      //         };
+      // =======
+        session.colorSchema = token.colorSchema;
+        session.userId = token.uid;
+        session.githubHandle = token.githubHandle;
+        // >>>>>>> main
       }
 
       return session;
@@ -107,5 +141,5 @@ export const createOptions = (req) => ({
 // Helper function to get session without passing config every time
 // https://next-auth.js.org/configuration/nextjs#getserversession
 export function auth(...args) {
-  return getServerSession(...args, createOptions());
+  return getServerSession(...args, authOptions());
 }

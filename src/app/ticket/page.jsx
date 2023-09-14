@@ -16,11 +16,11 @@ const defaultUserData = {
 };
 
 const TicketPage = async () => {
-  const session = await auth();
+  // const session = await auth();
 
-  if (session?.user?.handle) {
-    return redirect(`/ticket/${session.user.handle}`);
-  }
+  // if (session?.user?.handle) {
+  //   return redirect(`/ticket/${session.user.handle}`);
+  // }
 
   return <DynamicTicket user={defaultUserData} isAuthorized={false} isDefault />;
 };
