@@ -28,7 +28,7 @@ export const authOptions = (req) => ({
   ],
   callbacks: {
     async jwt({ user, account, token, profile }) {
-      if (req.query?.colorSchema) {
+      if (req?.query?.colorSchema) {
         token.colorSchema = req.query.colorSchema;
       }
 
@@ -49,9 +49,9 @@ export const authOptions = (req) => ({
 
     async session({ session, token }) {
       if (session?.user) {
-        session.colorSchema = token.colorSchema;
-        session.userId = token.uid;
-        session.githubHandle = token.githubHandle;
+        session.user.colorSchema = token.colorSchema;
+        session.user.userId = token.uid;
+        session.user.githubHandle = token.githubHandle;
       }
 
       return session;
@@ -104,5 +104,5 @@ export const authOptions = (req) => ({
 // Helper function to get session without passing config every time
 // https://next-auth.js.org/configuration/nextjs#getserversession
 export function auth(...args) {
-  return getServerSession(...args, authOptions);
+  return getServerSession(...args, authOptions());
 }

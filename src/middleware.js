@@ -18,17 +18,9 @@ export async function middleware(req) {
   // if token exists, user is authorized
   if (token?.githubHandle) {
     // authorized user should be moved to his ticket edit page from anywhere
-    if (pathname.endsWith(`/ticket/${token.githubHandle}`)) {
+    if (pathname.endsWith(`/ticket/`)) {
       return NextResponse.redirect(
-        new URL(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${token.githubHandle}/edit`)
-      );
-    }
-  } else if (pathname.endsWith(`/edit`)) {
-    if (!token?.githubHandle) {
-      return NextResponse.redirect(
-        new URL(
-          `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}${pathname.split('/').slice(0, -1).join('/')}`
-        )
+        new URL(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${token.githubHandle}`)
       );
     }
   }
