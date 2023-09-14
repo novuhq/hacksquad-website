@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 
 import SignUpButton from 'components/shared/sign-up-button';
 
-import heroImage from './images/home-hero.jpg';
+import heroImage from './images/home-hero.png';
 import Sponsors from './sponsors';
 
 const Hero = ({ isAuthorized = false }) => (
-  <section className="safe-paddings overflow-hidden">
-    <div className="container relative z-20 mt-[300px] sm:text-center">
+  <section className="hero safe-paddings relative overflow-hidden pb-5 pt-[373px] lg:pt-[260px] md:pt-[230px]">
+    <div className="container relative z-20 sm:text-center">
       <h1 className="max-w-2xl bg-white bg-home-hero-title bg-clip-text pb-6 font-titles text-114 font-semibold leading-none text-transparent lg:text-92 md:text-60 xxs:max-w-[246px] xxs:text-42">
         <span className="block text-80 leading-[72px]">2023</span>
         Hacksquad
@@ -30,13 +30,31 @@ const Hero = ({ isAuthorized = false }) => (
       </SignUpButton>
       <Sponsors />
     </div>
-    <Image
-      className="absolute top-0 z-10 h-[760px] w-screen object-cover md:h-[660px] sm:h-[450px]"
-      src={heroImage}
-      sizes="100vw"
-      alt=""
-      priority
-    />
+
+    <div className="absolute left-0 top-0 h-full max-h-[761px] w-full overflow-hidden lg:max-h-[650px] md:max-h-[560px]">
+      <div
+        className="absolute left-1/2 right-0 top-0 ml-[9.2%] h-full w-full min-w-[1920px] -translate-x-1/2"
+        style={{
+          background:
+            'radial-gradient(67.28% 67.28% at 64.06% 32.72%, rgba(0, 0, 0, 0.00) 45.68%, #000 100%), radial-gradient(65.76% 65.76% at 65.76% 50%, #3A1F47 0%, #0F1624 77.01%)',
+        }}
+      />
+      <Image
+        className="absolute bottom-0 left-1/2 ml-[9.2%] max-w-[1568px] -translate-x-1/2 object-cover lg:max-w-[1288px] md:max-w-[1130px] sm:ml-0"
+        src={heroImage}
+        sizes="100vw"
+        alt=""
+        priority
+      />
+
+      <div
+        className="absolute right-0 top-0 h-full w-full"
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 82.18%, rgba(0, 0, 0, 0.41) 92.88%, #000 100%);',
+        }}
+      />
+    </div>
   </section>
 );
 

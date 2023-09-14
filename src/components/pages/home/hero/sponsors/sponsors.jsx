@@ -33,7 +33,7 @@ const logos = [
 ];
 
 const Sponsors = () => (
-  <div className="container mt-28 py-10">
+  <div className="mt-[148px] sm:mt-16 xs:mt-12">
     <ul className="flex flex-wrap justify-center gap-x-[111px] gap-y-10 md:gap-x-16 sm:gap-x-10">
       {logos.map((props, index) => (
         <li className="shrink-0" key={index}>

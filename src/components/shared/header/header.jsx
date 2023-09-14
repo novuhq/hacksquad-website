@@ -1,7 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
@@ -14,19 +12,12 @@ import logo from 'svgs/logo.svg';
 import SignUpButton from '../sign-up-button';
 
 const Header = ({ isAuthorized = false }) => {
-  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const isTicketPage = pathname.includes('ticket');
 
   return (
     <>
-      <header
-        className={clsx(
-          'safe-paddings z-50',
-          isTicketPage ? 'absolute left-0 top-0 w-full' : 'relative'
-        )}
-      >
+      <header className="safe-paddings absolute left-0 right-0 top-0 z-50 w-full">
         <div className="container flex items-center justify-between py-4 md:py-3">
           <Link to="/">
             <img src={logo} width={36} height={36} alt="Hacksquad" />

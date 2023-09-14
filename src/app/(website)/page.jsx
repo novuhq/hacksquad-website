@@ -30,7 +30,7 @@ async function HomePage() {
       <Events isAuthorized={!!session} />
       <TwitterTimeline />
       <DynamicTicket isAuthorized={!!session} isDefault={!session} user={userData} isHomeSection />
-      <QuestionAndAnswer />
+      <QuestionAndAnswer isAuthorized={!!session} />
     </>
   );
 }

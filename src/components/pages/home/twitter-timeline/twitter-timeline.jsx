@@ -200,7 +200,10 @@ const list = [
 ];
 
 const TwitterTimeline = () => (
-  <section className="safe-paddings relative pt-32 md:pt-20 sm:pt-16 xxs:pt-12" id="swag">
+  <section
+    className="twitter-cards safe-paddings relative py-[100px] md:py-20 sm:py-16 xs:py-12"
+    id="swag"
+  >
     <div className="container text-center">
       <h2 className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xxs:max-w-[246px]">
         Join the party
@@ -231,7 +234,7 @@ const TwitterTimeline = () => (
       </Link>
     </div>
     <div className="container mt-[74px] md:mt-16 sm:mt-10">
-      <ul className="columns-4 gap-x-8 space-y-8 lg:columns-3 sm:columns-2 sm:gap-x-4 sm:space-y-4">
+      <ul className="columns-4 gap-x-8 space-y-8 lg:columns-3 sm:columns-2 sm:gap-x-4 sm:space-y-4 xs:columns-1">
         {list.map(
           ({ twitterPhoto, twitterName, twitterAccountName, twitterUrl, text, photo }, index) => (
             <li className="" key={index}>
@@ -243,7 +246,7 @@ const TwitterTimeline = () => (
                 <div className="flex flex-wrap gap-x-1 text-16 leading-snug md:text-14 [&>*]:text-purple">
                   {text}
                 </div>
-                {photo && <Image className="mt-3" src={photo} width={240} alt="" />}
+                {photo && <Image className="mt-3 xs:w-full" src={photo} width={240} alt="" />}
                 <div className="mt-10 flex gap-x-3">
                   <Image
                     className="h-9 w-9 shrink-0 rounded-full"
