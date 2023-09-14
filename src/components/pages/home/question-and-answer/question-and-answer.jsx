@@ -1,7 +1,10 @@
 'use client';
 
 import { m, LazyMotion, domAnimation } from 'framer-motion';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
+
+import SignUpButton from 'components/shared/sign-up-button';
 
 const itemArrowVariants = {
   from: {
@@ -157,12 +160,12 @@ const items = [
   },
 ];
 
-const QuestionAndAnswer = () => {
+const QuestionAndAnswer = ({ isAuthorized = false }) => {
   const [activeItemIndexes, setActiveItemIndexes] = useState({ 0: true });
 
   return (
     <section
-      className="safe-paddings relative scroll-mt-5 py-28 pb-40 md:py-20 sm:py-16 xs:py-12"
+      className="safe-paddings relative scroll-mt-5 pb-40 pt-[100px] md:pb-28 md:pt-20 sm:pb-20 sm:pt-16 xs:pt-12"
       id="qa"
     >
       <div className="container">
@@ -218,9 +221,25 @@ const QuestionAndAnswer = () => {
             })}
           </ul>
         </LazyMotion>
+
+        <div className="flex justify-center">
+          <SignUpButton
+            className="mt-[72px]"
+            size="md"
+            theme="fill-yellow"
+            to={isAuthorized ? '/my-team' : null}
+            isSignInButton={!isAuthorized}
+          >
+            {!isAuthorized ? 'Sign up with GitHub' : 'Go to my Squad'}
+          </SignUpButton>
+        </div>
       </div>
     </section>
   );
+};
+
+QuestionAndAnswer.propTypes = {
+  isAuthorized: PropTypes.bool,
 };
 
 export default QuestionAndAnswer;

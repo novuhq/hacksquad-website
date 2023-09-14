@@ -79,8 +79,10 @@ const DynamicTicket = ({
   return (
     <div
       className={clsx(
-        'flex flex-col justify-center sm:overflow-hidden',
-        isHomeSection ? 'pb-8 pt-48' : 'min-h-screen overflow-hidden py-20'
+        'flex flex-col justify-center overflow-x-clip',
+        isHomeSection
+          ? 'py-[100px] md:py-20 sm:py-16 xs:py-12'
+          : 'h-screen min-h-[800px] overflow-hidden py-20'
       )}
     >
       <div className="container grid grid-cols-12 gap-10 lg:grid-cols-1 lg:gap-0">
@@ -108,17 +110,16 @@ const DynamicTicket = ({
               : `Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`}
           </p>
           <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
-            {!isHomeSection && (
-              <SignUpButton
-                className="shrink-0"
-                size="md"
-                theme="fill-yellow"
-                to={isAuthorized ? '/my-team' : null}
-                isSignInButton={!isAuthorized}
-              >
-                {!isAuthorized ? 'Create your ticket' : 'My Squad'}
-              </SignUpButton>
-            )}
+            <SignUpButton
+              className="shrink-0"
+              size="md"
+              theme="fill-yellow"
+              to={isAuthorized ? '/my-team' : null}
+              isSignInButton={!isAuthorized}
+            >
+              {!isAuthorized ? 'Create your ticket' : 'My Squad'}
+            </SignUpButton>
+
             {isAuthorized && (
               <SocialShare
                 url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}

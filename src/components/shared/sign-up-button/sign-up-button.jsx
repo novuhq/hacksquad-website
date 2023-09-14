@@ -13,7 +13,7 @@ const styles = {
   base: 'relative inline-flex max-w-full items-center justify-center leading-none rounded-sm items-center',
   size: {
     sm: 'gap-3 px-4 h-9 text-16 font-medium md:text-14 md:px-4.5',
-    md: 'gap-4 px-5 h-12 text-18 font-bold md:text-16 md:px-6 sm:text-14 xs:px-3 xs:h-9',
+    md: 'gap-4 px-5 h-11 text-18 font-bold md:text-16 md:px-6 sm:text-14 xs:px-3 xs:h-9',
   },
   theme: {
     'fill-yellow': 'bg-yellow text-black',
