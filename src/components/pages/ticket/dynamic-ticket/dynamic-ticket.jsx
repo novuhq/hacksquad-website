@@ -52,12 +52,12 @@ const DynamicTicket = ({
   isDefault = false,
 }) => {
   const { data } = useSession();
-
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
+  const isColorPickerShow = isAuthorized || isDefault;
 
   useEffect(() => {
-    if (!selectedColorSchema) return;
+    if (!selectedColorSchema || isDefault) return;
 
     const { userId } = data.user;
 
@@ -222,7 +222,7 @@ const DynamicTicket = ({
               />
             </section>
 
-            {isAuthorized && (
+            {isColorPickerShow && (
               <div className="mt-8 flex items-center gap-6 lg:my-7 lg:justify-center sm:flex-wrap">
                 <p className="text-18 leading-none text-grey-1 lg:text-16 sm:w-full sm:text-center">
                   Pick a color:
