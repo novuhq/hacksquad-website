@@ -12,7 +12,7 @@ const DESCRIPTION = 'Oh no, you have probably signed out of the system';
 async function SignIn() {
   const session = await auth();
 
-  if (session.user) {
+  if (session?.user) {
     redirect('/my-team');
   }
 
