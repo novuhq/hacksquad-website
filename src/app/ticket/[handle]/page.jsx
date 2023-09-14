@@ -21,14 +21,13 @@ export async function generateMetadata({ params }) {
 
   if (handle) {
     try {
-      userData = await prisma.user.findUnique({
+      userData = await prisma.user.findFirstOrThrow({
         where: {
-          login: handle,
+          handle,
         },
         select: {
           name: true,
-          email: true,
-          login: true,
+          handle: true,
           id: true,
           colorSchema: true,
         },
@@ -52,12 +51,11 @@ async function getTicketData(handle) {
     try {
       userData = await prisma.user.findFirstOrThrow({
         where: {
-          login: handle,
+          handle,
         },
         select: {
           name: true,
-          email: true,
-          login: true,
+          handle: true,
           id: true,
           colorSchema: true,
         },
@@ -75,7 +73,7 @@ export async function generateStaticParams() {
   const users = await prisma.user.findMany();
 
   return users.map((user) => ({
-    handle: user.login,
+    handle: user.handle,
   }));
 }
 

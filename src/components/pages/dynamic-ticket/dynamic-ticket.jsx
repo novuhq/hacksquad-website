@@ -45,9 +45,9 @@ const colorVariants = [
   },
 ];
 
-const DynamicTicket = async ({
-  user: { id: number, name, login: githubHandle, colorSchema },
-  session,
+const DynamicTicket = ({
+  user: { id: number, name, handle: githubHandle, colorSchema },
+  session = null,
 }) => {
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
@@ -170,7 +170,7 @@ const DynamicTicket = async ({
                       }
                     )}
                   >
-                    No {`${number}`.padStart(6, '0')}
+                    No {`${number}`.slice(0, 10)}
                   </p>
                 </footer>
               </div>
@@ -260,20 +260,16 @@ const DynamicTicket = async ({
 DynamicTicket.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    login: PropTypes.string.isRequired,
+    handle: PropTypes.string.isRequired,
     colorSchema: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired,
   session: PropTypes.shape({
     user: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+    }),
+  }),
 };
 
 export default DynamicTicket;
