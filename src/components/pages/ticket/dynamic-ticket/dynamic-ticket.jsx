@@ -9,9 +9,9 @@ import { useState, useEffect } from 'react';
 
 import SignUpButton from 'components/shared/sign-up-button';
 import SocialShare from 'components/shared/social-share';
+import getShortName from 'lib/get-short-name';
 import GithubIcon from 'svgs/github.inline.svg';
 import LogoOneColor from 'svgs/logo-one-color.inline.svg';
-import getShortName from 'utils/get-short-name';
 
 const colorVariants = [
   {
