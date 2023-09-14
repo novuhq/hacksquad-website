@@ -52,16 +52,17 @@ const DynamicTicket = ({
   isDefault = false,
 }) => {
   const { data } = useSession();
+
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
 
   useEffect(() => {
     if (!selectedColorSchema) return;
 
-    const { id } = data.user;
+    const { userId } = data.user;
 
     const updateUserDataTimer = setTimeout(async () => {
-      await fetch(`/api/update-user?id=${id}&colorSchema=${selectedColorSchema}`);
+      await fetch(`/api/update-user?id=${userId}&colorSchema=${selectedColorSchema}`);
       await fetch(`/api/auth/session?colorSchema=${selectedColorSchema}`);
     }, 1000);
 

@@ -28,26 +28,8 @@ export const authOptions = (req) => ({
   ],
   callbacks: {
     async jwt({ user, account, token, profile }) {
-      // <<<<<<< HEAD
-      //     async jwt({ token }) {
-      //       if (req) {
-      //         const { searchParams } = new URL(req.url);
-      //         const colorSchema = searchParams.get('colorSchema');
-      //
-      //         if (colorSchema) {
-      //           token.colorSchema = colorSchema;
-      //         }
-      //       }
-      //
-      //       token.uid = token.sub;
-      // =======
-      if (req) {
-        const { searchParams } = new URL(req.url);
-        const colorSchema = searchParams.get('colorSchema');
-
-        if (colorSchema) {
-          token.colorSchema = colorSchema;
-        }
+      if (req?.query?.colorSchema) {
+        token.colorSchema = req.query.colorSchema;
       }
 
       if (user) {
@@ -69,24 +51,9 @@ export const authOptions = (req) => ({
 
     async session({ session, token }) {
       if (session?.user) {
-        // <<<<<<< HEAD
-        //       if (token.colorSchema) {
-        //         session.colorSchema = token.colorSchema;
-        //       }
-        //
-        //       if (token.uid && token.colorSchema) {
-        //         return {
-        //           ...session,
-        //           user: {
-        //             ...session.user,
-        //             id: token.uid,
-        //             colorSchema: token.colorSchema,
-        //           },
-        //         };
-        // =======
-        session.colorSchema = token.colorSchema;
-        session.userId = token.uid;
-        session.githubHandle = token.githubHandle;
+        session.user.colorSchema = token.colorSchema;
+        session.user.userId = token.uid;
+        session.user.githubHandle = token.githubHandle;
         // >>>>>>> main
       }
 
