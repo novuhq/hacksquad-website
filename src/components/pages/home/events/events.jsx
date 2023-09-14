@@ -73,7 +73,7 @@ const Events = ({ isAuthorized = false }) => (
   <section className="safe-paddings relative py-20 md:py-20 sm:py-16 xs:py-12" id="events">
     <div className="container text-center">
       <h2
-        className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xs:max-w-[246px]"
+        className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xxs:max-w-[246px]"
         dangerouslySetInnerHTML={{ __html: title }}
       />
       <p className="mx-auto mt-5 max-w-[800px] text-20 leading-normal text-grey-1 md:text-18">

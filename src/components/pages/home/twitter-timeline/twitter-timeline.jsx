@@ -200,9 +200,9 @@ const list = [
 ];
 
 const TwitterTimeline = () => (
-  <section className="safe-paddings relative py-32 md:py-20 sm:py-16 xs:py-12">
+  <section className="safe-paddings relative pt-32 md:pt-20 sm:pt-16 xxs:pt-12">
     <div className="container text-center">
-      <h2 className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xs:max-w-[246px]">
+      <h2 className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xxs:max-w-[246px]">
         Join the party
       </h2>
       <p className="mx-auto mt-5 max-w-3xl text-20 leading-normal text-grey-1 md:text-18">

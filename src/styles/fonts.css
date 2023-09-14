@@ -18,8 +18,22 @@
     size-adjust: 93.74%;
   }
 
-  body {
-    @apply min-w-[320px] font-sans antialiased;
-    -webkit-tap-highlight-color: transparent;
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url('/fonts/jetbrains-mono/jetbrains-mono-extralight.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'JetBrains Mono Fallback';
+    font-style: normal;
+    font-weight: 200;
+    src: local('Courier New');
+    ascent-override: 102.02%;
+    descent-override: 30%;
+    line-gap-override: 0%;
+    size-adjust: 99.98%;
   }
 }
