@@ -1,7 +1,4 @@
-import { redirect } from 'next/navigation';
-
 import DynamicTicket from 'components/pages/ticket/dynamic-ticket';
-import { auth } from 'lib/auth';
 import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
 
@@ -15,15 +12,9 @@ const defaultUserData = {
   colorSchema: '1',
 };
 
-const TicketPage = async () => {
-  // const session = await auth();
-
-  // if (session?.user?.handle) {
-  //   return redirect(`/ticket/${session.user.handle}`);
-  // }
-
-  return <DynamicTicket user={defaultUserData} isAuthorized={false} isDefault />;
-};
+const TicketPage = async () => (
+  <DynamicTicket user={defaultUserData} isAuthorized={false} isDefault />
+);
 
 export async function generateMetadata() {
   return getMetadata({
