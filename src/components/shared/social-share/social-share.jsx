@@ -16,7 +16,7 @@ const SocialShare = ({ className = null, url }) => {
       <TwitterShareButton
         className="flex items-center gap-3 rounded border border-grey-1 px-5 py-[13px] text-18 font-medium leading-none text-white xs:gap-2 xs:px-3 xs:py-2 xs:text-14"
         url={url}
-        shareText="Just got my ticket to @HackSquadDev. Claim yours!"
+        shareText="I am participating in HackSquad 2023 @HackSquadDev @ToolJet @CrowdDotDev @WaspLang @novuhq"
       >
         Share
       </TwitterShareButton>

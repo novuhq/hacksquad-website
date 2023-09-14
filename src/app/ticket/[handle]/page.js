@@ -4,6 +4,9 @@ import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
 import prisma from 'utils/prisma';
 
+const buildOgImageUrl = (data) =>
+  data ? '/api/og?'.concat(new URLSearchParams(data)) : '/api/og?';
+
 const TicketPage = async ({ params }) => {
   const session = await auth();
   // eslint-disable-next-line no-use-before-define
@@ -12,8 +15,34 @@ const TicketPage = async ({ params }) => {
   return <DynamicTicket user={userData} session={session} />;
 };
 
-export async function generateMetadata() {
-  return getMetadata(SEO_DATA.TICKET);
+export async function generateMetadata({ params }) {
+  const { handle } = params;
+  let userData;
+
+  if (handle) {
+    try {
+      userData = await prisma.user.findUnique({
+        where: {
+          login: handle,
+        },
+        select: {
+          name: true,
+          email: true,
+          login: true,
+          id: true,
+          colorSchema: true,
+        },
+      });
+    } catch (err) {
+      console.log('Ticket page head query err', err);
+    }
+  }
+
+  if (userData) {
+    return getMetadata({ ...SEO_DATA.TICKET(userData), imagePath: buildOgImageUrl(userData) });
+  }
+
+  return getMetadata(SEO_DATA.DEFAULT_TICKET);
 }
 
 async function getTicketData(handle) {
@@ -29,9 +58,8 @@ async function getTicketData(handle) {
           name: true,
           email: true,
           login: true,
-          colorSchema: true,
-          image: true,
           id: true,
+          colorSchema: true,
         },
       });
     } catch (err) {

@@ -9,6 +9,10 @@ export const SEO_DATA = {
     description: 'Contribute code, meet community members, participate in workshops, and win SWAG!',
     pathname: '',
   },
+  DEFAULT_TICKET: {
+    title: 'Ticket Not Found - HackSquad',
+    imagePath: '/images/social-previews/ticket-1.png',
+  },
   TICKET({ name, login: githubHandle }) {
     const userName = name || githubHandle;
 
