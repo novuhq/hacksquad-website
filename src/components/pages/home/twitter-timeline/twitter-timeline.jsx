@@ -200,7 +200,7 @@ const list = [
 ];
 
 const TwitterTimeline = () => (
-  <section className="safe-paddings relative pt-32 md:pt-20 sm:pt-16 xxs:pt-12">
+  <section className="safe-paddings relative pt-32 md:pt-20 sm:pt-16 xxs:pt-12" id="swag">
     <div className="container text-center">
       <h2 className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xxs:max-w-[246px]">
         Join the party

@@ -30,7 +30,7 @@ const SignUpButton = ({ className = null, to = null, size = 'sm', theme, childre
     e.preventDefault();
 
     setIsLoading(true);
-    signIn('github', { callbackUrl: '/ticket/' });
+    signIn('github');
   };
   return (
     <Tag
