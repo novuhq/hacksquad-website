@@ -40,6 +40,7 @@ export const authOptions = (req) => ({
       if (account) {
         token.access_token = account.access_token;
       }
+
       if (profile) {
         token.githubHandle = profile.login;
       }

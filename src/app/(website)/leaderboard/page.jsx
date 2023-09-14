@@ -2,8 +2,8 @@
 import Hero from 'components/pages/leaderboard/hero';
 import JoinUs from 'components/shared/join-us';
 import getMetadata from 'lib/get-metadata';
+import getTeams from 'lib/get-teams';
 import { SEO_DATA } from 'lib/seo-data';
-import getTeams from 'utils/get-teams';
 
 const LeaderboardPage = async () => {
   const teamsList = []; // await getTeams();

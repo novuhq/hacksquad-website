@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-starter",
+  "name": "hack-squad-2023",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -17,7 +17,9 @@
     "lint:js:fix": "eslint --fix --ext .js,.jsx --ignore-path .gitignore .",
     "lint:md": "markdownlint --ignore-path .gitignore .",
     "lint:md:fix": "markdownlint --fix --ignore-path .gitignore .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "migrate": "npx prisma migrate dev",
+    "studio": "npx prisma studio"
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
@@ -27,6 +29,7 @@
     "airtable": "^0.12.2",
     "clsx": "^1.2.1",
     "country-list": "^2.3.0",
+    "copy-to-clipboard": "^3.3.3",
     "file-loader": "^6.2.0",
     "framer-motion": "^9.1.7",
     "markdownlint-cli": "^0.33.0",
