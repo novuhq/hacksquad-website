@@ -22,7 +22,8 @@ export async function GET(request) {
   }
 
   try {
-    const { team, admin, winners } = await findUserAndTeam(request);
+    const { team, admin, winners } = await findUserAndTeam();
+
     return NextResponse.json({ team, admin, winners });
   } catch (error) {
     return NextResponse.json(

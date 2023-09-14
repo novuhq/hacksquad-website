@@ -76,7 +76,7 @@ const Events = ({ isAuthorized = false }) => (
         className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xs:max-w-[246px]"
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <p className="mx-auto mt-5 max-w-[800px] text-20 leading-normal text-grey-1 md:text-18">
+      <p className="mx-auto mt-5 max-w-[800px] text-20 leading-normal text-gray-1 md:text-18">
         With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad.
         Hacksquad is here to enhance your Swag, meet with more community members and participate in
         workshops from our great sponsors.
@@ -120,7 +120,7 @@ const Events = ({ isAuthorized = false }) => (
                 className={clsx('border-b border-white border-opacity-20 py-4', tableGridClass)}
                 key={index}
               >
-                <span className="text-grey-1" dangerouslySetInnerHTML={{ __html: date }} />
+                <span className="text-gray-1" dangerouslySetInnerHTML={{ __html: date }} />
                 <p className="max-w-md font-medium">{title}</p>
                 <p className="text-with-link" dangerouslySetInnerHTML={{ __html: company }} />
                 <span>

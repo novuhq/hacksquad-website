@@ -205,7 +205,7 @@ const TwitterTimeline = () => (
       <h2 className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xs:max-w-[246px]">
         Join the party
       </h2>
-      <p className="mx-auto mt-5 max-w-3xl text-20 leading-normal text-grey-1 md:text-18">
+      <p className="mx-auto mt-5 max-w-3xl text-20 leading-normal text-gray-1 md:text-18">
         Dive into last year's SWAG of Hacksquad with tweets! Relive the excitement, innovation, and
         highlights that made it unforgettable.
       </p>

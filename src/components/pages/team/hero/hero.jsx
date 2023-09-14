@@ -25,7 +25,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="safe-paddings relative min-h-[600px] pt-[92px]">
+    <section className="safe-paddings relative pt-[92px]">
       <div className="container">
         <h1 className="leading-tight text-center font-titles text-60 font-bold lg:text-[50px] md:text-[40px] xs:text-[32px]">
           {TITLE}
