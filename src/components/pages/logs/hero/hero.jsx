@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 'use client';
 
 import { stringify, parse } from 'querystring';
@@ -5,7 +7,8 @@ import { stringify, parse } from 'querystring';
 import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
-import Autocomplete from 'react-autocomplete';
+// FIXME: react-autocomplete is not compatible with React 17, replace it with a different library for example https://www.npmjs.com/package/react-search-autocomplete
+// import Autocomplete from 'react-autocomplete';
 import { useDebouncedCallback } from 'use-debounce';
 
 import Button from 'components/shared/button';
@@ -186,7 +189,7 @@ const Hero = ({ searchParams = null }) => {
             </select>
 
             <div className="relative mb-10 mr-5 inline-block flex-1">
-              <Autocomplete
+              {/* <Autocomplete
                 getItemValue={(item) => item.name}
                 items={teamList
                   .filter((f) => f.name.toLowerCase().indexOf(search?.toLowerCase() || '') > -1)
@@ -225,11 +228,11 @@ const Hero = ({ searchParams = null }) => {
                   setSearch(val);
                   chooseTeam(val);
                 }}
-              />
+              /> */}
             </div>
 
             <div className="relative mr-5 inline-block flex-1">
-              <Autocomplete
+              {/* <Autocomplete
                 getItemValue={(item) => item.name}
                 items={usersList
                   .filter((f) => f.name.toLowerCase().indexOf(searchUser?.toLowerCase() || '') > -1)
@@ -269,7 +272,7 @@ const Hero = ({ searchParams = null }) => {
                   setSearchUser(val);
                   chooseUser(val);
                 }}
-              />
+              /> */}
             </div>
 
             <select style={{ height: 30 }} className="flex-1 bg-gray-2" onChange={setTakenBy}>
