@@ -7,7 +7,7 @@ export async function middleware(req) {
   // Add any assets or page that you don't want to run middleware on
   if (
     pathname.startsWith('/_next/') ||
-    pathname.startsWith('/favicon.ico') ||
+    pathname.startsWith('/favicon.png') ||
     pathname.startsWith('/api/')
   ) {
     return NextResponse.next();
