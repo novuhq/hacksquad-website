@@ -223,8 +223,9 @@ const DynamicTicket = ({
                 }
                 width={624}
                 height={353}
+                quality={95}
                 alt="Ticket background"
-                priority
+                priority={!isHomeSection}
               />
             </section>
 
