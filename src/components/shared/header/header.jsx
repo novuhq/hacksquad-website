@@ -7,6 +7,7 @@ import Burger from 'components/shared/burger';
 import Link from 'components/shared/link';
 import MobileMenu from 'components/shared/mobile-menu';
 import MENUS from 'constants/menus';
+import useModerator from 'hooks/use-moderator';
 import logo from 'svgs/logo.svg';
 
 import SignUpButton from '../sign-up-button';
@@ -14,6 +15,7 @@ import SignUpButton from '../sign-up-button';
 const Header = ({ isAuthorized = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const { moderator, cleaner } = useModerator();
 
   return (
     <>
@@ -31,6 +33,16 @@ const Header = ({ isAuthorized = false }) => {
                   </Link>
                 </li>
               ))}
+              {(moderator || cleaner) && (
+                <li>
+                  <Link
+                    className="py-5 transition-colors duration-200 hover:text-purple"
+                    to="/repositories"
+                  >
+                    Repository List
+                  </Link>
+                </li>
+              )}
             </ul>
 
             <SignUpButton

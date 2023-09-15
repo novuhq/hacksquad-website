@@ -35,6 +35,7 @@ module.exports = {
     'react/no-danger': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/forbid-prop-types': 'off',
+    'react-hooks/exhaustive-deps': 'warn',
     // Changes values from "function-expression" to "arrow-function", original rule setup — https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/react.js#L528
     'react/function-component-definition': [
       'error',
