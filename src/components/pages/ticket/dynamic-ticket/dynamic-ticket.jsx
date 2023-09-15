@@ -53,17 +53,24 @@ const DynamicTicket = ({
   isHomeSection = false,
 }) => {
   const { data } = useSession();
-  const { userId, githubHandle: sessionGithubHandle } = data.user;
 
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
   const isColorPickerShow = !isHomeSection && (isAuthorized || isDefault);
+  // TODO: fix and improve the current user check that serves to restrict the use of color change for authorized users
+  const [isCurrentUser, setIsCurrentUser] = useState(isDefault || false);
 
-  const isCurrentUser = githubHandle === sessionGithubHandle;
+  useEffect(() => {
+    if (!data) return;
+    const { githubHandle: sessionGithubHandle } = data.user;
+
+    setIsCurrentUser(sessionGithubHandle === githubHandle);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!selectedColorSchema || isDefault) return;
-
+    const { userId } = data.user;
     const updateUserDataTimer = setTimeout(async () => {
       await fetch(`/api/update-user`, {
         method: 'POST',
