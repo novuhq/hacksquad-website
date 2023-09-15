@@ -53,7 +53,11 @@ const Header = ({ isAuthorized = false }) => {
           />
         </div>
       </header>
-      <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
+      <MobileMenu
+        isAuthorized={isAuthorized}
+        isOpen={isMobileMenuOpen}
+        setIsOpen={setIsMobileMenuOpen}
+      />
     </>
   );
 };
