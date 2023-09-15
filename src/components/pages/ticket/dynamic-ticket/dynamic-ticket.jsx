@@ -53,14 +53,16 @@ const DynamicTicket = ({
   isHomeSection = false,
 }) => {
   const { data } = useSession();
+  const { userId, githubHandle: sessionGithubHandle } = data.user;
+
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
   const isColorPickerShow = !isHomeSection && (isAuthorized || isDefault);
 
+  const isCurrentUser = githubHandle === sessionGithubHandle;
+
   useEffect(() => {
     if (!selectedColorSchema || isDefault) return;
-
-    const { userId } = data.user;
 
     const updateUserDataTimer = setTimeout(async () => {
       await fetch(`/api/update-user`, {
@@ -128,7 +130,7 @@ const DynamicTicket = ({
               </SignUpButton>
             ) : null}
 
-            {isAuthorized && (
+            {isAuthorized && !isCurrentUser && (
               <SocialShare
                 url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}
               />
@@ -241,7 +243,7 @@ const DynamicTicket = ({
               />
             </section>
 
-            {isColorPickerShow && (
+            {isColorPickerShow && isCurrentUser && (
               <div className="mt-8 flex items-center gap-6 lg:my-7 lg:justify-center sm:flex-wrap">
                 <p className="text-grey-1 text-18 leading-none lg:text-16 sm:w-full sm:text-center">
                   Pick a color:
