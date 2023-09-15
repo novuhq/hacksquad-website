@@ -20,7 +20,7 @@ const Header = ({ isAuthorized = false }) => {
       <header className="safe-paddings absolute left-0 right-0 top-0 z-50 w-full">
         <div className="container flex items-center justify-between py-4 md:py-3">
           <Link to="/">
-            <img src={logo} width={36} height={36} alt="Hacksquad" />
+            <img src={logo} width={39} height={38} alt="Hacksquad" />
           </Link>
           <nav className="flex items-center gap-10 md:hidden">
             <ul className="flex items-center gap-10">
