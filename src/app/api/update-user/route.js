@@ -2,11 +2,9 @@ import { NextResponse } from 'next/server';
 
 import prisma from '../../../../prisma/client';
 
-export async function GET(request) {
+export async function POST(request) {
   try {
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
-    const colorSchema = searchParams.get('colorSchema');
+    const { id, colorSchema } = await request.json();
 
     if (id && colorSchema) {
       await prisma.user.update({
