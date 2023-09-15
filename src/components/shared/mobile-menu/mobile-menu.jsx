@@ -74,7 +74,7 @@ const MobileMenu = ({ isOpen = false, setIsOpen, isAuthorized = false }) => {
           </nav>
 
           <div className="sticky bottom-0 bg-black py-7">
-            <div className="container">
+            <div className="container text-center">
               <SignUpButton
                 size="sm"
                 theme="outline"
