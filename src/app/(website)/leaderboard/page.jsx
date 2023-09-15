@@ -5,9 +5,9 @@ import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
 
 const getTeams = async () =>
-  fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/leaderboard`, {
-    next: { revalidate: 3600 },
-  }).then((response) => response.json());
+  fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/leaderboard`).then((response) =>
+    response.json()
+  );
 
 const LeaderboardPage = async () => {
   const teamsList = await getTeams();
