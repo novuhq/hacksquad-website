@@ -37,7 +37,7 @@ export async function GET(request) {
 
   sendOneNotification('disqualified', { name: userF.name }, id);
 
-  NextResponse.json({
+  return NextResponse.json({
     finish: true,
   });
 }

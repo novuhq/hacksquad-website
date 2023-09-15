@@ -92,7 +92,7 @@ export async function POST(request) {
     });
   }
 
-  NextResponse.json(
+  return NextResponse.json(
     {
       success: true,
       message: 'Successfully left the team!',

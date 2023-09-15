@@ -67,7 +67,7 @@ export async function GET(request) {
     });
   }
 
-  NextResponse.json({
+  return NextResponse.json({
     finish: true,
   });
 }

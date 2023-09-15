@@ -6,7 +6,7 @@ import sendNotification from 'lib/send-notification';
 
 import prisma from '../../../../prisma/client';
 
-export async function GET() {
+export async function POST() {
   const { team, user } = await findUserAndTeam();
   if (team) {
     return NextResponse.json(
@@ -73,7 +73,7 @@ LIMIT 1
     },
   });
 
-  NextResponse.json(
+  return NextResponse.json(
     {
       success: true,
     },

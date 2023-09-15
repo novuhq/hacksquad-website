@@ -43,7 +43,7 @@ export async function POST(request) {
     user.id
   );
 
-  NextResponse.json(
+  return NextResponse.json(
     {
       message: 'completed',
     },
