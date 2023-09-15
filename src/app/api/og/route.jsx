@@ -41,8 +41,7 @@ export async function GET(request) {
 
     const fontData = await fetch(
       new URL(
-        `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL 
-          }/fonts/jetbrains-mono/jetbrains-mono-extralight.ttf`,
+        `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/fonts/jetbrains-mono/jetbrains-mono-extralight.woff`,
         import.meta.url
       )
     ).then((res) => res.arrayBuffer());
@@ -156,6 +155,7 @@ export async function GET(request) {
             style: 'normal',
           },
         ],
+        debug: true,
       }
     );
   } catch (e) {
