@@ -41,7 +41,8 @@ export async function GET(request) {
 
     const fontData = await fetch(
       new URL(
-        `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/fonts/jetbrains-mono/jetbrains-mono-extralight.ttf`,
+        `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL 
+          }/fonts/jetbrains-mono/jetbrains-mono-extralight.ttf`,
         import.meta.url
       )
     ).then((res) => res.arrayBuffer());
@@ -137,7 +138,7 @@ export async function GET(request) {
                 color: textColor,
                 fontSize: '44px',
                 fontWeight: 300,
-                fontFamily: 'JetBrainsMono',
+                fontFamily: 'Mono',
               }}
             >
               No {`${id}`.slice(0, 10)}
@@ -150,7 +151,7 @@ export async function GET(request) {
         height: 630,
         fonts: [
           {
-            name: 'JetBrainsMono',
+            name: 'Mono',
             data: fontData,
             style: 'normal',
           },
