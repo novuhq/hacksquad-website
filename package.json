@@ -25,6 +25,7 @@
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@novu/node": "^0.19.0",
+    "@novu/notification-center": "^0.19.0",
     "@prisma/client": "^5.2.0",
     "airtable": "^0.12.2",
     "clsx": "^1.2.1",
