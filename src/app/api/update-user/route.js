@@ -9,23 +9,17 @@ export async function GET(request) {
     const colorSchema = searchParams.get('colorSchema');
 
     if (id && colorSchema) {
-      try {
-        const updateUser = await prisma.user.update({
-          where: { id },
-          data: {
-            colorSchema,
-          },
-        });
+      const updateUser = await prisma.user.update({
+        where: { id },
+        data: {
+          colorSchema,
+        },
+      });
 
-        return NextResponse.json(updateUser);
-      } catch (e) {
-        return NextResponse.json({ err: 'Error occurred while updating user data' });
-      }
-    } else {
-      return NextResponse.json({ err: 'Not found user id or color schema' });
+      return NextResponse.json(updateUser);
     }
+    return NextResponse.json({ err: 'Not found user id or color schema' });
   } catch (e) {
-    console.log(`${e.message}`);
     return NextResponse.json({ err: `Failed to update user – ${e.message}` });
   }
 }
