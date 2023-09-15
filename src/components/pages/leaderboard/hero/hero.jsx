@@ -55,6 +55,7 @@ const Hero = ({ teams = [] }) => (
                     index > 2 && 'outline-[rgba(255,255,255,0.08)]',
                     tableGridClass
                   )}
+                  key={index}
                 >
                   <span className="ml-5 text-gray-1">{index + 1}</span>
                   <p>{team.name}</p>
