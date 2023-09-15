@@ -110,15 +110,17 @@ const DynamicTicket = ({
               : `Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`}
           </p>
           <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
-            <SignUpButton
-              className="shrink-0"
-              size="md"
-              theme="fill-yellow"
-              to={isAuthorized ? '/my-team' : null}
-              isSignInButton={!isAuthorized}
-            >
-              {!isAuthorized ? 'Create your ticket' : 'My Squad'}
-            </SignUpButton>
+            {!isAuthorized || !isHomeSection ? (
+              <SignUpButton
+                className="shrink-0"
+                size="md"
+                theme="fill-yellow"
+                to={isAuthorized ? '/my-team' : null}
+                isSignInButton={!isAuthorized}
+              >
+                {!isAuthorized ? 'Create your ticket' : 'My Squad'}
+              </SignUpButton>
+            ) : null}
 
             {isAuthorized && (
               <SocialShare
