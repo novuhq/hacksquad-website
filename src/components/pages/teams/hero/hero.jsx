@@ -1,13 +1,14 @@
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+'use client';
 
-import GitHubIcon from '../../../../icons/github.inline.svg';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
+import Button from 'components/shared/button';
+import useModerator from 'hooks/use-moderator';
+import githubIcon from 'svgs/github.svg';
 
 import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
-
-import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
   const { moderator, cleaner } = useModerator();
@@ -52,8 +53,7 @@ const Hero = ({ team }) => {
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative z-10 flex h-full flex-col items-center justify-center sm:px-0">
-        <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
-          {'>>'}
+        <h1 className="leading-tight font-titles text-60 font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
           {team.name}
         </h1>
 
@@ -108,7 +108,7 @@ const Hero = ({ team }) => {
                   </p>
                   <p className={`font-medium ${moderator && 'sm:hidden'}`}>
                     <a href={`https://github.com/${user.handle}`} target="_blank" rel="noreferrer">
-                      <GitHubIcon className="h-[30px]" />
+                      <img src={githubIcon} width={30} height={30} alt="" loading="lazy" />
                     </a>
                   </p>
 
@@ -138,7 +138,7 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
-        <h2 className="mt-20 font-mono text-lg font-bold uppercase leading-tight lg:text-[25px] md:text-[25px] xs:text-[25px]">
+        <h2 className="text-lg leading-tight mt-20 font-titles font-bold uppercase lg:text-[25px] md:text-[25px] xs:text-[25px]">
           {'>>'}Latest Merged Pull Requests
         </h2>
 
@@ -169,7 +169,7 @@ const Hero = ({ team }) => {
                   </p>
                   <p className="font-medium">
                     <a href={pr.url} target="_blank" rel="noreferrer">
-                      <GitHubIcon className="h-[30px]" />
+                      <img src={githubIcon} width={30} height={30} alt="" loading="lazy" />
                     </a>
                   </p>
 
@@ -184,29 +184,12 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
-        <Link href="/leaderboard" passHref>
-          <a
-            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
-            href="/leaderboard"
-          >
-            <svg
-              className="cta-btn-animation-border xs:w-full"
-              width="268"
-              height="59"
-              viewBox="0 0 268 59"
-              fill="none"
-            >
-              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-            </svg>
-
-            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-              <span className="text-lg sm:text-[18px]">Go to Leaderboard</span>
-            </div>
-          </a>
-        </Link>
+        <Button className="mt-10" to="/leaderboard" theme="fill-white" size="sm">
+          Go to Leaderboard
+        </Button>
 
         <div className="mt-20 flex flex-col items-center md:bottom-12">
-          <span className="font-mono uppercase">Let’s connect</span>
+          <span className="font-titles uppercase">Let’s connect</span>
           <div className="flex items-center space-x-8">
             <a
               className="group mt-5"
@@ -233,7 +216,7 @@ const Hero = ({ team }) => {
 };
 
 Hero.propTypes = {
-  team: PropTypes.object,
+  team: PropTypes.object.isRequired,
 };
 
 export default Hero;

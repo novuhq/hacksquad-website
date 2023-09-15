@@ -1,1 +1,3 @@
-export { default } from './sponsors';
+import Sponsors from './sponsors';
+
+export default Sponsors;

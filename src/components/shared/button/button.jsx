@@ -1,54 +1,48 @@
 import clsx from 'clsx';
-import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
 
-import ArrowIcon from 'icons/arrow.inline.svg';
+import Link from 'components/shared/link';
 
-const Button = ({ className }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const { status } = useSession();
-  const router = useRouter();
+const styles = {
+  size: {
+    xs: 'px-4 h-9 text-16 font-medium md:text-14 md:px-4.5',
+    sm: 'px-5 h-11 text-18 font-bold md:text-14 md:px-5',
+    md: 'px-5 h-12 text-18 font-bold md:text-16 md:px-6 sm:text-14',
+  },
+  base: 'inline-flex leading-normal rounded-sm items-center justify-center transition-colors duration-200',
+  theme: {
+    'fill-white': 'bg-white text-black hover:bg-[rgba(255,255,255,0.90)]',
+    'fill-yellow': 'bg-yellow text-black hover:bg-[#FFF263]',
+    outline:
+      'text-white border border-white hover:bg-[rgba(255,255,255,0.10)] hover:border-[#6D7277]',
+  },
+};
 
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    if (status === 'authenticated') {
-      router.push('/myteam');
-      return;
-    }
-    setIsLoading(true);
-    signIn('github', { callbackUrl: '/thank-you/' });
-  };
+const Button = ({
+  className: additionalClassName = null,
+  to = null,
+  size = 'sm',
+  theme,
+  children,
+  ...otherProps
+}) => {
+  const className = clsx(styles.base, styles.size[size], styles.theme[theme], additionalClassName);
+
+  const Tag = to ? Link : 'button';
 
   return (
-    <button
-      className={clsx(
-        'base-btn-animation relative inline-flex h-9 items-center justify-center whitespace-nowrap px-4 text-center !leading-none before:absolute before:inset-0 before:-z-10 before:border-2 after:absolute after:inset-0 after:-z-10',
-        className,
-        isLoading && 'pointer-events-none min-w-[135px]'
-      )}
-      type="button"
-      onClick={handleSignIn}
-    >
-      {isLoading ? (
-        <div className="h-3.5 w-3.5 animate-spin rounded-full border border-b border-transparent border-b-white" />
-      ) : (
-        <>
-          {status !== 'authenticated' ? <span>Join now</span> : <span>My Squad</span>}
-          <ArrowIcon className="ml-2.5 block h-3" aria-hidden />
-        </>
-      )}
-    </button>
+    <Tag className={className} to={to} {...otherProps}>
+      {children}
+    </Tag>
   );
 };
 
 Button.propTypes = {
   className: PropTypes.string,
-};
-
-Button.defaultProps = {
-  className: null,
+  to: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(styles.size)),
+  theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Button;

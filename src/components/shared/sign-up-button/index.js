@@ -1,1 +1,3 @@
-export { default } from './sign-up-button';
+import SignUpButton from './sign-up-button';
+
+export default SignUpButton;

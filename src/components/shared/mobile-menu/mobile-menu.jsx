@@ -1,11 +1,10 @@
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
+import SignUpButton from 'components/shared/sign-up-button';
 import MENUS from 'constants/menus';
-
-import Button from '../button';
 
 const ANIMATION_DURATION = 0.2;
 
@@ -18,7 +17,7 @@ const variants = {
     },
   },
   visible: {
-    zIndex: 10,
+    zIndex: 40,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -27,7 +26,7 @@ const variants = {
   },
 };
 
-const MobileMenu = ({ isOpen, setIsOpen }) => {
+const MobileMenu = ({ isOpen = false, setIsOpen, isAuthorized = false }) => {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -61,14 +60,13 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
             <ul className="my-auto flex w-full flex-col">
               {MENUS.mobile.map(({ href, text }, index) => (
                 <li key={index}>
-                  <Link href={href} passHref>
-                    <a
-                      className="text-2xl inline-block w-full py-6 text-center"
-                      href={href}
-                      onClick={handleLinkClick}
-                    >
-                      {text}
-                    </a>
+                  <Link
+                    className="text-2xl inline-block w-full py-6 text-center"
+                    href={href}
+                    passHref
+                    onClick={handleLinkClick}
+                  >
+                    {text}
                   </Link>
                 </li>
               ))}
@@ -76,8 +74,15 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
           </nav>
 
           <div className="sticky bottom-0 bg-black py-7">
-            <div className="container">
-              <Button className="h-12 w-full" />
+            <div className="container text-center">
+              <SignUpButton
+                size="sm"
+                theme="outline"
+                to={isAuthorized ? '/my-team' : null}
+                isSignInButton={!isAuthorized}
+              >
+                {!isAuthorized ? 'Join now' : 'My Squad'}
+              </SignUpButton>
             </div>
           </div>
         </motion.div>
@@ -88,11 +93,8 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
 
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool,
+  isAuthorized: PropTypes.bool,
   setIsOpen: PropTypes.func.isRequired,
-};
-
-MobileMenu.defaultProps = {
-  isOpen: false,
 };
 
 export default MobileMenu;

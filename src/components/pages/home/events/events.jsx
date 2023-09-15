@@ -1,167 +1,162 @@
 /* eslint-disable no-unused-vars */
-import moment from 'moment';
-import Image from 'next/future/image';
-import React, { useState, useMemo } from 'react';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
-import SectionHeading from 'components/shared/section-heading';
 import SignUpButton from 'components/shared/sign-up-button';
+import CalendarIcon from 'svgs/calendar.inline.svg';
 
-import ArrowIcon from './images/arrow.inline.svg';
-import bgLeftBottomLine from './images/bg-left-bottom-line.jpg';
-import bgLeftSquare from './images/bg-left-square.png';
-import bgLeft from './images/bg-left.jpg';
-import bgRight from './images/bg-right.jpg';
+const title = 'Welcome to Hacksquad';
+const eventsHeader = ['Date', 'Event', 'Company', 'RSVP'];
+const events = [
+  {
+    date: 'Oct 12, 2023 <br/> 9:00 AM',
+    startDate: '20231012T090000',
+    endDate: '20231012T120000',
+    title: 'Get started with open-source contributions with ToolJet',
+    company: 'Teja <a href="https://link.com" target="_blank">@ToolJet</a>',
+    rsvp: '',
+  },
+  {
+    date: 'Oct 15, 2023 <br/> 5:00 PM',
+    startDate: '20231015T090000',
+    endDate: '20231015T120000',
+    title: 'Building a Discord bot in Rust, Javascript and Python',
+    company: 'Community Event',
+    rsvp: '',
+  },
+  {
+    date: 'Oct 19, 2023 <br/> 3:00 PM',
+    startDate: '20231019T090000',
+    endDate: '20231019T120000',
+    title: 'Extending and embedding open-source projects',
+    company: 'Raz <a href="https://link.com" target="_blank">@Permit.io</a>',
+    rsvp: '',
+  },
+  {
+    date: 'Oct 19, 2023 <br/> 9:00 PM',
+    startDate: '20231019T090000',
+    endDate: '20231019T120000',
+    title: 'Contributing to a GitHub repository',
+    company: 'Michael <a href="https://link.com" target="_blank">@Amplication</a>',
+    rsvp: '',
+  },
+  {
+    date: 'Oct 26, 2023 <br/> 12:00 PM',
+    startDate: '20231026T090000',
+    endDate: '20231026T120000',
+    title: 'How to add a real-time notification center to your React app with Novu and Next.js',
+    company: 'Dima <a href="https://link.com" target="_blank">@Novu</a>',
+    rsvp: '',
+  },
+  {
+    date: 'Oct 26, 2023 <br/> 3:00 PM',
+    startDate: '20231026T090000',
+    endDate: '20231026T120000',
+    title: 'Building a Notion like system with Nest.js, React and Novu',
+    company: 'Nevo <a href="https://link.com" target="_blank">@Novu</a>',
+    rsvp: '',
+  },
+  {
+    date: 'Oct 26, 2023 <br/> 9:00 PM',
+    startDate: '20231026T090000',
+    endDate: '20231026T120000',
+    title: 'How to build on Ethereum using Scaffold-ETH',
+    company: 'Kevin <a href="https://link.com" target="_blank">@Scaffold-ETH</a>',
+    rsvp: '',
+  },
+];
 
-import { eventsList } from '~/helpers/events';
+const tableGridClass =
+  'grid gap-x-5 grid-cols-[230px_575px_200px_1fr] lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_480px_200px_1fr]';
 
-const title = 'Welcome to HackSquad 2022!';
+const Events = ({ isAuthorized = false }) => (
+  <section className="safe-paddings relative py-[100px] md:py-20 sm:py-16 xs:py-12" id="events">
+    <div className="container text-center">
+      <h2
+        className="mx-auto max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:text-42 md:text-36 xxs:max-w-[246px]"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+      <p className="mx-auto mt-5 max-w-[800px] text-20 leading-normal text-gray-1 md:text-18">
+        With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad.
+        Hacksquad is here to enhance your Swag, meet with more community members and participate in
+        workshops from our great sponsors.
+      </p>
+    </div>
 
-const eventsHeader = ['Date', 'Event', 'Company', 'Rsvp'];
-
-const events = eventsList();
-
-const Events = () => {
-  const [isShownMore, setIsShownMore] = useState(false);
-  const items = useMemo(() => (isShownMore ? events : events.slice(0, 7)), [isShownMore]);
-
-  return (
-    <section className="safe-paddings relative py-26 md:py-20 sm:py-16 xs:py-12" id="events">
-      <div className="container relative z-10">
-        <SectionHeading className="text-center">{title}</SectionHeading>
-        <p className="mx-auto mt-10 max-w-[968px] text-center text-lg md:mt-8 md:text-[18px] sm:mt-6 sm:text-base">
-          <span className="relative before:absolute before:-right-1.5 before:-z-10 before:h-[30px] before:w-[454px] before:bg-primary-1">
-            With the fantastic atmosphere
-          </span>{' '}
-          of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your
-          Swag, meet with more community members and participate in workshops from our great
-          sponsors.
-        </p>
-      </div>
-
-      <div className="container relative z-10 mt-20 md:mt-16 md:px-0 sm:mt-10">
-        <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
-          <div className="md:min-w-[1080px] md:px-7 sm:px-4">
-            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]">
-              {eventsHeader.map((event, index) => (
-                <span className="font-medium uppercase" key={index}>
-                  {event}
-                </span>
-              ))}
-            </div>
-
-            <ul>
-              {items.map((event, index) => (
-                <li
-                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr]"
-                  style={{
-                    opacity: moment().isAfter(event.date) ? 0.5 : 1,
-                    filter: moment().isAfter(event.date) ? 'grayscale(100%)' : 'grayscale(0%)',
-                    pointerEvents: moment().isAfter(event.date) ? 'none' : '',
-                  }}
-                  key={index}
-                >
-                  <span>{event.date.local().format('lll')}</span>
-                  <p className="font-medium">{event.title}</p>
-                  <span>{event.company}</span>
-                  <span>
-                    <a
-                      className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
-                      href={event.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      CLICK HERE
-                    </a>
-                  </span>
-                </li>
-              ))}
-            </ul>
+    <div className="container mt-[73px] md:mt-16 md:px-0 sm:mt-10">
+      {/* TODO: Remove this block completely after the publication of events  */}
+      <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+        <div className="container">
+          <div className="grid grid-cols-[230px_575px_200px_1fr] gap-x-5 border-b border-white border-opacity-20 pb-4 lg:grid-cols-[130px_390px_200px_1fr] md:grid-cols-[1fr_1fr_1fr_1fr]">
+            {eventsHeader.map((event, index) => (
+              <span className="font-medium uppercase" key={index}>
+                {event}
+              </span>
+            ))}
           </div>
+
+          <span className="coming-soon-animation block border-b border-white border-opacity-20 py-4 text-center">
+            Coming soon <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </span>
         </div>
-
-        {/* TODO: Remove this block completely after the publication of events  */}
-        {/* <div className="mx-auto max-w-[1220px]"> */}
-        {/*   <div className="container"> */}
-        {/*     <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-4"> */}
-        {/*       {eventsHeader.map((event, index) => ( */}
-        {/*         <span className="font-medium uppercase sm:text-xs" key={index}> */}
-        {/*           {event} */}
-        {/*         </span> */}
-        {/*       ))} */}
-        {/*     </div> */}
-
-        {/*     <span className="coming-soon-animation block border-b border-gray-2 py-4 text-center"> */}
-        {/*       Coming soon<span>.</span> */}
-        {/*       <span>.</span> */}
-        {/*       <span>.</span> */}
-        {/*     </span> */}
-        {/*   </div> */}
-        {/* </div> */}
-
-        {!isShownMore && items.length !== events.length && (
-          <button
-            className="group mx-auto mt-10 flex flex-col items-center font-medium uppercase outline-none"
-            type="button"
-            onClick={() => setIsShownMore(true)}
-          >
-            Show more
-            <ArrowIcon
-              className="h-2 transition-[transform] duration-200 group-hover:translate-y-1.5"
-              aria-hidden
-            />
-          </button>
-        )}
-
-        <div className="sm:px-4">
-          <SignUpButton className="mx-auto mt-20 md:mt-16 sm:mt-10" />
-        </div>
-
-        <Image
-          className="absolute left-[-259px] top-[-162px] md:hidden"
-          src={bgLeftSquare}
-          width={289}
-          height={288}
-          alt=""
-          aria-hidden
-        />
       </div>
 
-      <Image
-        className="absolute left-0 top-2 xl:left-[-20%] sm:-top-14 sm:left-[-80%]"
-        src={bgLeft}
-        width={434}
-        height={636}
-        alt=""
-        aria-hidden
-      />
+      {/* TODO: Display this block after events are published */}
+      {/* <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+        <div className="md:min-w-[1080px] sm:px-4">
+          <div className={clsx('border-b border-white border-opacity-20 pb-4', tableGridClass)}>
+            {eventsHeader.map((event, index) => (
+              <span className="font-medium uppercase" key={index}>
+                {event}
+              </span>
+            ))}
+          </div>
 
-      <Image
-        className="absolute left-0 bottom-0 xl:left-[-20%] sm:left-[-60%]"
-        src={bgLeftBottomLine}
-        width={534}
-        height={20}
-        alt=""
-        aria-hidden
-      />
+          <ul>
+            {events.map(({ date, title, company, startDate, endDate }, index) => (
+              <li
+                className={clsx('border-b border-white border-opacity-20 py-4', tableGridClass)}
+                key={index}
+              >
+                <span className="text-gray-1" dangerouslySetInnerHTML={{ __html: date }} />
+                <p className="max-w-md font-medium">{title}</p>
+                <p className="text-with-link" dangerouslySetInnerHTML={{ __html: company }} />
+                <span>
+                  <a
+                    className="inline-flex items-center gap-x-2.5 rounded-[2px] bg-[rgba(255,255,255,0.10)] px-2.5 py-1 text-14 leading-1.125"
+                    target="_blank"
+                    href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&location="World Wide Web"&amp;sprop=&amp;sprop=name:`}
+                    rel="noreferrer"
+                  >
+                    <CalendarIcon aria-hidden />
+                    Add to calendar
+                  </a>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div> */}
+    </div>
 
-      <Image
-        className="absolute right-0 bottom-28 xl:right-[-7%] md:right-[-18%] sm:hidden"
-        src={bgRight}
-        width={175}
-        height={1082}
-        alt=""
-        aria-hidden
-      />
-
-      <div
-        className="container absolute left-1/2 top-0 h-full w-full -translate-x-1/2 xl:hidden"
-        aria-hidden
+    <div className="container text-center">
+      <SignUpButton
+        className="mt-16"
+        size="md"
+        theme="fill-yellow"
+        to={isAuthorized ? '/my-team' : null}
+        isSignInButton={!isAuthorized}
       >
-        <span className="absolute top-[510px] left-[-116px] h-full w-[1.5px] bg-[url('/vertical-line.png')]" />
-        <span className="absolute top-[calc(100%+510px)] left-[-116px] h-[1.5px] w-[86px] bg-[url('/horizontal-line.png')]" />
-      </div>
-    </section>
-  );
+        {!isAuthorized ? 'Sign up with GitHub' : 'Go to my Squad'}
+      </SignUpButton>
+    </div>
+  </section>
+);
+
+Events.propTypes = {
+  isAuthorized: PropTypes.bool,
 };
 
 export default Events;

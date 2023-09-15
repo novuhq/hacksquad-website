@@ -1,1 +1,3 @@
-export { default } from './question-and-answer';
+import QuestionAndAnswer from './question-and-answer';
+
+export default QuestionAndAnswer;

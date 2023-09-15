@@ -6,12 +6,11 @@
 @import './fonts.css';
 @import './global.css';
 @import './grid-gap.css';
-@import './text-highlighting.css';
 
 /* Components */
 @import './container.css';
-@import './button-animation.css';
-@import './fab.css';
+@import './ticket.css';
+@import './border-with-gradient.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';

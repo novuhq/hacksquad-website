@@ -1,59 +1,162 @@
-<p align="center">
-  <a href="https://hacksquad.dev">
-    <img  alt="logo" src="https://user-images.githubusercontent.com/17677196/190159412-34a1d863-1c2f-49bb-930c-054753137118.jpg">
-  </a>
-</p>
+# Pixel Point Next.js Tailwind Starter
 
-<h2 align="center">
-Welcome to Hacksquad 2022!
-</h2>
-<h3 align="center">
-Contribute code as a squad, meet community members, participate in workshops, and win SWAG
-</h3>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your **Swag**, meet with more community members and participate in workshops from our great sponsors.
+## Table of Contents
 
-<a href="https://www.hacksquad.dev/#sponsors">
-  </br>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/191266471-a019b72d-76fa-4553-a778-0662f3ecf8c9.png">
-    <img src="https://user-images.githubusercontent.com/17677196/191266380-ad1f84cc-ff88-4fe2-ace6-9052ad095922.png" alt="Sponsors"/>
-  </picture>
-</a>
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+  - [Learn more](#learn-more)
+  - [Build the website](#deploy-on-vercel)
+- [Project Structure](#project-structure)
+- [Code Style](#code-style)
+  - [ESLint](#eslint)
+  - [Prettier](#prettier)
+  - [VS Code](#vs-code)
 
-</br>
-</br>
+## Getting Started
 
-HackSquad allows contributors to contribute code **as a squad** instead of a single contributor. Engage the community in a friendly competition over the month of October.
+1. Clone this repository or hit "Use this template" button
 
-<p align="center">
-  <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2022, AND JOIN A TEAM 🚀</a>
-</p>
+```bash
+git clone git@github.com:pixel-point/nextjs-tailwind-starter.git
+```
 
-## How does it work?
+2. Install dependencies
 
-Register to the HackSquad using your GitHub, Join a squad or get assigned to a **random squad**. Each day we will calculate every squad member approved PR and sum them all together. By the end of the event, the top 300 winners will win awesome swag! around ~60 squads!
+```bash
+npm install
+```
 
-<a href="https://www.hacksquad.dev/#swag">
-  <img src="https://user-images.githubusercontent.com/17677196/191267474-ab378f53-9d40-4dc6-ac98-ce4ceb0a8edc.png" alt="Swag"/>
-</a>
+## Usage
 
-## What can you expect from the event?
+```bash
+npm run dev
+```
 
-- Meet new community members
-- Code contribution, dah 😎
-- Participate in awesome workshops such as: How to contribute code, Going over good first issues, Engineering best practices, Solving PRs together.
-- Win swag
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<p align="center">
-  <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2022, AND JOIN A TEAM 🚀</a>
-</p>
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-<p align="center"><strong>You can sign-up for both Hacktoberfest and HackSquad</strong></p>
-<p align="center">Still got any questions/queries or just looking for a good team, Join us on <a href="https://discord.gg/dw3aTnnBrN">Discord</a> or <a href="https://twitter.com/HackSquadDev">Twitter</a></p>
-<p align="center">Let's crash it 🚀</p>
-<p align="center">
-  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/10lybwxpyas6xmiohohn.gif" alt="Party"/>
-</p>
+### Learn More
 
-<p align="center"><strong>P.S</strong> If you want to create a workshop for the HackSquad community during October email me at: <a href="mailto:nevo@novu.co">nevo@novu.co</a></p>
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+### Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Project Structure
+
+```text
+├── public
+├── src
+│   ├── components
+│   │  ├── pages — React components that are being used specifically on a certain page
+│   │  └── shared — React components that are being used across the whole website
+│   ├── hooks
+│   ├── images
+│   ├── pages
+│   ├── styles
+│   ├── utils
+├── next.config.js — Main configuration file for a Next.js site. Read more about it [here](https://nextjs.org/docs/api-reference/next.config.js/introduction)
+├── postcss.config.js — Main configuration file of PostCSS. [Read more about it here](https://tailwindcss.com/docs/configuration#generating-a-post-css-configuration-file)
+└── tailwind.config.js — Main configuration file for Tailwind CSS [Read more about it here](https://tailwindcss.com/docs/configuration)
+```
+
+## Component Folder Structure
+
+### Each component includes
+
+1. Main JavaScript File
+2. Index File
+
+### Each component optionally may include
+
+1. Folder with images and icons
+2. Folder with data
+
+Also, each component may include another component that follows all above listed rules.
+
+### Example structure
+
+```bash
+component
+├── nested-component
+│  ├── data
+│  │  └── nested-component-lottie-data.json
+│  ├── images
+│  │  ├── nested-component-image.jpg
+│  │  ├── nested-component-inline-svg.inline.svg
+│  │  └── nested-component-url-svg.url.svg
+│  ├── nested-component.js
+│  └── index.js
+├── data
+│  └── component-lottie-data.json
+├── images
+│  ├── component-image.jpg
+│  ├── component-inline-svg.inline.svg
+│  └── component-url-svg.url.svg
+├── component.js
+└── index.js
+```
+
+## Code Style
+
+### ESLint
+
+[ESLint](https://eslint.org/) helps find and fix code style issues and force developers to follow same rules. Current configuration is based on [Airbnb style guide](https://github.com/airbnb/javascript).
+
+Additional commands:
+
+```bash
+npm run lint
+```
+
+Run it to check the current status of eslint issues across project.
+
+```bash
+npm run lint:fix
+```
+
+Run it to fix all possible issues.
+
+### Prettier
+
+[Prettier](https://prettier.io/) helps to format code based on defined rules. [Difference between Prettier and ESLint](https://prettier.io/docs/en/comparison.html).
+
+Additional commands:
+
+```bash
+npm run format
+```
+
+Run it to format all files across the project.
+
+### VS Code
+
+Following extensions required to simplify the process of keeping the same code style across the project:
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+After installation enable "ESLint on save" by adding to your VS Code settings.json the following line:
+
+```json
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+}
+```
+
+You can navigate to settings.json by using Command Pallete (CMD+Shift+P) and then type "Open settings.json".
+
+To enable Prettier go to Preferences -> Settings -> type "Format". Then check that you have esbenp.prettier-vscode as default formatter, and also enable "Format On Save".
+
+Reload VS Code and auto-format will work for you.

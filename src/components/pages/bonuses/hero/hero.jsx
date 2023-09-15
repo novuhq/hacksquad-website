@@ -1,23 +1,23 @@
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import DevToAccount from '../../../shared/devto/dev.to';
-import DevToAccountList from '../../../shared/devto/dev.to.list';
-import DevToToolTip from '../../../shared/devto/tooltip';
-import InviteButton from '../../../shared/invite/invite.button';
-import TwitterButton from '../../../shared/twitter/twitter.button';
+import Button from 'components/shared/button';
+import DevToAccount from 'components/shared/devto/dev.to';
+import DevToAccountList from 'components/shared/devto/dev.to.list';
+import DevToToolTip from 'components/shared/devto/tooltip';
+import InviteButton from 'components/shared/invite/invite.button';
+import TwitterButton from 'components/shared/twitter/twitter.button';
 
 import DiscordIcon from './images/discord.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
-const title = '>>Bonuses';
+const TITLE = 'Bonuses';
 
 const Hero = ({ twitter, devto }) => (
-  <section className="safe-paddings relative min-h-[600px]">
+  <section className="safe-paddings relative min-h-[600px] pt-40">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center">
-      <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
-        {title}
+      <h1 className="leading-tight font-titles text-60 font-bold lg:text-[50px] md:text-[40px] xs:text-[32px]">
+        {TITLE}
       </h1>
       <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-1">
@@ -54,29 +54,12 @@ const Hero = ({ twitter, devto }) => (
           </ul>
         </div>
       </div>
-      <Link href="/myteam" passHref>
-        <a
-          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
-          href="/myteam"
-        >
-          <svg
-            className="cta-btn-animation-border xs:w-full"
-            width="268"
-            height="59"
-            viewBox="0 0 268 59"
-            fill="none"
-          >
-            <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-          </svg>
-
-          <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-            <span className="text-lg sm:text-[18px]">Back to my squad</span>
-          </div>
-        </a>
-      </Link>
+      <Button className="mt-10" size="md" to="/my-team" theme="fill-white">
+        Back to my squad
+      </Button>
 
       <div className="mt-20 flex flex-col items-center md:bottom-12">
-        <span className="font-mono uppercase">Let’s connect</span>
+        <span className="font-titles uppercase">Let’s connect</span>
         <div className="flex items-center space-x-8">
           <a
             className="group mt-5"
@@ -102,7 +85,6 @@ const Hero = ({ twitter, devto }) => (
 );
 
 Hero.propTypes = {
-  teams: PropTypes.array,
   twitter: PropTypes.bool,
   devto: PropTypes.bool,
 };

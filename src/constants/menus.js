@@ -19,6 +19,10 @@ const MENUS = {
       ...LINKS.swag,
     },
     {
+      text: 'Ticket',
+      ...LINKS.ticket,
+    },
+    {
       text: 'Q&A',
       ...LINKS.qa,
     },

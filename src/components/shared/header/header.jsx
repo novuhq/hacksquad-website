@@ -1,66 +1,66 @@
-import Link from 'next/link';
+'use client';
+
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useState } from 'react';
 
 import Burger from 'components/shared/burger';
-import Button from 'components/shared/button';
+import Link from 'components/shared/link';
+import MobileMenu from 'components/shared/mobile-menu';
 import MENUS from 'constants/menus';
-import Logo from 'images/logo.inline.svg';
+import logo from 'svgs/logo.svg';
 
-import { toDisplay } from '~/helpers/events';
-import Novu from '~/helpers/novu';
+import SignUpButton from '../sign-up-button';
 
-const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
-  const display = toDisplay();
+const Header = ({ isAuthorized = false }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
   return (
-    <header
-      className={`safe-paddings ${
-        absolute ? `absolute ${!!display && 'top-12'} left-0 right-0` : ''
-      } z-40 w-full`}
-    >
-      <div className="container flex items-center justify-between py-5 md:py-4 sm:py-3.5">
-        <Link href="/" passHref>
-          <a href="/">
-            <Logo className="h-[38px]" />
-            <span className="sr-only">HackSquad</span>
-          </a>
-        </Link>
-
-        <div className="flex items-center space-x-10 sm:hidden">
-          <nav>
-            <ul className="flex space-x-10 md:space-x-6">
+    <>
+      <header className="safe-paddings absolute left-0 right-0 top-0 z-50 w-full">
+        <div className="container flex items-center justify-between py-4 md:py-3">
+          <Link to="/">
+            <img src={logo} width={39} height={38} alt="Hacksquad" />
+          </Link>
+          <nav className="flex items-center gap-10 md:hidden">
+            <ul className="flex items-center gap-10">
               {MENUS.header.map(({ href, text }, index) => (
                 <li key={index}>
-                  <Link href={href} passHref>
-                    <a
-                      className="py-5 transition-colors duration-200 hover:text-primary-2"
-                      href={href}
-                    >
-                      {text}
-                    </a>
+                  <Link className="py-5 transition-colors duration-200 hover:text-purple" to={href}>
+                    {text}
                   </Link>
                 </li>
               ))}
             </ul>
+
+            <SignUpButton
+              size="sm"
+              theme="outline"
+              to={isAuthorized ? '/my-team' : null}
+              isSignInButton={!isAuthorized}
+            >
+              {!isAuthorized ? 'Join now' : 'My Squad'}
+            </SignUpButton>
           </nav>
-          <Novu />
-          <Button />
+
+          <Burger
+            className="hidden md:block"
+            isToggled={isMobileMenuOpen}
+            onClick={handleHeaderBurgerClick}
+          />
         </div>
-        <Burger className="hidden sm:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
-      </div>
-    </header>
+      </header>
+      <MobileMenu
+        isAuthorized={isAuthorized}
+        isOpen={isMobileMenuOpen}
+        setIsOpen={setIsMobileMenuOpen}
+      />
+    </>
   );
 };
 
 Header.propTypes = {
-  isMobileMenuOpen: PropTypes.bool,
-  onBurgerClick: PropTypes.func.isRequired,
-  absolute: PropTypes.bool,
-};
-
-Header.defaultProps = {
-  isMobileMenuOpen: false,
-  absolute: true,
+  isAuthorized: PropTypes.bool,
 };
 
 export default Header;

@@ -1,71 +1,80 @@
+'use client';
+
 import clsx from 'clsx';
-import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 import PropTypes from 'prop-types';
-import React, { useMemo, useState } from 'react';
+import { useState } from 'react';
 
-import GitHubIcon from 'icons/github.inline.svg';
+import Link from 'components/shared/link';
+import ArrowRight from 'svgs/arrow-right.inline.svg';
+import ArrowUp from 'svgs/arrow-up.inline.svg';
 
-const SignUpButton = ({ className, alternativeText }) => {
-  const [isLoadingState, setIsLoadingState] = useState(false);
-  const { status } = useSession();
-  const router = useRouter();
-  const isLoading = useMemo(() => isLoadingState || status === 'loading', [isLoadingState, status]);
+const styles = {
+  base: 'relative inline-flex max-w-full items-center justify-center leading-none rounded-sm items-center transition-colors duration-200',
+  size: {
+    sm: 'gap-3 px-4 h-9 text-16 font-medium md:text-14 md:px-4.5',
+    md: 'gap-4 px-5 h-11 text-18 font-bold md:text-16 md:px-6 sm:text-14 xs:px-3 xs:h-9',
+  },
+  theme: {
+    'fill-yellow': 'bg-yellow text-black hover:bg-[#FFF263]',
+    outline:
+      'text-white border border-white hover:bg-[rgba(255,255,255,0.10)] hover:border-[#6D7277]',
+  },
+};
+
+const SignUpButton = ({ className = null, to = null, size = 'sm', theme, children }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const Tag = to ? Link : 'button';
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    if (status === 'authenticated') {
-      router.push('/myteam');
-      return;
-    }
-    setIsLoadingState(true);
-    signIn('github', { callbackUrl: '/thank-you/' });
-  };
 
+    setIsLoading(true);
+    signIn('github', {
+      callbackUrl: '/ticket',
+    });
+  };
   return (
-    <button
+    <Tag
       className={clsx(
-        'cta-btn-animation relative flex h-[60px] max-w-full items-center justify-center !leading-none',
+        styles.base,
+        styles.size[size],
+        styles.theme[theme],
         className,
         isLoading && 'pointer-events-none'
       )}
-      type="button"
-      onClick={handleSignIn}
+      to={to}
+      type={!to && 'button'}
+      onClick={!to && handleSignIn}
     >
-      <svg
-        className="cta-btn-animation-border xs:w-full"
-        width="341"
-        height="59"
-        viewBox="0 0 341 59"
-        fill="none"
-      >
-        <path d="M1 58V1H324.586L340 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-      </svg>
-      <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-        {isLoading ? (
-          <div className="h-7 w-7 animate-spin rounded-full border border-b border-transparent border-b-white" />
-        ) : status === 'authenticated' ? (
-          <span className="text-lg sm:text-[18px]">Go to my Squad</span>
-        ) : (
-          <>
-            <GitHubIcon className="h-[25px]" />
-            <span className="text-lg sm:text-[18px]">
-              {!alternativeText ? 'Sign up with GitHub' : alternativeText}
-            </span>
-          </>
-        )}
-      </div>
-    </button>
+      {children}
+      {isLoading ? (
+        <span
+          className={clsx('h-3 w-3 animate-spin rounded-full border border-b border-transparent', {
+            'border-b-black': theme === 'fill-yellow',
+            'border-b-white': theme === 'outline',
+          })}
+        />
+      ) : (
+        <>
+          {size === 'sm' ? (
+            <ArrowUp className="w-3" aria-hidden />
+          ) : (
+            <ArrowRight className="w-3" aria-hidden />
+          )}
+        </>
+      )}
+    </Tag>
   );
 };
 
 SignUpButton.propTypes = {
   className: PropTypes.string,
-  alternativeText: PropTypes.string,
-};
-
-SignUpButton.defaultProps = {
-  className: null,
+  to: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(styles.size)),
+  theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default SignUpButton;

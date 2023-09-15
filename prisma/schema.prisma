@@ -1,44 +1,43 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/migrate-shadow
 }
 
 generator client {
-  provider        = "prisma-client-js"
-
+  provider = "prisma-client-js"
 }
 
 model Articles {
-    id           String  @id @default(cuid())
-    articleId    Int     @unique
-    createdAt    DateTime
-    articleTitle String
-    articleLink  String
-    votes        ArticlesVotes[]
+  id           String          @id @default(cuid())
+  articleId    Int             @unique
+  createdAt    DateTime
+  articleTitle String
+  articleLink  String
+  votes        ArticlesVotes[]
 }
 
 model ArticlesVotes {
-    id           String  @id @default(cuid())
-    userId       String
-    user         User @relation(fields: [userId], references: [id])
-    articleId    String
-    article      Articles  @relation(fields: [articleId], references: [id])
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  articleId String
+  article   Articles @relation(fields: [articleId], references: [id])
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -54,18 +53,18 @@ model Session {
 }
 
 model Team {
-  id              String        @id @default(cuid())
+  id              String       @id @default(cuid())
   name            String
-  slug            String?       @unique
+  slug            String?      @unique
   score           Int?
-  ownerId         String        @unique
-  owner           User          @relation(name: "owner", fields: [ownerId], references: [id])
+  ownerId         String       @unique
+  owner           User         @relation(name: "owner", fields: [ownerId], references: [id])
   users           User[]
-  actionLogs      ActionLogs[]  @relation("team")
+  actionLogs      ActionLogs[] @relation("team")
   prs             String?
   githubTeamId    Int?
   allowAutoAssign Boolean
-  disqualified    Boolean       @default(false)
+  disqualified    Boolean      @default(false)
 
   @@index([slug])
   @@index([disqualified])
@@ -85,22 +84,22 @@ enum ActionType {
 }
 
 model ActionLogs {
-  id              String      @id @default(cuid())
-  createdAt       DateTime    @default(now())
+  id         String     @id @default(cuid())
+  createdAt  DateTime   @default(now())
   // action type i.e. if is for PR or for user or team
-  actionType      ActionType
+  actionType ActionType
   // id of the PR
-  pr              String?
-  prDetails       String?
+  pr         String?
+  prDetails  String?
   // details of user on which action was taken
-  user            User?       @relation("affectedUser", fields: [userId], references: [id])
-  userId          String?
+  user       User?      @relation("affectedUser", fields: [userId], references: [id])
+  userId     String?
   // details of team
-  team            Team?       @relation("team", fields: [teamId], references: [id])
-  teamId          String?
+  team       Team?      @relation("team", fields: [teamId], references: [id])
+  teamId     String?
   // details of user who took the action
-  admin           User        @relation("admin", fields: [adminId], references: [id])
-  adminId         String
+  admin      User       @relation("admin", fields: [adminId], references: [id])
+  adminId    String
 
   @@index([pr])
   @@index([prDetails])
@@ -112,70 +111,73 @@ model ActionLogs {
 }
 
 model Report {
-  pr              String @unique
-  status          Status
+  pr     String @unique
+  status Status
 
   @@index([status])
 }
 
 model Social {
-  createdAt     DateTime  @default(now())
-  id            String    @id @default(cuid())
-  type          SocialMedia
-  userId        String
-  user          User @relation(fields: [userId], references: [id])
-  accessToken   String
-  refreshToken  String
+  createdAt    DateTime    @default(now())
+  id           String      @id @default(cuid())
+  type         SocialMedia
+  userId       String
+  user         User        @relation(fields: [userId], references: [id])
+  accessToken  String
+  refreshToken String
 }
 
 model User {
-  createdAt           DateTime  @default(now())
-  id                  String    @id @default(cuid())
-  name                String?
-  email               String?   @unique
-  emailVerified       DateTime?
-  image               String?
-  score               Int     @default(0)
-  moderator           Boolean @default(false)
-  cleaner             Boolean @default(false)
-  handle              String?
-  teamId              String?
-  inviteId            String?
-  disqualified        Boolean @default(false)
-  teamOwner           Team?   @relation("owner")
-  team                Team?   @relation(fields: [teamId], references: [id])
-  invite              User?   @relation("user", fields: [inviteId], references: [id])
-  invited             User[]  @relation("user")
-  githubUserId        Int?
-  accounts            Account[]
-  sessions            Session[]
-  social              Social[]
-  userActionLogs      ActionLogs[] @relation("affectedUser")
-  adminActionLogs     ActionLogs[] @relation("admin")
-  winners             Winners[]
-  votes               ArticlesVotes[]
+  createdAt       DateTime        @default(now())
+  id              String          @id @default(cuid())
+  name            String?
+  email           String?         @unique
+  emailVerified   DateTime?
+  login           String?         @unique @map("github_handle")
+  colorSchema     String?         @default("1")
+  image           String?
+  score           Int             @default(0)
+  moderator       Boolean         @default(false)
+  cleaner         Boolean         @default(false)
+  handle          String?
+  teamId          String?
+  inviteId        String?
+  disqualified    Boolean         @default(false)
+  teamOwner       Team?           @relation("owner")
+  team            Team?           @relation(fields: [teamId], references: [id])
+  invite          User?           @relation("user", fields: [inviteId], references: [id])
+  invited         User[]          @relation("user")
+  githubUserId    Int?
+  accounts        Account[]
+  sessions        Session[]
+  social          Social[]
+  userActionLogs  ActionLogs[]    @relation("affectedUser")
+  adminActionLogs ActionLogs[]    @relation("admin")
+  winners         Winners[]
+  votes           ArticlesVotes[]
 }
 
 model Winners {
-    id            String    @id @default(cuid())
-    month         Int
-    year          Int
-    userId        String
-    lastDateClaim DateTime
-    type          WinnerType
-    user          User      @relation(fields: [userId], references: [id])
-    claimed       DateTime?
-    @@unique([month, year, userId, type])
-    @@index([month])
-    @@index([year])
-    @@index([userId])
-    @@index([claimed])
+  id            String     @id @default(cuid())
+  month         Int
+  year          Int
+  userId        String
+  lastDateClaim DateTime
+  type          WinnerType
+  user          User       @relation(fields: [userId], references: [id])
+  claimed       DateTime?
+
+  @@unique([month, year, userId, type])
+  @@index([month])
+  @@index([year])
+  @@index([userId])
+  @@index([claimed])
 }
 
 enum WinnerType {
-    EXTRA
-    COMPETITION
-    NOVU
+  EXTRA
+  COMPETITION
+  NOVU
 }
 
 model VerificationToken {
@@ -187,11 +189,11 @@ model VerificationToken {
 }
 
 enum SocialMedia {
-    TWITTER
-    DEVTO
+  TWITTER
+  DEVTO
 }
 
 enum Status {
-    REPORT
-    DELETED
+  REPORT
+  DELETED
 }

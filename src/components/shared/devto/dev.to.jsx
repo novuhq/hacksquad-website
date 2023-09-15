@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -27,7 +29,7 @@ const DevToAccount = () => {
   useEffect(() => {
     if (!val) return;
     connectDevTo(val);
-  }, [val]);
+  }, [val, connectDevTo]);
 
   return (
     <div style={{ position: 'relative' }}>

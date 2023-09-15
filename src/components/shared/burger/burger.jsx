@@ -1,11 +1,10 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 const ANIMATION_DURATION = 0.2;
 
-const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
+const Burger = ({ className: additionalClassName = null, isToggled = false, onClick = null }) => (
   <motion.button
     className={clsx('relative h-8 w-6', additionalClassName)}
     type="button"
@@ -14,7 +13,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
     onClick={onClick}
   >
     <motion.span
-      className="absolute top-[7px] left-0 block h-0.5 w-6 rounded-full bg-white"
+      className="absolute left-0 top-[7px] block h-0.5 w-6 rounded-full bg-white"
       variants={{
         initial: {
           top: 7,
@@ -29,7 +28,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[15px] left-0 block h-0.5 w-4 rounded-full bg-white"
+      className="absolute left-0 top-[15px] block h-0.5 w-4 rounded-full bg-white"
       variants={{
         initial: {
           display: 'block',
@@ -57,7 +56,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[15px] left-0 hidden h-0.5 w-6 rounded-full bg-white"
+      className="absolute left-0 top-[15px] hidden h-0.5 w-6 rounded-full bg-white"
       variants={{
         initial: {
           rotate: '0deg',
@@ -72,7 +71,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[15px] left-0 hidden h-0.5 w-6 rounded-full bg-white"
+      className="absolute left-0 top-[15px] hidden h-0.5 w-6 rounded-full bg-white"
       variants={{
         initial: {
           rotate: '0deg',
@@ -93,12 +92,6 @@ Burger.propTypes = {
   className: PropTypes.string,
   isToggled: PropTypes.bool,
   onClick: PropTypes.func,
-};
-
-Burger.defaultProps = {
-  className: null,
-  isToggled: false,
-  onClick: null,
 };
 
 export default Burger;

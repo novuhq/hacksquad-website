@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -41,6 +43,7 @@ const DevToAccountList = () => {
 
   useEffect(() => {
     connectDevTo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

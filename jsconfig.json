@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "jsx": "react",
-    "paths": {
-      "~/prisma/*": ["../prisma/*"],
-      "~/helpers/*": ["../helpers/*"]
-    }
+    "jsx": "react"
   }
 }

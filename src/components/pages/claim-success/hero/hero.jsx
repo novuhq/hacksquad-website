@@ -1,61 +1,27 @@
-import Image from 'next/future/image';
-import Link from 'next/link';
 import React from 'react';
 
-import Socials from 'components/shared/socials';
+import Button from 'components/shared/button';
 
-import bg from './images/bg.jpg';
-
-const title = '>>Thank you!';
-const description = (
+const TITLE = 'Thank you!';
+const DESCRIPTION = (
   <>
     Awesome! We will send you the swag as soon as possible.
     <br />
-    If you have made any mistake, please contact nevo@novu.co
+    If you have made any mistake, please contact <a href="mailto:nevo@novu.co">nevo@novu.co</a>
   </>
 );
 
 const Hero = () => (
-  <section className="safe-paddings relative h-screen min-h-[600px]">
-    <div className="container relative z-10 flex h-full flex-col items-center justify-center">
-      <h1 className="font-mono text-xl font-bold uppercase leading-tight lg:text-[50px] md:text-[40px] xs:text-[32px]">
-        {title}
+  <section className="safe-paddings relative pt-40">
+    <div className="container flex h-full flex-col items-center justify-center">
+      <h1 className="leading-tight font-titles text-60 font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
+        {TITLE}
       </h1>
-      <p className="mt-10 text-center text-lg sm:mt-6 sm:text-base">{description}</p>
-      <Link href="/myteam" passHref>
-        <a
-          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
-          href="/myteam"
-        >
-          <svg
-            className="cta-btn-animation-border xs:w-full"
-            width="268"
-            height="59"
-            viewBox="0 0 268 59"
-            fill="none"
-          >
-            <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-          </svg>
-
-          <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-            <span className="text-lg sm:text-[18px]">Go to your team</span>
-          </div>
-        </a>
-      </Link>
-
-      <Socials className="absolute bottom-20 md:bottom-12" />
+      <p className="sm:text-base text-with-link mt-5 text-center text-20">{DESCRIPTION}</p>
+      <Button className="mt-10" to="/my-team" size="md" theme="fill-white">
+        Go to your team
+      </Button>
     </div>
-
-    <Image
-      className="absolute top-0 left-1/2 min-h-screen w-full min-w-[1920px] -translate-x-1/2 md:min-w-[1230px]"
-      src={bg}
-      width={1920}
-      height={1080}
-      loading="eager"
-      alt=""
-      priority
-      aria-hidden
-    />
   </section>
 );
 

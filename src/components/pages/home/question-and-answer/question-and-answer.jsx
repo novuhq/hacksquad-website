@@ -1,14 +1,38 @@
-import Image from 'next/future/image';
-import React from 'react';
+'use client';
 
-import SectionHeading from 'components/shared/section-heading';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import SignUpButton from 'components/shared/sign-up-button';
 
-import bgLeftGlitch from './images/bg-left-glitch.png';
-import bgLeft from './images/bg-left.jpg';
-import bgRightGlitch from './images/bg-right-glitch.png';
-import bgRightLine from './images/bg-right-line.png';
-import bgRight from './images/bg-right.jpg';
+const itemArrowVariants = {
+  from: {
+    rotate: 0,
+  },
+  to: {
+    rotate: 180,
+    transition: { duration: 0.3 },
+  },
+  exit: {
+    rotate: 0,
+    transition: { duration: 0.3 },
+  },
+};
+
+const itemContentVariants = {
+  from: {
+    height: 0,
+  },
+  to: {
+    height: 'auto',
+    transition: { duration: 0.3 },
+  },
+  exit: {
+    height: 0,
+    transition: { duration: 0.3 },
+  },
+};
 
 const title = 'Q&A';
 const items = [
@@ -28,7 +52,7 @@ const items = [
         Register to the HackSquad using your GitHub, Join a squad or get assigned to a random squad,
         contribute code and get Swag! Not sure where to start? Check:{' '}
         <a
-          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
           href="https://goodfirstissue.dev"
           target="_blank"
           rel="noreferrer"
@@ -53,11 +77,11 @@ const items = [
     question: 'How do we calculate the score?',
     answer: (
       <>
-        Each hour we calculate the number of <strong>MERGED PRs</strong> of each squad member and
-        sum them all up. Each PR is worth 1 point. By the end of the event, the top 60 squads will
-        win awesome swag! The calculation method can be{' '}
+        Each day at midnight we will calculate every squad member <strong>MERGED PR</strong> and sum
+        them all together. By the end of the event, the top 60 squads will win awesome swag! The
+        calculation method can be{' '}
         <a
-          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
           href="https://github.com/novuhq/hacksquad-background/blob/main/src/services/github/github.service.ts"
           target="_blank"
           rel="noreferrer"
@@ -81,20 +105,12 @@ const items = [
     answer: 'You can join a squad and invite friends or we will auto-assign you to another squads',
   },
   {
-    question: 'Which repository can I contribute to?',
-    answer: 'Any public repository you want! Please make sure not to spam! We check 🤫',
-  },
-  {
-    question: 'My team won! am I going to get SWAG?',
-    answer: 'To win swag, even if your team wins, you would need to have 1 MERGED PR',
-  },
-  {
     question: 'I want support / get more updates / find a squads member',
     answer: (
       <>
         Feel free to follow us on{' '}
         <a
-          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
           href="https://twitter.com/HackSquadDev"
           target="_blank"
           rel="noreferrer"
@@ -103,7 +119,7 @@ const items = [
         </a>{' '}
         and join our{' '}
         <a
-          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
+          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
           href="https://discord.gg/vcqkXgT3Xr"
           target="_blank"
           rel="noreferrer"
@@ -114,7 +130,7 @@ const items = [
     ),
   },
   {
-    question: 'Is the swag in the picture the actual swag?',
+    question: 'Does the swag in the picture is the actual swag?',
     answer: (
       <>
         Most of it is! We will also add more Swag from our sponsors.
@@ -144,65 +160,86 @@ const items = [
   },
 ];
 
-const QuestionAndAnswer = () => (
-  <section className="safe-paddings relative py-26 md:py-20 sm:py-16 xs:py-12" id="qa">
-    <div className="container relative z-10">
-      <SectionHeading className="text-center">{title}</SectionHeading>
+const QuestionAndAnswer = ({ isAuthorized = false }) => {
+  const [activeItemIndexes, setActiveItemIndexes] = useState({ 0: true });
 
-      <ul className="mx-auto mt-14 max-w-[968px] sm:mt-6 sm:text-center">
-        {items.map(({ question, answer }, index) => (
-          <li className="border-b border-gray-2 py-6 last:border-none" key={index}>
-            <h3 className="text-[24px] font-medium md:text-lg sm:text-[18px]">{question}</h3>
-            <p className="mt-5 text-lg text-gray-1 md:text-base">- {answer}</p>
-          </li>
-        ))}
-      </ul>
+  return (
+    <section
+      className="safe-paddings relative scroll-mt-5 pb-40 pt-[100px] md:pb-28 md:pt-20 sm:pb-20 sm:pt-16 xs:pt-12"
+      id="qa"
+    >
+      <div className="container">
+        <h2 className="bg-gradient-title bg-white bg-clip-text pb-6 text-center font-titles text-60 leading-1.125 text-transparent">
+          {title}
+        </h2>
 
-      <SignUpButton className="mx-auto mt-14 sm:mt-10" />
+        <LazyMotion features={domAnimation}>
+          <ul className="mx-auto mt-8 max-w-[1008px]">
+            {items.map(({ question, answer }, index) => {
+              const isActive = activeItemIndexes[index];
 
-      <Image
-        className="absolute top-[-394px] right-[-260px] lg:hidden"
-        src={bgRightLine}
-        alt=""
-        width={288}
-        height={868}
-        aria-hidden
-      />
-    </div>
+              const handleHeaderClick = () => {
+                setActiveItemIndexes((previousActiveItemIndexes) => ({
+                  ...previousActiveItemIndexes,
+                  [index]: !isActive,
+                }));
+              };
 
-    <Image
-      className="absolute bottom-0 left-0 xl:left-[-30%]"
-      src={bgLeft}
-      alt=""
-      width={960}
-      height={886}
-      aria-hidden
-    />
-    <Image
-      className="absolute top-0 right-0 xl:right-[-30%]"
-      src={bgRight}
-      alt=""
-      width={960}
-      height={886}
-      aria-hidden
-    />
-    <Image
-      className="absolute bottom-[118px] left-0 xl:left-[-12%] lg:left-[-26%] md:hidden"
-      src={bgLeftGlitch}
-      alt=""
-      width={290}
-      height={812}
-      aria-hidden
-    />
-    <Image
-      className="absolute top-[-66px] right-0 xl:right-[-6%] md:max-w-[46%]"
-      src={bgRightGlitch}
-      alt=""
-      width={476}
-      height={832}
-      aria-hidden
-    />
-  </section>
-);
+              return (
+                <m.li
+                  className="border-b border-white border-opacity-20 py-4"
+                  key={index}
+                  initial="from"
+                  animate={isActive ? 'to' : 'exit'}
+                  role="button"
+                  tabIndex="0"
+                  onClick={handleHeaderClick}
+                  onKeyDown={handleHeaderClick}
+                >
+                  <div className="flex justify-between space-x-2.5 text-white outline-none">
+                    <h3 className="text-20 font-medium leading-normal">{question}</h3>
+                    <m.svg
+                      className="relative mt-3 flex-shrink-0"
+                      width="16"
+                      height="10"
+                      fill="none"
+                      viewBox="0 0 16 10"
+                      variants={itemArrowVariants}
+                      aria-hidden
+                    >
+                      <path stroke="currentColor" strokeWidth="2" d="m1 1.5 7 7 7-7" />
+                    </m.svg>
+                  </div>
+                  <m.div
+                    className="text-with-link max-w-[920px] overflow-hidden"
+                    variants={itemContentVariants}
+                  >
+                    <p className="mt-4 space-y-2.5 text-16 leading-normal text-gray-1">{answer}</p>
+                  </m.div>
+                </m.li>
+              );
+            })}
+          </ul>
+        </LazyMotion>
+
+        <div className="flex justify-center">
+          <SignUpButton
+            className="mt-[72px]"
+            size="md"
+            theme="fill-yellow"
+            to={isAuthorized ? '/my-team' : null}
+            isSignInButton={!isAuthorized}
+          >
+            {!isAuthorized ? 'Sign up with GitHub' : 'Go to my Squad'}
+          </SignUpButton>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+QuestionAndAnswer.propTypes = {
+  isAuthorized: PropTypes.bool,
+};
 
 export default QuestionAndAnswer;

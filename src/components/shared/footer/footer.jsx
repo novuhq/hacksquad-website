@@ -1,54 +1,78 @@
-import clsx from 'clsx';
-import Link from 'next/link';
+'use client';
+
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
-import React from 'react';
 
-import Button from 'components/shared/button';
+import Link from 'components/shared/link';
 import MENUS from 'constants/menus';
-import Logo from 'images/logo.inline.svg';
+import logo from 'svgs/logo.svg';
 
-const Footer = ({ withBorder }) => (
-  <footer className={clsx('safe-paddings', withBorder && 'border-t border-gray-2')}>
-    <div className="container flex items-center justify-between py-5 sm:flex-col sm:items-start">
-      <div className="sm:flex sm:w-full sm:justify-between">
-        <Link href="/" passHref>
-          <a href="/">
-            <Logo className="h-[38px]" />
-            <span className="sr-only">Hacksquad</span>
-          </a>
-        </Link>
-        <Button className="hidden flex-shrink-0 sm:flex" />
-      </div>
-      <div className="flex items-center space-x-10 sm:mt-6 sm:w-full">
-        <nav className="sm:w-full">
-          <ul className="flex space-x-10 md:space-x-6 sm:justify-between">
-            {MENUS.header.slice(1).map(({ href, text }, index) => (
-              <li key={index}>
-                <Link href={href} passHref>
-                  <a
-                    className="py-5 transition-colors duration-200 hover:text-primary-2"
-                    href={href}
-                  >
+import SignUpButton from '../sign-up-button';
+
+const Footer = ({ isAuthorized = false }) => {
+  const pathname = usePathname();
+  const isTicketPage = pathname.includes('ticket');
+
+  return (
+    <footer className="safe-paddings border-t border-[rgba(255,255,255,0.20)]">
+      {isTicketPage ? (
+        <div className="container flex items-center justify-between gap-2 py-5 md:py-3 sm:flex-col">
+          <p className="text-15 leading-normal md:text-14">Novu 2023 Ⓒ All rights reserved</p>
+          <p className="text-grey-1 text-15 leading-normal md:text-14 sm:text-center">
+            By entering your email, you agree to our{' '}
+            <a
+              className="font-medium text-white transition duration-200 hover:text-purple"
+              href="https://novu.co/terms/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Terms of Use
+            </a>{' '}
+            and{' '}
+            <a
+              className="font-medium text-white transition duration-200 hover:text-purple"
+              href="https://novu.co/privacy/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Privacy Policy
+            </a>
+          </p>
+        </div>
+      ) : (
+        <div className="container flex items-center justify-between py-3.5 md:py-3">
+          <Link to="/">
+            <Image src={logo} width={36} height={36} alt="Hacksquad" />
+          </Link>
+          <nav className="flex items-center gap-10">
+            <ul className="flex items-center gap-10 md:hidden">
+              {MENUS.header.map(({ href, text }, index) => (
+                <li key={index}>
+                  <Link className="py-5 transition-colors duration-200 hover:text-purple" to={href}>
                     {text}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-        <Button className="sm:hidden" />
-      </div>
-    </div>
-  </footer>
-);
-
-Footer.propTypes = {
-  withBorder: PropTypes.bool,
+            <SignUpButton
+              size="sm"
+              theme="outline"
+              to={isAuthorized ? '/my-team' : null}
+              isSignInButton={!isAuthorized}
+            >
+              {!isAuthorized ? 'Join now' : 'My Squad'}
+            </SignUpButton>
+          </nav>
+        </div>
+      )}
+    </footer>
+  );
 };
 
-Footer.defaultProps = {
-  withBorder: false,
+Footer.propTypes = {
+  isAuthorized: PropTypes.bool,
 };
 
 export default Footer;
