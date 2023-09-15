@@ -84,7 +84,7 @@ export const authOptions = (req) => ({
         },
       });
 
-      if (user.email) {
+      if (user.email && process.env.NODE_ENV === 'production') {
         const [name, lastName] = user.name.split(' ');
         await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
           email_address: user.email,

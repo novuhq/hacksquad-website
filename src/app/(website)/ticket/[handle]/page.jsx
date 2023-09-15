@@ -36,7 +36,6 @@ export async function generateMetadata({ params }) {
         select: {
           name: true,
           handle: true,
-          id: true,
           colorSchema: true,
           ticketId: true,
         },
