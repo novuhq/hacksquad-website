@@ -1,28 +1,27 @@
 import { redirect } from 'next/navigation';
 
-import Hero from 'components/pages/bonuses/hero';
+import Hero from 'components/pages/repositories/hero';
+import JoinUs from 'components/shared/join-us';
 import { auth } from 'lib/auth';
 import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
-import twitter from 'lib/twitter';
 
-async function getData(searchParams) {
-  return twitter(searchParams);
-}
-
-async function Bonuses({ searchParams }) {
+async function Repositories() {
   const session = await auth();
 
   if (!session?.user) {
     redirect('/sign-in');
   }
 
-  const { devto } = await getData(searchParams);
-
-  return <Hero devto={devto} />;
+  return (
+    <>
+      <Hero />
+      <JoinUs />
+    </>
+  );
 }
 
-export default Bonuses;
+export default Repositories;
 
 export async function generateMetadata() {
   return getMetadata(SEO_DATA.INDEX);
