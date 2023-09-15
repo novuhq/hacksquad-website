@@ -22,7 +22,7 @@ const socialList = [
   {
     icon: githubIcon,
     name: 'GitHub',
-    text: 'We’d love to stay connect with you.',
+    text: 'Collaborate on open-source projects.',
     link: '#',
     linkText: 'Contribute',
   },
@@ -30,23 +30,23 @@ const socialList = [
 
 const JoinUs = () => (
   <section className="safe-paddings container py-28 text-center sm:py-20">
-    <h2 className="mx-auto max-w-2xl font-titles text-60 font-semibold leading-none md:text-42 xs:max-w-[246px]">
+    <h2 className="mx-auto max-w-2xl font-titles text-48 font-semibold leading-1.125 md:text-42 xs:max-w-[246px]">
       Join to our community
     </h2>
-    <p className="mt-6 text-20 leading-normal text-gray-1 md:text-18">
+    <p className="mt-3 text-20 leading-normal text-gray-1 md:text-18">
       Check out where you can find us and stay connected!
     </p>
-    <ul className="grid-gap mx-auto mb-14 mt-[72px] grid max-w-[1008px] grid-cols-12 lg:mt-12 md:mt-10">
+    <ul className="grid-gap mx-auto my-12 grid max-w-[800px] grid-cols-12 lg:mt-12 md:mt-10">
       {socialList.map(({ icon, name, text, link, linkText }, index) => (
         <li className="col-span-4 sm:col-span-full" key={index}>
           <Link
-            className="flex flex-col items-center justify-center rounded-[6px] bg-[rgba(255,255,255,0.08)] px-14 py-7 transition-colors duration-200 hover:bg-[rgba(255,255,255,0.10)] md:p-6"
+            className="group flex flex-col items-center justify-center rounded-[6px] bg-join-us px-7 py-7 hover:bg-join-us-hover md:p-6"
             to={link}
           >
             <img src={icon} width={40} height={40} alt="" loading="lazy" />
             <h3 className="mt-6 text-20 font-semibold leading-1.125">{name}</h3>
-            <p className="mt-3 text-16 leading-normal text-gray-1">{text}</p>
-            <p className="mt-4 flex items-center gap-x-2.5 text-16 font-medium leading-normal text-purple">
+            <p className="mt-2 text-16 font-light leading-snug text-gray-1">{text}</p>
+            <p className="mt-3 flex items-center gap-x-2.5 text-16 font-medium leading-normal text-purple transition-colors duration-200 group-hover:text-white">
               {linkText}
               <ArrowUp aria-hidden />
             </p>

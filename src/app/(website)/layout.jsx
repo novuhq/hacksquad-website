@@ -7,7 +7,7 @@ import 'styles/main.css';
 import { auth } from 'lib/auth';
 
 const inter = Inter({
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
