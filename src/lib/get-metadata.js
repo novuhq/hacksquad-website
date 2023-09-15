@@ -8,25 +8,28 @@ const getMetadata = ({
   pathname,
   imagePath = DEFAULT_IMAGE_PATH,
   type = 'website',
+  robotsNoindex,
 }) => {
   const SITE_URL = process.env.NEXT_PUBLIC_DEFAULT_SITE_URL;
   const canonicalUrl = SITE_URL + pathname;
   const imageUrl = imagePath.startsWith('http') ? imagePath : SITE_URL + imagePath;
+
   const siteName = 'HackSquad2023';
+  const robots = robotsNoindex === 'noindex' ? { index: false } : null;
 
   return {
     title,
     description,
-    alternates: {
-      canonical: canonicalUrl,
-    },
     viewport: {
       width: 'device-width',
       initialScale: 1,
-      maximumScale: 1,
       viewportFit: 'cover',
     },
+    alternates: {
+      canonical: canonicalUrl,
+    },
     manifest: `${SITE_URL}/manifest.json`,
+    robots,
     icons: {
       icon: '/favicon/favicon.png',
       apple: [
