@@ -27,10 +27,6 @@ const Team = ({ info }) => {
 
   const sendMessage = useCallback(async () => {
     fetch('/api/send-message', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ contact }),
       method: 'POST',
     });
@@ -40,10 +36,6 @@ const Team = ({ info }) => {
 
   const debounce = useDebouncedCallback(async (name, allowAutoAssign) => {
     await fetch('/api/change-team', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
       method: 'POST',
       body: JSON.stringify({
         name,
@@ -58,10 +50,6 @@ const Team = ({ info }) => {
     if (confirm('Are you sure want to leave the team?')) {
       try {
         const response = await fetch('/api/leave-team', {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
           method: 'POST',
           body: JSON.stringify({
             id: currentUser.id,
@@ -115,14 +103,14 @@ const Team = ({ info }) => {
                 <div>Send a message to your squad: </div>
                 <div className="ml-3 flex-1">
                   <input
+                    className="w-full bg-gray-2"
                     type="text"
                     name="score"
-                    className="w-full"
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
                   />
                 </div>
-                <div className="border-gray-1 ml-3 w-20 border text-center">
+                <div className="ml-3 w-20 border border-gray-1 text-center">
                   <button
                     disabled={contact.length <= 2}
                     type="button"
@@ -171,7 +159,7 @@ const Team = ({ info }) => {
               </label>
             </div>
           </div>
-          <div className="border-gray-2 grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
+          <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
             <span className="font-medium uppercase">#</span>
             <span className="font-medium uppercase">Name</span>
             <span className="font-medium uppercase">GitHub</span>
@@ -179,7 +167,7 @@ const Team = ({ info }) => {
 
           {info.team.users.map((user, index) => (
             <ul>
-              <li className="border-gray-2 grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
+              <li className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
                 <span>{index + 1}</span>
                 <p className="truncate font-medium">
                   {!!user.disqualified && (
