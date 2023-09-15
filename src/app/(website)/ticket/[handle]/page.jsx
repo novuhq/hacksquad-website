@@ -10,7 +10,7 @@ import prisma from '../../../../../prisma/client';
 const buildOgImageUrl = (data) =>
   data ? '/api/og?'.concat(new URLSearchParams(data)) : '/api/og?';
 
-const DynamicTicketPage = async ({ params }) => {
+async function DynamicTicketPage({ params }) {
   const session = await auth();
   // eslint-disable-next-line no-use-before-define
   const userData = await getTicketData(params.handle);
@@ -18,7 +18,7 @@ const DynamicTicketPage = async ({ params }) => {
   if (!userData) notFound();
 
   return <DynamicTicket user={userData} isAuthorized={!!session} />;
-};
+}
 
 export async function generateMetadata({ params }) {
   const { handle } = params;
@@ -72,14 +72,4 @@ async function getTicketData(handle) {
   return userData;
 }
 
-export async function generateStaticParams() {
-  const users = await prisma.user.findMany();
-
-  return users.map((user) => ({
-    handle: user.handle,
-  }));
-}
-
 export default DynamicTicketPage;
-
-export const revalidate = 60;

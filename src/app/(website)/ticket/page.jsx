@@ -24,5 +24,3 @@ export async function generateMetadata() {
 }
 
 export default TicketPage;
-
-export const revalidate = 60;
