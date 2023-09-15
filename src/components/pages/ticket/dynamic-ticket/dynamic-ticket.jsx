@@ -66,7 +66,7 @@ const DynamicTicket = ({
       await fetch(`/api/update-user`, {
         method: 'POST',
         body: JSON.stringify({
-          userId,
+          id: userId,
           colorSchema: selectedColorSchema,
         }),
       });
