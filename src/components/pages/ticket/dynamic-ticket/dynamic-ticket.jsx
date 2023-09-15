@@ -51,11 +51,12 @@ const DynamicTicket = ({
   isAuthorized = false,
   isDefault = false,
   isHomeSection = false,
+  isOwnPage = false,
 }) => {
   const { data } = useSession();
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
-  const isColorPickerShow = !isHomeSection && (isAuthorized || isDefault);
+  const isColorPickerShow = !isHomeSection && ((isAuthorized && isOwnPage) || isDefault);
 
   useEffect(() => {
     if (!selectedColorSchema || isDefault) return;
@@ -63,7 +64,13 @@ const DynamicTicket = ({
     const { userId } = data.user;
 
     const updateUserDataTimer = setTimeout(async () => {
-      await fetch(`/api/update-user?id=${userId}&colorSchema=${selectedColorSchema}`);
+      await fetch(`/api/update-user`, {
+        method: 'POST',
+        body: JSON.stringify({
+          id: userId,
+          colorSchema: selectedColorSchema,
+        }),
+      });
       await fetch(`/api/auth/session?colorSchema=${selectedColorSchema}`);
     }, 1000);
 
@@ -122,7 +129,7 @@ const DynamicTicket = ({
               </SignUpButton>
             ) : null}
 
-            {isAuthorized && (
+            {isAuthorized && isOwnPage && (
               <SocialShare
                 url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}
               />
@@ -304,6 +311,7 @@ DynamicTicket.propTypes = {
   isAuthorized: PropTypes.bool,
   isDefault: PropTypes.bool,
   isHomeSection: PropTypes.bool,
+  isOwnPage: PropTypes.bool,
 };
 
 export default DynamicTicket;

@@ -17,7 +17,10 @@ async function DynamicTicketPage({ params }) {
 
   if (!userData) notFound();
 
-  return <DynamicTicket user={userData} isAuthorized={!!session} />;
+  // Check if the current page handle matches the session handle
+  const isOwnPage = session?.user?.githubHandle === params.handle;
+
+  return <DynamicTicket user={userData} isAuthorized={!!session} isOwnPage={isOwnPage} />;
 }
 
 export async function generateMetadata({ params }) {

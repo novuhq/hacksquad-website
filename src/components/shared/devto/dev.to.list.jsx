@@ -49,7 +49,7 @@ const DevToAccountList = () => {
   return (
     <>
       {list.map((l, index) => (
-        <li className="border-gray-2 grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+        <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
           <span className="sm:hidden">{index + 4}</span>
           <span>
             <a target="_blank" href={l.articleLink} rel="noreferrer">

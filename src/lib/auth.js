@@ -1,4 +1,4 @@
-// import mailchimp from '@mailchimp/mailchimp_marketing';
+import mailchimp from '@mailchimp/mailchimp_marketing';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { getServerSession } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
@@ -9,11 +9,10 @@ if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
   throw new Error('The GITHUB_ID and GITHUB_SECRET environment variables are required.');
 }
 
-// TODO: add mailchimp integration
-// mailchimp.setConfig({
-//   apiKey: process.env.MAILCHIMP_KEY,
-//   server: process.env.MAILCHIMP_SERVER,
-// });
+mailchimp.setConfig({
+  apiKey: process.env.MAILCHIMP_KEY,
+  server: process.env.MAILCHIMP_SERVER,
+});
 
 export const authOptions = (req) => ({
   adapter: PrismaAdapter(prisma),
@@ -67,28 +66,13 @@ export const authOptions = (req) => ({
         },
       }).then((res) => res.json());
 
-      // TODO: comment out these lines after adding mailchimp integration
-      //     const getInvite = req?.cookies?.invite
-      //       ? await prisma.user.findUnique({
-      //           where: {
-      //             email: Buffer.from(req?.cookies?.invite, 'base64').toString(),
-      //           },
-      //         })
-      //       : undefined;
-
-      //     if (user.email) {
-      //       const [name, lastName] = user.name.split(' ');
-      //       await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
-      //         email_address: user.email,
-      //         status: 'subscribed',
-      //         skip_merge_validation: true,
-      //         merge_fields: {
-      //           FNAME: name,
-      //           LNAME: lastName,
-      //         },
-      //       });
-      //     }
-      //   },
+      const getInvite = req?.cookies?.invite
+        ? await prisma.user.findUnique({
+            where: {
+              email: Buffer.from(req?.cookies?.invite, 'base64').toString(),
+            },
+          })
+        : undefined;
 
       await prisma.user.update({
         where: {
@@ -96,8 +80,22 @@ export const authOptions = (req) => ({
         },
         data: {
           handle: login,
+          ...(getInvite && getInvite.id !== user.id ? { inviteId: getInvite.id } : {}),
         },
       });
+
+      if (user.email) {
+        const [name, lastName] = user.name.split(' ');
+        await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST, {
+          email_address: user.email,
+          status: 'subscribed',
+          skip_merge_validation: true,
+          merge_fields: {
+            FNAME: name,
+            LNAME: lastName,
+          },
+        });
+      }
     },
   },
 });

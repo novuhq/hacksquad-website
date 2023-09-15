@@ -11,8 +11,8 @@ import { SEO_DATA } from 'lib/seo-data';
 async function HomePage() {
   let userData = {
     ticketId: '0000000001',
-    name: 'Your.Name',
-    handle: 'GitHub account',
+    name: 'Your Name',
+    handle: 'GitHub',
     colorSchema: '1',
   };
   const session = await auth();

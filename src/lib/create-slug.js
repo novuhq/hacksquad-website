@@ -14,8 +14,6 @@ const createSlug = (str) =>
     .trim()
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '') 
-  }-${ 
-  makeid(5)}`;
+    .replace(/^-+|-+$/g, '')}-${makeid(5)}`;
 
 export default createSlug;

@@ -27,8 +27,7 @@ const validation = object({
   shirt_size: string().required().oneOf(['Small', 'Medium', 'Large', 'X-Large', '2X-Large']),
 });
 
-// TODO: uncomment this line after the variable has been added.
-// const airTable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY });
+const airTable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY });
 
 export async function POST(request) {
   const body = await request.json();
@@ -66,39 +65,38 @@ export async function POST(request) {
 
   const winnersMap = selectedWins.map((s) => winners.find((w) => w.id === s));
 
-  // TODO: uncomment this line after the variable has been added.
-  // await Promise.all(
-  //   winnersMap.map(async (win) => {
-  //     await airTable
-  //       .base(process.env.AIRTABLE_BASE)
-  //       .table('Hacksquad 2022')
-  //       .create({
-  //         first_name: body.first_name,
-  //         last_name: body.last_name,
-  //         email: body.email,
-  //         phone_number: body.phone_number,
-  //         shipping_address1: body.shipping_address1,
-  //         shipping_address2: body.shipping_address2,
-  //         shipping_city: body.shipping_city,
-  //         shipping_state: body.shipping_state,
-  //         shipping_zip: body.shipping_zip,
-  //         shipping_country: body.shipping_country,
-  //         shirt_size: body.shirt_size,
-  //         company_name: win.type === 'NOVU' ? 'Novu' : 'HackSquad',
-  //         variation: win.type,
-  //         'github-handle': handle,
-  //       });
+  await Promise.all(
+    winnersMap.map(async (win) => {
+      await airTable
+        .base(process.env.AIRTABLE_BASE)
+        .table('Hacksquad 2022')
+        .create({
+          first_name: body.first_name,
+          last_name: body.last_name,
+          email: body.email,
+          phone_number: body.phone_number,
+          shipping_address1: body.shipping_address1,
+          shipping_address2: body.shipping_address2,
+          shipping_city: body.shipping_city,
+          shipping_state: body.shipping_state,
+          shipping_zip: body.shipping_zip,
+          shipping_country: body.shipping_country,
+          shirt_size: body.shirt_size,
+          company_name: win.type === 'NOVU' ? 'Novu' : 'HackSquad',
+          variation: win.type,
+          'github-handle': handle,
+        });
 
-  //     await prisma.winners.update({
-  //       where: {
-  //         id: win.id,
-  //       },
-  //       data: {
-  //         claimed: moment().toDate(),
-  //       },
-  //     });
-  //   })
-  // );
+      await prisma.winners.update({
+        where: {
+          id: win.id,
+        },
+        data: {
+          claimed: moment().toDate(),
+        },
+      });
+    })
+  );
 
   return NextResponse.json(
     {

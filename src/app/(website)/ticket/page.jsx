@@ -1,45 +1,26 @@
-import Events from 'components/pages/home/events';
-import Hero from 'components/pages/home/hero';
-import QuestionAndAnswer from 'components/pages/home/question-and-answer';
-import TwitterTimeline from 'components/pages/home/twitter-timeline';
 import DynamicTicket from 'components/pages/ticket/dynamic-ticket';
-import { auth } from 'lib/auth';
-import findUser from 'lib/find-user';
 import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
 
-async function HomePage() {
-  let userData = {
-    ticketId: '0000000001',
-    name: 'Your.Name',
-    handle: 'GitHub account',
-    colorSchema: '1',
-  };
-  const session = await auth();
+const buildOgImageUrl = (data) =>
+  data ? '/api/og?'.concat(new URLSearchParams(data)) : '/api/og?';
 
-  if (session && session.user) {
-    const user = await findUser(session.user.userId);
+const defaultUserData = {
+  ticketId: '0000000001',
+  name: 'Your Name',
+  handle: 'GitHub',
+  colorSchema: '1',
+};
 
-    userData = {
-      ...session.user,
-      ticketId: user.ticketId,
-      handle: session.user.githubHandle,
-    };
-  }
-
-  return (
-    <>
-      <Hero isAuthorized={!!session} />
-      <Events isAuthorized={!!session} />
-      <TwitterTimeline />
-      <DynamicTicket isAuthorized={!!session} isDefault={!session} user={userData} isHomeSection />
-      <QuestionAndAnswer isAuthorized={!!session} />
-    </>
-  );
-}
-
-export default HomePage;
+const TicketPage = async () => (
+  <DynamicTicket user={defaultUserData} isAuthorized={false} isDefault />
+);
 
 export async function generateMetadata() {
-  return getMetadata(SEO_DATA.INDEX);
+  return getMetadata({
+    ...SEO_DATA.TICKET(defaultUserData),
+    imagePath: buildOgImageUrl(defaultUserData),
+  });
 }
+
+export default TicketPage;

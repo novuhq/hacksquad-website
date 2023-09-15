@@ -198,3 +198,20 @@ enum Status {
   REPORT
   DELETED
 }
+
+
+model Repositories {
+    id            String    @id @default(cuid())
+    date          DateTime
+    status        RepositoryStatus
+    url           String
+    @@index([url])
+    @@unique([url])
+}
+
+enum RepositoryStatus {
+   NOT_DETERMINED
+   ACCEPTED
+   DENIED
+   BANNED
+}

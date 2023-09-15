@@ -6,8 +6,7 @@
 */
 -- AlterTable
 ALTER TABLE "User" ADD COLUMN     "colorSchema" TEXT DEFAULT '1',
-ADD COLUMN     "github_handle" TEXT,
-ADD COLUMN     "ticketId" SERIAL NOT NULL;
+ADD COLUMN     "github_handle" TEXT;
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_github_handle_key" ON "User"("github_handle");

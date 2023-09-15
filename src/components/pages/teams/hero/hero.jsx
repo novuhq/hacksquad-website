@@ -82,7 +82,7 @@ const Hero = ({ team }) => {
 
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
-            <div className="border-gray-2 grid grid-cols-[175px_420px_175px_175px_1fr_1fr] gap-x-5 border-b pb-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr_1fr] sm:grid-cols-[150px_80px_120px_1fr]">
+            <div className="grid grid-cols-[175px_420px_175px_175px_1fr_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr_1fr] sm:grid-cols-[150px_80px_120px_1fr]">
               <span className="font-medium uppercase sm:hidden">Place</span>
               <span className="font-medium uppercase">Name</span>
               <span className={`font-medium uppercase ${moderator && 'sm:hidden'}`}>GitHub</span>
@@ -95,7 +95,7 @@ const Hero = ({ team }) => {
               {team.users.map((user, index) => (
                 <li
                   key={user.handle}
-                  className="border-gray-2 grid grid-cols-[175px_420px_175px_175px_1fr_1fr] gap-x-5 border-b py-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr_1fr] sm:grid-cols-[150px_80px_120px]"
+                  className="grid grid-cols-[175px_420px_175px_175px_1fr_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr_1fr] sm:grid-cols-[150px_80px_120px]"
                 >
                   <span className="sm:hidden">{index + 1}</span>
                   <p className="truncate font-medium">
@@ -144,7 +144,7 @@ const Hero = ({ team }) => {
 
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
-            <div className="border-gray-2 grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]">
+            <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]">
               <span className="font-medium uppercase sm:hidden">Place</span>
               <span className="font-medium uppercase">Name</span>
               <span className="font-medium uppercase">Pull</span>
@@ -156,7 +156,7 @@ const Hero = ({ team }) => {
               {pullRequests.map((pr, index) => (
                 <li
                   key={pr.url}
-                  className="border-gray-2 grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]"
+                  className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]"
                 >
                   <span className="sm:hidden">{index + 1}</span>
                   <p className="truncate font-medium">
