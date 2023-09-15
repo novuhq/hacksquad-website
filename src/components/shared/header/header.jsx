@@ -26,10 +26,7 @@ const Header = ({ isAuthorized = false }) => {
             <ul className="flex items-center gap-10">
               {MENUS.header.map(({ href, text }, index) => (
                 <li key={index}>
-                  <Link
-                    className="hover:text-primary-2 py-5 transition-colors duration-200"
-                    to={href}
-                  >
+                  <Link className="py-5 transition-colors duration-200 hover:text-purple" to={href}>
                     {text}
                   </Link>
                 </li>

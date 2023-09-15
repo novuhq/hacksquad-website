@@ -14,7 +14,7 @@ const SocialShare = ({ className = null, url }) => {
   return (
     <div className={clsx('flex items-center gap-3 lg:gap-x-3', className)}>
       <TwitterShareButton
-        className="border-grey-1 flex items-center gap-3 rounded border px-5 py-[13px] text-18 font-medium leading-none text-white xs:gap-2 xs:px-3 xs:py-2 xs:text-14"
+        className="border-grey-1 flex items-center gap-3 rounded border px-5 py-[13px] text-18 font-medium leading-none text-white transition-colors duration-200 hover:border-[#6D7277] hover:bg-[rgba(255,255,255,0.10)] xs:gap-2 xs:px-3 xs:py-2 xs:text-14"
         url={url}
         shareText="I am participating in HackSquad 2023 @HackSquadDev @ToolJet @CrowdDotDev @WaspLang @novuhq"
       >
@@ -22,7 +22,7 @@ const SocialShare = ({ className = null, url }) => {
       </TwitterShareButton>
       <button
         className={clsx(
-          'border-grey-1 flex items-center gap-3 rounded border px-5 py-[13px] text-18 font-medium leading-none text-white xs:gap-2 xs:px-3 xs:py-2 xs:text-14',
+          'border-grey-1 flex items-center gap-3 rounded border px-5 py-[13px] text-18 font-medium leading-none text-white transition-colors duration-200 hover:border-[#6D7277] hover:bg-[rgba(255,255,255,0.10)] xs:gap-2 xs:px-3 xs:py-2 xs:text-14',
           isCopied && 'pointer-events-none'
         )}
         type="button"

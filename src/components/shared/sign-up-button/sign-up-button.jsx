@@ -10,14 +10,15 @@ import ArrowRight from 'svgs/arrow-right.inline.svg';
 import ArrowUp from 'svgs/arrow-up.inline.svg';
 
 const styles = {
-  base: 'relative inline-flex max-w-full items-center justify-center leading-none rounded-sm items-center',
+  base: 'relative inline-flex max-w-full items-center justify-center leading-none rounded-sm items-center transition-colors duration-200',
   size: {
     sm: 'gap-3 px-4 h-9 text-16 font-medium md:text-14 md:px-4.5',
     md: 'gap-4 px-5 h-11 text-18 font-bold md:text-16 md:px-6 sm:text-14 xs:px-3 xs:h-9',
   },
   theme: {
-    'fill-yellow': 'bg-yellow text-black',
-    outline: 'text-white border border-white',
+    'fill-yellow': 'bg-yellow text-black hover:bg-[#FFF263]',
+    outline:
+      'text-white border border-white hover:bg-[rgba(255,255,255,0.10)] hover:border-[#6D7277]',
   },
 };
 

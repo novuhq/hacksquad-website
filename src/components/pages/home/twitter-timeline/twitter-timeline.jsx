@@ -210,7 +210,7 @@ const TwitterTimeline = () => (
         highlights that made it unforgettable.
       </p>
       <Link
-        className="mt-7 inline-flex items-center gap-x-2.5 text-20 font-medium leading-normal text-purple"
+        className="mt-7 inline-flex items-center gap-x-2.5 text-20 font-medium leading-normal text-purple transition-colors duration-200 hover:text-white"
         to="https://twitter.com/HackSquadDev"
       >
         Explore more on X

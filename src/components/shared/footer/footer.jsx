@@ -22,7 +22,7 @@ const Footer = ({ isAuthorized = false }) => {
           <p className="text-grey-1 text-15 leading-normal md:text-14 sm:text-center">
             By entering your email, you agree to our{' '}
             <a
-              className="hover:text-grey-1 font-medium text-white transition duration-200"
+              className="font-medium text-white transition duration-200 hover:text-purple"
               href="https://novu.co/terms/"
               target="_blank"
               rel="noreferrer"
@@ -31,7 +31,7 @@ const Footer = ({ isAuthorized = false }) => {
             </a>{' '}
             and{' '}
             <a
-              className="hover:text-grey-1 font-medium text-white transition duration-200"
+              className="font-medium text-white transition duration-200 hover:text-purple"
               href="https://novu.co/privacy/"
               target="_blank"
               rel="noreferrer"
@@ -49,10 +49,7 @@ const Footer = ({ isAuthorized = false }) => {
             <ul className="flex items-center gap-10 md:hidden">
               {MENUS.header.map(({ href, text }, index) => (
                 <li key={index}>
-                  <Link
-                    className="hover:text-primary-2 py-5 transition-colors duration-200"
-                    to={href}
-                  >
+                  <Link className="py-5 transition-colors duration-200 hover:text-purple" to={href}>
                     {text}
                   </Link>
                 </li>

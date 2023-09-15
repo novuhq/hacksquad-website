@@ -38,7 +38,7 @@ const JoinUs = () => (
     </p>
     <ul className="grid-gap mx-auto my-12 grid max-w-[800px] grid-cols-12 lg:mt-12 md:mt-10">
       {socialList.map(({ icon, name, text, link, linkText }, index) => (
-        <li className="col-span-4 sm:col-span-full" key={index}>
+        <li className="border-with-gradient col-span-4 sm:col-span-full" key={index}>
           <Link
             className="group flex flex-col items-center justify-center rounded-[6px] bg-join-us px-7 py-7 hover:bg-join-us-hover md:p-6"
             to={link}

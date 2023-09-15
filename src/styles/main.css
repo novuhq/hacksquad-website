@@ -10,6 +10,7 @@
 /* Components */
 @import './container.css';
 @import './ticket.css';
+@import './border-with-gradient.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';

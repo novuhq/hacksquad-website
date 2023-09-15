@@ -9,11 +9,12 @@ const styles = {
     sm: 'px-5 h-11 text-18 font-bold md:text-14 md:px-5',
     md: 'px-5 h-12 text-18 font-bold md:text-16 md:px-6 sm:text-14',
   },
-  base: 'inline-flex leading-normal rounded-sm items-center justify-center',
+  base: 'inline-flex leading-normal rounded-sm items-center justify-center transition-colors duration-200',
   theme: {
-    'fill-white': 'bg-white text-black',
-    'fill-yellow': 'bg-yellow text-black',
-    outline: 'text-white border border-white',
+    'fill-white': 'bg-white text-black hover:bg-[rgba(255,255,255,0.90)]',
+    'fill-yellow': 'bg-yellow text-black hover:bg-[#FFF263]',
+    outline:
+      'text-white border border-white hover:bg-[rgba(255,255,255,0.10)] hover:border-[#6D7277]',
   },
 };
 
