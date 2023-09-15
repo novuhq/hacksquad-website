@@ -17,7 +17,7 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
 
-    const id = searchParams.get('id');
+    const ticketId = searchParams.get('ticketId');
     const handle = searchParams.get('handle');
     const name = searchParams.get('name') !== 'null' ? searchParams.get('name') : handle;
     const shortName = getShortName(name);
@@ -144,7 +144,7 @@ export async function GET(request) {
                 fontWeight: 200,
               }}
             >
-              {`${id}`.slice(0, 10)}
+              {`${ticketId}`.padStart(9, '0')}
             </span>
           </div>
         </div>
