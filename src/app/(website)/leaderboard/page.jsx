@@ -4,12 +4,13 @@ import JoinUs from 'components/shared/join-us';
 import getMetadata from 'lib/get-metadata';
 import { SEO_DATA } from 'lib/seo-data';
 
-const getTeams = async () =>
-  fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/leaderboard`).then((response) =>
-    response.json()
-  );
+async function getTeams() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/leaderboard`);
+  const data = await response.json();
+  return data;
+}
 
-const LeaderboardPage = async () => {
+async function LeaderboardPage() {
   const teamsList = await getTeams();
 
   return (
@@ -18,7 +19,7 @@ const LeaderboardPage = async () => {
       <JoinUs />
     </>
   );
-};
+}
 
 export async function generateMetadata() {
   return getMetadata(SEO_DATA.LEADERBOARD);
