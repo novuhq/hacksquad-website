@@ -73,7 +73,7 @@ LIMIT 1
     },
   });
 
-  NextResponse.json(
+  return NextResponse.json(
     {
       success: true,
     },

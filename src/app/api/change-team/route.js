@@ -34,5 +34,5 @@ export async function POST(request) {
     },
   });
 
-  NextResponse.json({ message: 'changed' }, { status: 200 });
+  return NextResponse.json({ message: 'changed' }, { status: 200 });
 }

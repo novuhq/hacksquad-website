@@ -27,7 +27,7 @@ export async function GET() {
     voted: !!userArticles?.votes?.find((v) => v.articleId === article.id),
   }));
 
-  NextResponse.json({
+  return NextResponse.json({
     list,
   });
 }
