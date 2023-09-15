@@ -9,16 +9,19 @@ export async function GET(request) {
     const colorSchema = searchParams.get('colorSchema');
 
     if (id && colorSchema) {
-      const updateUser = await prisma.user.update({
+      await prisma.user.update({
         where: { id },
         data: {
           colorSchema,
         },
       });
-
-      return NextResponse.json(updateUser);
+    } else {
+      return NextResponse.json({}, { status: 400 });
     }
-    return NextResponse.json({ err: 'Not found user id or color schema' });
+
+    return NextResponse.json({
+      message: 'User updated',
+    });
   } catch (e) {
     return NextResponse.json({ err: `Failed to update user – ${e.message}` });
   }
