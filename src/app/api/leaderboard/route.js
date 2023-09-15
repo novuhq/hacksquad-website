@@ -18,7 +18,11 @@ export async function GET() {
     },
   };
 
-  const teams = await prisma.team.findMany(data);
-
-  return NextResponse.json(teams);
+  try {
+    const teams = await prisma.team.findMany(data);
+    return NextResponse.json(teams, { status: 200 });
+  } catch (error) {
+    console.error('Error fetching teams:', error);
+    return NextResponse.json([]);
+  }
 }
