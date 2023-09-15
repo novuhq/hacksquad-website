@@ -42,7 +42,7 @@ const Hero = ({ teams = [] }) => (
               </span>
             </div>
 
-            <ul className="mt-4">
+            <ul className="py-4">
               {teams.map((team, index) => (
                 <li
                   className={clsx(
