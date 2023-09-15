@@ -41,7 +41,7 @@ export async function GET(request) {
 
     const fontData = await fetch(
       new URL(
-        `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/fonts/jetbrains-mono/jetbrains-mono-extralight.woff`,
+        `https://novu-hacksquad-2023-git-og-image-fix-pixelpoint.vercel.app/fonts/jetbrains-mono/jetbrains-mono-extralight.woff`,
         import.meta.url
       )
     ).then((res) => res.arrayBuffer());
