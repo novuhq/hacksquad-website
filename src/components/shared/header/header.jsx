@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Burger from 'components/shared/burger';
 import Link from 'components/shared/link';
 import MobileMenu from 'components/shared/mobile-menu';
+import Novu from 'components/shared/novu';
 import MENUS from 'constants/menus';
 import useModerator from 'hooks/use-moderator';
 import logo from 'svgs/logo.svg';
@@ -45,6 +46,7 @@ const Header = ({ isAuthorized = false }) => {
               )}
             </ul>
 
+            {isAuthorized && <Novu />}
             <SignUpButton
               size="sm"
               theme="outline"
