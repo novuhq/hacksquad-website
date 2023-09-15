@@ -25,6 +25,7 @@ export async function GET(request) {
       return NextResponse.json({ err: 'Not found user id or color schema' });
     }
   } catch (e) {
-    return NextResponse.json({ err: 'Failed to update user' });
+    console.log(`${e.message}`);
+    return NextResponse.json({ err: `Failed to update user – ${e.message}` });
   }
 }
