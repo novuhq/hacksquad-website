@@ -3,9 +3,8 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-import Button from 'components/shared/button';
+import SignUpButton from 'components/shared/sign-up-button';
 import MENUS from 'constants/menus';
-import ArrowUp from 'svgs/arrow-up.inline.svg';
 
 const ANIMATION_DURATION = 0.2;
 
@@ -27,7 +26,7 @@ const variants = {
   },
 };
 
-const MobileMenu = ({ isOpen = false, setIsOpen }) => {
+const MobileMenu = ({ isOpen = false, setIsOpen, isAuthorized = false }) => {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -76,10 +75,14 @@ const MobileMenu = ({ isOpen = false, setIsOpen }) => {
 
           <div className="sticky bottom-0 bg-black py-7">
             <div className="container">
-              <Button className="w-full" to="#" theme="fill">
-                Join now
-                <ArrowUp width={12} height={12} aria-hidden />
-              </Button>
+              <SignUpButton
+                size="sm"
+                theme="outline"
+                to={isAuthorized ? '/my-team' : null}
+                isSignInButton={!isAuthorized}
+              >
+                {!isAuthorized ? 'Join now' : 'My Squad'}
+              </SignUpButton>
             </div>
           </div>
         </motion.div>
@@ -90,6 +93,7 @@ const MobileMenu = ({ isOpen = false, setIsOpen }) => {
 
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool,
+  isAuthorized: PropTypes.bool,
   setIsOpen: PropTypes.func.isRequired,
 };
 
