@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
@@ -52,7 +51,6 @@ const DynamicTicket = ({
   isDefault = false,
   isHomeSection = false,
 }) => {
-  const { data } = useSession();
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
   const isColorPickerShow = !isHomeSection && (isAuthorized || isDefault);
@@ -60,10 +58,8 @@ const DynamicTicket = ({
   useEffect(() => {
     if (!selectedColorSchema || isDefault) return;
 
-    const { userId } = data.user;
-
     const updateUserDataTimer = setTimeout(async () => {
-      await fetch(`/api/update-user?id=${userId}&colorSchema=${selectedColorSchema}`);
+      await fetch(`/api/update-user?id=${ticketId}&colorSchema=${selectedColorSchema}`);
       await fetch(`/api/auth/session?colorSchema=${selectedColorSchema}`);
     }, 1000);
 

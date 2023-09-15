@@ -7,8 +7,8 @@ const buildOgImageUrl = (data) =>
 
 const defaultUserData = {
   ticketId: '0000000001',
-  name: 'Your.Name',
-  handle: 'GitHub account',
+  name: 'Your Name',
+  handle: 'GitHub',
   colorSchema: '1',
 };
 
