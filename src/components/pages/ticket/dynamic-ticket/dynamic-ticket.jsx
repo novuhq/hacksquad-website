@@ -51,26 +51,18 @@ const DynamicTicket = ({
   isAuthorized = false,
   isDefault = false,
   isHomeSection = false,
+  isOwnPage = false,
 }) => {
   const { data } = useSession();
-
   const [selectedColorSchema, setSelectedColorSchema] = useState(null);
   const currentColorSchema = selectedColorSchema || colorSchema || '1';
-  const isColorPickerShow = !isHomeSection && (isAuthorized || isDefault);
-  // TODO: fix and improve the current user check that serves to restrict the use of color change for authorized users
-  const [isCurrentUser, setIsCurrentUser] = useState(isDefault || false);
-
-  useEffect(() => {
-    if (!data) return;
-    const { githubHandle: sessionGithubHandle } = data.user;
-
-    setIsCurrentUser(sessionGithubHandle === githubHandle);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const isColorPickerShow = !isHomeSection && (isAuthorized || isDefault || isOwnPage);
 
   useEffect(() => {
     if (!selectedColorSchema || isDefault) return;
+
     const { userId } = data.user;
+
     const updateUserDataTimer = setTimeout(async () => {
       await fetch(`/api/update-user`, {
         method: 'POST',
@@ -137,7 +129,7 @@ const DynamicTicket = ({
               </SignUpButton>
             ) : null}
 
-            {isAuthorized && !isCurrentUser && (
+            {isAuthorized && isOwnPage && (
               <SocialShare
                 url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}
               />
@@ -250,7 +242,7 @@ const DynamicTicket = ({
               />
             </section>
 
-            {isColorPickerShow && isCurrentUser && (
+            {isColorPickerShow && (
               <div className="mt-8 flex items-center gap-6 lg:my-7 lg:justify-center sm:flex-wrap">
                 <p className="text-grey-1 text-18 leading-none lg:text-16 sm:w-full sm:text-center">
                   Pick a color:
@@ -319,6 +311,7 @@ DynamicTicket.propTypes = {
   isAuthorized: PropTypes.bool,
   isDefault: PropTypes.bool,
   isHomeSection: PropTypes.bool,
+  isOwnPage: PropTypes.bool,
 };
 
 export default DynamicTicket;
