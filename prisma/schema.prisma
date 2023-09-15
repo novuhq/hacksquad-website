@@ -130,6 +130,7 @@ model Social {
 model User {
   createdAt       DateTime        @default(now())
   id              String          @id @default(cuid())
+  ticketId        Int             @default(autoincrement())
   name            String?
   email           String?         @unique
   emailVerified   DateTime?

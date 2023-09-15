@@ -47,7 +47,7 @@ const colorVariants = [
 ];
 
 const DynamicTicket = ({
-  user: { id: number, name, handle: githubHandle, colorSchema },
+  user: { name, handle: githubHandle, colorSchema, ticketId },
   isAuthorized = false,
   isDefault = false,
   isHomeSection = false,
@@ -208,7 +208,7 @@ const DynamicTicket = ({
                       }
                     )}
                   >
-                    No {`${number}`.slice(0, 10)}
+                    No {`${ticketId}`.padStart(9, '0')}
                   </p>
                 </footer>
               </div>
@@ -299,7 +299,7 @@ DynamicTicket.propTypes = {
     name: PropTypes.string.isRequired,
     handle: PropTypes.string.isRequired,
     colorSchema: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    ticketId: PropTypes.number.isRequired,
   }).isRequired,
   isAuthorized: PropTypes.bool,
   isDefault: PropTypes.bool,

@@ -35,6 +35,7 @@ export async function generateMetadata({ params }) {
           handle: true,
           id: true,
           colorSchema: true,
+          ticketId: true,
         },
       });
     } catch (err) {
@@ -61,6 +62,7 @@ async function getTicketData(handle) {
           handle: true,
           id: true,
           colorSchema: true,
+          ticketId: true,
         },
       });
     } catch (err) {
