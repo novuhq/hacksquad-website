@@ -34,17 +34,22 @@ export async function GET(request) {
         : color === '5'
         ? '#FE9557'
         : '#DF6DFB';
+    let fontData = new ArrayBuffer(0);
 
     const imageData = await fetch(
       new URL(process.env.NEXT_PUBLIC_DEFAULT_SITE_URL + colorSchemeMap[color], import.meta.url)
     ).then((res) => res.arrayBuffer());
 
-    const fontData = await fetch(
-      new URL(
-        `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/fonts/jetbrains-mono/jetbrains-mono-extralight.ttf`,
-        import.meta.url
-      )
-    ).then((res) => res.arrayBuffer());
+    try {
+      fontData = await fetch(
+        new URL(
+          `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/fonts/jetbrains-mono/jetbrains-mono-extralight.ttf`,
+          import.meta.url
+        )
+      ).then((res) => res.arrayBuffer());
+    } catch (e) {
+      console.log(e);
+    }
 
     return new ImageResponse(
       (
@@ -159,7 +164,7 @@ export async function GET(request) {
     );
   } catch (e) {
     console.log(`${e.message}`);
-    return new Response(`Failed to generate the image`, {
+    return new Response(`Failed to generate the image – ${e.message}`, {
       status: 500,
     });
   }
