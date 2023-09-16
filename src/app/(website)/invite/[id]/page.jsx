@@ -1,17 +1,8 @@
-import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
+import Hero from 'components/pages/invite/hero';
+import JoinUs from 'components/shared/join-us';
 import { auth } from 'lib/auth';
-
-async function joinTeam(id, sessionUser) {
-  await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/test-invite`, {
-    method: 'POST',
-    headers: headers(),
-    body: JSON.stringify({ id, sessionUser }),
-  });
-
-  return redirect('/my-team');
-}
 
 async function Invite({ params }) {
   const session = await auth();
@@ -20,7 +11,12 @@ async function Invite({ params }) {
     return redirect('/sign-in');
   }
 
-  await joinTeam(params.id, session);
+  return (
+    <>
+      <Hero id={params.id} />
+      <JoinUs />
+    </>
+  );
 }
 
 export default Invite;

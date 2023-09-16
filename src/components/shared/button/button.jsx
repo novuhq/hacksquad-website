@@ -2,12 +2,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import Link from 'components/shared/link';
-
-export const BUTTON_STATES = {
-  DEFAULT: 'default',
-  LOADING: 'loading',
-  DISABLED: 'disabled',
-};
+import BUTTON_STATES from 'constants/button-states';
 
 const styles = {
   size: {
