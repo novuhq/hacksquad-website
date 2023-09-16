@@ -1,6 +1,7 @@
-import findUserAndTeam from '~/helpers/find.user.and.team';
-import sendNotification from '~/helpers/send-notification';
-import prisma from '~/prisma/client';
+import findUserAndTeam from 'lib/find-user-and-team';
+import sendNotification from 'lib/send-notification';
+
+import prisma from '../../../prisma/client';
 
 export default async (req, res) => {
   const { user, team } = await findUserAndTeam();
