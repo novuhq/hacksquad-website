@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { auth } from 'lib/auth';
 
 async function joinTeam(id, sessionUser) {
-  await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/invite`, {
+  await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/test-invite`, {
     method: 'POST',
     headers: headers(),
     body: JSON.stringify({ id, sessionUser }),
