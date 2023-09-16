@@ -1,14 +1,20 @@
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-async function Friend({ params }) {
-  if (params.id) {
-    cookies().set('invite', params.id, {
-      maxAge: 60 * 6 * 24,
-    });
+import { auth } from 'lib/auth';
+
+async function Invite({ params }) {
+  const session = await auth();
+
+  if (!session?.user) {
+    return redirect('/sign-in');
   }
 
-  return redirect('/');
+  await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/invite`, {
+    method: 'POST',
+    body: JSON.stringify({ id: params.id }),
+  });
+
+  return redirect('/my-team');
 }
 
-export default Friend;
+export default Invite;
