@@ -2,10 +2,10 @@ import { redirect } from 'next/navigation';
 
 import { auth } from 'lib/auth';
 
-async function joinTeam(id) {
+async function joinTeam(id, sessionUser) {
   await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/invite`, {
     method: 'POST',
-    body: JSON.stringify({ id }),
+    body: JSON.stringify({ id, sessionUser }),
   });
 
   return redirect('/my-team');
@@ -18,7 +18,7 @@ async function Invite({ params }) {
     return redirect('/sign-in');
   }
 
-  await joinTeam(params.id);
+  await joinTeam(params.id, session);
 }
 
 export default Invite;
