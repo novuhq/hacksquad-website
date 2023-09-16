@@ -8,10 +8,8 @@ import prisma from '../../../../prisma/client';
 export async function POST(request) {
   const body = await request.json();
 
-  console.log(body);
-  const { user, team } = await findUserAndTeam();
+  const { user, team } = await findUserAndTeam(body?.sessionUser);
 
-  console.log(user, team);
   const teamInfo = await prisma.team.findUnique({
     where: {
       id: body.id,

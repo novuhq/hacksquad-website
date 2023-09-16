@@ -2,8 +2,8 @@ import prisma from '../../prisma/client';
 
 import { auth } from './auth';
 
-export default async function findUserAndTeam() {
-  const partialUser = await auth();
+export default async function findUserAndTeam(sessionUser) {
+  const partialUser = (await auth()) || sessionUser;
 
   if (!partialUser) {
     return { user: null, team: null, admin: false };
