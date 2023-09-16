@@ -16,3 +16,5 @@ export async function generateMetadata() {
 }
 
 export default LeaderboardPage;
+
+export const revalidate = 60;
