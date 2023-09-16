@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation';
 import Hero from 'components/pages/invite/hero';
 import JoinUs from 'components/shared/join-us';
 import { auth } from 'lib/auth';
+import getMetadata from 'lib/get-metadata';
+import { SEO_DATA } from 'lib/seo-data';
 
 async function Invite({ params }) {
   const session = await auth();
@@ -20,3 +22,7 @@ async function Invite({ params }) {
 }
 
 export default Invite;
+
+export async function generateMetadata() {
+  return getMetadata(SEO_DATA.INDEX);
+}
