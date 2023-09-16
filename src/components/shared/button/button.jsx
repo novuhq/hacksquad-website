@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import Link from 'components/shared/link';
+import BUTTON_STATES from 'constants/button-states';
 
 const styles = {
   size: {
@@ -19,20 +20,49 @@ const styles = {
 };
 
 const Button = ({
-  className: additionalClassName = null,
+  className = null,
   to = null,
   size = 'sm',
-  theme,
+  theme = 'fill-white',
+  state = BUTTON_STATES.DEFAULT,
   children,
   ...otherProps
 }) => {
-  const className = clsx(styles.base, styles.size[size], styles.theme[theme], additionalClassName);
-
   const Tag = to ? Link : 'button';
 
+  let content = null;
+
+  switch (state) {
+    case BUTTON_STATES.LOADING:
+      content = (
+        <span className="relative flex items-center justify-center">
+          <span className="flex opacity-0">{children}</span>
+          <span
+            className={clsx(
+              'absolute h-5 w-5 flex-shrink-0 animate-spin rounded-full border border-b border-transparent',
+              {
+                'border-b-black': theme === 'fill-yellow',
+                'border-b-white': theme === 'outline',
+              }
+            )}
+          />
+        </span>
+      );
+      break;
+    case BUTTON_STATES.DEFAULT:
+    default:
+      content = children;
+  }
+
   return (
-    <Tag className={className} to={to} {...otherProps}>
-      {children}
+    <Tag
+      className={clsx(styles.base, styles.size[size], styles.theme[theme], className, {
+        'pointer-events-none': state === BUTTON_STATES.LOADING || state === BUTTON_STATES.DISABLED,
+      })}
+      to={to}
+      {...otherProps}
+    >
+      {content}
     </Tag>
   );
 };
@@ -42,6 +72,7 @@ Button.propTypes = {
   to: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)),
   theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
+  state: PropTypes.oneOf(Object.keys(BUTTON_STATES)),
   children: PropTypes.node.isRequired,
 };
 

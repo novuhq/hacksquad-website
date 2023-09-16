@@ -24,7 +24,7 @@ const Hero = () => (
         <h1 className="leading-tight font-titles text-60 font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
           {TITLE}
         </h1>
-        <p className="text-lg sm:text-base mt-10 text-center sm:mt-6">{DESCRIPTION}</p>
+        <p className="sm:text-base mt-10 text-center text-20 sm:mt-6">{DESCRIPTION}</p>
       </div>
     </section>
 
