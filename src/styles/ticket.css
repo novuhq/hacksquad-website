@@ -1,6 +1,13 @@
 @layer components {
   .ticket {
+    --delta-x: 0;
+    --delta-y: 0;
+
     @apply relative z-0 min-w-[330px] max-w-[640px] before:pointer-events-none before:absolute before:z-10 before:h-4/6 before:w-5/6 before:rounded-full before:transition-colors before:duration-200 after:pointer-events-none after:absolute after:z-10 after:h-4/6 after:w-1/2 after:rounded-full after:transition-colors after:duration-200 lg:mx-auto;
+    transform: rotateX(calc(var(--delta-y) * -1deg)) rotateY(calc(var(--delta-x) * 1deg));
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+    transform-origin: center center;
 
     &:before {
       top: -16%;
