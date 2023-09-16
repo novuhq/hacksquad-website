@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 import { auth } from 'lib/auth';
@@ -5,9 +6,7 @@ import { auth } from 'lib/auth';
 async function joinTeam(id, sessionUser) {
   await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/invite`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: headers(),
     body: JSON.stringify({ id, sessionUser }),
   });
 
