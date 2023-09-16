@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 import SignUpButton from 'components/shared/sign-up-button';
 import SocialShare from 'components/shared/social-share';
@@ -83,6 +83,34 @@ const DynamicTicket = ({
     setSelectedColorSchema(e.target.id);
   };
 
+  const ticketRef = useRef(null);
+
+  const onMouseMove = useCallback((evt) => {
+    const rect = ticketRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const offsetX = evt.clientX - centerX;
+    const offsetY = evt.clientY - centerY;
+
+    const maxOffsetX = rect.width / 2;
+    const maxOffsetY = rect.height / 2;
+
+    const normalizedX = offsetX / maxOffsetX;
+    const normalizedY = offsetY / maxOffsetY;
+
+    const OyDelta = Math.round(normalizedX * 10); // Horizontal mouse movement affects Y rotation
+    const OxDelta = Math.round(normalizedY * 10); // Vertical mouse movement affects X rotation
+
+    ticketRef.current.style.setProperty('--delta-x', OxDelta);
+    ticketRef.current.style.setProperty('--delta-y', OyDelta);
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    ticketRef.current.style.setProperty('--delta-x', 0);
+    ticketRef.current.style.setProperty('--delta-y', 0);
+  }, []);
+
   return (
     <div
       className={clsx(
@@ -153,6 +181,9 @@ const DynamicTicket = ({
                 'before:bg-[rgba(57,105,199,0.6)] after:bg-[rgba(179,57,199,0.3)]':
                   currentColorSchema === '6',
               })}
+              ref={ticketRef}
+              onMouseMove={onMouseMove}
+              onMouseLeave={onMouseLeave}
             >
               <div className="absolute inset-0 z-30 flex flex-col">
                 <header className="px-8 pt-7 xs:px-4 xs:pt-4">
@@ -234,8 +265,8 @@ const DynamicTicket = ({
                     ? '/images/ticket-5.png'
                     : '/images/ticket-6.png'
                 }
-                width={624}
-                height={353}
+                width={626}
+                height={355}
                 quality={95}
                 alt="Ticket background"
                 priority={!isHomeSection}
