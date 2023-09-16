@@ -7,7 +7,11 @@ import prisma from '../../../../prisma/client';
 
 export async function POST(request) {
   const body = await request.json();
+
+  console.log(body);
   const { user, team } = await findUserAndTeam();
+
+  console.log(user, team);
   const teamInfo = await prisma.team.findUnique({
     where: {
       id: body.id,
@@ -25,6 +29,7 @@ export async function POST(request) {
       { status: 400 }
     );
   }
+
   await prisma.user.update({
     where: {
       id: user.id,
