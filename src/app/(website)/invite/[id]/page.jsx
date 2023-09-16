@@ -5,6 +5,9 @@ import { auth } from 'lib/auth';
 async function joinTeam(id, sessionUser) {
   await fetch(`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/invite`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({ id, sessionUser }),
   });
 
