@@ -43,7 +43,7 @@ const items = [
   },
   {
     question: 'When is the event happening?',
-    answer: 'Between 1st - 31st October 2022',
+    answer: 'Between 1st - 31st October 2023',
   },
   {
     question: 'How does it work?',
@@ -92,6 +92,25 @@ const items = [
     ),
   },
   {
+    question: "What's are the rules?",
+    answer: (
+      <ul>
+          <li>Please respect each other. We are all here for the same goal!</li>
+          <li>DSA repositories are not allowed</li>
+          <li>Only repositories with more than 200 stars are acceptable to reduce spam</li>
+          <li>
+            3 Mods can disqualify any teams or members if they decide that the contested does not
+            comply with the Rule of Reason
+          </li>
+          <li>You are not allowed to contribute to your own repository</li>
+          <li>Avoid Cannibalism with a racist connotation</li>
+          <li>Avoid Mockery of parents' grief over the loss of children Implied child death</li>
+          <li>Avoid Insults toward a religious figure</li>
+          <li>The rules can be changed at any time</li>
+        </ul>
+    ),
+  },
+  {
     question: 'How many people will get swag?',
     answer: <>The top 60 squads will win awesome swag! around ~300 winners!</>,
   },
@@ -130,24 +149,8 @@ const items = [
     ),
   },
   {
-    question: 'Does the swag in the picture is the actual swag?',
-    answer: (
-      <>
-        Most of it is! We will also add more Swag from our sponsors.
-        <br />
-        We still haven&apos;t finalized everything.
-      </>
-    ),
-  },
-  {
     question: 'How long will it take to receive the swag?',
-    answer: (
-      <>
-        We are sending the swag from the US.
-        <br />
-        We assume that it will reach everybody within 60-90 days.
-      </>
-    ),
+    answer: <>We assume that it will reach everybody within 60-180 days after the event ends.</>,
   },
   {
     question: 'Do I need to pay duty for the SWAG?',
