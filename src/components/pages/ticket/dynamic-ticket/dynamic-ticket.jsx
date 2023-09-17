@@ -147,7 +147,7 @@ const DynamicTicket = ({
                 <br />
                 <span className="text-[14px] text-[#ff0000]">** </span>{' '}
                 <span className="text-[14px]">
-                  Make sure you tag @HackSquadDev and the sponsors so we can track your tweet
+                  Make sure you tag @HackSquadDev and the sponsors so we can track your post
                 </span>
               </>
             ) : (
