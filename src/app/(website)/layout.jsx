@@ -23,7 +23,10 @@ export default async function RootLayout({ children }) {
       <body>
         <NextAuthSessionProvider>
           <div className="relative flex min-h-screen flex-col">
-            <Header isAuthorized={!!session} />
+            <Header
+              isAuthorized={!!session}
+              userEmail={session && session.user ? session.user.githubHandle : undefined}
+            />
             <main className="flex-1">{children}</main>
             <Footer isAuthorized={!!session} />
           </div>

@@ -13,7 +13,7 @@ import logo from 'svgs/logo.svg';
 
 import SignUpButton from '../sign-up-button';
 
-const Header = ({ isAuthorized = false }) => {
+const Header = ({ isAuthorized = false, userEmail }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const { moderator, cleaner } = useModerator();
@@ -46,7 +46,7 @@ const Header = ({ isAuthorized = false }) => {
               )}
             </ul>
 
-            {isAuthorized && <Novu />}
+            {isAuthorized && <Novu userEmail={userEmail} />}
             <SignUpButton
               size="sm"
               theme="outline"
@@ -75,6 +75,7 @@ const Header = ({ isAuthorized = false }) => {
 
 Header.propTypes = {
   isAuthorized: PropTypes.bool,
+  userEmail: PropTypes.string,
 };
 
 export default Header;
