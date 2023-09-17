@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ReactTooltip from 'react-tooltip';
+// import ReactTooltip from 'react-tooltip';
 
 import Banner from 'components/shared/banner';
 import MobileMenu from 'components/shared/mobile-menu';
@@ -25,7 +25,7 @@ const LayoutMain = ({
   return (
     <SessionProvider>
       <Seo {...seo} />
-      <ReactTooltip padding={20} />
+      {/* <ReactTooltip padding={20} /> */}
       <ToastContainer
         theme="dark"
         position="bottom-right"
@@ -40,7 +40,9 @@ const LayoutMain = ({
           isMobileMenuOpen={isMobileMenuOpen}
           onBurgerClick={handleHeaderBurgerClick}
         />
-        <main className={`flex-grow overflow-hidden ${additionalClass || ''}`}>{children}</main>
+        <main className={`flex-grow overflow-hidden pt-20 ${additionalClass || ''}`}>
+          {children}
+        </main>
         {!withoutFooter && <Footer withBorder={isFooterBordered} />}
         <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
       </div>

@@ -11,7 +11,7 @@ const Footer = ({ withBorder }) => (
   <footer className={clsx('safe-paddings', withBorder && 'border-t border-gray-2')}>
     <div className="container flex items-center justify-between py-5 sm:flex-col sm:items-start">
       <div className="sm:flex sm:w-full sm:justify-between">
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <a href="/">
             <Logo className="h-[38px]" />
             <span className="sr-only">Hacksquad</span>
@@ -24,9 +24,9 @@ const Footer = ({ withBorder }) => (
           <ul className="flex space-x-10 md:space-x-6 sm:justify-between">
             {MENUS.header.slice(1).map(({ href, text }, index) => (
               <li key={index}>
-                <Link href={href} passHref>
+                <Link href={href} passHref legacyBehavior>
                   <a
-                    className="hover:text-primary-2 py-5 transition-colors duration-200"
+                    className="py-5 transition-colors duration-200 hover:text-primary-2"
                     href={href}
                   >
                     {text}

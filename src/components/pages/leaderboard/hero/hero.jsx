@@ -21,7 +21,7 @@ const Hero = ({ teams }) => {
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
-        <h1 className="text-xl leading-tight font-mono font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
+        <h1 className="leading-tight font-mono text-xl font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
           {title}
         </h1>
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
@@ -41,7 +41,7 @@ const Hero = ({ teams }) => {
                 >
                   <span>{index + 1}</span>
                   <p className="truncate font-medium">
-                    <Link href={`/team/${team.slug}`}>{`${team.name} ${
+                    <Link href={`/team/${team.slug}`} legacyBehavior>{`${team.name} ${
                       score <= team.score ? '👑' : ''
                     }`}</Link>
                   </p>
@@ -51,7 +51,7 @@ const Hero = ({ teams }) => {
             </ul>
           </div>
         </div>
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <a
             className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none"
             href="/"

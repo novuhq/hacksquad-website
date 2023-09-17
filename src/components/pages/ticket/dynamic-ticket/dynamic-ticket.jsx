@@ -160,7 +160,7 @@ const DynamicTicket = ({
                 className="shrink-0"
                 size="md"
                 theme="fill-yellow"
-                to={isAuthorized ? '/my-team' : null}
+                to={isAuthorized ? '/myteam' : null}
                 isSignInButton={!isAuthorized}
               >
                 {!isAuthorized ? 'Create your ticket' : 'My Squad'}

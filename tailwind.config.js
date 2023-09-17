@@ -13,6 +13,11 @@ module.exports = {
       titles: ['Cal Sans', 'Cal Sans Fallback', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
+      xs: ['12px'],
+      sm: ['14px'],
+      base: ['16px'],
+      lg: ['20px'],
+      xl: ['60px'],
       12: '12px',
       13: '13px',
       14: '14px',
@@ -44,6 +49,10 @@ module.exports = {
       white: '#ffffff',
       yellow: '#ffea00',
       purple: '#cbb2ff',
+      primary: {
+        1: '#FF0095',
+        2: '#00EAFF',
+      },
       gray: {
         1: '#c7ccd1',
         2: '#454d54',
@@ -104,6 +113,9 @@ module.exports = {
           'linear-gradient(270deg, #FFC972 0.1%, #FFD46D 22.79%, #FFFE96 32.63%, #FFC171 48.54%, #FE9557 54.18%, #9B5A37 99.66%);',
         'ticket-number-variant-6':
           'linear-gradient(270deg, #36A7FF 0.1%, #57C8FF 16.49%, #A5FFFF 32.66%, #83BDFF 45.4%, #789EFF 52.68%, #727AC7 71.07%, #675689 99.66%);',
+      },
+      spacing: {
+        26: '6.25rem',
       },
     },
   },

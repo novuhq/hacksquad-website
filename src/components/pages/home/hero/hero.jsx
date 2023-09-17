@@ -23,7 +23,7 @@ const Hero = ({ isAuthorized = false }) => (
         className="mt-8"
         size="md"
         theme="fill-yellow"
-        to={isAuthorized ? '/my-team' : null}
+        to={isAuthorized ? '/myteam' : null}
         isSignInButton={!isAuthorized}
       >
         {!isAuthorized ? 'Sign up with GitHub' : 'Go to my Squad'}

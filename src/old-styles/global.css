@@ -1,0 +1,43 @@
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-w-[320px] bg-black font-sans text-base leading-normal text-white antialiased;
+    font-family: arial;
+    -webkit-tap-highlight-color: transparent;
+  }
+  *:focus-visible {
+    outline: 2px transparent solid;
+    box-shadow: 0 0 0 2px #000, 0 0 0 4px #fff;
+  }
+}
+
+.coming-soon-animation span {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.coming-soon-animation span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.coming-soon-animation span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+[data-test-id='notification-bell'] > svg {
+  color: white !important;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+}

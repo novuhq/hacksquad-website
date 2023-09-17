@@ -1,0 +1,13 @@
+@layer base {
+  .grid-gap-x {
+    @apply gap-x-10 xl:gap-x-8 lg:gap-x-6;
+  }
+
+  .grid-gap-y {
+    @apply gap-y-10 xl:gap-y-8 lg:gap-y-6;
+  }
+
+  .grid-gap {
+    @apply grid-gap-x grid-gap-y;
+  }
+}

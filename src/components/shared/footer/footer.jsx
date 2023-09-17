@@ -59,7 +59,7 @@ const Footer = ({ isAuthorized = false }) => {
             <SignUpButton
               size="sm"
               theme="outline"
-              to={isAuthorized ? '/my-team' : null}
+              to={isAuthorized ? '/myteam' : null}
               isSignInButton={!isAuthorized}
             >
               {!isAuthorized ? 'Join now' : 'My Squad'}

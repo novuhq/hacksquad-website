@@ -22,7 +22,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
       } z-40 w-full`}
     >
       <div className="container flex items-center justify-between py-5 md:py-4 sm:py-3.5">
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <a href="/">
             <Logo className="h-[38px]" />
             <span className="sr-only">HackSquad</span>
@@ -34,9 +34,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
             <ul className="flex space-x-10 md:space-x-6">
               {MENUS.header.map(({ href, text }, index) => (
                 <li key={index}>
-                  <Link href={href} passHref>
+                  <Link href={href} passHref legacyBehavior>
                     <a
-                      className="hover:text-primary-2 py-5 transition-colors duration-200"
+                      className="py-5 transition-colors duration-200 hover:text-primary-2"
                       href={href}
                     >
                       {text}
@@ -46,9 +46,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
               ))}
               {(moderator || cleaner) && (
                 <li>
-                  <Link href="/repositories" passHref>
+                  <Link href="/repositories" passHref legacyBehavior>
                     <a
-                      className="hover:text-primary-2 py-5 transition-colors duration-200"
+                      className="py-5 transition-colors duration-200 hover:text-primary-2"
                       href="/repositories"
                     >
                       Repository List

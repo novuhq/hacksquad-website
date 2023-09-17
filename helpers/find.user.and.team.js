@@ -1,14 +1,14 @@
-import { unstable_getServerSession } from 'next-auth/next';
-
-import { authOptions } from '../src/pages/api/auth/[...nextauth]';
+import { auth } from '../src/lib/auth';
 
 import prisma from '~/prisma/client';
 
 export default async function findUserAndTeam(req, res) {
-  const partialUser = await unstable_getServerSession(req, res, authOptions(req, res));
+  const partialUser = await auth(req, res);
+
   if (!partialUser) {
     return { user: null, team: null, admin: false };
   }
+
   const { social, winners, ...user } = await prisma.user.findUnique({
     where: { email: partialUser.user.email },
     include: {

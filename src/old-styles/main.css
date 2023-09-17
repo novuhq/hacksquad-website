@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Base */
+@import './fonts.css';
+@import './global.css';
+@import './grid-gap.css';
+@import './text-highlighting.css';
+
+/* Components */
+@import './container.css';
+@import './button-animation.css';
+@import './fab.css';
+
+/* Utilities */
+@import './remove-autocomplete-styles.css';
+@import './safe-paddings.css';
+@import './scrollbar-hidden.css';

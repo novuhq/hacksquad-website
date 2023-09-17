@@ -47,7 +47,7 @@ const Hero = ({ team }) => {
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative z-10 flex h-full flex-col items-center justify-center sm:px-0">
-        <h1 className="text-xl leading-tight font-mono font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
+        <h1 className="leading-tight font-mono text-xl font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
           {'>>'}
           {team.name}
         </h1>
@@ -124,7 +124,7 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
-        <h2 className="text-lg leading-tight mt-20 font-mono font-bold uppercase lg:text-[25px] md:text-[25px] xs:text-[25px]">
+        <h2 className="leading-tight mt-20 font-mono text-lg font-bold uppercase lg:text-[25px] md:text-[25px] xs:text-[25px]">
           {'>>'} Contributed to repositories (TOTAL PR: {pullRequests.length})
         </h2>
 
@@ -168,7 +168,7 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
-        <Link href="/leaderboard" passHref>
+        <Link href="/leaderboard" passHref legacyBehavior>
           <a
             className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
             href="/leaderboard"

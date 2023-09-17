@@ -1,10 +1,10 @@
-import twitter from 'helpers/twitter';
 import PropTypes from 'prop-types';
 
 import LayoutMain from 'layouts/layouts/layout-main';
 
 import Hero from '../components/pages/bonuses/hero';
 
+import twitter from '~/helpers/twitter';
 
 const Home = ({ twitter, devto }) => (
   <LayoutMain

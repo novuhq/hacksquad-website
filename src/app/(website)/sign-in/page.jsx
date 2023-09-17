@@ -1,6 +1,6 @@
+import JoinUs from 'components/shared/join-us';
 import { redirect } from 'next/navigation';
 
-import JoinUs from 'components/shared/join-us';
 import SignUpButton from 'components/shared/sign-up-button';
 import { auth } from 'lib/auth';
 import getMetadata from 'lib/get-metadata';
@@ -13,7 +13,7 @@ async function SignIn() {
   const session = await auth();
 
   if (session?.user) {
-    redirect('/my-team');
+    redirect('/myteam');
   }
 
   return (
@@ -23,7 +23,7 @@ async function SignIn() {
           <h1 className="leading-tight font-titles text-60 font-bold lg:text-[50px] md:text-[40px] xs:text-[32px]">
             {TITLE}
           </h1>
-          <p className="sm:text-base mt-5 text-center text-20">{DESCRIPTION}</p>
+          <p className="mt-5 text-center text-20 sm:text-base">{DESCRIPTION}</p>
 
           <SignUpButton className="mt-8" size="md" theme="fill-yellow">
             Sign In

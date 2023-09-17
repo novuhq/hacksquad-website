@@ -52,7 +52,7 @@ const items = [
         Register to the HackSquad using your GitHub, Join a squad or get assigned to a random squad,
         contribute code and get Swag! Not sure where to start? Check:{' '}
         <a
-          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://goodfirstissue.dev"
           target="_blank"
           rel="noreferrer"
@@ -81,7 +81,7 @@ const items = [
         them all together. By the end of the event, the top 60 squads will win awesome swag! The
         calculation method can be{' '}
         <a
-          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://github.com/novuhq/hacksquad-background/blob/main/src/services/github/github.service.ts"
           target="_blank"
           rel="noreferrer"
@@ -129,7 +129,7 @@ const items = [
       <>
         Feel free to follow us on{' '}
         <a
-          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://twitter.com/HackSquadDev"
           target="_blank"
           rel="noreferrer"
@@ -138,7 +138,7 @@ const items = [
         </a>{' '}
         and join our{' '}
         <a
-          className="text-primary-2 hover:border-primary-2 inline-block border-b-2 border-transparent transition-[border-color] duration-200"
+          className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://discord.gg/vcqkXgT3Xr"
           target="_blank"
           rel="noreferrer"
@@ -230,7 +230,7 @@ const QuestionAndAnswer = ({ isAuthorized = false }) => {
             className="mt-[72px]"
             size="md"
             theme="fill-yellow"
-            to={isAuthorized ? '/my-team' : null}
+            to={isAuthorized ? '/myteam' : null}
             isSignInButton={!isAuthorized}
           >
             {!isAuthorized ? 'Sign up with GitHub' : 'Go to my Squad'}
