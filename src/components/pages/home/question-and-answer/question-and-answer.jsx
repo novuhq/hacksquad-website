@@ -92,7 +92,7 @@ const items = [
     ),
   },
   {
-    question: "What's are the rules?",
+    question: 'What are the rules?',
     answer: (
       <ul>
         <li>Please respect each other. We are all here for the same goal</li>
