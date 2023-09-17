@@ -1,19 +1,19 @@
-/* eslint-disable no-unused-vars */
-
-'use client';
-
 import { stringify, parse } from 'querystring';
 
-import { useRouter } from 'next/navigation';
-import PropTypes from 'prop-types';
+import Image from 'next/future/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
-// FIXME: react-autocomplete is not compatible with React 17, replace it with a different library for example https://www.npmjs.com/package/react-search-autocomplete
-// import Autocomplete from 'react-autocomplete';
+import Autocomplete from 'react-autocomplete';
 import { useDebouncedCallback } from 'use-debounce';
 
-import Button from 'components/shared/button';
+import Socials from 'components/shared/socials';
 
-const TITLE = 'Logs';
+import bgLeftGlitch from './images/bg-left-glitch.png';
+import bgRightGlitch from './images/bg-right-glitch.png';
+import bgTitleGlitch from './images/bg-title-glitch.png';
+
+const title = '>Logs';
 const leadersHeader = ['Pr Title', 'Team', 'User', 'Action', 'Taken By'];
 
 const actionPRs = {
@@ -27,11 +27,13 @@ const actionPRs = {
 };
 const formatAction = (action) => actionPRs[action];
 
-const Hero = ({ searchParams = null }) => {
+const Hero = () => {
   const router = useRouter();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const findQueryParam = useCallback((key) => searchParams[key] || undefined, []);
+  const findQueryParam = useCallback((key) => {
+    const params = new URLSearchParams(window.location.href.split('?').pop());
+    return params.get(key) || undefined;
+  }, []);
 
   const [list, setList] = useState(undefined);
   const [teamList, setTeamList] = useState([]);
@@ -64,16 +66,12 @@ const Hero = ({ searchParams = null }) => {
   };
 
   const loadMods = async () => {
-    const data = await fetch(`/api/users?mod=1`);
-    const { users } = await data.json();
-
+    const { users } = await (await fetch(`/api/users?mod=1`)).json();
     setMods(users);
   };
 
   const loadUsers = useDebouncedCallback(async (name) => {
-    const data = await fetch(`/api/users?name=${name || ''}`);
-    const { users } = await data.json();
-
+    const { users } = await (await fetch(`/api/users?name=${name || ''}`)).json();
     setUsersList(users);
   }, 500);
 
@@ -158,25 +156,22 @@ const Hero = ({ searchParams = null }) => {
     allTeams();
     loadUsers();
     loadMods();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   useEffect(() => {
     loadTeam();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, admin, user, prType, team]);
 
   return (
-    <section className="safe-paddings relative pt-40">
+    <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
-        <h1 className="leading-tight font-titles text-60 font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
-          {TITLE}
+        <h1 className="text-xl leading-tight font-mono font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
+          {title}
         </h1>
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
           <div className="mb-5 flex">
             <select
               style={{ height: 30 }}
-              className="mr-5 flex-1 bg-gray-2"
+              className="mr-5 flex-1"
               placeholder="Action"
               onChange={setAction}
             >
@@ -189,7 +184,7 @@ const Hero = ({ searchParams = null }) => {
             </select>
 
             <div className="relative mb-10 mr-5 inline-block flex-1">
-              {/* <Autocomplete
+              <Autocomplete
                 getItemValue={(item) => item.name}
                 items={teamList
                   .filter((f) => f.name.toLowerCase().indexOf(search?.toLowerCase() || '') > -1)
@@ -213,7 +208,6 @@ const Hero = ({ searchParams = null }) => {
                 inputProps={{
                   style: {
                     padding: 3,
-                    background: '#454d54',
                   },
                   placeholder: 'Team Search',
                 }}
@@ -228,11 +222,11 @@ const Hero = ({ searchParams = null }) => {
                   setSearch(val);
                   chooseTeam(val);
                 }}
-              /> */}
+              />
             </div>
 
             <div className="relative mr-5 inline-block flex-1">
-              {/* <Autocomplete
+              <Autocomplete
                 getItemValue={(item) => item.name}
                 items={usersList
                   .filter((f) => f.name.toLowerCase().indexOf(searchUser?.toLowerCase() || '') > -1)
@@ -256,7 +250,6 @@ const Hero = ({ searchParams = null }) => {
                 inputProps={{
                   style: {
                     padding: 3,
-                    background: '#454d54',
                   },
                   placeholder: 'User Search',
                 }}
@@ -272,10 +265,10 @@ const Hero = ({ searchParams = null }) => {
                   setSearchUser(val);
                   chooseUser(val);
                 }}
-              /> */}
+              />
             </div>
 
-            <select style={{ height: 30 }} className="flex-1 bg-gray-2" onChange={setTakenBy}>
+            <select style={{ height: 30 }} className="flex-1" onChange={setTakenBy}>
               <option value="">Select Taken By</option>
               {mods.map((mod) => (
                 <option value={mod.name} selected={mod.id === admin}>
@@ -295,11 +288,7 @@ const Hero = ({ searchParams = null }) => {
             <ul>
               {!list && (
                 <li className="grid gap-x-5 border-b border-gray-2 py-4 text-center sm:grid-cols-[50px_160px_40px]">
-                  <span className="coming-soon-animation">
-                    Loading <span>.</span>
-                    <span>.</span>
-                    <span>.</span>
-                  </span>
+                  <span>Loading</span>
                 </li>
               )}
               {list && !list?.length && (
@@ -344,32 +333,97 @@ const Hero = ({ searchParams = null }) => {
             </ul>
           </div>
         </div>
-        <div className="mt-10 flex gap-x-10 ">
+        <div className="flex">
           {page > 1 && (
-            <Button
-              className="w-full max-w-[268px]"
-              size="md"
-              theme="fill-white"
+            <a
+              className="cta-btn-animation relative mr-10 mt-10 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none"
               onClick={previousPage}
             >
-              Previous Page
-            </Button>
+              <svg
+                className="cta-btn-animation-border xs:w-full"
+                width="268"
+                height="59"
+                viewBox="0 0 268 59"
+                fill="none"
+              >
+                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+                <span className="text-lg sm:text-[18px]">Previous Page</span>
+              </div>
+            </a>
           )}
-
-          <Button className="w-full max-w-[268px]" size="md" theme="fill-white" onClick={nextPage}>
-            Next Page
-          </Button>
+          <a
+            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none"
+            onClick={nextPage}
+          >
+            <svg
+              className="cta-btn-animation-border xs:w-full"
+              width="268"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">Next Page</span>
+            </div>
+          </a>
         </div>
-        <Button className="mt-10 w-full max-w-[268px]" to="/" size="md" theme="fill-white">
-          Back to Homepage
-        </Button>
+        <Link href="/" passHref>
+          <a
+            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none"
+            href="/"
+          >
+            <svg
+              className="cta-btn-animation-border xs:w-full"
+              width="268"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">Back to Homepage</span>
+            </div>
+          </a>
+        </Link>
+        <Socials className="mt-10" />
       </div>
+      <Image
+        className="absolute left-0 top-[70px] -z-20 md:top-10 sm:top-12 sm:max-w-[360px] xs:max-w-[240px]"
+        src={bgLeftGlitch}
+        width={464}
+        height={78}
+        loading="eager"
+        alt="Left Glitch image"
+        priority
+        aria-hidden
+      />
+      <Image
+        className="absolute left-0 right-0 top-0 -z-10 md:hidden"
+        src={bgTitleGlitch}
+        width={1920}
+        height={219}
+        loading="eager"
+        alt="Center Glitch image"
+        priority
+        aria-hidden
+      />
+      <Image
+        className="absolute right-0 top-9 -z-20 md:top-12 sm:top-20 sm:max-w-[360px] xs:max-w-[260px]"
+        src={bgRightGlitch}
+        width={474}
+        height={105}
+        loading="eager"
+        alt="Right Glitch image"
+        priority
+        aria-hidden
+      />
     </section>
   );
-};
-
-Hero.propTypes = {
-  searchParams: PropTypes.object,
 };
 
 export default Hero;
