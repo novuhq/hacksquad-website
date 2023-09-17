@@ -1,6 +1,6 @@
-import JoinUs from 'components/shared/join-us';
 import { redirect } from 'next/navigation';
 
+import JoinUs from 'components/shared/join-us';
 import SignUpButton from 'components/shared/sign-up-button';
 import { auth } from 'lib/auth';
 import getMetadata from 'lib/get-metadata';

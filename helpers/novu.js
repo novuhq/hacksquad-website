@@ -18,7 +18,7 @@ const Novu = () => {
 
   return (
     <NovuProvider
-      subscriberId={data.user.email}
+      subscriberId={data.user.githubHandle}
       applicationIdentifier={process.env.NEXT_PUBLIC_NOVU_APP_ID}
     >
       <PopoverNotificationCenter ref={ref} onNotificationClick={onClick}>

@@ -28,6 +28,7 @@
     "@novu/notification-center": "^0.19.0",
     "@prisma/client": "^5.2.0",
     "airtable": "^0.12.2",
+    "bufferutil": "^4.0.7",
     "clsx": "^1.2.1",
     "cookies-next": "^4.0.0",
     "copy-to-clipboard": "^3.3.3",
@@ -48,6 +49,7 @@
     "tailwindcss": "^3.3.3",
     "tailwindcss-safe-area": "^0.4.0",
     "use-debounce": "^9.0.4",
+    "utf-8-validate": "^5.0.10",
     "yup": "^1.2.0"
   },
   "devDependencies": {
