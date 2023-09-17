@@ -145,8 +145,8 @@ const DynamicTicket = ({
                 Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway of
                 SWAG!
                 <br />
-                <span className="text-sm text-[#ff0000]">** </span>{' '}
-                <span className="text-sm">
+                <span className="text-10 text-[#ff0000]">** </span>{' '}
+                <span className="text-10">
                   Make sure you tag @HackSquadDev and the sponsors to track your tweet
                 </span>
               </>
