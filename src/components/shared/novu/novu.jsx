@@ -13,7 +13,10 @@ const Novu = ({ userEmail }) => {
   }, []);
 
   return (
-    <NovuProvider subscriberId={userEmail} applicationIdentifier={process.env.NEXT_NOVU_APP_ID}>
+    <NovuProvider
+      subscriberId={userEmail}
+      applicationIdentifier={process.env.NEXT_PUBLIC_NOVU_APP_ID}
+    >
       <PopoverNotificationCenter ref={ref} onNotificationClick={onClick}>
         {({ unseenCount }) => (
           <CustomBell colorScheme="white" unseenCount={unseenCount} aria-label="Notifications" />
