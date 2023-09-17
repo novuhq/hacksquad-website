@@ -95,19 +95,19 @@ const items = [
     question: "What's are the rules?",
     answer: (
       <ul>
-          <li>Please respect each other. We are all here for the same goal!</li>
-          <li>DSA repositories are not allowed</li>
-          <li>Only repositories with more than 200 stars are acceptable to reduce spam</li>
-          <li>
-            3 Mods can disqualify any teams or members if they decide that the contested does not
-            comply with the Rule of Reason
-          </li>
-          <li>You are not allowed to contribute to your own repository</li>
-          <li>Avoid Cannibalism with a racist connotation</li>
-          <li>Avoid Mockery of parents' grief over the loss of children Implied child death</li>
-          <li>Avoid Insults toward a religious figure</li>
-          <li>The rules can be changed at any time</li>
-        </ul>
+        <li>Please respect each other. We are all here for the same goal</li>
+        <li>DSA repositories are not allowed</li>
+        <li>Only repositories with more than 200 stars are acceptable to reduce spam</li>
+        <li>
+          3 Mods can disqualify any teams or members if they decide that the contested does not
+          comply with the Rule of Reason
+        </li>
+        <li>You are not allowed to contribute to your own repository</li>
+        <li>Avoid Cannibalism with a racist connotation</li>
+        <li>Avoid Mockery of parents' grief over the loss of children Implied child death</li>
+        <li>Avoid Insults toward a religious figure</li>
+        <li>The rules can be changed at any time</li>
+      </ul>
     ),
   },
   {
