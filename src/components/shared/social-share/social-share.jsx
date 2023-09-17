@@ -16,7 +16,7 @@ const SocialShare = ({ className = null, url }) => {
       <TwitterShareButton
         className="border-grey-1 flex items-center gap-3 rounded border px-5 py-[13px] text-18 font-medium leading-none text-white transition-colors duration-200 hover:border-[#6D7277] hover:bg-[rgba(255,255,255,0.10)] xs:gap-2 xs:px-3 xs:py-2 xs:text-14"
         url={url}
-        shareText="I am participating in HackSquad 2023, share you card an win awesome swag! @HackSquadDev @ToolJet @CrowdDotDev @WaspLang @novuhq"
+        shareText="I am participating in HackSquad 2023, share your card and win awesome swag! @HackSquadDev @ToolJet @CrowdDotDev @WaspLang @novuhq"
       >
         Share
       </TwitterShareButton>
