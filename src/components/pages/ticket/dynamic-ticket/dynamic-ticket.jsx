@@ -138,11 +138,19 @@ const DynamicTicket = ({
           </h2>
           <p className="text-grey-1 mt-5 max-w-3xl text-20 leading-normal lg:mx-auto md:text-18">
             {/* eslint-disable-next-line no-nested-ternary */}
-            {isDefault
-              ? 'Create and share your custom ticket to join our giveaway and win great prizes!'
-              : isAuthorized
-              ? 'Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway of SWAG!'
-              : `Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`}
+            {isDefault ? (
+              'Create and share your custom ticket to join our giveaway and win great prizes!'
+            ) : isAuthorized ? (
+              <>
+                Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway of
+                SWAG!
+                <br />
+                <span className="text-[#ff0000]">** </span> Make sure you tag @HackSquadDev and the
+                sponsors to track your tweet
+              </>
+            ) : (
+              `Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`
+            )}
           </p>
           <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
             {!isAuthorized || !isHomeSection ? (
