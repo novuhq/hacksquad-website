@@ -70,13 +70,20 @@ const list = [
     photo: User2ContentPhoto,
   },
   {
-    twitterPhoto: User3Photo,
-    twitterName: 'Antoine Bollengier',
-    twitterAccountName: 'ATBollengier',
-    twitterUrl: 'https://twitter.com/_soham_gupta/status/1647223927603884036',
+    twitterPhoto: User6Photo,
+    twitterName: 'Bibek Dhakal',
+    twitterAccountName: 'bibekdhkl',
+    twitterUrl: 'https://twitter.com/imanishbarnwal/status/1640948881554014208',
     text: (
       <>
-        I am Proud to be a winner of HackSquad 2022
+        Thank you <span>@HackSquadDev</span> for the amazing swags!
+        <p className="text-with-gray-hashtags">
+          <span>#opensource</span>
+          <span>#hacksquad</span>
+          <span>#hacksquad2022</span>
+          <span>#swags</span>
+          <span>#WINNER</span>
+        </p>
         <p className="text-with-hashtags">
           <span>@HackSquadDev</span>
           <span>@novuhq</span>
@@ -84,17 +91,9 @@ const list = [
           <span>@amplication</span>
           <span>@ToolJet</span>
         </p>
-        <br />
-        Thanks to my awesome team!!!:
-        <p className="text-with-hashtags">
-          <span>@Vikash_8090_b</span>
-          <span>@royalpinto007</span>
-          <span>@AnmolSirola</span>
-          <span>@TarunH22</span>
-        </p>
       </>
     ),
-    photo: User3ContentPhoto,
+    photo: User6ContentPhoto,
   },
   {
     twitterPhoto: User4Photo,
@@ -110,6 +109,8 @@ const list = [
           <span>@dailydotdev</span>
           <span>@amplication</span>
           <span>@ToolJet</span>
+        </p>
+        <p className="text-with-gray-hashtags">
           <span>#opensource</span>
           <span>#hackathon</span>
           <span>#programming</span>
@@ -140,28 +141,31 @@ const list = [
     photo: User5ContentPhoto,
   },
   {
-    twitterPhoto: User6Photo,
-    twitterName: 'Bibek Dhakal',
-    twitterAccountName: 'bibekdhkl',
-    twitterUrl: 'https://twitter.com/imanishbarnwal/status/1640948881554014208',
+    twitterPhoto: User3Photo,
+    twitterName: 'Antoine Bollengier',
+    twitterAccountName: 'ATBollengier',
+    twitterUrl: 'https://twitter.com/_soham_gupta/status/1647223927603884036',
     text: (
       <>
-        Thank you <span>@HackSquadDev</span> for the amazing swags!
+        I am Proud to be a winner of HackSquad 2022
         <p className="text-with-hashtags">
-          <span>#opensource</span>
-          <span>#hacksquad</span>
-          <span>#hacksquad2022</span>
-          <span>#swags</span>
-          <span>#WINNER</span>
           <span>@HackSquadDev</span>
           <span>@novuhq</span>
           <span>@dailydotdev</span>
           <span>@amplication</span>
           <span>@ToolJet</span>
         </p>
+        <br />
+        Thanks to my awesome team!!!:
+        <p className="text-with-hashtags">
+          <span>@Vikash_8090_b</span>
+          <span>@royalpinto007</span>
+          <span>@AnmolSirola</span>
+          <span>@TarunH22</span>
+        </p>
       </>
     ),
-    photo: User6ContentPhoto,
+    photo: User3ContentPhoto,
   },
   {
     twitterPhoto: User7Photo,
@@ -295,7 +299,7 @@ const TwitterTimeline = () => (
       </p>
       <Link
         className="mt-7 inline-flex items-center gap-x-2.5 text-20 font-medium leading-normal text-purple transition-colors duration-200 hover:text-white"
-        to="https://twitter.com/HackSquadDev"
+        to="https://twitter.com/search?q=%40HackSquadDev%20%20%20%40novuhq%20%20%20%40dailydotdev%20%20%20%40amplication%20%20%20%40ToolJet"
       >
         Explore more on X
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
