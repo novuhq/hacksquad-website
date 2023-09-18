@@ -47,7 +47,7 @@ const colorVariants = [
 ];
 
 const DynamicTicket = ({
-  user: { name, handle: githubHandle, colorSchema, ticketId },
+  user: { name, handle: githubHandle, colorSchema, ticketId, team },
   isAuthorized = false,
   isDefault = false,
   isHomeSection = false,
@@ -128,7 +128,7 @@ const DynamicTicket = ({
               <>
                 Share your <br /> Hacksquad spirit
               </>
-            ) : isAuthorized ? (
+            ) : isAuthorized && isOwnPage ? (
               <>
                 You’re In. <br /> Make it Unique.
               </>
@@ -140,7 +140,7 @@ const DynamicTicket = ({
             {/* eslint-disable-next-line no-nested-ternary */}
             {isDefault ? (
               'Create and share your custom ticket to join our giveaway and win great prizes!'
-            ) : isAuthorized ? (
+            ) : isAuthorized && isOwnPage ? (
               <>
                 Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway of
                 SWAG!
@@ -155,15 +155,20 @@ const DynamicTicket = ({
             )}
           </p>
           <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
-            {!isAuthorized || !isHomeSection ? (
+            {!isAuthorized ? (
+              <SignUpButton className="shrink-0" size="md" theme="fill-yellow" isSignInButton>
+                Create your ticket
+              </SignUpButton>
+            ) : null}
+
+            {isAuthorized && !isOwnPage && team?.slug ? (
               <SignUpButton
                 className="shrink-0"
                 size="md"
                 theme="fill-yellow"
-                to={isAuthorized ? '/myteam' : null}
-                isSignInButton={!isAuthorized}
+                to={`/team/${team.slug}`}
               >
-                {!isAuthorized ? 'Create your ticket' : 'My Squad'}
+                Squad
               </SignUpButton>
             ) : null}
 
@@ -348,6 +353,9 @@ DynamicTicket.propTypes = {
     handle: PropTypes.string.isRequired,
     colorSchema: PropTypes.string.isRequired,
     ticketId: PropTypes.number.isRequired,
+    team: PropTypes.shape({
+      slug: PropTypes.string,
+    }),
   }).isRequired,
   isAuthorized: PropTypes.bool,
   isDefault: PropTypes.bool,
