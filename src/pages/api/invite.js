@@ -3,10 +3,9 @@ import sendNotification from '~/helpers/send-notification';
 import prisma from '~/prisma/client';
 
 export default async (req, res) => {
-  console.log('id', req.body);
   const teamInfo = await prisma.team.findUnique({
     where: {
-      id: req.body.id,
+      id: req.query.id,
     },
     include: {
       users: true,
