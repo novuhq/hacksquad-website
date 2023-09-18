@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import crowdDev from 'svgs/logos/crowd-dev.svg';
 import hanko from 'svgs/logos/hanko.svg';
+import novu from 'svgs/logos/novu.svg';
 import toolJet from 'svgs/logos/tool-jet.svg';
 import wasp from 'svgs/logos/wasp.svg';
 
@@ -21,6 +22,13 @@ const logos = [
     height: 44,
   },
   {
+    src: novu,
+    alt: 'Novu',
+    link: 'https://novu.co',
+    width: 131,
+    height: 40,
+  },
+  {
     src: hanko,
     alt: 'Hanko',
     link: 'https://www.hanko.io',
@@ -38,7 +46,7 @@ const logos = [
 
 const Sponsors = () => (
   <div className="mt-[148px] sm:mt-16 xs:mt-12">
-    <ul className="flex flex-wrap justify-center gap-x-[111px] gap-y-10 md:gap-x-16 sm:gap-x-10">
+    <ul className="flex flex-wrap justify-center gap-x-[111px] gap-y-10 lg:gap-x-16 sm:gap-x-10">
       {logos.map((props, index) => (
         <li className="shrink-0" key={index}>
           {/* eslint-disable-next-line react/prop-types */}

@@ -217,7 +217,9 @@ const QuestionAndAnswer = ({ isAuthorized = false }) => {
                     className="text-with-link max-w-[920px] overflow-hidden"
                     variants={itemContentVariants}
                   >
-                    <p className="mt-4 space-y-2.5 text-16 leading-normal text-gray-1">{answer}</p>
+                    <div className="mt-4 space-y-2.5 text-16 leading-normal text-gray-1">
+                      {answer}
+                    </div>
                   </m.div>
                 </m.li>
               );
