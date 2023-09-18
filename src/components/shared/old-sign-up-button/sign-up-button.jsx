@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
@@ -9,13 +8,12 @@ import GitHubIcon from 'icons/github.inline.svg';
 const SignUpButton = ({ className, alternativeText }) => {
   const [isLoadingState, setIsLoadingState] = useState(false);
   const { status } = useSession();
-  const router = useRouter();
   const isLoading = useMemo(() => isLoadingState || status === 'loading', [isLoadingState, status]);
 
   const handleSignIn = (e) => {
     e.preventDefault();
     if (status === 'authenticated') {
-      router.push('/myteam');
+      window.location.href = '/myteam';
       return;
     }
     setIsLoadingState(true);
