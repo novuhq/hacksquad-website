@@ -156,7 +156,7 @@ const DynamicTicket = ({
           </p>
           <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
             {!isAuthorized ? (
-              <SignUpButton className="shrink-0" size="md" theme="fill-yellow" isSignInButton>
+              <SignUpButton className="shrink-0" size="md" theme="fill-yellow">
                 Create your ticket
               </SignUpButton>
             ) : null}
@@ -173,9 +173,14 @@ const DynamicTicket = ({
             ) : null}
 
             {isAuthorized && isOwnPage && (
-              <SocialShare
-                url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}
-              />
+              <>
+                <SignUpButton className="shrink-0" size="md" theme="fill-yellow" to="/myteam">
+                  My Squad
+                </SignUpButton>
+                <SocialShare
+                  url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}
+                />
+              </>
             )}
           </div>
         </div>
