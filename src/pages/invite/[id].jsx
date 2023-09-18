@@ -1,8 +1,9 @@
 const Join = () => <>Loading</>;
 
 export async function getServerSideProps(context) {
-  await fetch(`${process.env.HOST}/api/invite?id=${context.params.id}`, {
-    method: 'GET',
+  await fetch(`${process.env.HOST}/api/invite/${context.params.id}`, {
+    ...context.req,
+    method: 'POST',
     headers: {
       ...context.req.headers,
       Accept: 'application/json',
