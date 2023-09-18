@@ -78,6 +78,8 @@ module.exports = {
           'radial-gradient(110.74% 101.73% at 50% -1.73%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 60.14%, rgba(255, 255, 255, 0.03) 100%);',
         'leaderboard-selected':
           'linear-gradient(90deg, rgba(203, 178, 255, 0.12) 27.6%, rgba(203, 178, 255, 0.08) 67.25%, rgba(203, 178, 255, 0.12) 91.15%);',
+        'leaderboard-selected-hover':
+          'linear-gradient(90deg, rgba(203, 178, 255, 0.20) 27.6%, rgba(203, 178, 255, 0.12) 67.25%, rgba(203, 178, 255, 0.20) 91.15%);',
 
         'color-picker-variant-1': 'linear-gradient(135deg, #42E2FE 0%, #4382F9 100%);',
         'color-picker-variant-2': 'linear-gradient(135deg, #D64996 0%, #2B54C7 100%);',

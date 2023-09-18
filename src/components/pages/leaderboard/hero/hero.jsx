@@ -34,8 +34,9 @@ const Hero = ({ teams }) => {
               {teams.map((team, index) => (
                 <li
                   className={clsx(
-                    'mt-2.5 rounded bg-[rgba(203,178,255,0.05)] py-3 text-20 leading-normal outline outline-1 outline-[rgba(203,178,255,0.08)] first:mt-0 md:text-18',
-                    index < 1 && 'bg-leaderboard-selected outline-transparent',
+                    'mt-2.5 rounded bg-[rgba(203,178,255,0.05)] py-3 text-20 leading-normal outline outline-1 outline-[rgba(203,178,255,0.08)] transition-colors duration-200 first:mt-0 hover:bg-[rgba(203,178,255,0.08)] md:text-18',
+                    index < 60 &&
+                      'bg-leaderboard-selected outline-transparent hover:bg-leaderboard-selected-hover',
                     tableGridClass
                   )}
                   key={team.slug}
@@ -43,17 +44,17 @@ const Hero = ({ teams }) => {
                   <span
                     className={clsx(
                       'ml-5 text-gray-1',
-                      index < 1 && 'font-semibold text-[#CBB2FF]'
+                      index < 60 && 'font-semibold text-[#CBB2FF]'
                     )}
                   >
                     {index + 1}
                   </span>
                   <p className="truncate">
-                    <Link href={`/team/${team.slug}`} legacyBehavior>{`${team.name} ${
+                    <Link href={`/team/${team.slug}`}>{`${team.name} ${
                       score <= team.score ? '👑' : ''
                     }`}</Link>
                   </p>
-                  <span className={clsx(index < 1 && 'font-semibold text-[#CBB2FF]')}>
+                  <span className={clsx(index < 60 && 'font-semibold text-[#CBB2FF]')}>
                     {team.score}
                   </span>
                 </li>
