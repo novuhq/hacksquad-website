@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
 
@@ -43,7 +42,7 @@ const Footer = ({ isAuthorized = false }) => {
       ) : (
         <div className="container flex items-center justify-between py-3.5 md:py-3">
           <Link to="/">
-            <Image src={logo} width={36} height={36} alt="Hacksquad" />
+            <img src={logo} width={36} height={36} loading="lazy" alt="Hacksquad" />
           </Link>
           <nav className="flex items-center gap-10">
             <ul className="flex items-center gap-10 md:hidden">

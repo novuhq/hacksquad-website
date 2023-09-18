@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Burger from 'components/shared/burger';
-import Button from 'components/shared/button';
+import SignUpButton from 'components/shared/sign-up-button';
 import MENUS from 'constants/menus';
-import Logo from 'images/logo.inline.svg';
+import logo from 'svgs/logo.svg';
 
 import { toDisplay } from '~/helpers/events';
 import Novu from '~/helpers/novu';
@@ -18,15 +18,12 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
   return (
     <header
       className={`safe-paddings ${
-        absolute ? `absolute ${!!display && 'top-12'} left-0 right-0` : ''
-      } z-40 w-full`}
+        absolute ? `absolute top-0 ${!!display && 'top-12'} left-0 right-0` : ''
+      } z-50 w-full`}
     >
-      <div className="container flex items-center justify-between py-5 md:py-4 sm:py-3.5">
-        <Link href="/" passHref legacyBehavior>
-          <a href="/">
-            <Logo className="h-[38px]" />
-            <span className="sr-only">HackSquad</span>
-          </a>
+      <div className="container flex items-center justify-between py-4 md:py-3">
+        <Link href="/">
+          <img src={logo} width={39} height={38} alt="Hacksquad" />
         </Link>
 
         <div className="flex items-center space-x-10 sm:hidden">
@@ -36,7 +33,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
                 <li key={index}>
                   <Link href={href} passHref legacyBehavior>
                     <a
-                      className="py-5 transition-colors duration-200 hover:text-primary-2"
+                      className="py-5 transition-colors duration-200 hover:text-purple"
                       href={href}
                     >
                       {text}
@@ -48,7 +45,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
                 <li>
                   <Link href="/repositories" passHref legacyBehavior>
                     <a
-                      className="py-5 transition-colors duration-200 hover:text-primary-2"
+                      className="py-5 transition-colors duration-200 hover:text-purple"
                       href="/repositories"
                     >
                       Repository List
@@ -59,7 +56,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
             </ul>
           </nav>
           <Novu />
-          <Button />
+          <SignUpButton size="sm" theme="outline" to="/my-team">
+            Join now
+          </SignUpButton>
         </div>
         <Burger className="hidden sm:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
       </div>

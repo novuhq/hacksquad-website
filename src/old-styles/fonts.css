@@ -36,4 +36,99 @@
     line-gap-override: 0%;
     size-adjust: 99.98%;
   }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/fonts/inter/inter-light.woff2') format('woff2');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter Fallback';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Arial');
+    size-adjust: 106.16%;
+    ascent-override: 91.25%;
+    descent-override: 22.75%;
+    line-gap-override: 0%;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/inter/inter-regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Inter Fallback';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arial');
+    ascent-override: 90%;
+    descent-override: 22.43%;
+    line-gap-override: 0%;
+    size-adjust: 107.64%;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/inter/inter-medium.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Inter Fallback';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Arial');
+    ascent-override: 100.83%;
+    descent-override: 31.19%;
+    line-gap-override: 0%;
+    size-adjust: 108.81%;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/inter/inter-semibold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Inter Fallback';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Arial Bold');
+    ascent-override: 108.68%;
+    descent-override: 33.36%;
+    line-gap-override: 0%;
+    size-adjust: 101.72%;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/inter/inter-bold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Inter Fallback';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Arial Bold');
+    ascent-override: 94.12%;
+    descent-override: 23.46%;
+    line-gap-override: 0%;
+    size-adjust: 102.92%;
+  }
 }
