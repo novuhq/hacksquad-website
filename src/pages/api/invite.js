@@ -23,7 +23,7 @@ export default async (req, res) => {
       id: user.id,
     },
     data: {
-      teamId: req.body.id,
+      teamId: req.query.id,
     },
   });
 
@@ -32,7 +32,7 @@ export default async (req, res) => {
     {
       name: user.name,
     },
-    req.body.id,
+    req.query.id,
     user.id
   );
 
