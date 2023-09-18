@@ -117,12 +117,12 @@ const DynamicTicket = ({
         'flex flex-col justify-center overflow-x-clip',
         isHomeSection
           ? 'py-[100px] md:py-20 sm:py-16 xs:py-12'
-          : 'h-screen min-h-[800px] overflow-hidden py-20'
+          : 'min-h-screen overflow-hidden py-20'
       )}
     >
       <div className="container grid grid-cols-12 gap-10 lg:grid-cols-1 lg:gap-0">
         <div className="col-span-6 self-center pr-16 lg:col-span-full lg:pr-0 lg:text-center">
-          <h2 className="max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:mx-auto lg:text-42 md:text-36">
+          <h2 className="max-w-[488px] font-titles text-60 font-semibold leading-1.125 lg:mx-auto lg:text-42 md:text-36">
             {/* eslint-disable-next-line no-nested-ternary */}
             {isDefault ? (
               <>
@@ -136,10 +136,12 @@ const DynamicTicket = ({
               `${name}’s Ticket`
             )}
           </h2>
-          <div className="mt-5 max-w-3xl lg:mx-auto">
+          <div className="mt-5 max-w-[468px] lg:mx-auto">
             {/* eslint-disable-next-line no-nested-ternary */}
             {isDefault ? (
-              'Create and share your custom ticket to join our giveaway and win great prizes!'
+              <p className="text-20 leading-normal text-gray-1 md:text-18">
+                Create and share your custom ticket to join our giveaway and win great prizes!
+              </p>
             ) : isAuthorized && isOwnPage ? (
               <>
                 <p className="text-20 leading-normal text-gray-1 md:text-18">
@@ -156,7 +158,7 @@ const DynamicTicket = ({
               </p>
             )}
           </div>
-          <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
+          <div className="mt-10 flex flex-wrap items-center gap-5 lg:justify-center lg:gap-x-3">
             {!isAuthorized ? (
               <SignUpButton className="shrink-0" size="md" theme="fill-yellow">
                 Create your ticket
