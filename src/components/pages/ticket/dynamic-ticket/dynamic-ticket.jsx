@@ -299,7 +299,7 @@ const DynamicTicket = ({
 
             {isColorPickerShow && (
               <div className="mt-8 flex items-center gap-6 lg:my-7 lg:justify-center sm:flex-wrap">
-                <p className="text-grey-1 text-18 leading-none lg:text-16 sm:w-full sm:text-center">
+                <p className="text-18 leading-none text-gray-1 lg:text-16 sm:w-full sm:text-center">
                   Pick a color:
                 </p>
                 <div className="flex gap-5 lg:gap-4">
