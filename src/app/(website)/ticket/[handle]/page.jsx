@@ -65,6 +65,11 @@ async function getTicketData(handle) {
           id: true,
           colorSchema: true,
           ticketId: true,
+          team: {
+            select: {
+              slug: true,
+            },
+          },
         },
       });
     } catch (err) {
