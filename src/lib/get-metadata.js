@@ -1,4 +1,4 @@
-const DEFAULT_IMAGE_PATH = '/images/social-previews/index.jpg';
+const DEFAULT_IMAGE_PATH = '/images/social-previews/main.jpg';
 
 const getMetadata = ({
   title,
