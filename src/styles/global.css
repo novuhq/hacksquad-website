@@ -27,6 +27,14 @@
     }
   }
 
+  .text-with-gray-hashtags {
+    @apply mt-6 inline-flex flex-wrap gap-x-1;
+
+    span {
+      @apply text-white text-opacity-60;
+    }
+  }
+
   .coming-soon-animation span {
     animation-name: blink;
     animation-duration: 1.4s;
