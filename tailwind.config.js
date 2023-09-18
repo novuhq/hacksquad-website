@@ -75,12 +75,8 @@ module.exports = {
           'radial-gradient(110.74% 101.73% at 50% -1.73%, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.08) 60.14%, rgba(255, 255, 255, 0.02) 100%);',
         'join-us-hover':
           'radial-gradient(110.74% 101.73% at 50% -1.73%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 60.14%, rgba(255, 255, 255, 0.03) 100%);',
-        'leaderboard-first-place':
-          'linear-gradient(92.17deg, #5B5627 -1.03%, #11100B 62.97%, #323017 105.05%);',
-        'leaderboard-second-place':
-          'linear-gradient(92.17deg, #275953 -1.03%, #0B1010 62.97%, #183330 105.05%);',
-        'leaderboard-third-place':
-          'linear-gradient(92.17deg, #49245B -1.03%, #0F0B11 62.97%, #2A1633 105.05%);',
+        'leaderboard-selected':
+          'linear-gradient(90deg, rgba(203, 178, 255, 0.12) 27.6%, rgba(203, 178, 255, 0.08) 67.25%, rgba(203, 178, 255, 0.12) 91.15%);',
 
         'color-picker-variant-1': 'linear-gradient(135deg, #42E2FE 0%, #4382F9 100%);',
         'color-picker-variant-2': 'linear-gradient(135deg, #D64996 0%, #2B54C7 100%);',

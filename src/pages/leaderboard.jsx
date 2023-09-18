@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import Hero from 'components/pages/leaderboard/hero';
 import Topfab from 'components/shared/FAB/topfab';
+import JoinUs from 'components/shared/join-us';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Leaderboard = ({ teams }) => (
@@ -13,6 +14,7 @@ const Leaderboard = ({ teams }) => (
     isFooterBordered
   >
     <Hero teams={teams} />
+    <JoinUs />
     <Topfab />
   </LayoutMain>
 );
