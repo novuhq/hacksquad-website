@@ -3,7 +3,7 @@ import sendNotification from '~/helpers/send-notification';
 import prisma from '~/prisma/client';
 
 export default async (req, res) => {
-  const { user, team } = await findUserAndTeam(req, res);
+  console.log('id', req.body);
   const teamInfo = await prisma.team.findUnique({
     where: {
       id: req.body.id,
@@ -12,6 +12,8 @@ export default async (req, res) => {
       users: true,
     },
   });
+
+  const { user, team } = await findUserAndTeam(req, res);
 
   if (!user || team || teamInfo.users.filter((f) => !f.disqualified).length >= 5) {
     res.status(400).send("Something isn't right");
