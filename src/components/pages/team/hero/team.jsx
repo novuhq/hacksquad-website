@@ -167,18 +167,19 @@ const Team = ({ info }) => {
         <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
           <div className="mb-10">
             {info.team.users.length > 1 && (
-              <div className="mb-5 flex">
-                <div>Send a message to your squad: </div>
-                <div className="ml-3 flex-1">
+              <div className="mb-5 flex flex-col md:flex-row items-center">
+                <div className="mb-3 md:mb-0">Send a message to your squad:</div>
+                <div className="mb-3 md:mb-0 md:ml-3 flex-1">
                   <input
                     type="text"
                     name="score"
                     className="w-full"
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
+                    style={{ color: 'white' }}
                   />
                 </div>
-                <div className="ml-3 w-20 border border-gray-1 text-center">
+                <div className="md:ml-3 flex-1 md:w-20 border border-gray-1 text-center">
                   <button
                     disabled={contact.length <= 2}
                     type="button"
@@ -189,6 +190,11 @@ const Team = ({ info }) => {
                   </button>
                 </div>
               </div>
+            )}
+          </div>
+        </div>
+      </div>
+
             )}
             <div className="mb-5">
               <label>
