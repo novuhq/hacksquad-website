@@ -14,7 +14,7 @@ const getMetadata = ({
   const canonicalUrl = SITE_URL + pathname;
   const imageUrl = imagePath.startsWith('http') ? imagePath : SITE_URL + imagePath;
 
-  const siteName = 'HackSquad2023';
+  const siteName = 'HackSquad 2023';
   const robots = robotsNoindex === 'noindex' ? { index: false } : null;
 
   return {

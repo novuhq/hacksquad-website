@@ -1,4 +1,4 @@
-const Join = () => <></>;
+const Join = () => <>Loading</>;
 
 export async function getServerSideProps(context) {
   await fetch(`${process.env.HOST}/api/invite`, {
