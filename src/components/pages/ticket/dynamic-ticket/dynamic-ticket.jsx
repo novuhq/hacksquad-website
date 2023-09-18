@@ -236,7 +236,7 @@ const DynamicTicket = ({
                 </header>
                 <div className="mt-auto px-8 pb-6 xs:px-4 xs:pb-4">
                   <p className="text-36 font-medium leading-none text-white xs:text-24">
-                    {getShortName(name)}
+                    {ticketId === '0000000001' ? name : getShortName(name)}
                   </p>
                   <p
                     className={clsx('mt-3 flex items-center gap-x-3 text-18 leading-none', {
