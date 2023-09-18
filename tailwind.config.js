@@ -71,6 +71,7 @@ module.exports = {
       backgroundImage: {
         'home-hero-title': 'radial-gradient(rgba(82, 0, 255, 0) 0%, rgba(82, 0, 255, 0.2) 80%);',
         'cta-blur': 'linear-gradient(180deg, rgba(255, 234, 0, 0) 0%, #FFEA00 100%);',
+        'cta-hover-blur': 'linear-gradient(180deg, rgba(255, 242, 99, 0.00) 0%, #FFF263 84.05%);',
         'join-us':
           'radial-gradient(110.74% 101.73% at 50% -1.73%, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.08) 60.14%, rgba(255, 255, 255, 0.02) 100%);',
         'join-us-hover':
