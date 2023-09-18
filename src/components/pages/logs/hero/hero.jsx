@@ -1,10 +1,10 @@
 import { stringify, parse } from 'querystring';
 
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
-import Autocomplete from 'react-autocomplete';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useDebouncedCallback } from 'use-debounce';
 
 import Socials from 'components/shared/socials';
@@ -31,8 +31,9 @@ const Hero = () => {
   const router = useRouter();
 
   const findQueryParam = useCallback((key) => {
+    if (typeof window === 'undefined') return undefined;
     const params = new URLSearchParams(window.location.href.split('?').pop());
-    return params.get(key) || undefined;
+    return params.get(key);
   }, []);
 
   const [list, setList] = useState(undefined);
@@ -164,7 +165,7 @@ const Hero = () => {
   return (
     <section className="safe-paddings relative min-h-[600px]">
       <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
-        <h1 className="text-xl leading-tight font-mono font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
+        <h1 className="leading-tight font-mono text-xl font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
           {title}
         </h1>
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
@@ -184,86 +185,56 @@ const Hero = () => {
             </select>
 
             <div className="relative mb-10 mr-5 inline-block flex-1">
-              <Autocomplete
-                getItemValue={(item) => item.name}
+              <ReactSearchAutocomplete
+                className="[&>div>div>input]:shadow-none"
                 items={teamList
                   .filter((f) => f.name.toLowerCase().indexOf(search?.toLowerCase() || '') > -1)
                   .slice(0, 10)}
-                menuStyle={{
-                  background: 'black',
-                  padding: '2px',
+                styling={{
+                  color: '#fff',
+                  backgroundColor: 'black',
+                  hoverBackgroundColor: 'darkblue',
+                  height: '30px',
                   fontSize: '90%',
-                  position: 'absolute',
-                  top: '100%',
-                  left: 0,
                 }}
-                renderItem={(item, isHighlighted) => (
-                  <div
-                    className="pb-1 pt-1"
-                    style={{ background: isHighlighted ? 'darkblue' : 'black' }}
-                  >
-                    {item.name}
-                  </div>
-                )}
-                inputProps={{
-                  style: {
-                    padding: 3,
-                  },
-                  placeholder: 'Team Search',
-                }}
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  if (!e.target.value) {
+                inputSearchString={search}
+                onSearch={(string) => {
+                  setSearch(string);
+                  if (!string) {
                     chooseTeam(undefined);
                   }
                 }}
-                onSelect={(val) => {
-                  setSearch(val);
-                  chooseTeam(val);
+                onSelect={({ name }) => {
+                  setSearch(name);
+                  chooseTeam(name);
                 }}
               />
             </div>
 
             <div className="relative mr-5 inline-block flex-1">
-              <Autocomplete
-                getItemValue={(item) => item.name}
+              <ReactSearchAutocomplete
+                className="[&>div>div>input]:shadow-none"
                 items={usersList
                   .filter((f) => f.name.toLowerCase().indexOf(searchUser?.toLowerCase() || '') > -1)
                   .slice(0, 10)}
-                menuStyle={{
-                  background: 'black',
-                  padding: '2px',
+                styling={{
+                  color: '#fff',
+                  backgroundColor: 'black',
+                  hoverBackgroundColor: 'darkblue',
+                  height: '30px',
                   fontSize: '90%',
-                  position: 'absolute',
-                  top: '100%',
-                  left: 0,
                 }}
-                renderItem={(item, isHighlighted) => (
-                  <div
-                    className="pb-1 pt-1"
-                    style={{ background: isHighlighted ? 'darkblue' : 'black' }}
-                  >
-                    {item.name}
-                  </div>
-                )}
-                inputProps={{
-                  style: {
-                    padding: 3,
-                  },
-                  placeholder: 'User Search',
-                }}
-                value={searchUser}
-                onChange={(e) => {
-                  setSearchUser(e.target.value);
-                  loadUsers(e.target.value);
-                  if (!e.target.value) {
+                inputSearchString={searchUser}
+                onSearch={(string) => {
+                  setSearchUser(string);
+                  loadUsers(string);
+                  if (!string) {
                     chooseUser(undefined);
                   }
                 }}
-                onSelect={(val) => {
-                  setSearchUser(val);
-                  chooseUser(val);
+                onSelect={({ name }) => {
+                  setSearchUser(name);
+                  chooseUser(name);
                 }}
               />
             </div>
@@ -371,24 +342,22 @@ const Hero = () => {
             </div>
           </a>
         </div>
-        <Link href="/" passHref>
-          <a
-            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none"
-            href="/"
+        <Link
+          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none"
+          href="/"
+        >
+          <svg
+            className="cta-btn-animation-border xs:w-full"
+            width="268"
+            height="59"
+            viewBox="0 0 268 59"
+            fill="none"
           >
-            <svg
-              className="cta-btn-animation-border xs:w-full"
-              width="268"
-              height="59"
-              viewBox="0 0 268 59"
-              fill="none"
-            >
-              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-              <span className="text-lg sm:text-[18px]">Back to Homepage</span>
-            </div>
-          </a>
+            <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+            <span className="text-lg sm:text-[18px]">Back to Homepage</span>
+          </div>
         </Link>
         <Socials className="mt-10" />
       </div>
