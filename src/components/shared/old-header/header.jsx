@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -14,6 +15,8 @@ import useModerator from '~/helpers/use.moderator';
 const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
   const display = toDisplay();
   const { moderator, cleaner } = useModerator();
+  const { status } = useSession();
+  const isAuthorized = status === 'authenticated';
 
   return (
     <header
@@ -56,8 +59,13 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
             </ul>
           </nav>
           <Novu />
-          <SignUpButton size="sm" theme="outline" to="/my-team">
-            Join now
+          <SignUpButton
+            size="sm"
+            theme="outline"
+            to={isAuthorized ? '/myteam' : null}
+            isSignInButton={!isAuthorized}
+          >
+            {!isAuthorized ? 'Join now' : 'My Squad'}
           </SignUpButton>
         </div>
         <Burger className="hidden sm:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
