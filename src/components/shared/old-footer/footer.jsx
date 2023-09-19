@@ -21,7 +21,7 @@ const Footer = ({ withBorder }) => {
           <img src={logo} width={36} height={36} loading="lazy" alt="Hacksquad" />
         </Link>
         <nav className="flex items-center gap-10">
-          <ul className="flex space-x-10 md:space-x-6 sm:justify-between">
+          <ul className="flex space-x-10 md:hidden">
             {MENUS.header.slice(1).map(({ href, text }, index) => (
               <li key={index}>
                 <Link href={href} passHref legacyBehavior>
@@ -36,12 +36,19 @@ const Footer = ({ withBorder }) => {
             ))}
           </ul>
           <SignUpButton
+            className="min-w-[135px]"
             size="sm"
             theme="outline"
             to={isAuthorized ? '/myteam' : null}
             isSignInButton={!isAuthorized}
           >
-            {!isAuthorized ? 'Join now' : 'My Squad'}
+            {status === 'loading' ? (
+              <span className="h-3 w-3 animate-spin rounded-full border border-b border-transparent border-b-white" />
+            ) : !isAuthorized ? (
+              'Join now'
+            ) : (
+              'My Squad'
+            )}
           </SignUpButton>
         </nav>
       </div>

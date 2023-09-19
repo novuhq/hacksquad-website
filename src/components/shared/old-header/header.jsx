@@ -29,7 +29,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
           <img src={logo} width={39} height={38} alt="Hacksquad" />
         </Link>
 
-        <div className="flex items-center space-x-10 sm:hidden">
+        <div className="flex items-center space-x-10 md:hidden">
           <nav>
             <ul className="flex space-x-10 md:space-x-6">
               {MENUS.header.map(({ href, text }, index) => (
@@ -60,15 +60,22 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
           </nav>
           <Novu />
           <SignUpButton
+            className="min-w-[135px]"
             size="sm"
             theme="outline"
             to={isAuthorized ? '/myteam' : null}
             isSignInButton={!isAuthorized}
           >
-            {!isAuthorized ? 'Join now' : 'My Squad'}
+            {status === 'loading' ? (
+              <span className="h-3 w-3 animate-spin rounded-full border border-b border-transparent border-b-white" />
+            ) : !isAuthorized ? (
+              'Join now'
+            ) : (
+              'My Squad'
+            )}
           </SignUpButton>
         </div>
-        <Burger className="hidden sm:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
+        <Burger className="hidden md:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
       </div>
     </header>
   );
