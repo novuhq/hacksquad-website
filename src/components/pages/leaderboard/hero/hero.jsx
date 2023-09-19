@@ -34,29 +34,26 @@ const Hero = ({ teams }) => {
               {teams.map((team, index) => (
                 <li
                   className={clsx(
-                    'mt-2.5 rounded bg-[rgba(203,178,255,0.05)] py-3 text-20 leading-normal outline outline-1 outline-[rgba(203,178,255,0.08)] transition-colors duration-200 first:mt-0 hover:bg-[rgba(203,178,255,0.08)] md:text-18',
+                    'mt-2.5 rounded bg-[rgba(203,178,255,0.05)] text-20 leading-normal outline outline-1 outline-[rgba(203,178,255,0.08)] transition-colors duration-200 first:mt-0 hover:bg-[rgba(203,178,255,0.08)] md:text-18',
                     index < 60 &&
-                      'bg-leaderboard-selected outline-transparent hover:bg-leaderboard-selected-hover',
-                    tableGridClass
+                      'bg-leaderboard-selected outline-transparent hover:bg-leaderboard-selected-hover'
                   )}
                   key={team.slug}
                 >
-                  <span
-                    className={clsx(
-                      'ml-5',
-                      index < 60 ? 'font-semibold text-[#CBB2FF]' : 'text-gray-1'
-                    )}
-                  >
-                    {index + 1}
-                  </span>
-                  <p className="truncate">
-                    <Link href={`/team/${team.slug}`}>{`${team.name} ${
-                      score <= team.score ? '👑' : ''
-                    }`}</Link>
-                  </p>
-                  <span className={clsx(index < 60 && 'font-semibold text-[#CBB2FF]')}>
-                    {team.score}
-                  </span>
+                  <Link className={clsx('py-3', tableGridClass)} href={`/team/${team.slug}`}>
+                    <span
+                      className={clsx(
+                        'ml-5',
+                        index < 60 ? 'font-semibold text-[#CBB2FF]' : 'text-gray-1'
+                      )}
+                    >
+                      {index + 1}
+                    </span>
+                    <p className="truncate">{`${team.name} ${score <= team.score ? '👑' : ''}`}</p>
+                    <span className={clsx(index < 60 && 'font-semibold text-[#CBB2FF]')}>
+                      {team.score}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
