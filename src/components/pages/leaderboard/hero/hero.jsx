@@ -43,8 +43,8 @@ const Hero = ({ teams }) => {
                 >
                   <span
                     className={clsx(
-                      'ml-5 text-gray-1',
-                      index < 60 && 'font-semibold text-[#CBB2FF]'
+                      'ml-5',
+                      index < 60 ? 'font-semibold text-[#CBB2FF]' : 'text-gray-1'
                     )}
                   >
                     {index + 1}
