@@ -1,14 +1,14 @@
 <p align="center">
   <a href="https://hacksquad.dev">
-    <img  alt="logo" src="https://user-images.githubusercontent.com/17677196/190159412-34a1d863-1c2f-49bb-930c-054753137118.jpg">
+    <img  alt="logo" src="https://github.com/novuhq/hacksquad-website/assets/17677196/c814d18d-e39c-4d3c-806c-b9744bfc39c3">
   </a>
 </p>
 
 <h2 align="center">
-Welcome to Hacksquad 2022!
+Welcome to Hacksquad 2023!
 </h2>
 <h3 align="center">
-Contribute code as a squad, meet community members, participate in workshops, and win SWAG
+Contribute code, meet community members, participate in workshops, and win more SWAG.
 </h3>
 
 With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your **Swag**, meet with more community members and participate in workshops from our great sponsors.
@@ -16,8 +16,8 @@ With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksq
 <a href="https://www.hacksquad.dev/#sponsors">
   </br>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/17677196/191266471-a019b72d-76fa-4553-a778-0662f3ecf8c9.png">
-    <img src="https://user-images.githubusercontent.com/17677196/191266380-ad1f84cc-ff88-4fe2-ace6-9052ad095922.png" alt="Sponsors"/>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/novuhq/hacksquad-website/assets/17677196/64d59c8d-3c63-406b-ab94-a6afcd6c5b38">
+    <img src="https://github.com/novuhq/hacksquad-website/assets/17677196/f7e5849f-7bb6-4014-9a58-f67b4bfe1f27" alt="Sponsors"/>
   </picture>
 </a>
 
@@ -27,15 +27,18 @@ With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksq
 HackSquad allows contributors to contribute code **as a squad** instead of a single contributor. Engage the community in a friendly competition over the month of October.
 
 <p align="center">
-  <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2022, AND JOIN A TEAM 🚀</a>
+  <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2023, AND JOIN A TEAM 🚀</a>
 </p>
 
-## How does it work?
+## Join the party
 
-Register to the HackSquad using your GitHub, Join a squad or get assigned to a **random squad**. Each day we will calculate every squad member approved PR and sum them all together. By the end of the event, the top 300 winners will win awesome swag! around ~60 squads!
+Dive into last year's SWAG of Hacksquad with tweets! Relive the excitement, innovation, and highlights that made it unforgettable.
 
 <a href="https://www.hacksquad.dev/#swag">
-  <img src="https://user-images.githubusercontent.com/17677196/191267474-ab378f53-9d40-4dc6-ac98-ce4ceb0a8edc.png" alt="Swag"/>
+  </br>
+  <picture>
+    <img src="https://github.com/novuhq/hacksquad-website/assets/17677196/e15d38e8-6b6f-454d-a368-cd4b4cb2f5e6" alt="Swag"/>
+  </picture>
 </a>
 
 ## What can you expect from the event?
@@ -46,7 +49,7 @@ Register to the HackSquad using your GitHub, Join a squad or get assigned to a *
 - Win swag
 
 <p align="center">
-  <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2022, AND JOIN A TEAM 🚀</a>
+  <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2023, AND JOIN A TEAM 🚀</a>
 </p>
 
 <p align="center"><strong>You can sign-up for both Hacktoberfest and HackSquad</strong></p>
