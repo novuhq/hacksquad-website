@@ -159,90 +159,90 @@ const Hero = () => {
     <section className="safe-paddings relative">
       <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
         <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{title}</h1>
-        <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
-          <div className="mb-5 flex">
-            <select
-              style={{ height: 30 }}
-              className="mr-5 flex-1"
-              placeholder="Action"
-              onChange={setAction}
-            >
-              <option value="">Select Action</option>
-              {Object.keys(actionPRs).map((key) => (
-                <option value={key} selected={key === prType}>
-                  {actionPRs[key]}
-                </option>
-              ))}
-            </select>
+        <div className="mx-auto mb-5 mt-20 flex w-full sm:flex-col sm:gap-y-4 sm:px-4">
+          <select
+            style={{ height: 30 }}
+            className="mr-5 flex-1 sm:mr-0"
+            placeholder="Action"
+            onChange={setAction}
+          >
+            <option value="">Select Action</option>
+            {Object.keys(actionPRs).map((key) => (
+              <option value={key} selected={key === prType}>
+                {actionPRs[key]}
+              </option>
+            ))}
+          </select>
 
-            <div className="relative mb-10 mr-5 inline-block flex-1">
-              <ReactSearchAutocomplete
-                className="[&>div>div>input]:shadow-none"
-                placeholder="Team Search"
-                items={teamList
-                  .filter((f) => f.name.toLowerCase().indexOf(search?.toLowerCase() || '') > -1)
-                  .slice(0, 10)}
-                styling={{
-                  color: '#fff',
-                  backgroundColor: 'black',
-                  hoverBackgroundColor: 'darkblue',
-                  height: '30px',
-                  fontSize: '90%',
-                }}
-                inputSearchString={search}
-                onSearch={(string) => {
-                  setSearch(string);
-                  if (!string) {
-                    chooseTeam(undefined);
-                  }
-                }}
-                onSelect={({ name }) => {
-                  setSearch(name);
-                  chooseTeam(name);
-                }}
-              />
-            </div>
-
-            <div className="relative mr-5 inline-block flex-1">
-              <ReactSearchAutocomplete
-                className="[&>div>div>input]:shadow-none"
-                placeholder="User Search"
-                items={usersList
-                  .filter((f) => f.name.toLowerCase().indexOf(searchUser?.toLowerCase() || '') > -1)
-                  .slice(0, 10)}
-                styling={{
-                  color: '#fff',
-                  backgroundColor: 'black',
-                  hoverBackgroundColor: 'darkblue',
-                  height: '30px',
-                  fontSize: '90%',
-                }}
-                inputSearchString={searchUser}
-                onSearch={(string) => {
-                  setSearchUser(string);
-                  loadUsers(string);
-                  if (!string) {
-                    chooseUser(undefined);
-                  }
-                }}
-                onSelect={({ name }) => {
-                  setSearchUser(name);
-                  chooseUser(name);
-                }}
-              />
-            </div>
-
-            <select style={{ height: 30 }} className="flex-1" onChange={setTakenBy}>
-              <option value="">Select Taken By</option>
-              {mods.map((mod) => (
-                <option value={mod.name} selected={mod.id === admin}>
-                  {mod.name}
-                </option>
-              ))}
-            </select>
+          <div className="relative mb-10 mr-5 inline-block flex-1 sm:mb-0">
+            <ReactSearchAutocomplete
+              className="[&>div>div>input]:shadow-none"
+              placeholder="Team Search"
+              items={teamList
+                .filter((f) => f.name.toLowerCase().indexOf(search?.toLowerCase() || '') > -1)
+                .slice(0, 10)}
+              styling={{
+                color: '#fff',
+                backgroundColor: 'black',
+                hoverBackgroundColor: 'darkblue',
+                height: '30px',
+                fontSize: '90%',
+              }}
+              inputSearchString={search}
+              onSearch={(string) => {
+                setSearch(string);
+                if (!string) {
+                  chooseTeam(undefined);
+                }
+              }}
+              onSelect={({ name }) => {
+                setSearch(name);
+                chooseTeam(name);
+              }}
+            />
           </div>
+
+          <div className="relative mr-5 inline-block flex-1">
+            <ReactSearchAutocomplete
+              className="[&>div>div>input]:shadow-none"
+              placeholder="User Search"
+              items={usersList
+                .filter((f) => f.name.toLowerCase().indexOf(searchUser?.toLowerCase() || '') > -1)
+                .slice(0, 10)}
+              styling={{
+                color: '#fff',
+                backgroundColor: 'black',
+                hoverBackgroundColor: 'darkblue',
+                height: '30px',
+                fontSize: '90%',
+              }}
+              inputSearchString={searchUser}
+              onSearch={(string) => {
+                setSearchUser(string);
+                loadUsers(string);
+                if (!string) {
+                  chooseUser(undefined);
+                }
+              }}
+              onSelect={({ name }) => {
+                setSearchUser(name);
+                chooseUser(name);
+              }}
+            />
+          </div>
+
+          <select style={{ height: 30 }} className="flex-1" onChange={setTakenBy}>
+            <option value="">Select Taken By</option>
+            {mods.map((mod) => (
+              <option value={mod.name} selected={mod.id === admin}>
+                {mod.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="md:scrollbar-hidden mx-auto max-w-full md:overflow-x-auto">
           <div className="min-w-[716px] md:min-w-[600px] md:px-7 sm:min-w-[300px] sm:px-4">
-            <div className="grid grid-cols-[300px_1fr_200px_200px_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[50px_160px_40px]">
+            <div className="grid grid-cols-[300px_1fr_200px_200px_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[50px_160px_40px_1fr_1fr]">
               {leadersHeader.map((header, index) => (
                 <span
                   className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18"
