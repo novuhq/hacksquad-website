@@ -1,117 +1,73 @@
-import Image from 'next/image';
+'use client';
+
+import clsx from 'clsx';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
-import Socials from 'components/shared/socials';
-
-import bgLeftGlitch from './images/bg-left-glitch.png';
-import bgRightGlitch from './images/bg-right-glitch.png';
-import bgTitleGlitch from './images/bg-title-glitch.png';
-
-const title = '>_Leaderboard';
 const leadersHeader = ['Place', 'Name', 'Score'];
+const tableGridClass = 'grid grid-cols-[114px_540px_1fr] gap-x-5 md:grid-cols-[100px_400px_1fr]';
 
-const Hero = ({ teams }) => {
+const Hero = ({ teams = [] }) => {
   const score = useMemo(() => {
     const tea = (teams || [])?.slice(0, 60);
     return tea[tea.length - 1]?.score;
   }, [teams]);
 
   return (
-    <section className="safe-paddings relative min-h-[600px]">
-      <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
-        <h1 className="leading-tight font-mono text-xl font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
-          {title}
+    <section className="safe-paddings relative pb-12 pt-[168px] md:py-20">
+      <div className="container flex h-full flex-col items-center justify-center">
+        <h1 className="max-w-2xl font-titles text-60 font-semibold leading-none md:text-42 xs:max-w-[246px]">
+          Leaderboard
         </h1>
-        <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
-          <div className="min-w-[716px] md:min-w-[600px] md:px-7 sm:min-w-[300px] sm:px-4">
-            <div className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[50px_160px_40px]">
+        <div className="md:scrollbar-hidden mx-auto mt-[76px] w-[798px] md:w-full md:overflow-x-auto">
+          <div className="md:min-w-[700px] md:px-7 sm:px-4">
+            <div className={tableGridClass}>
               {leadersHeader.map((header, index) => (
-                <span className="font-medium uppercase" key={index}>
+                <span
+                  className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18"
+                  key={index}
+                >
                   {header}
                 </span>
               ))}
             </div>
-            <ul>
+            <ul className="py-4">
               {teams.map((team, index) => (
                 <li
-                  className="grid grid-cols-[120px_1fr_90px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[50px_160px_40px]"
+                  className={clsx(
+                    'mt-2.5 rounded bg-[rgba(203,178,255,0.05)] text-20 leading-normal outline outline-1 outline-[rgba(203,178,255,0.08)] transition-colors duration-200 first:mt-0 hover:bg-[rgba(203,178,255,0.08)] md:text-18',
+                    index < 60 &&
+                      'bg-leaderboard-selected outline-transparent hover:bg-leaderboard-selected-hover'
+                  )}
                   key={team.slug}
                 >
-                  <span>{index + 1}</span>
-                  <p className="truncate font-medium">
-                    <Link href={`/team/${team.slug}`} legacyBehavior>{`${team.name} ${
-                      score <= team.score ? '👑' : ''
-                    }`}</Link>
-                  </p>
-                  <span>{team.score}</span>
+                  <Link className={clsx('py-3', tableGridClass)} href={`/team/${team.slug}`}>
+                    <span
+                      className={clsx(
+                        'ml-5',
+                        index < 60 ? 'font-semibold text-[#CBB2FF]' : 'text-gray-1'
+                      )}
+                    >
+                      {index + 1}
+                    </span>
+                    <p className="truncate">{`${team.name} ${score <= team.score ? '👑' : ''}`}</p>
+                    <span className={clsx(index < 60 && 'font-semibold text-[#CBB2FF]')}>
+                      {team.score}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <Link href="/" passHref legacyBehavior>
-          <a
-            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none"
-            href="/"
-          >
-            <svg
-              className="cta-btn-animation-border xs:w-full"
-              width="268"
-              height="59"
-              viewBox="0 0 268 59"
-              fill="none"
-            >
-              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-              <span className="text-lg sm:text-[18px]">Back to Homepage</span>
-            </div>
-          </a>
-        </Link>
-        <Socials className="mt-10" />
       </div>
-      <Image
-        className="absolute left-0 top-[70px] -z-20 md:top-10 sm:top-12 sm:max-w-[360px] xs:max-w-[240px]"
-        src={bgLeftGlitch}
-        width={464}
-        height={78}
-        loading="eager"
-        alt="Left Glitch image"
-        priority
-        aria-hidden
-      />
-      <Image
-        className="absolute left-0 right-0 top-0 -z-10 md:hidden"
-        src={bgTitleGlitch}
-        width={1920}
-        height={219}
-        loading="eager"
-        alt="Center Glitch image"
-        priority
-        aria-hidden
-      />
-      <Image
-        className="absolute right-0 top-9 -z-20 md:top-12 sm:top-20 sm:max-w-[360px] xs:max-w-[260px]"
-        src={bgRightGlitch}
-        width={474}
-        height={105}
-        loading="eager"
-        alt="Right Glitch image"
-        priority
-        aria-hidden
-      />
     </section>
   );
 };
 
 Hero.propTypes = {
   teams: PropTypes.array,
-};
-
-Hero.defaultProps = {
-  teams: [],
 };
 
 export default Hero;
