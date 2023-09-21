@@ -12,8 +12,8 @@ const Hero = ({ devto }) => (
   <section className="safe-paddings relative">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center py-16">
       <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{title}</h1>
-      <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
-        <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-1">
+      <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:-ml-4 md:w-screen md:overflow-x-auto">
+        <div className="mt-5 md:min-w-[500px] md:px-7">
           <div className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
             <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18 sm:hidden">
               #
