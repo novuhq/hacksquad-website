@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -6,14 +8,14 @@ import { useMemo } from 'react';
 const leadersHeader = ['Place', 'Name', 'Score'];
 const tableGridClass = 'grid grid-cols-[114px_540px_1fr] gap-x-5 md:grid-cols-[100px_400px_1fr]';
 
-const Hero = ({ teams }) => {
+const Hero = ({ teams = [] }) => {
   const score = useMemo(() => {
     const tea = (teams || [])?.slice(0, 60);
     return tea[tea.length - 1]?.score;
   }, [teams]);
 
   return (
-    <section className="safe-paddings relative pb-12 pt-2 md:py-2">
+    <section className="safe-paddings relative pb-12 pt-[168px] md:py-20">
       <div className="container flex h-full flex-col items-center justify-center">
         <h1 className="max-w-2xl font-titles text-60 font-semibold leading-none md:text-42 xs:max-w-[246px]">
           Leaderboard
@@ -66,10 +68,6 @@ const Hero = ({ teams }) => {
 
 Hero.propTypes = {
   teams: PropTypes.array,
-};
-
-Hero.defaultProps = {
-  teams: [],
 };
 
 export default Hero;
