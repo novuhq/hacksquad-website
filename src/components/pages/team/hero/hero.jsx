@@ -1,6 +1,5 @@
 import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import NoLogged from './no-logged';
 import NoTeam from './no.team';

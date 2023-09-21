@@ -2,7 +2,7 @@ import moment from 'moment';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
-import React, { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
