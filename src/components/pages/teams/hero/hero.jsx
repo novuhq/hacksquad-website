@@ -1,11 +1,8 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
-import GitHubIcon from '../../../../icons/github.inline.svg';
-
-import DiscordIcon from './images/discord.inline.svg';
-import TwitterIcon from './images/twitter.inline.svg';
+import GitHubIcon from 'icons/github.inline.svg';
 
 import RepositoryStatus from '~/helpers/repository.status';
 import useModerator from '~/helpers/use.moderator';
@@ -29,7 +26,6 @@ const Hero = ({ team }) => {
     [pullRequests]
   );
 
-  //
   const kick = (id, name) => async () => {
     if (confirm(`Are you sure want to kick "${name}" from the team?`)) {
       await fetch(`/api/kick?id=${id}`);
@@ -37,24 +33,20 @@ const Hero = ({ team }) => {
     }
   };
 
-  //
   const changeTeamStatus = async () => {
     await fetch(`/api/disqualified?id=${team.id}`);
     setDisqualified(!disqualified);
   };
 
-  //
   return (
-    <section className="safe-paddings relative min-h-[600px]">
-      <div className="container relative z-10 flex h-full flex-col items-center justify-center sm:px-0">
-        <h1 className="leading-tight font-mono text-xl font-bold uppercase lg:text-[50px] md:text-[40px] xs:text-[32px]">
-          {'>>'}
-          {team.name}
-        </h1>
+    <section className="safe-paddings relative">
+      <div className="container relative z-10 flex h-full flex-col items-center justify-center py-16 sm:px-0">
+        <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{team.name}</h1>
 
         {moderator && (
-          <a
+          <button
             className="cta-btn-animation relative mt-3 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6"
+            type="button"
             onClick={changeTeamStatus}
           >
             <svg
@@ -63,6 +55,7 @@ const Hero = ({ team }) => {
               height="59"
               viewBox="0 0 268 59"
               fill="none"
+              aria-hidden
             >
               <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
             </svg>
@@ -72,17 +65,35 @@ const Hero = ({ team }) => {
                 {!disqualified ? 'Disqualify Team' : 'Bring team back to the game'}
               </span>
             </div>
-          </a>
+          </button>
         )}
 
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
             <div className="grid grid-cols-[175px_420px_175px_175px_1fr_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr_1fr_1fr] sm:grid-cols-[150px_80px_120px_1fr]">
-              <span className="font-medium uppercase sm:hidden">Place</span>
-              <span className="font-medium uppercase">Name</span>
-              <span className={`font-medium uppercase ${moderator && 'sm:hidden'}`}>GitHub</span>
-              {moderator && <span className="font-medium uppercase">Remove</span>}
-              {(moderator || cleaner) && <span className="font-medium uppercase">Score</span>}
+              <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18 sm:hidden">
+                Place
+              </span>
+              <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+                Name
+              </span>
+              <span
+                className={`text-18 font-medium uppercase leading-normal text-gray-1 md:text-18 ${
+                  moderator && 'sm:hidden'
+                }`}
+              >
+                GitHub
+              </span>
+              {moderator && (
+                <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+                  Remove
+                </span>
+              )}
+              {(moderator || cleaner) && (
+                <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+                  Score
+                </span>
+              )}
             </div>
 
             <ul>
@@ -124,16 +135,22 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
-        <h2 className="leading-tight mt-20 font-mono text-lg font-bold uppercase lg:text-[25px] md:text-[25px] xs:text-[25px]">
-          {'>>'} Contributed to repositories (TOTAL PR: {pullRequests.length})
+        <h2 className="mt-20 font-titles text-48 font-semibold leading-1.125 md:text-42">
+          Contributed to repositories (TOTAL PR: {pullRequests.length})
         </h2>
 
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-[1220px] bg-black md:max-w-none md:overflow-x-auto">
           <div className="mt-5 md:min-w-[1080px] md:px-7 sm:px-4">
             <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[170px_50px_100px]">
-              <span className="font-medium uppercase sm:hidden">Place</span>
-              <span className="font-medium uppercase">Name</span>
-              <span className="font-medium uppercase">Repository</span>
+              <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18 sm:hidden">
+                Place
+              </span>
+              <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+                Name
+              </span>
+              <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+                Repository
+              </span>
 
               {(moderator || cleaner) && (
                 <span className="font-medium uppercase">Repository Status</span>
@@ -168,49 +185,25 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
-        <Link href="/leaderboard" passHref legacyBehavior>
-          <a
-            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
-            href="/leaderboard"
+        <Link
+          className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
+          href="/leaderboard"
+        >
+          <svg
+            className="cta-btn-animation-border xs:w-full"
+            width="268"
+            height="59"
+            viewBox="0 0 268 59"
+            fill="none"
+            aria-hidden
           >
-            <svg
-              className="cta-btn-animation-border xs:w-full"
-              width="268"
-              height="59"
-              viewBox="0 0 268 59"
-              fill="none"
-            >
-              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-            </svg>
+            <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+          </svg>
 
-            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-              <span className="text-lg sm:text-[18px]">Go to Leaderboard</span>
-            </div>
-          </a>
-        </Link>
-
-        <div className="mt-20 flex flex-col items-center md:bottom-12">
-          <span className="font-mono uppercase">Let’s connect</span>
-          <div className="flex items-center space-x-8">
-            <a
-              className="group mt-5"
-              href="https://twitter.com/HackSquadDev"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <TwitterIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
-            </a>
-
-            <a
-              className="group mt-5"
-              href="https://discord.gg/vcqkXgT3Xr"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <DiscordIcon className="h-[26px] transition-opacity duration-200 group-hover:opacity-80" />
-            </a>
+          <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+            <span className="text-lg sm:text-[18px]">Go to Leaderboard</span>
           </div>
-        </div>
+        </Link>
       </div>
     </section>
   );
