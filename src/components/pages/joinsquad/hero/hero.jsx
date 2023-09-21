@@ -16,7 +16,9 @@ const description = (
 const JoinSquad = () => (
   <section className="safe-paddings relative">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center py-16">
-      <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{title}</h1>
+      <h1 className="text-center font-titles text-60 font-semibold leading-none md:text-42">
+        {title}
+      </h1>
       <p className="mt-10 text-center text-20 leading-normal md:text-18 sm:mt-6">{description}</p>
       <Link
         className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full items-center justify-center leading-none sm:mt-6"
