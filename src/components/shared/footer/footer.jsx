@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
 
@@ -18,8 +17,8 @@ const Footer = ({ isAuthorized = false }) => {
     <footer className="safe-paddings border-t border-[rgba(255,255,255,0.20)]">
       {isTicketPage ? (
         <div className="container flex items-center justify-between gap-2 py-5 md:py-3 sm:flex-col">
-          <p className="text-16 leading-normal md:text-14">Novu 2023 Ⓒ All rights reserved</p>
-          <p className="text-16 leading-normal text-gray-1 md:text-14 sm:text-center">
+          <p className="text-15 leading-normal md:text-14">Novu 2023 Ⓒ All rights reserved</p>
+          <p className="text-grey-1 text-15 leading-normal md:text-14 sm:text-center">
             By entering your email, you agree to our{' '}
             <a
               className="font-medium text-white transition duration-200 hover:text-purple"
@@ -43,7 +42,7 @@ const Footer = ({ isAuthorized = false }) => {
       ) : (
         <div className="container flex items-center justify-between py-3.5 md:py-3">
           <Link to="/">
-            <Image src={logo} width={36} height={36} alt="Hacksquad" />
+            <img src={logo} width={36} height={36} loading="lazy" alt="Hacksquad" />
           </Link>
           <nav className="flex items-center gap-10">
             <ul className="flex items-center gap-10 md:hidden">

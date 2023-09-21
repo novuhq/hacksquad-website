@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Hero from 'components/pages/team/hero';
 import Topfab from 'components/shared/FAB/topfab';
+import JoinUs from 'components/shared/join-us';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const Myteam = () => {
@@ -30,6 +31,7 @@ const Myteam = () => {
       withoutFooter
     >
       <Hero info={info} />
+      <JoinUs />
       <Topfab />
     </LayoutMain>
   );

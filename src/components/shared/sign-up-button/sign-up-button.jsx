@@ -16,7 +16,8 @@ const styles = {
     md: 'gap-4 px-5 h-11 text-18 font-bold md:text-16 md:px-6 sm:text-14 xs:px-3 xs:h-9',
   },
   theme: {
-    'fill-yellow': 'bg-yellow text-black hover:bg-[#FFF263]',
+    'fill-yellow':
+      'bg-yellow text-black before:opacity-0 hover:before:opacity-70 before:transition-opacity before:duration-200 hover:bg-[#FFF263] hover:before-opacity-70 before:absolute before:top-1/2 before:-z-10 before:h-[48px] before:w-full before:-translate-y-1/2 before:rounded before:bg-cta-hover-blur before:blur-xl',
     outline:
       'text-white border border-white hover:bg-[rgba(255,255,255,0.10)] hover:border-[#6D7277]',
   },
