@@ -1,19 +1,12 @@
 import { stringify, parse } from 'querystring';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useDebouncedCallback } from 'use-debounce';
 
-import Socials from 'components/shared/socials';
-
-import bgLeftGlitch from './images/bg-left-glitch.png';
-import bgRightGlitch from './images/bg-right-glitch.png';
-import bgTitleGlitch from './images/bg-title-glitch.png';
-
-const title = '>Logs';
+const title = 'Logs';
 const leadersHeader = ['Pr Title', 'Team', 'User', 'Action', 'Taken By'];
 
 const actionPRs = {
@@ -163,11 +156,9 @@ const Hero = () => {
   }, [page, admin, user, prType, team]);
 
   return (
-    <section className="safe-paddings relative min-h-[600px]">
+    <section className="safe-paddings relative">
       <div className="container relative flex h-full flex-col items-center justify-center py-16 sm:px-0">
-        <h1 className="leading-tight font-mono text-xl font-bold uppercase lg:text-[50px] md:text-[40px] sm:px-4 xs:text-[32px]">
-          {title}
-        </h1>
+        <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{title}</h1>
         <div className="md:scrollbar-hidden mx-auto mt-20 max-w-full md:overflow-x-auto">
           <div className="mb-5 flex">
             <select
@@ -187,6 +178,7 @@ const Hero = () => {
             <div className="relative mb-10 mr-5 inline-block flex-1">
               <ReactSearchAutocomplete
                 className="[&>div>div>input]:shadow-none"
+                placeholder="Team Search"
                 items={teamList
                   .filter((f) => f.name.toLowerCase().indexOf(search?.toLowerCase() || '') > -1)
                   .slice(0, 10)}
@@ -214,6 +206,7 @@ const Hero = () => {
             <div className="relative mr-5 inline-block flex-1">
               <ReactSearchAutocomplete
                 className="[&>div>div>input]:shadow-none"
+                placeholder="User Search"
                 items={usersList
                   .filter((f) => f.name.toLowerCase().indexOf(searchUser?.toLowerCase() || '') > -1)
                   .slice(0, 10)}
@@ -251,7 +244,10 @@ const Hero = () => {
           <div className="min-w-[716px] md:min-w-[600px] md:px-7 sm:min-w-[300px] sm:px-4">
             <div className="grid grid-cols-[300px_1fr_200px_200px_90px] gap-x-5 border-b border-gray-2 pb-4 sm:grid-cols-[50px_160px_40px]">
               {leadersHeader.map((header, index) => (
-                <span className="font-medium uppercase" key={index}>
+                <span
+                  className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18"
+                  key={index}
+                >
                   {header}
                 </span>
               ))}
@@ -359,38 +355,7 @@ const Hero = () => {
             <span className="text-lg sm:text-[18px]">Back to Homepage</span>
           </div>
         </Link>
-        <Socials className="mt-10" />
       </div>
-      <Image
-        className="absolute left-0 top-[70px] -z-20 md:top-10 sm:top-12 sm:max-w-[360px] xs:max-w-[240px]"
-        src={bgLeftGlitch}
-        width={464}
-        height={78}
-        loading="eager"
-        alt="Left Glitch image"
-        priority
-        aria-hidden
-      />
-      <Image
-        className="absolute left-0 right-0 top-0 -z-10 md:hidden"
-        src={bgTitleGlitch}
-        width={1920}
-        height={219}
-        loading="eager"
-        alt="Center Glitch image"
-        priority
-        aria-hidden
-      />
-      <Image
-        className="absolute right-0 top-9 -z-20 md:top-12 sm:top-20 sm:max-w-[360px] xs:max-w-[260px]"
-        src={bgRightGlitch}
-        width={474}
-        height={105}
-        loading="eager"
-        alt="Right Glitch image"
-        priority
-        aria-hidden
-      />
     </section>
   );
 };
