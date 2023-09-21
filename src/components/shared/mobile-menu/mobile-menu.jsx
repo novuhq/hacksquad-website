@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-import SignUpButton from 'components/shared/old-sign-up-button';
+import SignUpButton from 'components/shared/sign-up-button';
 import MENUS from 'constants/menus';
 
 const ANIMATION_DURATION = 0.2;
