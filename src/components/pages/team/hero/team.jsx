@@ -12,6 +12,7 @@ import GitHubIcon from '../../../../icons/github.inline.svg';
 const Team = ({ info }) => {
   const session = useSession();
   const [contact, setContact] = useState('');
+  const [currentTeamName, setCurrentTeamName] = useState(info.team.name); // for disable state update button
   const [teamName, setTeamName] = useState(info.team.name);
   const [randomJoin, setRandomJoin] = useState(info.team.allowAutoAssign);
 
@@ -37,19 +38,33 @@ const Team = ({ info }) => {
     setContact('');
   }, [contact]);
 
-  const debounce = useDebouncedCallback(async (name, allowAutoAssign) => {
-    await fetch('/api/change-team', {
+  const updateTeamApi = (name, allowAutoAssign) =>
+    fetch('/api/change-team', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: JSON.stringify({
-        name,
-        allowAutoAssign,
-      }),
+      body: JSON.stringify({ name, allowAutoAssign }),
     });
+
+  const debounceRandomJoin = useDebouncedCallback(async (allowAutoAssign) => {
+    await updateTeamApi(currentTeamName, allowAutoAssign);
   }, 500);
+
+  const updateTeamName = async () => {
+    const response = await updateTeamApi(teamName, randomJoin);
+    const json = await response.json();
+
+    if (response.ok) {
+      setCurrentTeamName(teamName);
+      toast.success('Team name updated successfully!');
+    } else {
+      toast.error(json.error);
+    }
+  };
+
+  const handleChangeTeamName = (e) => setTeamName(e.target.value);
 
   const leaveTeam = async () => {
     if (!currentUser) return;
@@ -198,12 +213,19 @@ const Team = ({ info }) => {
                   type="text"
                   name="name"
                   value={teamName}
-                  onChange={(e) => {
-                    setTeamName(e.target.value);
-                    debounce(e.target.value, randomJoin);
-                  }}
+                  onChange={handleChangeTeamName}
                 />
               </label>
+              <div className="ml-3 inline-block border border-gray-1 px-4 text-center">
+                <button
+                  className="border-0 p-0"
+                  disabled={!teamName || currentTeamName == teamName}
+                  type="button"
+                  onClick={updateTeamName}
+                >
+                  Update
+                </button>
+              </div>
             </div>
             <div className="mb-5">
               <label>
@@ -220,7 +242,7 @@ const Team = ({ info }) => {
                   checked={randomJoin}
                   onClick={() => {
                     setRandomJoin(!randomJoin);
-                    debounce(teamName, !randomJoin);
+                    debounceRandomJoin(!randomJoin);
                   }}
                 />
               </label>
