@@ -2,12 +2,12 @@ import moment from 'moment';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import PropTypes from 'prop-types';
-import React, { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import { useDebouncedCallback } from 'use-debounce';
 
-import GitHubIcon from '../../../../icons/github.inline.svg';
+import GitHubIcon from 'icons/github.inline.svg';
 
 const Team = ({ info }) => {
   const session = useSession();
@@ -17,11 +17,11 @@ const Team = ({ info }) => {
 
   const invite = `${window.location.origin}/invite/${info.team.id}`;
 
-  //
   const currentUser = useMemo(
     () => info.team.users.find((user) => user?.email === session?.data?.user?.email),
     [info.team.users, session?.data?.user?.email]
   );
+
   const isCurrentUserNew = moment(currentUser.createdAt).isAfter(moment().subtract(3, 'days'));
 
   const sendMessage = useCallback(async () => {
@@ -83,13 +83,17 @@ const Team = ({ info }) => {
       <div className="gapy-y-1 mt-6 flex flex-wrap justify-center gap-x-5">
         {info.team.users.length < 5 && (
           <CopyToClipboard text={invite} onCopy={() => toast.success('Copied to Clipboard')}>
-            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
+            <button
+              className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
+              type="button"
+            >
               <svg
                 className="cta-btn-animation-border xs:w-full"
                 width="200"
                 height="59"
                 viewBox="0 0 268 59"
                 fill="none"
+                aria-hidden
               >
                 <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
               </svg>
@@ -97,34 +101,15 @@ const Team = ({ info }) => {
               <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
                 <span className="text-lg sm:text-[18px]">Invite people</span>
               </div>
-            </a>
+            </button>
           </CopyToClipboard>
         )}
 
         {isCurrentUserNew && info.team.users.length > 1 && (
-          <div onClick={leaveTeam}>
-            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
-              <svg
-                className="cta-btn-animation-border xs:w-full"
-                width="200"
-                height="59"
-                viewBox="0 0 268 59"
-                fill="none"
-              >
-                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-              </svg>
-
-              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-                <span className="text-lg sm:text-[18px]">Leave Team</span>
-              </div>
-            </a>
-          </div>
-        )}
-
-        <div>
-          <a
-            href="/bonuses"
+          <button
             className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
+            type="button"
+            onClick={leaveTeam}
           >
             <svg
               className="cta-btn-animation-border xs:w-full"
@@ -132,6 +117,29 @@ const Team = ({ info }) => {
               height="59"
               viewBox="0 0 268 59"
               fill="none"
+              aria-hidden
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
+
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">Leave Team</span>
+            </div>
+          </button>
+        )}
+
+        <div>
+          <Link
+            className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
+            href="/bonuses"
+          >
+            <svg
+              className="cta-btn-animation-border xs:w-full"
+              width="200"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+              aria-hidden
             >
               <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
             </svg>
@@ -139,26 +147,28 @@ const Team = ({ info }) => {
             <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
               <span className="text-lg sm:text-[18px]">Bonuses</span>
             </div>
-          </a>
+          </Link>
         </div>
 
         {!!info?.winners?.length && (
-          <Link href="/winner" legacyBehavior>
-            <a className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none">
-              <svg
-                className="cta-btn-animation-border xs:w-full"
-                width="200"
-                height="59"
-                viewBox="0 0 268 59"
-                fill="none"
-              >
-                <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
-              </svg>
+          <Link
+            className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
+            href="/winner"
+          >
+            <svg
+              className="cta-btn-animation-border xs:w-full"
+              width="200"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+              aria-hidden
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
 
-              <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-                <span className="text-lg sm:text-[18px]">Claim Prizes 🎉</span>
-              </div>
-            </a>
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">Claim Prizes 🎉</span>
+            </div>
           </Link>
         )}
       </div>
@@ -227,9 +237,15 @@ const Team = ({ info }) => {
             </div>
           </div>
           <div className="grid grid-cols-[230px_485px_230px_1fr] gap-x-5 border-b border-gray-2 pb-4 lg:grid-cols-[130px_390px_1fr_1fr] md:grid-cols-[130px_485px_230px_1fr] sm:grid-cols-[70px_150px_230px_1fr]">
-            <span className="font-medium uppercase">#</span>
-            <span className="font-medium uppercase">Name</span>
-            <span className="font-medium uppercase">GitHub</span>
+            <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+              #
+            </span>
+            <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+              Name
+            </span>
+            <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+              GitHub
+            </span>
           </div>
 
           {info.team.users.map((user, index) => (

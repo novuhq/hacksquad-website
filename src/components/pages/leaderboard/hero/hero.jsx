@@ -20,7 +20,7 @@ const Hero = ({ teams = [] }) => {
         <h1 className="max-w-2xl font-titles text-60 font-semibold leading-none md:text-42 xs:max-w-[246px]">
           Leaderboard
         </h1>
-        <div className="md:scrollbar-hidden mx-auto mt-[76px] w-[798px] md:w-full md:overflow-x-auto">
+        <div className="md:scrollbar-hidden mx-auto mt-[76px] w-[798px] md:-ml-4 md:w-screen md:overflow-x-auto">
           <div className="md:min-w-[700px] md:px-7 sm:px-4">
             <div className={tableGridClass}>
               {leadersHeader.map((header, index) => (
