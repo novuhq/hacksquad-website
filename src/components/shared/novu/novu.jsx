@@ -6,7 +6,7 @@ import React, { useCallback, useRef } from 'react';
 
 import CustomBell from './custom-bell';
 
-const Novu = ({ userEmail }) => {
+const Novu = ({ subscriberId }) => {
   const ref = useRef(null);
   const onClick = useCallback((notification) => {
     window.location.href = notification.cta.data.url;
@@ -14,7 +14,7 @@ const Novu = ({ userEmail }) => {
 
   return (
     <NovuProvider
-      subscriberId={userEmail}
+      subscriberId={subscriberId}
       applicationIdentifier={process.env.NEXT_PUBLIC_NOVU_APP_ID}
     >
       <PopoverNotificationCenter ref={ref} onNotificationClick={onClick}>
@@ -27,7 +27,7 @@ const Novu = ({ userEmail }) => {
 };
 
 Novu.propTypes = {
-  userEmail: PropTypes.string.isRequired,
+  subscriberId: PropTypes.string.isRequired,
 };
 
 export default Novu;

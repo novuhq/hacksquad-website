@@ -13,7 +13,7 @@ import logo from 'svgs/logo.svg';
 
 import SignUpButton from '../sign-up-button';
 
-const Header = ({ isAuthorized = false, userEmail }) => {
+const Header = ({ isAuthorized = false, subscriberId }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const { moderator, cleaner } = useModerator();
@@ -45,8 +45,7 @@ const Header = ({ isAuthorized = false, userEmail }) => {
                 </li>
               )}
             </ul>
-
-            {isAuthorized && <Novu userEmail={userEmail} />}
+            {isAuthorized && <Novu subscriberId={subscriberId} />}
             <SignUpButton
               size="sm"
               theme="outline"
@@ -56,7 +55,6 @@ const Header = ({ isAuthorized = false, userEmail }) => {
               {!isAuthorized ? 'Join now' : 'My Squad'}
             </SignUpButton>
           </nav>
-
           <Burger
             className="hidden md:block"
             isToggled={isMobileMenuOpen}
@@ -75,7 +73,7 @@ const Header = ({ isAuthorized = false, userEmail }) => {
 
 Header.propTypes = {
   isAuthorized: PropTypes.bool,
-  userEmail: PropTypes.string,
+  subscriberId: PropTypes.string,
 };
 
 export default Header;

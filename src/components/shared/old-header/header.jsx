@@ -57,7 +57,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
               )}
             </ul>
           </nav>
-          {isAuthorized && <Novu userEmail={data?.user?.githubHandle || undefined} />}
+          {isAuthorized && <Novu subscriberId={data?.user?.githubHandle || undefined} />}
           <SignUpButton
             className="min-w-[135px]"
             size="sm"
