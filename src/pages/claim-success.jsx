@@ -1,5 +1,6 @@
 import Hero from 'components/pages/claim-success/hero';
 import Topfab from 'components/shared/FAB/topfab';
+import JoinUs from 'components/shared/join-us';
 import LayoutMain from 'layouts/layouts/layout-main';
 
 const ThankYou = () => (
@@ -10,6 +11,7 @@ const ThankYou = () => (
     withoutFooter
   >
     <Hero />
+    <JoinUs />
     <Topfab />
   </LayoutMain>
 );
