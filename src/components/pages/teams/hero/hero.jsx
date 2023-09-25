@@ -45,7 +45,7 @@ const Hero = ({ team }) => {
 
         {moderator && (
           <button
-            className="cta-btn-animation relative mt-3 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6"
+            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6"
             type="button"
             onClick={changeTeamStatus}
           >
