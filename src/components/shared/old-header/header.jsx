@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Burger from 'components/shared/burger';
+import Novu from 'components/shared/novu';
 import SignUpButton from 'components/shared/sign-up-button';
 import MENUS from 'constants/menus';
 import logo from 'svgs/logo.svg';
 
 import { toDisplay } from '~/helpers/events';
-import Novu from '~/helpers/novu';
 import useModerator from '~/helpers/use.moderator';
 
 const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
   const display = toDisplay();
   const { moderator, cleaner } = useModerator();
-  const { status } = useSession();
+  const { data, status } = useSession();
   const isAuthorized = status === 'authenticated';
 
   return (
@@ -28,7 +28,6 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
         <Link href="/">
           <img src={logo} width={39} height={38} alt="Hacksquad" />
         </Link>
-
         <div className="flex items-center space-x-10 md:hidden">
           <nav>
             <ul className="flex space-x-10 md:space-x-6">
@@ -58,7 +57,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
               )}
             </ul>
           </nav>
-          <Novu />
+          {isAuthorized && <Novu userEmail={data?.user?.githubHandle || undefined} />}
           <SignUpButton
             className="min-w-[135px]"
             size="sm"
