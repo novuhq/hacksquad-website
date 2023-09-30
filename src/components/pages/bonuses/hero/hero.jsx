@@ -2,9 +2,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import DevToAccount from '../../../shared/devto/dev.to';
 import DevToAccountList from '../../../shared/devto/dev.to.list';
-import DevToToolTip from '../../../shared/devto/tooltip';
 import InviteButton from '../../../shared/invite/invite.button';
 
 import DiscordIcon from './images/discord.inline.svg';
@@ -28,20 +26,12 @@ const Hero = ({ devto }) => (
           </div>
           <ul>
             <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
-              <span className="sm:hidden">2</span>
+              <span className="sm:hidden">1</span>
               <span>Friend invite</span>
               <span>1 per friend [Max:5]</span>
               <span>
                 <InviteButton />
               </span>
-            </li>
-            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
-              <span className="sm:hidden">3</span>
-              <span>
-                <DevToToolTip />
-              </span>
-              <span>1 point</span>
-              <span>{devto ? 'Connected' : <DevToAccount />}</span>
             </li>
             {!!devto && <DevToAccountList />}
           </ul>
