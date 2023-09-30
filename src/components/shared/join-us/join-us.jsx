@@ -40,7 +40,7 @@ const JoinUs = () => (
       {socialList.map(({ icon, name, text, link, linkText }, index) => (
         <li className="border-with-gradient col-span-4 sm:col-span-full" key={index}>
           <Link
-            className="group flex flex-col items-center justify-center rounded-[6px] bg-join-us px-7 py-7 hover:bg-join-us-hover md:p-6"
+            className="group flex flex-col items-center justify-center rounded-[5px] bg-join-us px-7 py-7 hover:bg-join-us-hover md:p-6"
             to={link}
           >
             <img src={icon} width={40} height={40} alt="" loading="lazy" />

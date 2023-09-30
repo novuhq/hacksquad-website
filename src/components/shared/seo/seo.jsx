@@ -8,12 +8,12 @@ const description =
 const Seo = ({ isRobotsNoindexPage }) => (
   <Head>
     <title>{title}</title>
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon/favicon.png" type="image/png" />
     {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
     {/* Open Graph */}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://www.hacksquad.dev/social-preview.jpg" />
+    <meta property="og:image" content="https://www.hacksquad.dev/images/social-previews/main.jpg" />
     <meta property="og:type" content="website" />
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />

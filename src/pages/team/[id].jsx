@@ -18,7 +18,9 @@ const Team = ({ team }) => (
 
 export async function getServerSideProps(context) {
   // Call an external API endpoint to get posts
-  const res = await fetch(`${process.env.HOST}/api/team?id=${context.params.id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/team?id=${context.params.id}`
+  );
   const { team } = await res.json();
 
   if (!team?.id) {

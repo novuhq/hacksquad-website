@@ -11,6 +11,7 @@
 /* Components */
 @import './container.css';
 @import './button-animation.css';
+@import './border-with-gradient.css';
 @import './fab.css';
 
 /* Utilities */

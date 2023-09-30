@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
           <div className="relative flex min-h-screen flex-col">
             <Header
               isAuthorized={!!session}
-              userEmail={session && session.user ? session.user.githubHandle : undefined}
+              subscriberId={session?.user?.githubHandle || undefined}
             />
             <main className="flex-1">{children}</main>
             <Footer isAuthorized={!!session} />

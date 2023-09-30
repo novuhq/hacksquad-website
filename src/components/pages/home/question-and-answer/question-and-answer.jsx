@@ -68,7 +68,8 @@ const items = [
       <>
         Each squad can have a maximum of 5 members.
         <br />
-        If you can't find all 5, you can always turn on the "Allow random people to join my squad"
+        If you can&apos;t find all 5, you can always turn on the &quot;Allow random people to join
+        my squad&quot;
         <br />
       </>
     ),
@@ -104,7 +105,9 @@ const items = [
         </li>
         <li>- You are not allowed to contribute to your own repository</li>
         <li>- Avoid Cannibalism with a racist connotation</li>
-        <li>- Avoid Mockery of parents' grief over the loss of children Implied child death</li>
+        <li>
+          - Avoid Mockery of parents&apos; grief over the loss of children Implied child death
+        </li>
         <li>- Avoid Insults toward a religious figure</li>
         <li>- The rules can be changed at any time</li>
       </ul>
@@ -158,8 +161,12 @@ const items = [
   },
   {
     question: 'I want to create a workshop for the event during October',
-    answer:
-      "That's awesome! We would be super happy to give you a stage, please email us at nevo@novu.co",
+    answer: (
+      <>
+        That&apos;s awesome! We would be super happy to give you a stage, please email us at{' '}
+        <a href="mailto:nevo@novu.co">nevo@novu.co</a>
+      </>
+    ),
   },
 ];
 
@@ -194,7 +201,6 @@ const QuestionAndAnswer = ({ isAuthorized = false }) => {
                   key={index}
                   initial="from"
                   animate={isActive ? 'to' : 'exit'}
-                  role="button"
                   tabIndex="0"
                   onClick={handleHeaderClick}
                   onKeyDown={handleHeaderClick}
@@ -217,7 +223,9 @@ const QuestionAndAnswer = ({ isAuthorized = false }) => {
                     className="text-with-link max-w-[920px] overflow-hidden"
                     variants={itemContentVariants}
                   >
-                    <p className="mt-4 space-y-2.5 text-16 leading-normal text-gray-1">{answer}</p>
+                    <div className="mt-4 space-y-2.5 text-16 leading-normal text-gray-1">
+                      {answer}
+                    </div>
                   </m.div>
                 </m.li>
               );

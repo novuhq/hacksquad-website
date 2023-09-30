@@ -27,6 +27,14 @@
     }
   }
 
+  .text-with-gray-hashtags {
+    @apply mt-6 inline-flex flex-wrap gap-x-1;
+
+    span {
+      @apply text-white text-opacity-60;
+    }
+  }
+
   .coming-soon-animation span {
     animation-name: blink;
     animation-duration: 1.4s;
@@ -48,6 +56,45 @@
     }
     20% {
       opacity: 1;
+    }
+  }
+
+  .fab-btn {
+    position: fixed;
+    background: #000000bd;
+    bottom: 80px;
+    right: 60px;
+    z-index: 999;
+    border: 1px solid white;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .fab-btn:hover span {
+    display: block;
+    animation: fab-animation 1.2s linear infinite;
+  }
+
+  .fab-btn:hover {
+    background-color: white;
+    color: black;
+  }
+
+  @keyframes fab-animation {
+    50% {
+      transform: translateY(-0.5rem);
+    }
+    100% {
+      transform: translateY(0rem);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .fab-btn {
+      bottom: 38px;
+      right: 20px;
     }
   }
 }

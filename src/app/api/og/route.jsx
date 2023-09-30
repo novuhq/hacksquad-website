@@ -20,7 +20,7 @@ export async function GET(request) {
     const ticketId = searchParams.get('ticketId');
     const handle = searchParams.get('handle');
     const name = searchParams.get('name') !== 'null' ? searchParams.get('name') : handle;
-    const shortName = getShortName(name);
+    const shortName = ticketId === '0000000001' ? name : getShortName(name);
     const color = searchParams.get('colorSchema') || '1';
     const textColor =
       color === '1'

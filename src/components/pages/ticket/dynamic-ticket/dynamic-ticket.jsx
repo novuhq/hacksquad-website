@@ -47,7 +47,7 @@ const colorVariants = [
 ];
 
 const DynamicTicket = ({
-  user: { name, handle: githubHandle, colorSchema, ticketId },
+  user: { name, handle: githubHandle, colorSchema, ticketId, team },
   isAuthorized = false,
   isDefault = false,
   isHomeSection = false,
@@ -117,18 +117,18 @@ const DynamicTicket = ({
         'flex flex-col justify-center overflow-x-clip',
         isHomeSection
           ? 'py-[100px] md:py-20 sm:py-16 xs:py-12'
-          : 'h-screen min-h-[800px] overflow-hidden py-20'
+          : 'min-h-screen overflow-hidden py-20'
       )}
     >
       <div className="container grid grid-cols-12 gap-10 lg:grid-cols-1 lg:gap-0">
         <div className="col-span-6 self-center pr-16 lg:col-span-full lg:pr-0 lg:text-center">
-          <h2 className="max-w-3xl font-titles text-60 font-semibold leading-1.125 lg:mx-auto lg:text-42 md:text-36">
+          <h2 className="max-w-[488px] font-titles text-60 font-semibold leading-1.125 lg:mx-auto lg:text-42 md:text-36">
             {/* eslint-disable-next-line no-nested-ternary */}
             {isDefault ? (
               <>
                 Share your <br /> Hacksquad spirit
               </>
-            ) : isAuthorized ? (
+            ) : isAuthorized && isOwnPage ? (
               <>
                 You’re In. <br /> Make it Unique.
               </>
@@ -136,41 +136,55 @@ const DynamicTicket = ({
               `${name}’s Ticket`
             )}
           </h2>
-          <p className="text-grey-1 mt-5 max-w-3xl text-20 leading-normal lg:mx-auto md:text-18">
+          <div className="mt-5 max-w-[468px] lg:mx-auto">
             {/* eslint-disable-next-line no-nested-ternary */}
             {isDefault ? (
-              'Create and share your custom ticket to join our giveaway and win great prizes!'
-            ) : isAuthorized ? (
+              <p className="text-20 leading-normal text-gray-1 md:text-18">
+                Create and share your custom ticket to join our giveaway and win great prizes!
+              </p>
+            ) : isAuthorized && isOwnPage ? (
               <>
-                Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway of
-                SWAG!
-                <br />
-                <span className="text-[14px] text-[#ff0000]">** </span>{' '}
-                <span className="text-[14px]">
-                  Make sure you tag @HackSquadDev and the sponsors so we can track your post
+                <p className="text-20 leading-normal text-gray-1 md:text-18">
+                  Share your ticket on X, mention HackSquad and the sponsors, and join our giveaway
+                  of SWAG!
+                </p>
+                <span className="mt-5 block text-14 text-white opacity-40">
+                  *Make sure you tag @HackSquadDev and the sponsors so we can track your post
                 </span>
               </>
             ) : (
-              `Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`
+              <p className="text-20 leading-normal text-gray-1 md:text-18">
+                {`Join ${name} at Hacksquad 2023, get your exclusive ticket and win SWAG.`}
+              </p>
             )}
-          </p>
-          <div className="mt-10 flex items-center gap-x-5 lg:justify-center lg:gap-x-3">
-            {!isAuthorized || !isHomeSection ? (
+          </div>
+          <div className="mt-10 flex flex-wrap items-center gap-5 lg:justify-center lg:gap-x-3">
+            {!isAuthorized ? (
+              <SignUpButton className="shrink-0" size="md" theme="fill-yellow">
+                Create your ticket
+              </SignUpButton>
+            ) : null}
+
+            {isAuthorized && !isOwnPage && team?.slug ? (
               <SignUpButton
                 className="shrink-0"
                 size="md"
                 theme="fill-yellow"
-                to={isAuthorized ? '/myteam' : null}
-                isSignInButton={!isAuthorized}
+                to={`/team/${team.slug}`}
               >
-                {!isAuthorized ? 'Create your ticket' : 'My Squad'}
+                Squad
               </SignUpButton>
             ) : null}
 
             {isAuthorized && isOwnPage && (
-              <SocialShare
-                url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}
-              />
+              <>
+                <SignUpButton className="shrink-0" size="md" theme="fill-yellow" to="/myteam">
+                  My Squad
+                </SignUpButton>
+                <SocialShare
+                  url={`${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/ticket/${githubHandle}`}
+                />
+              </>
             )}
           </div>
         </div>
@@ -226,7 +240,7 @@ const DynamicTicket = ({
                 </header>
                 <div className="mt-auto px-8 pb-6 xs:px-4 xs:pb-4">
                   <p className="text-36 font-medium leading-none text-white xs:text-24">
-                    {getShortName(name)}
+                    {ticketId === '0000000001' ? name : getShortName(name)}
                   </p>
                   <p
                     className={clsx('mt-3 flex items-center gap-x-3 text-18 leading-none', {
@@ -278,14 +292,14 @@ const DynamicTicket = ({
                 width={626}
                 height={355}
                 quality={95}
-                alt="Ticket background"
+                alt={`Ticket background ${ticketId}`}
                 priority={!isHomeSection}
               />
             </section>
 
             {isColorPickerShow && (
               <div className="mt-8 flex items-center gap-6 lg:my-7 lg:justify-center sm:flex-wrap">
-                <p className="text-grey-1 text-18 leading-none lg:text-16 sm:w-full sm:text-center">
+                <p className="text-18 leading-none text-gray-1 lg:text-16 sm:w-full sm:text-center">
                   Pick a color:
                 </p>
                 <div className="flex gap-5 lg:gap-4">
@@ -348,6 +362,9 @@ DynamicTicket.propTypes = {
     handle: PropTypes.string.isRequired,
     colorSchema: PropTypes.string.isRequired,
     ticketId: PropTypes.number.isRequired,
+    team: PropTypes.shape({
+      slug: PropTypes.string,
+    }),
   }).isRequired,
   isAuthorized: PropTypes.bool,
   isDefault: PropTypes.bool,
