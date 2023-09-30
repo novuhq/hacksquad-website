@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-import DevToAccountList from '../../../shared/devto/dev.to.list';
 import InviteButton from '../../../shared/invite/invite.button';
+
+import StarTheLibrary from './star.the.library';
 
 const title = 'Bonuses';
 
-const Hero = ({ devto }) => (
+const Hero = ({ findStars }) => (
   <section className="safe-paddings relative">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center py-16">
       <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{title}</h1>
@@ -35,7 +36,36 @@ const Hero = ({ devto }) => (
                 <InviteButton />
               </span>
             </li>
-            {!!devto && <DevToAccountList />}
+            <StarTheLibrary
+              number={2}
+              name="Novu"
+              library="novuhq/novu"
+              accepted={findStars.find((item) => item.library === 'novuhq/novu')}
+            />
+            <StarTheLibrary
+              number={3}
+              name="ToolJet"
+              library="tooljet/tooljet"
+              accepted={findStars.find((item) => item.library === 'tooljet/tooljet')}
+            />
+            <StarTheLibrary
+              number={4}
+              name="Wasp"
+              library="wasp-lang/wasp"
+              accepted={findStars.find((item) => item.library === 'wasp-lang/wasp')}
+            />
+            <StarTheLibrary
+              number={5}
+              name="Hanko"
+              library="teamhanko/hanko"
+              accepted={findStars.find((item) => item.library === 'teamhanko/hanko')}
+            />
+            <StarTheLibrary
+              number={6}
+              name="CrowdDev"
+              library="CrowdDotDev/crowd.dev"
+              accepted={findStars.find((item) => item.library === 'CrowdDotDev/crowd.dev')}
+            />
           </ul>
         </div>
       </div>
@@ -65,6 +95,7 @@ Hero.propTypes = {
   teams: PropTypes.array,
   twitter: PropTypes.bool,
   devto: PropTypes.bool,
+  findStars: PropTypes.array,
 };
 
 export default Hero;
