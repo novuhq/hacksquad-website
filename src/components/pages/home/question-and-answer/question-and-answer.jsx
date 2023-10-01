@@ -104,11 +104,7 @@ const items = [
           comply with the Rule of Reason
         </li>
         <li>- You are not allowed to contribute to your own repository</li>
-        <li>- Avoid Cannibalism with a racist connotation</li>
-        <li>
-          - Avoid Mockery of parents&apos; grief over the loss of children Implied child death
-        </li>
-        <li>- Avoid Insults toward a religious figure</li>
+        <li>- Avoid Mockery of any kind</li>
         <li>- The rules can be changed at any time</li>
       </ul>
     ),
