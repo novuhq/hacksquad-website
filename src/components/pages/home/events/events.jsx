@@ -1,68 +1,75 @@
 /* eslint-disable no-unused-vars */
 import clsx from 'clsx';
+import moment from 'moment';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 
 import SignUpButton from 'components/shared/sign-up-button';
-import CalendarIcon from 'svgs/calendar.inline.svg';
+
+const DateComponent = dynamic(() => import('./date.component'), { ssr: false });
 
 const title = 'Welcome to Hacksquad';
 const eventsHeader = ['Date', 'Event', 'Company', 'RSVP'];
 const events = [
   {
-    date: 'Oct 12, 2023 <br/> 9:00 AM',
-    startDate: '20231012T090000',
-    endDate: '20231012T120000',
-    title: 'Get started with open-source contributions with ToolJet',
-    company: 'Teja <a href="https://link.com" target="_blank">@ToolJet</a>',
-    rsvp: '',
+    date: '2023-10-03T13:00:00',
+    title: 'How to Hacktoberfest: Navigating Open Source Contributions for Beginners and Veterans',
+    company: 'Teja @ <a href="https://www.tooljet.com" target="_blank">ToolJet</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157928067692498964',
   },
   {
-    date: 'Oct 15, 2023 <br/> 5:00 PM',
-    startDate: '20231015T090000',
-    endDate: '20231015T120000',
-    title: 'Building a Discord bot in Rust, Javascript and Python',
-    company: 'Community Event',
-    rsvp: '',
+    date: '2023-10-05T13:00:00',
+    title: 'Hacktoberfest 2023: Paving the Way with ToolJet',
+    company: 'Teja @ <a href="https://www.tooljet.com" target="_blank">ToolJet</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157928342788522004',
   },
   {
-    date: 'Oct 19, 2023 <br/> 3:00 PM',
-    startDate: '20231019T090000',
-    endDate: '20231019T120000',
-    title: 'Extending and embedding open-source projects',
-    company: 'Raz <a href="https://link.com" target="_blank">@Permit.io</a>',
-    rsvp: '',
+    date: '2023-10-09T15:00:00',
+    title: 'The Future of Web Authentication – Passkeys and Their Benefits When Building Apps',
+    company: 'Felix @ <a href="https://www.hanko.io/" target="_blank">Hanko</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157928619721637990',
   },
   {
-    date: 'Oct 19, 2023 <br/> 9:00 PM',
-    startDate: '20231019T090000',
-    endDate: '20231019T120000',
-    title: 'Contributing to a GitHub repository',
-    company: 'Michael <a href="https://link.com" target="_blank">@Amplication</a>',
-    rsvp: '',
+    date: '2023-10-10T15:00:00',
+    title: 'Building a Nuxt app (+NuxtUI) with passkey authentication',
+    company: 'Felix @ <a href="https://www.hanko.io/" target="_blank">Hanko</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157928782674546730',
   },
   {
-    date: 'Oct 26, 2023 <br/> 12:00 PM',
-    startDate: '20231026T090000',
-    endDate: '20231026T120000',
-    title: 'How to add a real-time notification center to your React app with Novu and Next.js',
-    company: 'Dima <a href="https://link.com" target="_blank">@Novu</a>',
-    rsvp: '',
+    date: '2023-10-17T13:00:00',
+    title: 'How to build an authentication system with NextJS',
+    company: 'Prosper @ <a href="https://www.novu.co/" target="_blank">Novu</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157929070219239434',
   },
   {
-    date: 'Oct 26, 2023 <br/> 3:00 PM',
-    startDate: '20231026T090000',
-    endDate: '20231026T120000',
-    title: 'Building a Notion like system with Nest.js, React and Novu',
-    company: 'Nevo <a href="https://link.com" target="_blank">@Novu</a>',
-    rsvp: '',
+    date: '2023-10-19T13:00:00',
+    title: 'How to build a Chat app with Websockets',
+    company: 'Nevo @ <a href="https://www.novu.co/" target="_blank">Novu</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930048616153119',
   },
   {
-    date: 'Oct 26, 2023 <br/> 9:00 PM',
-    startDate: '20231026T090000',
-    endDate: '20231026T120000',
-    title: 'How to build on Ethereum using Scaffold-ETH',
-    company: 'Kevin <a href="https://link.com" target="_blank">@Scaffold-ETH</a>',
-    rsvp: '',
+    date: '2023-10-23T13:00:00',
+    title: 'How to build a community for your open source project',
+    company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930272998830170',
+  },
+  {
+    date: '2023-10-26T13:00:00',
+    title: 'How to land a job in tech by contributing to open-source',
+    company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930468017197115',
+  },
+  {
+    date: '2023-10-30T13:00:00',
+    title: 'Outsmarting AI: The hack for generating working full-stack apps',
+    company: 'Wasp @ <a href="https://wasp-lang.dev/" target="_blank">Wasp</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930699928633426',
+  },
+  {
+    date: '2023-10-31T13:00:00',
+    title: "Mastering OpenAI's API: Building a Meme Generator",
+    company: 'Wasp @ <a href="https://wasp-lang.dev/" target="_blank">Wasp</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930924705583144',
   },
 ];
 
@@ -85,26 +92,26 @@ const Events = ({ isAuthorized = false }) => (
 
     <div className="container mt-[73px] md:mt-16 md:px-0 sm:mt-10">
       {/* TODO: Remove this block completely after the publication of events  */}
-      <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
-        <div className="container">
-          <div className="grid grid-cols-[230px_575px_200px_1fr] gap-x-5 border-b border-white border-opacity-20 pb-4 lg:grid-cols-[130px_390px_200px_1fr] md:grid-cols-[1fr_1fr_1fr_1fr]">
-            {eventsHeader.map((event, index) => (
-              <span className="font-medium uppercase" key={index}>
-                {event}
-              </span>
-            ))}
-          </div>
+      {/* <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto"> */}
+      {/*   <div className="container"> */}
+      {/*     <div className="grid grid-cols-[230px_575px_200px_1fr] gap-x-5 border-b border-white border-opacity-20 pb-4 lg:grid-cols-[130px_390px_200px_1fr] md:grid-cols-[1fr_1fr_1fr_1fr]"> */}
+      {/*       {eventsHeader.map((event, index) => ( */}
+      {/*         <span className="font-medium uppercase" key={index}> */}
+      {/*           {event} */}
+      {/*         </span> */}
+      {/*       ))} */}
+      {/*     </div> */}
 
-          <span className="coming-soon-animation block border-b border-white border-opacity-20 py-4 text-center">
-            Coming soon <span>.</span>
-            <span>.</span>
-            <span>.</span>
-          </span>
-        </div>
-      </div>
+      {/*     <span className="coming-soon-animation block border-b border-white border-opacity-20 py-4 text-center"> */}
+      {/*       Coming soon <span>.</span> */}
+      {/*       <span>.</span> */}
+      {/*       <span>.</span> */}
+      {/*     </span> */}
+      {/*   </div> */}
+      {/* </div> */}
 
       {/* TODO: Display this block after events are published */}
-      {/* <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
+      <div className="md:scrollbar-hidden mx-auto max-w-[1220px] md:max-w-none md:overflow-x-auto">
         <div className="md:min-w-[1080px] sm:px-4">
           <div className={clsx('border-b border-white border-opacity-20 pb-4', tableGridClass)}>
             {eventsHeader.map((event, index) => (
@@ -115,30 +122,37 @@ const Events = ({ isAuthorized = false }) => (
           </div>
 
           <ul>
-            {events.map(({ date, title, company, startDate, endDate }, index) => (
+            {events.map(({ date, title, company, startDate, endDate, rsvp }, index) => (
               <li
-                className={clsx('border-b border-white border-opacity-20 py-4', tableGridClass)}
+                className={clsx(
+                  'border-b border-white border-opacity-20 py-4',
+                  tableGridClass,
+                  moment().isAfter(date) && 'pointer-events-none opacity-40'
+                )}
                 key={index}
               >
-                <span className="text-gray-1" dangerouslySetInnerHTML={{ __html: date }} />
-                <p className="max-w-md font-medium">{title}</p>
+                <DateComponent date={date} />
+                <p className="max-w-md font-medium">
+                  <span className="mr-2">{title}</span>
+                  <a className="hover:before-opacity-70 relative inline-flex max-w-full items-center justify-center gap-4 rounded-sm bg-yellow p-1 text-xs leading-none text-black transition-colors duration-200 before:absolute before:top-1/2 before:-z-10 before:w-full before:-translate-y-1/2 before:rounded before:bg-cta-hover-blur before:opacity-0 before:blur-xl before:transition-opacity before:duration-200 hover:bg-[#FFF263] hover:before:opacity-70">
+                    3 Swag Giveaways
+                  </a>
+                </p>
                 <p className="text-with-link" dangerouslySetInnerHTML={{ __html: company }} />
                 <span>
                   <a
-                    className="inline-flex items-center gap-x-2.5 rounded-[2px] bg-[rgba(255,255,255,0.10)] px-2.5 py-1 text-14 leading-1.125"
+                    href={rsvp}
                     target="_blank"
-                    href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&location="World Wide Web"&amp;sprop=&amp;sprop=name:`}
-                    rel="noreferrer"
+                    className="hover:before-opacity-70 relative inline-flex h-11 max-w-full items-center justify-center gap-4 rounded-sm bg-yellow px-5 text-sm font-bold leading-none text-black transition-colors duration-200 before:absolute before:top-1/2 before:-z-10 before:h-[48px] before:w-full before:-translate-y-1/2 before:rounded before:bg-cta-hover-blur before:opacity-0 before:blur-xl before:transition-opacity before:duration-200 hover:bg-[#FFF263] hover:before:opacity-70 md:px-6 md:text-16 sm:text-14 xs:h-9 xs:px-3" rel="noreferrer"
                   >
-                    <CalendarIcon aria-hidden />
-                    Add to calendar
+                    DISCORD RSVP!
                   </a>
                 </span>
               </li>
             ))}
           </ul>
         </div>
-      </div> */}
+      </div>
     </div>
 
     <div className="container text-center">
