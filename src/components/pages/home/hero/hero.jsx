@@ -20,7 +20,7 @@ const description = (
 );
 
 const Hero = () => (
-  <section className="safe-paddings relative pt-[244px] pb-26 sm:pt-32 sm:pb-20">
+  <section className="safe-paddings relative pt-[244px] pb-26 sm:pt-32 sm:pb-20 w-full fixed top-0">
     <div className="container relative z-10 flex flex-col items-center">
       <div className="relative">
         <div className="relative">
