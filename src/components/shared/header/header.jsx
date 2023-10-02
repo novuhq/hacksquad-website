@@ -17,8 +17,8 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
 
   return (
     <header
-      className={`safe-paddings
-       fixed bg-gradient-to-b from-black/50 backdrop-blur-md
+     className={`safe-paddings
+       ${absolute && "fixed bg-gradient-to-b from-black/50 backdrop-blur-md"}
         z-40 w-full`}
     >
       <div className="container flex items-center justify-between py-5 md:py-4 sm:py-3.5">
