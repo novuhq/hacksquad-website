@@ -17,9 +17,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick, absolute }) => {
 
   return (
     <header
-      className={`safe-paddings ${
-        absolute ? `absolute ${!!display && 'top-12'} left-0 right-0` : ''
-      } z-40 w-full`}
+     className={`safe-paddings
+       ${absolute && "fixed bg-gradient-to-b from-black/50 backdrop-blur-md"}
+        z-40 w-full`}
     >
       <div className="container flex items-center justify-between py-5 md:py-4 sm:py-3.5">
         <Link href="/" passHref>
