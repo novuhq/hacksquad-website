@@ -170,7 +170,9 @@ const Hero = ({ team }) => {
                         DELETED:{' '}
                       </span>
                     )}
-                    <a href={`https://github.com${pr.url}`}>https://github.com{pr.url}</a>
+                    <a target="_blank" href={`https://github.com${pr.url}`} rel="noreferrer">
+                      https://github.com{pr.url}
+                    </a>
                   </p>
                   <p className="font-medium">
                     <a
