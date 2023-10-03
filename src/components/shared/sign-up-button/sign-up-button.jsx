@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { signIn } from 'next-auth/react';
+import { usePlausible } from 'next-plausible';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
@@ -25,6 +26,7 @@ const styles = {
 
 const SignUpButton = ({ className = null, to = null, size = 'sm', theme, children }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const plausible = usePlausible();
 
   const Tag = to ? Link : 'button';
 
@@ -32,6 +34,7 @@ const SignUpButton = ({ className = null, to = null, size = 'sm', theme, childre
     e.preventDefault();
 
     setIsLoading(true);
+    plausible('registration');
     signIn('github', {
       callbackUrl: '/ticket',
     });

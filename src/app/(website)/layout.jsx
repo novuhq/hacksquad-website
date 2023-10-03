@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import PlausibleProvider from 'next-plausible';
 
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
@@ -22,14 +23,16 @@ export default async function RootLayout({ children }) {
       <head />
       <body>
         <NextAuthSessionProvider>
-          <div className="relative flex min-h-screen flex-col">
-            <Header
-              isAuthorized={!!session}
-              subscriberId={session?.user?.githubHandle || undefined}
-            />
-            <main className="flex-1">{children}</main>
-            <Footer isAuthorized={!!session} />
-          </div>
+          <PlausibleProvider domain="hacksquad.dev">
+            <div className="relative flex min-h-screen flex-col">
+              <Header
+                isAuthorized={!!session}
+                subscriberId={session?.user?.githubHandle || undefined}
+              />
+              <main className="flex-1">{children}</main>
+              <Footer isAuthorized={!!session} />
+            </div>
+          </PlausibleProvider>
         </NextAuthSessionProvider>
       </body>
     </html>
