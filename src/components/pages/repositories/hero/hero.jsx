@@ -68,7 +68,7 @@ const Hero = () => {
                   key={l.id}
                   className="grid grid-cols-[50px_1fr_180px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[50px_160px_40px]"
                 >
-                  <span>1</span>
+                  <span />
                   <p className="truncate font-medium">{l.url}</p>
                   <span>
                     <RepositoryStatus url={l.url.split('.com')[1]} />
