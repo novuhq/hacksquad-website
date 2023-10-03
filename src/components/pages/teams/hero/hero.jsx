@@ -152,7 +152,9 @@ const Hero = ({ team }) => {
                     https://github.com{pr.url}
                   </p>
                   <p className="font-medium">
-                    <a href={pr.url} target="_blank" rel="noreferrer">
+                    <a href={
+                      `https://github.com${pr.url}`
+                    } target="_blank" rel="noreferrer">
                       <GitHubIcon className="h-[30px]" />
                     </a>
                   </p>
