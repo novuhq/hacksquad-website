@@ -170,11 +170,16 @@ const Hero = ({ team }) => {
                         DELETED:{' '}
                       </span>
                     )}
-                    https://github.com{pr.url}
+                    <a href={`https://github.com${  pr.url}`}>https://github.com{pr.url}</a>
                   </p>
                   <p className="font-medium">
-                    <a href={pr.url} target="_blank" rel="noreferrer">
-                      <GitHubIcon className="h-[30px]" />
+                    <a
+                      href={`https://analyzemyrepo.com/analyze${  pr.url}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-white"
+                    >
+                      <img src="https://uploads-ssl.webflow.com/635150609746eee5c60c4aac/635561187e62507156070c88_crowd_dev_icon.svg" />
                     </a>
                   </p>
 
