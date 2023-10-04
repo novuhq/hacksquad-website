@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+import PlausibleProvider from 'next-plausible';
 
 const fontsBasePath = '/fonts';
 
@@ -26,8 +27,10 @@ class MyDocument extends Document {
           ))}
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <PlausibleProvider domain="hacksquad.dev">
+            <Main />
+            <NextScript />
+          </PlausibleProvider>
         </body>
       </Html>
     );
