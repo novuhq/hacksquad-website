@@ -50,7 +50,7 @@ const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
           (if you already gave a star, remove the star and star again)
         </a>
       </span>
-      <span>{bonus || 5} points</span>
+      <span>{bonus || 1} points</span>
       <span>
         {starred ? (
           <span>Accepted</span>
