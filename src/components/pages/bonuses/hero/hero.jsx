@@ -70,6 +70,7 @@ const Hero = ({ findStars }) => (
               number={7}
               name="ClickVote"
               library="clickvote/clickvote"
+              bonus={1}
               accepted={findStars.find((item) => item.library === 'clickvote/clickvote')}
             />
           </ul>
