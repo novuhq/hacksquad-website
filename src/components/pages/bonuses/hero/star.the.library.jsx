@@ -1,3 +1,4 @@
+import { usePlausible } from 'next-plausible';
 import PropTypes from 'prop-types';
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -5,6 +6,7 @@ import { toast } from 'react-toastify';
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
 const StarTheLibrary = ({ number, name, library, accepted }) => {
+  const plausible = usePlausible();
   const [starred, setStarred] = useState(accepted);
   const test = useCallback(async () => {
     const data = await (
@@ -19,6 +21,7 @@ const StarTheLibrary = ({ number, name, library, accepted }) => {
     ).json();
 
     if (data.finish) {
+      plausible('star-the-library', { props: { library } });
       setStarred(true);
     } else {
       toast.error('No star found, please try to remove star and add again');
