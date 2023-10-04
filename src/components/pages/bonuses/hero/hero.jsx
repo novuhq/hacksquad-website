@@ -66,6 +66,12 @@ const Hero = ({ findStars }) => (
               library="CrowdDotDev/crowd.dev"
               accepted={findStars.find((item) => item.library === 'CrowdDotDev/crowd.dev')}
             />
+            <StarTheLibrary
+              number={7}
+              name="ClickVote"
+              library="clickvote/clickvote"
+              accepted={findStars.find((item) => item.library === 'clickvote/clickvote')}
+            />
           </ul>
         </div>
       </div>

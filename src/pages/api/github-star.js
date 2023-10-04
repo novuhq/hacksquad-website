@@ -8,6 +8,7 @@ const list = [
   'wasp-lang/wasp',
   'teamhanko/hanko',
   'CrowdDotDev/crowd.dev',
+  'clickvote/clickvote',
 ];
 export default async function handler(req, res) {
   const { user } = await findUserAndTeam(req, res);

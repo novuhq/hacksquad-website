@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
-const StarTheLibrary = ({ number, name, library, accepted }) => {
+const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
   const plausible = usePlausible();
   const [starred, setStarred] = useState(accepted);
   const test = useCallback(async () => {
@@ -50,7 +50,7 @@ const StarTheLibrary = ({ number, name, library, accepted }) => {
           (if you already gave a star, remove the star and star again)
         </a>
       </span>
-      <span>5 points</span>
+      <span>{bonus || 5} points</span>
       <span>
         {starred ? (
           <span>Accepted</span>
@@ -81,6 +81,7 @@ const StarTheLibrary = ({ number, name, library, accepted }) => {
 };
 
 StarTheLibrary.propTypes = {
+  bonus: PropTypes.number,
   number: PropTypes.number,
   name: PropTypes.string,
   library: PropTypes.string,
