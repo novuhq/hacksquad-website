@@ -30,9 +30,9 @@ const events = [
     rsvp: 'https://discord.gg/th5SqQE4?event=1157928619721637990',
   },
   {
-    date: '2023-10-10T15:00:00',
+    date: '2023-10-10T10:00:00',
     title: 'Building a Nuxt app (+NuxtUI) with passkey authentication',
-    company: 'Felix @ <a href="https://www.hanko.io/" target="_blank">Hanko</a>',
+    company: 'Daniel Roe @ <a href="https://www.hanko.io/" target="_blank">Nuxt</a>',
     rsvp: 'https://discord.gg/th5SqQE4?event=1157928782674546730',
   },
   {
@@ -49,27 +49,27 @@ const events = [
   },
   {
     date: '2023-10-23T13:00:00',
-    title: 'How to build a community for your open source project',
-    company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
-    rsvp: 'https://discord.gg/th5SqQE4?event=1157930272998830170',
-  },
-  {
-    date: '2023-10-26T13:00:00',
-    title: 'How to land a job in tech by contributing to open-source',
-    company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
-    rsvp: 'https://discord.gg/th5SqQE4?event=1157930468017197115',
-  },
-  {
-    date: '2023-10-30T13:00:00',
     title: 'Outsmarting AI: The hack for generating working full-stack apps',
     company: 'Wasp @ <a href="https://wasp-lang.dev/" target="_blank">Wasp</a>',
     rsvp: 'https://discord.gg/th5SqQE4?event=1157930699928633426',
   },
   {
-    date: '2023-10-31T13:00:00',
+    date: '2023-10-26T13:00:00',
     title: "Mastering OpenAI's API: Building a Meme Generator",
     company: 'Wasp @ <a href="https://wasp-lang.dev/" target="_blank">Wasp</a>',
     rsvp: 'https://discord.gg/th5SqQE4?event=1157930924705583144',
+  },
+  {
+    date: '2023-10-30T13:00:00',
+    title: 'How to build a community for your open source project',
+    company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930272998830170',
+  },
+  {
+    date: '2023-10-31T13:00:00',
+    title: 'How to land a job in tech by contributing to open-source',
+    company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930468017197115',
   },
 ];
 
