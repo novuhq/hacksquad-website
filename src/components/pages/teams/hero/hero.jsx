@@ -110,7 +110,12 @@ const Hero = ({ team }) => {
                     {user.name}
                   </p>
                   <p className={`font-medium ${moderator && 'sm:hidden'}`}>
-                    <a href={`https://github.com/${user.handle}`} target="_blank" rel="noreferrer">
+                    <a
+                      className="text-center"
+                      href={`https://github.com/${user.handle}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <GitHubIcon className="h-[30px]" />
                     </a>
                   </p>
