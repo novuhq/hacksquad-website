@@ -57,6 +57,7 @@ model Team {
   name            String
   slug            String?      @unique
   score           Int?
+  bonus           Int?
   ownerId         String       @unique
   owner           User         @relation(name: "owner", fields: [ownerId], references: [id])
   users           User[]
