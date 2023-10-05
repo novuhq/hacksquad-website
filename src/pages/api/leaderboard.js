@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
   const newTeams = teams.reduce(
     (all, current) => {
-      if ((current.score || 0) - (current.bonus || 0) === 0) {
+      if ((current.score || 0) - (current.bonus || 0) <= 0) {
         all.withoutPRS.push(current);
       } else {
         all.withPRS.push(current);
