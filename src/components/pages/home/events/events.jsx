@@ -127,7 +127,7 @@ const Events = ({ isAuthorized = false }) => (
                 className={clsx(
                   'border-b border-white border-opacity-20 py-4',
                   tableGridClass,
-                  moment().isAfter(date) && 'pointer-events-none opacity-40'
+                  moment().isAfter(moment.utc(date)) && 'pointer-events-none opacity-40'
                 )}
                 key={index}
               >
@@ -143,7 +143,8 @@ const Events = ({ isAuthorized = false }) => (
                   <a
                     href={rsvp}
                     target="_blank"
-                    className="hover:before-opacity-70 relative inline-flex h-11 max-w-full items-center justify-center gap-4 rounded-sm bg-yellow px-5 text-sm font-bold leading-none text-black transition-colors duration-200 before:absolute before:top-1/2 before:-z-10 before:h-[48px] before:w-full before:-translate-y-1/2 before:rounded before:bg-cta-hover-blur before:opacity-0 before:blur-xl before:transition-opacity before:duration-200 hover:bg-[#FFF263] hover:before:opacity-70 md:px-6 md:text-16 sm:text-14 xs:h-9 xs:px-3" rel="noreferrer"
+                    className="hover:before-opacity-70 relative inline-flex h-11 max-w-full items-center justify-center gap-4 rounded-sm bg-yellow px-5 text-sm font-bold leading-none text-black transition-colors duration-200 before:absolute before:top-1/2 before:-z-10 before:h-[48px] before:w-full before:-translate-y-1/2 before:rounded before:bg-cta-hover-blur before:opacity-0 before:blur-xl before:transition-opacity before:duration-200 hover:bg-[#FFF263] hover:before:opacity-70 md:px-6 md:text-16 sm:text-14 xs:h-9 xs:px-3"
+                    rel="noreferrer"
                   >
                     DISCORD RSVP!
                   </a>

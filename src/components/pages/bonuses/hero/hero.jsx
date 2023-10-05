@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import InviteButton from '../../../shared/invite/invite.button';
 
@@ -73,6 +74,41 @@ const Hero = ({ findStars }) => (
               bonus={1}
               accepted={findStars.find((item) => item.library === 'clickvote/clickvote')}
             />
+            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+              <span className="sm:hidden">8</span>
+              <span>
+                <strong>Join ToolJet Slack:</strong>
+                <br />
+                Post an intro on the #hack-squad channel with your GitHub ID
+                <br />
+                <a className="underline hover:font-bold" href="https://bit.ly/tj-slack-hs">
+                  https://bit.ly/tj-slack-hs
+                </a>
+              </span>
+              <span>1 point</span>
+              <span>
+                <a
+                  className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
+                  rel="noreferrer"
+                  target="_blank"
+                  href="https://docs.google.com/spreadsheets/d/1T8wzktxoPuQgaw9365q11FYK0KDXJ6xyIj4z9Bk6mrs/edit#gid=0"
+                >
+                  <svg
+                    className="cta-btn-animation-border xs:w-full"
+                    width="200"
+                    height="59"
+                    viewBox="0 0 268 59"
+                    fill="none"
+                  >
+                    <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+                  </svg>
+
+                  <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+                    <span className="text-lg sm:text-[18px]">Check Submission</span>
+                  </div>
+                </a>
+              </span>
+            </li>
           </ul>
         </div>
       </div>
