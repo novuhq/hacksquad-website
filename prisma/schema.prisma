@@ -138,6 +138,7 @@ model User {
   colorSchema     String?         @default("1")
   image           String?
   score           Int             @default(0)
+  bonus           Int             @default(0)
   moderator       Boolean         @default(false)
   cleaner         Boolean         @default(false)
   handle          String?

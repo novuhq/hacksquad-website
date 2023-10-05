@@ -78,7 +78,7 @@ const Hero = ({ team }) => {
                 Name
               </span>
               <span
-                className={`text-18 font-medium uppercase leading-normal text-gray-1 md:text-18 ${
+                className={`text-center text-18 font-medium uppercase leading-normal text-gray-1 md:text-18 ${
                   moderator && 'sm:hidden'
                 }`}
               >
@@ -89,11 +89,9 @@ const Hero = ({ team }) => {
                   Remove
                 </span>
               )}
-              {(moderator || cleaner) && (
-                <span className="text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
-                  Score
-                </span>
-              )}
+              <span className="text-center text-18 font-medium uppercase leading-normal text-gray-1 md:text-18">
+                Score
+              </span>
             </div>
 
             <ul>
@@ -126,9 +124,20 @@ const Hero = ({ team }) => {
                     </p>
                   )}
 
-                  {(moderator || cleaner) && (
-                    <p className="cursor-pointer truncate text-center font-medium">{user.score}</p>
-                  )}
+                  <p className="cursor-pointer truncate text-center font-medium">
+                    {user.score - user.bonus}{' '}
+                    {user.bonus ? (
+                      <>
+                        (+{user.bonus}{' '}
+                        <Link className="underline hover:font-bold" href="/bonuses">
+                          bonus
+                        </Link>
+                        )
+                      </>
+                    ) : (
+                      ''
+                    )}
+                  </p>
                 </li>
               ))}
             </ul>
