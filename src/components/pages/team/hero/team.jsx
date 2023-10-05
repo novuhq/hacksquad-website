@@ -145,7 +145,7 @@ const Team = ({ info }) => {
             </svg>
 
             <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
-              <span className="text-lg sm:text-[18px]">Bonuses</span>
+              <span className="animate-bounce text-lg sm:text-[18px]">Bonuses</span>
             </div>
           </Link>
         </div>
