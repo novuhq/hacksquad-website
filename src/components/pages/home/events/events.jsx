@@ -32,7 +32,7 @@ const events = [
   {
     date: '2023-10-10T10:00:00',
     title: 'Building a Nuxt app (+NuxtUI) with passkey authentication',
-    company: 'Daniel Roe @ <a href="https://www.hanko.io/" target="_blank">Nuxt</a>',
+    company: 'Daniel Roe @ <a href="https://nuxt.com" target="_blank">Nuxt</a>',
     rsvp: 'https://discord.gg/th5SqQE4?event=1157928782674546730',
   },
   {
