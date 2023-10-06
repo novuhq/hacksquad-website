@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightgoldenrodyellow;
+        }
+        .todo {
+            width: 300px;
+            margin: 20px auto;
+            text-align: left;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .delete-btn {
+            background-color: #ff6961;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive To-Do List</h1>
+    <div class="todo">
+        <input type="text" id="task" placeholder="Add a new task">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+    <div id="popup" style="display: none;">
+        <img src="bee.png" alt="Bee">
+        <p>Your task has been added!</p>
+    </div>
+
+    <script>
+        const taskInput = document.getElementById('task');
+        const taskList = document.getElementById('task-list');
+        const popup = document.getElementById('popup');
+
+        function addTask() {
+            const taskText = taskInput.value.trim();
+            if (taskText) {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    ${taskText}
+                    <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+                `;
+                taskList.appendChild(listItem);
+                taskInput.value = '';
+                showPopup();
+            }
+        }
+
+        function deleteTask(button) {
+            const listItem = button.parentElement;
+            taskList.removeChild(listItem);
+        }
+
+        function showPopup() {
+            popup.style.display = 'block';
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 2000);
+        }
+
+        taskInput.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>
