@@ -8,10 +8,10 @@
 Welcome to Hacksquad 2023!
 </h2>
 <h3 align="center">
-Contribute code, meet community members, participate in workshops, and win more SWAG.
+Contribute code, meet community members, participate in workshops, and win more SWAGs.
 </h3>
 
-With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your **Swag**, meet with more community members and participate in workshops from our great sponsors.
+With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your **Swags**, meet with more community members and participate in workshops from our great sponsors.
 
 <a href="https://www.hacksquad.dev/#sponsors">
   </br>
@@ -34,7 +34,7 @@ HackSquad allows contributors to contribute code **as a squad** instead of a sin
 
 Dive into last year's SWAG of Hacksquad with tweets! Relive the excitement, innovation, and highlights that made it unforgettable.
 
-<a href="https://www.hacksquad.dev/#swag">
+<a href="https://www.hacksquad.dev/#swags">
   </br>
   <picture>
     <img src="https://github.com/novuhq/hacksquad-website/assets/17677196/e15d38e8-6b6f-454d-a368-cd4b4cb2f5e6" alt="Swag"/>
@@ -46,7 +46,7 @@ Dive into last year's SWAG of Hacksquad with tweets! Relive the excitement, inno
 - Meet new community members
 - Code contribution, dah 😎
 - Participate in awesome workshops such as: How to contribute code, Going over good first issues, Engineering best practices, Solving PRs together.
-- Win swag
+- Win swags
 
 <p align="center">
   <a href="https://hacksquad.dev">SIGN UP TO HACKSQUAD 2023, AND JOIN A TEAM 🚀</a>
