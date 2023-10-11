@@ -42,16 +42,16 @@ const events = [
     rsvp: 'https://discord.gg/96Ud4bSKA8?event=1157929070219239434',
   },
   {
-    date: '2023-10-19T13:00:00',
-    title: 'How to build a Chat app with Websockets',
-    company: 'Nevo @ <a href="https://www.novu.co/" target="_blank">Novu</a>',
-    rsvp: 'https://discord.gg/th5SqQE4?event=1157930048616153119',
-  },
-  {
     date: '2023-10-18T13:00:00',
     title: 'How to monetize your open-source contributions',
     company: 'Rodrigo @ <a href="https://www.novu.co/" target="_blank">Quine</a>',
     rsvp: 'https://discord.gg/XeSYxdGYa3?event=1161626304920174694',
+  },
+  {
+    date: '2023-10-19T13:00:00',
+    title: 'How to build a Chat app with Websockets',
+    company: 'Nevo @ <a href="https://www.novu.co/" target="_blank">Novu</a>',
+    rsvp: 'https://discord.gg/th5SqQE4?event=1157930048616153119',
   },
   {
     date: '2023-10-19T15:00:00',
