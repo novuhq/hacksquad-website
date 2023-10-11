@@ -57,7 +57,7 @@ const events = [
     date: '2023-10-19T15:00:00',
     title: 'Gamifying OSS contributions',
     company: 'Johannes @ <a href="https://www.novu.co/" target="_blank">Formbricks</a>',
-    rsvp: 'https://discord.gg/XeSYxdGYa3?event=1161625921250394112',
+    rsvp: 'https://discord.gg/AmhdJ89bqy?event=1161625921250394112',
   },
   {
     date: '2023-10-23T13:00:00',
