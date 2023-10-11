@@ -44,7 +44,7 @@ const events = [
   {
     date: '2023-10-18T13:00:00',
     title: 'How to monetize your open-source contributions',
-    company: 'Rodrigo @ <a href="https://www.novu.co/" target="_blank">Quine</a>',
+    company: 'Rodrigo @ <a href="https://quine.sh/" target="_blank">Quine</a>',
     rsvp: 'https://discord.gg/XeSYxdGYa3?event=1161626304920174694',
   },
   {
@@ -56,7 +56,7 @@ const events = [
   {
     date: '2023-10-19T15:00:00',
     title: 'Gamifying OSS contributions',
-    company: 'Johannes @ <a href="https://www.novu.co/" target="_blank">Formbricks</a>',
+    company: 'Johannes @ <a href="https://formbricks.com" target="_blank">Formbricks</a>',
     rsvp: 'https://discord.gg/AmhdJ89bqy?event=1161625921250394112',
   },
   {

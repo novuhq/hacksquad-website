@@ -4,6 +4,8 @@ import { useMemo, useState } from 'react';
 
 import GitHubIcon from 'icons/github.inline.svg';
 
+import { VotesComponent } from '../../../shared/votes/votes.component';
+
 import RepositoryStatus from '~/helpers/repository.status';
 import useModerator from '~/helpers/use.moderator';
 
@@ -42,6 +44,7 @@ const Hero = ({ team }) => {
     <section className="safe-paddings relative">
       <div className="container relative z-10 flex h-full flex-col items-center justify-center py-16 sm:px-0">
         <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{team.name}</h1>
+        <VotesComponent voteTo={team.name} />
 
         {moderator && (
           <button
