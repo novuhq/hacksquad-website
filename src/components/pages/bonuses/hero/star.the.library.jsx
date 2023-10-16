@@ -36,7 +36,7 @@ const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
           href={`https://github.com/${library}`}
           className="cursor-pointer"
           target="_blank"
-          rel="external noreferrer"
+          rel="external noopener"
         >
           <div className="flex">
             <div>
