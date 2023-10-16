@@ -48,7 +48,7 @@ const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
       <span>{bonus || 1} points</span>
       <span>
         {starred ? (
-          <span>Accepted</span>
+          <span>Accepted!</span>
         ) : (
           <a
             className="cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none"
