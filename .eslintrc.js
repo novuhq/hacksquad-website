@@ -52,6 +52,7 @@ module.exports = {
         noSortAlphabetically: true,
       },
     ],
+    'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     'import/order': [
       'error',
       {
