@@ -37,9 +37,9 @@ const events = [
   },
   {
     date: '2023-10-17T13:00:00',
-    title: 'How to build an authentication system with NextJS',
+    title: 'Building a Mini-Unsplash Clone',
     company: 'Prosper @ <a href="https://www.novu.co/" target="_blank">Novu</a>',
-    rsvp: 'https://discord.gg/96Ud4bSKA8?event=1157929070219239434',
+    rsvp: 'https://discord.gg/f36PMrFWYV?event=1157929070219239434',
   },
   {
     date: '2023-10-18T13:00:00',
@@ -49,7 +49,7 @@ const events = [
   },
   {
     date: '2023-10-19T13:00:00',
-    title: 'How to build a Chat app with Websockets',
+    title: 'How to build a face Swap app social-media',
     company: 'Nevo @ <a href="https://www.novu.co/" target="_blank">Novu</a>',
     rsvp: 'https://discord.gg/th5SqQE4?event=1157930048616153119',
   },
