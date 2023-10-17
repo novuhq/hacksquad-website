@@ -9,8 +9,14 @@ export default async function twitter(req, res, query) {
     },
   });
 
+  const findForks = await prisma.forkGiven.findMany({
+    where: {
+      userId: user.id,
+    },
+  });
+
   if (!user?.id || !query.code) {
-    return { props: { twitter, devto, findStars } };
+    return { props: { twitter, devto, findStars, findForks } };
   }
 
   return {

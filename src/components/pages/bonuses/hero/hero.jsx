@@ -4,11 +4,12 @@ import React from 'react';
 
 import InviteButton from '../../../shared/invite/invite.button';
 
+import ForkTheLibrary from './fork.the.library';
 import StarTheLibrary from './star.the.library';
 
 const title = 'Bonuses';
 
-const Hero = ({ findStars }) => (
+const Hero = ({ findStars, findForks }) => (
   <section className="safe-paddings relative">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center py-16">
       <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{title}</h1>
@@ -73,6 +74,43 @@ const Hero = ({ findStars }) => (
               library="clickvote/clickvote"
               bonus={1}
               accepted={findStars.find((item) => item.library === 'clickvote/clickvote')}
+            />
+            <ForkTheLibrary
+              number={2}
+              name="Novu"
+              library="novuhq/novu"
+              accepted={findForks.find((item) => item.library === 'novuhq/novu')}
+            />
+            <ForkTheLibrary
+              number={3}
+              name="ToolJet"
+              library="tooljet/tooljet"
+              accepted={findForks.find((item) => item.library === 'tooljet/tooljet')}
+            />
+            <ForkTheLibrary
+              number={4}
+              name="Wasp"
+              library="wasp-lang/wasp"
+              accepted={findForks.find((item) => item.library === 'wasp-lang/wasp')}
+            />
+            <ForkTheLibrary
+              number={5}
+              name="Hanko"
+              library="teamhanko/hanko"
+              accepted={findForks.find((item) => item.library === 'teamhanko/hanko')}
+            />
+            <ForkTheLibrary
+              number={6}
+              name="CrowdDev"
+              library="CrowdDotDev/crowd.dev"
+              accepted={findForks.find((item) => item.library === 'CrowdDotDev/crowd.dev')}
+            />
+            <ForkTheLibrary
+              number={7}
+              name="ClickVote"
+              library="clickvote/clickvote"
+              bonus={1}
+              accepted={findForks.find((item) => item.library === 'clickvote/clickvote')}
             />
             <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
               <span className="sm:hidden">8</span>
@@ -139,6 +177,7 @@ Hero.propTypes = {
   twitter: PropTypes.bool,
   devto: PropTypes.bool,
   findStars: PropTypes.array,
+  findForks: PropTypes.array,
 };
 
 export default Hero;

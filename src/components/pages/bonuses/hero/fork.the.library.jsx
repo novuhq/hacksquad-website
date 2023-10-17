@@ -5,12 +5,12 @@ import { toast } from 'react-toastify';
 
 import GitHubIcon from '../../../../icons/github.inline.svg';
 
-const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
+const ForkTheLibrary = ({ bonus, number, name, library, accepted }) => {
   const plausible = usePlausible();
   const [starred, setStarred] = useState(accepted);
   const test = useCallback(async () => {
     const data = await (
-      await fetch('/api/github-star', {
+      await fetch('/api/github-fork', {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -24,13 +24,13 @@ const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
       plausible('star-the-library', { props: { library } });
       setStarred(true);
     } else {
-      toast.error('No star found, please try to remove star and add again');
+      toast.error('No fork found, please try to remove the fork and fork again');
     }
   }, []);
 
   return (
     <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
-        <span className="sm:hidden">{number}</span>
+        <span className="sm:hidden">{number + 2}</span>
         <span>
           <a
             href={`https://github.com/${library}`}
@@ -40,14 +40,12 @@ const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
           >
             <div className="flex">
               <div>
-                Give <strong>{name}</strong> a star{' '}
+                Fork <strong>{name}</strong>
               </div>
               <div>
                 <GitHubIcon className="ml-[10px] h-[20px] leading-[0]" />
               </div>
             </div>
-            <br />
-            (if you already gave a star, remove the star and star again)
           </a>
         </span>
         <span>{bonus || 1} points</span>
@@ -80,7 +78,7 @@ const StarTheLibrary = ({ bonus, number, name, library, accepted }) => {
   );
 };
 
-StarTheLibrary.propTypes = {
+ForkTheLibrary.propTypes = {
   bonus: PropTypes.number,
   number: PropTypes.number,
   name: PropTypes.string,
@@ -88,4 +86,4 @@ StarTheLibrary.propTypes = {
   accepted: PropTypes.bool,
 };
 
-export default StarTheLibrary;
+export default ForkTheLibrary;

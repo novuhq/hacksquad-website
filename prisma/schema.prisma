@@ -157,11 +157,20 @@ model User {
   userActionLogs  ActionLogs[]    @relation("affectedUser")
   adminActionLogs ActionLogs[]    @relation("admin")
   starsGiven      StarsGiven[]
+  forksGiven      ForkGiven[]
   winners         Winners[]
   votes           ArticlesVotes[]
 }
 
 model StarsGiven {
+  id        String   @id @default(cuid())
+  userId    String
+  library   String
+  user      User @relation(fields: [userId], references: [id])
+  @@unique([userId, library])
+}
+
+model ForkGiven {
   id        String   @id @default(cuid())
   userId    String
   library   String
