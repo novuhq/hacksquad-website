@@ -7,6 +7,8 @@ import NextAuthSessionProvider from 'context/session-provider';
 import 'styles/main.css';
 import { auth } from 'lib/auth';
 
+import Banner from '../../components/shared/banner';
+
 const inter = Inter({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
@@ -25,6 +27,7 @@ export default async function RootLayout({ children }) {
         <NextAuthSessionProvider>
           <PlausibleProvider domain="hacksquad.dev">
             <div className="relative flex min-h-screen flex-col">
+              <Banner />
               <Header
                 isAuthorized={!!session}
                 subscriberId={session?.user?.githubHandle || undefined}
