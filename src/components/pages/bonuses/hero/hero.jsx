@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import InviteButton from '../../../shared/invite/invite.button';
+import ProductHuntButton from '../../../shared/product-hunt/product-hunt.button';
 
 import StarTheLibrary from './star.the.library';
 
 const title = 'Bonuses';
 
-const Hero = ({ findStars }) => (
+const Hero = ({ findStars, productHunt }) => (
   <section className="safe-paddings relative">
     <div className="container relative z-10 flex h-full flex-col items-center justify-center py-16">
       <h1 className="font-titles text-60 font-semibold leading-none md:text-42">{title}</h1>
@@ -31,6 +32,27 @@ const Hero = ({ findStars }) => (
           <ul>
             <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
               <span className="sm:hidden">1</span>
+              <span>
+                <strong>
+                  Product Hunt launch <span className="text-[#ff9999]">(24 hours bonus)</span>
+                </strong>
+                :<br />
+                <a
+                  href="https://www.producthunt.com/posts/novu"
+                  rel="noreferrer"
+                  target="_blank"
+                  className="cursor-pointer underline hover:font-bold"
+                >
+                  watch the video over Product Hunt
+                </a>{' '}
+                help us with the launch, write us a nice comment, and submit your answer to the
+                riddle.
+              </span>
+              <span>2 point</span>
+              <ProductHuntButton productHunt={productHunt} />
+            </li>
+            <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
+              <span className="sm:hidden">2</span>
               <span>Friend invite</span>
               <span>1 per friend [Max:5]</span>
               <span>
@@ -38,44 +60,44 @@ const Hero = ({ findStars }) => (
               </span>
             </li>
             <StarTheLibrary
-              number={2}
+              number={3}
               name="Novu"
               library="novuhq/novu"
               accepted={findStars.find((item) => item.library === 'novuhq/novu')}
             />
             <StarTheLibrary
-              number={3}
+              number={4}
               name="ToolJet"
               library="tooljet/tooljet"
               accepted={findStars.find((item) => item.library === 'tooljet/tooljet')}
             />
             <StarTheLibrary
-              number={4}
+              number={5}
               name="Wasp"
               library="wasp-lang/wasp"
               accepted={findStars.find((item) => item.library === 'wasp-lang/wasp')}
             />
             <StarTheLibrary
-              number={5}
+              number={6}
               name="Hanko"
               library="teamhanko/hanko"
               accepted={findStars.find((item) => item.library === 'teamhanko/hanko')}
             />
             <StarTheLibrary
-              number={6}
+              number={7}
               name="CrowdDev"
               library="CrowdDotDev/crowd.dev"
               accepted={findStars.find((item) => item.library === 'CrowdDotDev/crowd.dev')}
             />
             <StarTheLibrary
-              number={7}
+              number={8}
               name="ClickVote"
               library="clickvote/clickvote"
               bonus={1}
               accepted={findStars.find((item) => item.library === 'clickvote/clickvote')}
             />
             <li className="grid grid-cols-[20px_485px_230px_1fr] gap-x-5 border-b border-gray-2 py-4 lg:grid-cols-[20px_390px_1fr_1fr] md:grid-cols-[20px_485px_230px_1fr] sm:grid-cols-[100px_100px_120px]">
-              <span className="sm:hidden">8</span>
+              <span className="sm:hidden">9</span>
               <span>
                 <strong>Join ToolJet Slack:</strong>
                 <br />
@@ -137,6 +159,7 @@ const Hero = ({ findStars }) => (
 Hero.propTypes = {
   teams: PropTypes.array,
   twitter: PropTypes.bool,
+  productHunt: PropTypes.object,
   devto: PropTypes.bool,
   findStars: PropTypes.array,
 };

@@ -52,6 +52,13 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model ProductHunt {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    userId    String   @unique
+    user      User     @relation(fields: [userId], references: [id])
+}
+
 model Team {
   id              String       @id @default(cuid())
   name            String
@@ -156,6 +163,7 @@ model User {
   social          Social[]
   userActionLogs  ActionLogs[]    @relation("affectedUser")
   adminActionLogs ActionLogs[]    @relation("admin")
+  productHunters  ProductHunt[]
   starsGiven      StarsGiven[]
   winners         Winners[]
   votes           ArticlesVotes[]
