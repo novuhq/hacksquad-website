@@ -11,7 +11,7 @@ import useModerator from '~/helpers/use.moderator';
 
 const Hero = ({ team }) => {
   const { moderator, cleaner } = useModerator();
-
+  const [view, setView] = useState('repository');
   const [disqualified, setDisqualified] = useState(team.disqualified);
   const [pullRequests] = useState(JSON.parse(team?.prs || '[]'));
   const changeToRepository = useMemo(
@@ -19,13 +19,16 @@ const Hero = ({ team }) => {
       pullRequests
         .map((p) => ({
           ...p,
-          url: new URL(p.url).pathname.split('/').slice(0, 3).join('/'),
+          url:
+            view === 'repository'
+              ? new URL(p.url).pathname.split('/').slice(0, 3).join('/')
+              : p.url.split('https://github.com/')[1],
         }))
         .filter((current, index, all) => {
           const firstIndex = all.findIndex((item) => item.url === current.url);
           return firstIndex === index;
         }),
-    [pullRequests]
+    [pullRequests, view]
   );
 
   const kick = (id, name) => async () => {
@@ -152,6 +155,31 @@ const Hero = ({ team }) => {
           </div>
         </div>
 
+        {(moderator || cleaner) && (
+          <button
+            className="cta-btn-animation relative mt-10 flex h-[60px] max-w-full cursor-pointer items-center justify-center leading-none sm:mt-6"
+            type="button"
+            onClick={() => setView(view === 'repository' ? 'prs' : 'repository')}
+          >
+            <svg
+              className="cta-btn-animation-border xs:w-full"
+              width="268"
+              height="59"
+              viewBox="0 0 268 59"
+              fill="none"
+              aria-hidden
+            >
+              <path d="M1 58V1H251.586L267 16.4142V58H1Z" stroke="white" strokeWidth="2" />
+            </svg>
+
+            <div className="absolute inset-0 flex items-center justify-center space-x-2.5">
+              <span className="text-lg sm:text-[18px]">
+                {view === 'repository' ? 'Show PRs' : 'Show Repositories'}
+              </span>
+            </div>
+          </button>
+        )}
+
         <h2 className="mt-20 font-titles text-48 font-semibold leading-1.125 md:text-42">
           Contributed to repositories (TOTAL PR: {pullRequests.length})
         </h2>
@@ -188,7 +216,7 @@ const Hero = ({ team }) => {
                       </span>
                     )}
                     <a target="_blank" href={`https://github.com${pr.url}`} rel="noreferrer">
-                      https://github.com{pr.url}
+                      https://github.com{pr.url} {view === 'prs' && pr.username}
                     </a>
                   </p>
                   <p className="font-medium">
@@ -204,7 +232,9 @@ const Hero = ({ team }) => {
                     </a>
                   </p>
 
-                  {(moderator || cleaner) && <RepositoryStatus url={pr.url} />}
+                  {(moderator || cleaner) && (
+                    <RepositoryStatus url={pr.url} displayOnly={view === 'prs'} />
+                  )}
                 </li>
               ))}
             </ul>

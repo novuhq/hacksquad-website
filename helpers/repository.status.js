@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 const statuses = [
   {
@@ -21,7 +21,19 @@ const statuses = [
 ];
 
 const RepositoryStatus = (props) => {
-  const { url } = props;
+  const { url, displayOnly } = props;
+
+  const urlMemo = useMemo(() => {
+    const regex = /([^\/]+)\/([^\/]+)/;
+    const match = url.match(regex);
+
+    if (match) {
+      return `/${match[1]}/${match[2]}`;
+    } 
+      return null;
+    
+  }, [url]);
+
   const [statusValue, setStatus] = useState('NOT_DETERMINED');
   useEffect(() => {
     repositories();
@@ -29,7 +41,7 @@ const RepositoryStatus = (props) => {
 
   const repositories = useCallback(async () => {
     const { status: newStatus } = await (
-      await fetch(`/api/repository?id=https://github.com${url}`)
+      await fetch(`/api/repository?id=https://github.com${urlMemo}`)
     ).json();
     setStatus(newStatus);
   }, []);
@@ -37,7 +49,7 @@ const RepositoryStatus = (props) => {
   const changeStatus = useCallback(async (status) => {
     await fetch(`/api/change-repository-status`, {
       body: JSON.stringify({
-        url: `https://github.com${url}`,
+        url: `https://github.com${urlMemo}`,
         status,
       }),
       headers: {
@@ -46,6 +58,10 @@ const RepositoryStatus = (props) => {
       method: 'POST',
     });
   }, []);
+
+  if (displayOnly) {
+    return statusValue;
+  }
 
   return (
     <select
@@ -65,6 +81,7 @@ const RepositoryStatus = (props) => {
 
 RepositoryStatus.propTypes = {
   url: PropTypes.string,
+  displayOnly: PropTypes.bool,
 };
 
 export default RepositoryStatus;
