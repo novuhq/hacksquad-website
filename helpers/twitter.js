@@ -15,8 +15,16 @@ export default async function twitter(req, res, query) {
     },
   });
 
+  const productHunt = await prisma.productHunt.findFirst({
+    where: {
+      userId: user.id,
+    },
+  });
+
   if (!user?.id || !query.code) {
-    return { props: { twitter, devto, findStars, findForks } };
+    return {
+      props: { twitter, devto, findStars, findForks, productHunt: productHunt?.id || false },
+    };
   }
 
   return {

@@ -6,7 +6,7 @@ import LayoutMain from 'layouts/layouts/layout-main';
 
 import twitter from '~/helpers/twitter';
 
-const Home = ({ twitter, devto, findStars, findForks }) => (
+const Home = ({ twitter, devto, findStars, productHunt }) => (
   <LayoutMain
     seo={{
       isRobotsNoindexPage: true,
@@ -14,7 +14,7 @@ const Home = ({ twitter, devto, findStars, findForks }) => (
     absolute={false}
     withoutFooter
   >
-    <Hero twitter={twitter} devto={devto} findStars={findStars} findForks={findForks} />
+    <Hero twitter={twitter} devto={devto} findStars={findStars} productHunt={productHunt} />
     <JoinUs />
   </LayoutMain>
 );
@@ -23,7 +23,7 @@ Home.propTypes = {
   twitter: PropTypes.bool,
   devto: PropTypes.bool,
   findStars: PropTypes.array,
-  findForks: PropTypes.array,
+  productHunt: PropTypes.object,
 };
 
 export async function getServerSideProps(context) {
