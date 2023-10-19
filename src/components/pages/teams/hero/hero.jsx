@@ -22,7 +22,7 @@ const Hero = ({ team }) => {
           url:
             view === 'repository'
               ? new URL(p.url).pathname.split('/').slice(0, 3).join('/')
-              : p.url.split('https://github.com/')[1],
+              : +'/' + p.url.split('https://github.com/')[1],
         }))
         .filter((current, index, all) => {
           const firstIndex = all.findIndex((item) => item.url === current.url);
