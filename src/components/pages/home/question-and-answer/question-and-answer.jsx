@@ -15,7 +15,7 @@ const items = [
   {
     question: "What's in it for me?",
     answer:
-      'Meet amazing new people, get more involved with the open-source community and win awesome swag!',
+      'Meet amazing new people, get more involved with the open-source community, and win awesome swag!',
   },
   {
     question: 'When is the event happening?',
@@ -25,7 +25,7 @@ const items = [
     question: 'How does it work?',
     answer: (
       <>
-        Register to the HackSquad using your GitHub, Join a squad or get assigned to a random squad,
+        Register to the HackSquad using your GitHub, Join a squad, or get assigned to a random squad,
         contribute code and get Swag! Not sure where to start? Check:{' '}
         <a
           className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
@@ -78,7 +78,7 @@ const items = [
   },
   {
     question: 'Do I need other people to help me contribute code?',
-    answer: 'You can join a squad and invite friends or we will auto-assign you to another squads',
+    answer: 'You can join a squad and invite friends or we will auto-assign you to another squad',
   },
   {
     question: 'Which repository can I contribute to?',
@@ -89,7 +89,7 @@ const items = [
     answer: 'To win swag, even if your team wins, you would need to have 1 MERGED PR',
   },
   {
-    question: 'I want support / get more updates / find a squads member',
+    question: 'I want support / get more updates / find a squad member',
     answer: (
       <>
         Feel free to follow us on{' '}
