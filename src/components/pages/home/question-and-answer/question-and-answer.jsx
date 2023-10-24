@@ -4,29 +4,30 @@ import React from 'react';
 import SectionHeading from 'components/shared/section-heading';
 import SignUpButton from 'components/shared/sign-up-button';
 
+// Importing images
 import bgLeftGlitch from './images/bg-left-glitch.png';
 import bgLeft from './images/bg-left.jpg';
 import bgRightGlitch from './images/bg-right-glitch.png';
 import bgRightLine from './images/bg-right-line.png';
 import bgRight from './images/bg-right.jpg';
 
+// Define section title and Q&A items
 const title = 'Q&A';
 const items = [
   {
-    question: "What's in it for me?",
+    question: "What's the benefit of participating?",
     answer:
-      'Meet amazing new people, get more involved with the open-source community and win awesome swag!',
+      'Participate to meet amazing new people, become more involved with the open-source community, and have a chance to win awesome swag!',
   },
   {
-    question: 'When is the event happening?',
-    answer: 'Between 1st - 31st October 2022',
+    question: 'When is the event taking place?',
+    answer: 'The event runs from October 1st to October 31st, 2022.',
   },
   {
     question: 'How does it work?',
     answer: (
       <>
-        Register to the HackSquad using your GitHub, Join a squad or get assigned to a random squad,
-        contribute code and get Swag! Not sure where to start? Check:{' '}
+        To participate in HackSquad, register using your GitHub account, join a squad or get assigned to a random squad, contribute code, and earn Swag! If you're unsure where to start, you can check out{' '}
         <a
           className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://goodfirstissue.dev"
@@ -35,6 +36,7 @@ const items = [
         >
           goodfirstissue.dev
         </a>
+        .
       </>
     ),
   },
@@ -44,52 +46,51 @@ const items = [
       <>
         Each squad can have a maximum of 5 members.
         <br />
-        If you can't find all 5, you can always turn on the "Allow random people to join my squad"
+        If you can't find all 5 members, you can choose to allow random people to join your squad.
         <br />
       </>
     ),
   },
   {
-    question: 'How do we calculate the score?',
+    question: 'How is the score calculated?',
     answer: (
       <>
-        Each hour we calculate the number of <strong>MERGED PRs</strong> of each squad member and
-        sum them all up. Each PR is worth 1 point. By the end of the event, the top 60 squads will
-        win awesome swag! The calculation method can be{' '}
+        Every hour, we calculate the number of <strong>MERGED PRs</strong> for each squad member and sum them up. Each PR is worth 1 point. At the end of the event, the top 60 squads will receive awesome swag! You can find the calculation method{' '}
         <a
           className="inline-block border-b-2 border-transparent text-primary-2 transition-[border-color] duration-200 hover:border-primary-2"
           href="https://github.com/novuhq/hacksquad-background/blob/main/src/services/github/github.service.ts"
           target="_blank"
           rel="noreferrer"
         >
-          found here
+          here
         </a>
+        .
       </>
     ),
   },
   {
-    question: 'How many people will get swag?',
-    answer: <>The top 60 squads will win awesome swag! around ~300 winners!</>,
+    question: 'How many people will receive swag?',
+    answer: <>The top 60 squads, comprising approximately 300 individuals, will win awesome swag!</>,
   },
   {
     question: 'Can I register for both Hacktoberfest and Hacksquad?',
     answer:
-      'Yes, and even recommended! Each contribution will be counted for both Hacktoberfest and HackSquad',
+      'Yes, and it's even recommended! Each contribution will count for both Hacktoberfest and HackSquad.',
   },
   {
-    question: 'Do I need other people to help me contribute code?',
-    answer: 'You can join a squad and invite friends or we will auto-assign you to another squads',
+    question: 'Do I need assistance to contribute code?',
+    answer: 'You can join a squad and invite friends, or we will automatically assign you to other squads.',
   },
   {
-    question: 'Which repository can I contribute to?',
-    answer: 'Any public repository you want! Please make sure not to spam! We check 🤫',
+    question: 'To which repositories can I contribute?',
+    answer: 'You can contribute to any public repository you prefer. Please ensure not to spam, as we do monitor contributions!',
   },
   {
-    question: 'My team won! am I going to get SWAG?',
-    answer: 'To win swag, even if your team wins, you would need to have 1 MERGED PR',
+    question: 'If my team wins, will I get SWAG?',
+    answer: 'To win swag, even if your team wins, you would need to have at least 1 MERGED PR.',
   },
   {
-    question: 'I want support / get more updates / find a squads member',
+    question: 'How can I get support, updates, or find squad members?',
     answer: (
       <>
         Feel free to follow us on{' '}
@@ -110,6 +111,7 @@ const items = [
         >
           Discord
         </a>
+        .
       </>
     ),
   },
@@ -119,7 +121,7 @@ const items = [
       <>
         Most of it is! We will also add more Swag from our sponsors.
         <br />
-        We still haven&apos;t finalized everything.
+        We haven't finalized everything yet.
       </>
     ),
   },
@@ -129,18 +131,18 @@ const items = [
       <>
         We are sending the swag from the US.
         <br />
-        We assume that it will reach everybody within 60-90 days.
+        We expect it to reach everyone within 60-90 days.
       </>
     ),
   },
   {
     question: 'Do I need to pay duty for the SWAG?',
-    answer: <>No! We are taking care of it!</>,
+    answer: <>No, we are taking care of it!</>,
   },
   {
-    question: 'I want to create a workshop for the event during October',
+    question: 'I want to host a workshop during the event in October.',
     answer:
-      "That's awesome! We would be super happy to give you a stage, please email us at nevo@novu.co",
+      "That's great! We would be delighted to give you a platform. Please email us at nevo@novu.co.",
   },
 ];
 
