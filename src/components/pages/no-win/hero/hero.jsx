@@ -1,24 +1,21 @@
-import Image from 'next/future/image';
 import React from 'react';
-
 import Socials from 'components/shared/socials';
-
 import bg from './images/bg.jpg';
 
-const title = '>>Oh no!';
+const title = '>> Oh no!';
 const description = (
   <p className="text-left">
-    You can't claim the Novu Swag, there might be a few problems:
+    You can't claim the Novu Swag due to a few potential problems:
     <br />
     <ul className="text-left">
-      <li>- You have already claimed your swag</li>
-      <li>- You have just joined the HackSquad system - you will have to wait 1 hour</li>
+      <li>- You may have already claimed your swag.</li>
+      <li>- If you've just joined the HackSquad system, you'll need to wait for 1 hour.</li>
       <li>
-        - You haven't contributed <strong>3 MERGED PRs</strong> to Novu
+        - You haven't contributed <strong>3 MERGED PRs</strong> to Novu.
       </li>
     </ul>
     <br />
-    If you think there is a problem here, please contact nevo@novu.co
+    If you believe there's an issue, please contact nevo@novu.co.
   </p>
 );
 
@@ -33,13 +30,13 @@ const Hero = () => (
       <Socials className="absolute bottom-20 md:bottom-12" />
     </div>
 
-    <Image
+    <img
       className="absolute top-0 left-1/2 min-h-screen w-full min-w-[1920px] -translate-x-1/2 md:min-w-[1230px]"
       src={bg}
+      alt="Background"
+      loading="eager"
       width={1920}
       height={1080}
-      loading="eager"
-      alt=""
       priority
       aria-hidden
     />

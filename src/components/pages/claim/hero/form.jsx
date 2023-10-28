@@ -1,8 +1,8 @@
-import { getNames } from 'country-list';
-import moment from 'moment';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
+import moment from 'moment';
+import { getNames } from 'country-list';
 
 import Input from '../../../shared/button/input';
 import Select from '../../../shared/button/select';
@@ -12,12 +12,13 @@ const Form = ({ info }) => {
     register,
     formState: { errors, isSubmitSuccessful },
   } = useFormContext();
+
   return (
     <>
       <div>
         Select Prizes to claim:
         {info.map((winner) => (
-          <div className="mt-2 flex">
+          <div className="mt-2 flex" key={winner.id}>
             <div>
               <input
                 disabled={isSubmitSuccessful}
@@ -69,8 +70,7 @@ const Form = ({ info }) => {
         placeHolder="+972"
         extra={{
           required: true,
-          pattern:
-            /\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/i,
+          pattern: /\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/i,
         }}
       />
       <Input
@@ -88,8 +88,10 @@ const Form = ({ info }) => {
       />
       <Select label="Country" name="shipping_country">
         <option value="">-- Choose Country --</option>
-        {getNames().map((c) => (
-          <option value={c}>{c}</option>
+        {getNames().map((c, index) => (
+          <option key={index} value={c}>
+            {c}
+          </option>
         ))}
       </Select>
       <Input extra={{ required: true }} label="State" type="text" name="shipping_state" />
@@ -105,9 +107,7 @@ const Form = ({ info }) => {
       <button
         type="submit"
         disabled={isSubmitSuccessful}
-        className={`${
-          isSubmitSuccessful && 'pointer-events-none opacity-50'
-        } cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none`}
+        className={`${isSubmitSuccessful ? 'pointer-events-none opacity-50' : ''} cta-btn-animation relative flex max-w-full cursor-pointer items-center justify-center leading-none`}
       >
         <svg
           className="cta-btn-animation-border xs:w-full"
@@ -128,7 +128,7 @@ const Form = ({ info }) => {
 };
 
 Form.propTypes = {
-  info: PropTypes.object,
+  info: PropTypes.array,
 };
 
 export default Form;
