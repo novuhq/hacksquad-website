@@ -8,7 +8,7 @@
 Welcome to Hacksquad 2023!
 </h2>
 <h3 align="center">
-Contribute code, meet community members, participate in workshops, and win more SWAG.
+Contribute code, meet community members, participate in workshops and win some SWAG.
 </h3>
 
 With the fantastic atmosphere of Hacktoberfest, we have decided to create Hacksquad. Hacksquad is here to enhance your **Swag**, meet with more community members and participate in workshops from our great sponsors.
@@ -32,7 +32,7 @@ HackSquad allows contributors to contribute code **as a squad** instead of a sin
 
 ## Join the party
 
-Dive into last year's SWAG of Hacksquad with tweets! Relive the excitement, innovation, and highlights that made it unforgettable.
+Dive into last year's SWAG of Hacksquad with tweets! Relive the excitement, innovation and highlights that made it unforgettable.
 
 <a href="https://www.hacksquad.dev/#swag">
   </br>
