@@ -89,6 +89,12 @@ const events = [
     company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
     rsvp: 'https://discord.gg/96Ud4bSKA8?event=1157930468017197115',
   },
+  {
+    date: '2023-11-01T13:00:00',
+    title: 'HackSquad 2023 final notes',
+    company: 'Nevo @ <a href="https://www.novu.co" target="_blank">Novu</a>',
+    rsvp: 'https://discord.gg/v9HjMeYQ?event=1168485340433100910',
+  },
 ];
 
 const tableGridClass =
