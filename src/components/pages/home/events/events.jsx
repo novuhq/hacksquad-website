@@ -78,16 +78,16 @@ const events = [
     rsvp: 'https://discord.gg/96Ud4bSKA8?event=1157930272998830170',
   },
   {
-    date: '2023-10-30T15:00:00',
-    title: 'Open source GTM tips: How to attract more people to your project',
-    company: 'Zevi @ <a href="https://livecycle.io/" target="_blank">Livecycle</a>',
-    rsvp: 'https://discord.gg/v9HjMeYQ?event=1168484842745364561',
-  },
-  {
     date: '2023-10-31T13:00:00',
     title: 'How to land a job in tech by contributing to open-source',
     company: 'Jonathan @ <a href="https://www.crowd.dev/" target="_blank">Crowd</a>',
     rsvp: 'https://discord.gg/96Ud4bSKA8?event=1157930468017197115',
+  },
+  {
+    date: '2023-10-31T15:00:00',
+    title: 'Open source GTM tips: How to attract more people to your project',
+    company: 'Zevi @ <a href="https://livecycle.io/" target="_blank">Livecycle</a>',
+    rsvp: 'https://discord.gg/v9HjMeYQ?event=1168484842745364561',
   },
   {
     date: '2023-11-01T13:00:00',
