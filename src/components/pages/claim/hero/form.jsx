@@ -15,6 +15,21 @@ const Form = ({ info }) => {
   return (
     <>
       <div>
+        <h1 className="font-bold">Some rules to follow before adding your information:</h1>
+        <ul className="mb-10 list-disc pl-10">
+          <li className="my-2">
+            If you are sending the swag to a friend or family, make sure you add them in the details
+          </li>
+          <li className="my-2">
+            We can't change the address location once it has shipped. Make sure you have access
+            to this place to take the swag
+          </li>
+          <li className="my-2">
+            If you are a minor, check if you can receive the package in your country. If not, add
+            your parents' details and location.
+          </li>
+          <li className="my-2">Please think good about your Swag size before submitting</li>
+        </ul>
         Select Prizes to claim:
         {info.map((winner) => (
           <div className="mt-2 flex">
@@ -30,8 +45,12 @@ const Form = ({ info }) => {
             <div className="ml-2">
               {winner.type === 'COMPETITION' && 'Competition Winner'}
               {winner.type === 'NOVU' && 'Novu Swag Claim'}
-              {winner.type === 'EXTRA' && 'Giveaway or other'} - Expires on{' '}
-              {moment.utc(winner.lastDateClaim).local().format('DD/MM/YYYY HH:mm')}
+              {(winner.type === 'EXTRA' ||
+                winner.type === 'EXTRA2' ||
+                winner.type === 'EXTRA3' ||
+                winner.type === 'EXTRA4') &&
+                'Giveaway or other'}{' '}
+              - Expires on {moment.utc(winner.lastDateClaim).local().format('DD/MM/YYYY HH:mm')}
             </div>
           </div>
         ))}
@@ -94,8 +113,8 @@ const Form = ({ info }) => {
       </Select>
       <Input extra={{ required: true }} label="State" type="text" name="shipping_state" />
       <Input extra={{ required: true, minLength: 3 }} label="ZIP" type="text" name="shipping_zip" />
-      <Select label="Shirt Size" name="shirt_size">
-        <option value="">-- Choose Shirt Size --</option>
+      <Select label="Swag Size" name="shirt_size">
+        <option value="">-- Choose Swag Size --</option>
         <option value="Small">Small</option>
         <option value="Medium">Medium</option>
         <option value="Large">Large</option>

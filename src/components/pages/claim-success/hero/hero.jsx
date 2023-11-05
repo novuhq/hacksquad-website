@@ -5,7 +5,18 @@ const description = (
   <>
     Awesome! We will send you the swag as soon as possible.
     <br />
-    If you have made any mistake, please contact{' '}
+    <div className="mb-12">To check that your submission is valid</div>
+    <a
+      target="_blank"
+      rel="noopener"
+      className="text-xl text-yellow underline hover:font-bold"
+      href="https://airtable.com/embed/appExUbLiOTHavFIY/shr3DV1b1xJdCUoM9?backgroundColor=red&viewControls=on"
+    >
+      Please click here
+    </a>
+    <br />
+    <br />
+    <div className="mt-10">If you have made any mistake, please contact </div>
     <a className="font-medium" href="mailto:nevo@novu.co">
       nevo@novu.co
     </a>
