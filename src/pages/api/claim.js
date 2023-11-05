@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     winnersMap.map(async (win) => {
       await airTable
         .base(process.env.AIRTABLE_BASE)
-        .table('Hacksquad 2022')
+        .table('Hacksquad 2023')
         .create({
           first_name: req.body.first_name,
           last_name: req.body.last_name,

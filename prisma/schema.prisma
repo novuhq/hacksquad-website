@@ -192,7 +192,7 @@ model Winners {
   year          Int
   userId        String
   lastDateClaim DateTime
-  type          WinnerType
+  type          String
   user          User       @relation(fields: [userId], references: [id])
   claimed       DateTime?
 
@@ -201,12 +201,6 @@ model Winners {
   @@index([year])
   @@index([userId])
   @@index([claimed])
-}
-
-enum WinnerType {
-  EXTRA
-  COMPETITION
-  NOVU
 }
 
 model VerificationToken {

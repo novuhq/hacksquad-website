@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import ReactTooltip from 'react-tooltip';
 
-import Banner from 'components/shared/banner';
 import MobileMenu from 'components/shared/mobile-menu';
 import Footer from 'components/shared/old-footer';
 import Header from 'components/shared/old-header';
@@ -34,7 +33,7 @@ const LayoutMain = ({
         closeButton={false}
       />
       <div className="relative flex min-h-screen flex-col">
-        <Banner />
+        {/* <Banner /> */}
         <Header
           absolute={absolute}
           isMobileMenuOpen={isMobileMenuOpen}
