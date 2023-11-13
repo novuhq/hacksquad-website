@@ -69,7 +69,9 @@ const Hero = () => {
                   className="grid grid-cols-[50px_1fr_180px] gap-x-5 border-b border-gray-2 py-4 sm:grid-cols-[50px_160px_40px]"
                 >
                   <span />
-                  <p className="truncate font-medium">{l.url}</p>
+                  <a href={l.url} target="_blank" rel="noopener">
+                    <p className="truncate font-medium">{l.url}</p>
+                  </a>
                   <span>
                     <RepositoryStatus url={l.url.split('.com')[1]} />
                   </span>
