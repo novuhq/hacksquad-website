@@ -1,7 +1,8 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 novuhq/hacksquad-website is built on the following main stack:
+
 - [React](https://reactjs.org/) – Javascript UI Libraries
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - [Autoprefixer](https://github.com/postcss/autoprefixer) – CSS Pre-processors / Extensions
@@ -14,11 +15,13 @@ novuhq/hacksquad-website is built on the following main stack:
 - [Prisma](https://www.prisma.io/) – Object Relational Mapper (ORM)
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 novuhq/hacksquad-website is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'/> [React](https://reactjs.org/) – Javascript UI Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/2202/72d087642cfce6fef6f2dabec5bf49e8_400x400.png' alt='Autoprefixer'/> [Autoprefixer](https://github.com/postcss/autoprefixer) – CSS Pre-processors / Extensions
@@ -31,14 +34,15 @@ novuhq/hacksquad-website is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/8680/Logo_Symbol_White.jpg' alt='Prisma'/> [Prisma](https://www.prisma.io/) – Object Relational Mapper (ORM)
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [novuhq/hacksquad-website](https://github.com/novuhq/hacksquad-website)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|37<br/>Tools used|11/09/23 <br/>Report generated|
+|40<br/>Tools used|01/04/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -196,9 +200,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (21)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (24)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (21)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (24)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -212,6 +216,8 @@ Full tech stack [here](/techstack.md)
 |[eslint-plugin-react](https://www.npmjs.com/eslint-plugin-react)|v7.31.8|10/25/22|Nevo David |MIT|N/A|
 |[eslint-plugin-react-hooks](https://www.npmjs.com/eslint-plugin-react-hooks)|v4.6.0|10/25/22|Nevo David |MIT|N/A|
 |[file-loader](https://www.npmjs.com/file-loader)|v6.2.0|09/07/22|Andrew Golovanov |MIT|N/A|
+|[husky](https://www.npmjs.com/husky)|v8.0.1|09/07/22|Andrew Golovanov |MIT|N/A|
+|[lint-staged](https://www.npmjs.com/lint-staged)|v12.5.0|09/07/22|Andrew Golovanov |MIT|N/A|
 |[moment](https://www.npmjs.com/moment)|v2.29.4|10/03/22|Nevo David |MIT|N/A|
 |[postcss](https://www.npmjs.com/postcss)|v8.4.14|09/07/22|Andrew Golovanov |MIT|[CVE-2023-44270](https://github.com/advisories/GHSA-7fh5-64p2-3v2j) (Moderate)|
 |[postcss-import](https://www.npmjs.com/postcss-import)|v14.1.0|09/25/22|Nevo David |MIT|N/A|
@@ -223,8 +229,9 @@ Full tech stack [here](/techstack.md)
 |[react-tooltip](https://www.npmjs.com/react-tooltip)|v4.4.2|10/25/22|Nevo David |MIT|N/A|
 |[tailwindcss](https://www.npmjs.com/tailwindcss)|v3.1.8|09/25/22|Nevo David |MIT|N/A|
 |[url-loader](https://www.npmjs.com/url-loader)|v4.1.1|09/07/22|Andrew Golovanov |MIT|N/A|
+|[yup](https://www.npmjs.com/yup)|v0.32.11|09/07/22|Andrew Golovanov |MIT|N/A|
 
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
